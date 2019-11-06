@@ -1,34 +1,36 @@
 {
   "paragraphs": [
     {
-      "text": "%md\n# Zeppelin Demo Notebook 1\n\nDemonstrate loading, querying, visualizing, and saving a small ~21k row kaggle dataset.\nThe \u0027Transactions from a bakery\u0027 dataset available to download on [kaggle](https://www.kaggle.com/sulmansarwar/transactions-from-a-bakery/data#).",
+      "title": "Zeppelin Demo Notebook 1",
+      "text": "Demonstrate loading, querying, visualizing, and saving a small ~21k row kaggle dataset.\nThe \u0027Transactions from a bakery\u0027 dataset available to download on [kaggle](https://www.kaggle.com/sulmansarwar/transactions-from-a-bakery/data#).",
       "user": "anonymous",
-      "dateUpdated": "2019-11-06 16:42:46.401",
+      "dateUpdated": "2019-11-06 19:52:53.122",
       "config": {
-        "tableHide": false,
+        "tableHide": true,
         "editorSetting": {
-          "language": "markdown",
-          "editOnDblClick": true,
+          "language": "scala",
+          "editOnDblClick": false,
           "completionKey": "TAB",
-          "completionSupport": false
+          "completionSupport": true
         },
         "colWidth": 12.0,
-        "editorMode": "ace/mode/markdown",
+        "editorMode": "ace/mode/scala",
         "fontSize": 9.0,
-        "editorHide": true,
+        "editorHide": false,
         "results": {},
-        "enabled": true
+        "enabled": true,
+        "title": true
       },
       "settings": {
         "params": {},
         "forms": {}
       },
       "results": {
-        "code": "SUCCESS",
+        "code": "ERROR",
         "msg": [
           {
-            "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eZeppelin Demo Notebook 1\u003c/h1\u003e\n\u003cp\u003eDemonstrate loading, querying, visualizing, and saving a small ~21k row kaggle dataset.\u003cbr/\u003eThe \u0026lsquo;Transactions from a bakery\u0026rsquo; dataset available to download on \u003ca href\u003d\"https://www.kaggle.com/sulmansarwar/transactions-from-a-bakery/data#\"\u003ekaggle\u003c/a\u003e.\u003c/p\u003e\n\u003c/div\u003e"
+            "type": "TEXT",
+            "data": "\u003cconsole\u003e:1: error: \u0027;\u0027 expected but \u0027,\u0027 found.\nDemonstrate loading, querying, visualizing, and saving a small ~21k row kaggle dataset.\n                   ^\n\u003cconsole\u003e:1: error: Invalid literal number\nDemonstrate loading, querying, visualizing, and saving a small ~21k row kaggle dataset.\n                                                                ^\n\u003cconsole\u003e:2: error: unclosed character literal\nThe \u0027Transactions from a bakery\u0027 dataset available to download on [kaggle](https://www.kaggle.com/sulmansarwar/transactions-from-a-bakery/data#).\n                               ^\n"
           }
         ]
       },
@@ -36,16 +38,16 @@
       "jobName": "paragraph_1573058000759_-1487542903",
       "id": "20191106-153644_419077851",
       "dateCreated": "2019-11-06 16:33:20.759",
-      "dateStarted": "2019-11-06 16:42:46.412",
-      "dateFinished": "2019-11-06 16:42:46.420",
-      "status": "FINISHED",
+      "dateStarted": "2019-11-06 19:52:53.137",
+      "dateFinished": "2019-11-06 19:52:53.144",
+      "status": "ERROR",
       "progressUpdateIntervalMs": 500
     },
     {
-      "title": "",
+      "title": "Import Python Packages",
       "text": "%spark.pyspark\nfrom pyspark import SparkFiles\nfrom pyspark.sql import SparkSession\nfrom pyspark.sql.types import StructType, StructField, StringType, IntegerType",
       "user": "anonymous",
-      "dateUpdated": "2019-11-06 16:42:46.511",
+      "dateUpdated": "2019-11-06 19:46:43.643",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -73,7 +75,9 @@
             }
           }
         ],
-        "enabled": true
+        "enabled": true,
+        "title": true,
+        "lineNumbers": true
       },
       "settings": {
         "params": {},
@@ -93,10 +97,10 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "title": "",
+      "title": "Create Spark Session",
       "text": "%spark.pyspark\nspark \u003d SparkSession \\\n    .builder \\\n    .appName(\u0027pyspark_demo_app\u0027) \\\n    .master(\"local[*]\") \\\n    .getOrCreate()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-06 16:42:46.622",
+      "dateUpdated": "2019-11-06 19:48:04.785",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -118,7 +122,9 @@
         "results": [
           {}
         ],
-        "enabled": true
+        "enabled": true,
+        "lineNumbers": true,
+        "title": true
       },
       "settings": {
         "params": {},
@@ -138,10 +144,10 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "title": "",
+      "title": "Load CSV File from S3",
       "text": "%sh\npwd # /var/lib/zeppelin\n\n# copy bakery data from s3 bucket\nFILE\u003ddata/BreadBasket_DMS.csv\nif [ -f \"$FILE\" ]; then\n    echo \"$FILE exist\"\nelse \n    aws s3 cp s3://gstafford-aws-emr-notebooks/files/BreadBasket_DMS.csv data/BreadBasket_DMS.csv\nfi\n\nls -alh $FILE\n\n# copy from local file system to the destination file system (/user/zeppelin)\nhadoop fs -put -f  data/BreadBasket_DMS.csv BreadBasket_DMS.csv\nhadoop fs -ls -h BreadBasket_DMS.csv",
       "user": "anonymous",
-      "dateUpdated": "2019-11-06 17:02:41.418",
+      "dateUpdated": "2019-11-06 19:49:20.632",
       "config": {
         "editorSetting": {
           "language": "sh",
@@ -169,7 +175,9 @@
             }
           }
         ],
-        "enabled": true
+        "enabled": true,
+        "lineNumbers": true,
+        "title": true
       },
       "settings": {
         "params": {
@@ -196,10 +204,10 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "title": "",
-      "text": "%spark.pyspark\n# load csv format data file into Spark DataFrame\nbakery_schema \u003d StructType([\n    StructField(\u0027date\u0027, StringType(), True),\n    StructField(\u0027time\u0027, StringType(), True),\n    StructField(\u0027transaction\u0027, IntegerType(), True),\n    StructField(\u0027item\u0027, StringType(), True)\n])\n\ndf_bakery1 \u003d spark.read \\\n    .format(\"csv\") \\\n    .option(\"header\", \"true\") \\\n    .load(\"BreadBasket_DMS.csv\", schema\u003dbakery_schema)\n\ndf_bakery1.show(10)\ndf_bakery1.count()",
+      "title": "Load CSV Data into DataFrame",
+      "text": "%spark.pyspark\nbakery_schema \u003d StructType([\n    StructField(\u0027date\u0027, StringType(), True),\n    StructField(\u0027time\u0027, StringType(), True),\n    StructField(\u0027transaction\u0027, IntegerType(), True),\n    StructField(\u0027item\u0027, StringType(), True)\n])\n\ndf_bakery1 \u003d spark.read \\\n    .format(\"csv\") \\\n    .option(\"header\", \"true\") \\\n    .load(\"BreadBasket_DMS.csv\", schema\u003dbakery_schema)\n\ndf_bakery1.show(10)\ndf_bakery1.count()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-06 16:42:52.151",
+      "dateUpdated": "2019-11-06 19:49:14.606",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -227,7 +235,9 @@
             }
           }
         ],
-        "enabled": true
+        "enabled": true,
+        "lineNumbers": true,
+        "title": true
       },
       "settings": {
         "params": {},
@@ -265,10 +275,10 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "title": "",
-      "text": "%spark.pyspark\n# write, read, load parquet format data files into Spark DataFrame\ndf_bakery1.write.parquet(\u0027output/bakery_parquet\u0027, mode\u003d\u0027overwrite\u0027)\ndf_bakery2 \u003d spark.read.parquet(\u0027output/bakery_parquet\u0027)\n\ndf_bakery2.show(5)\ndf_bakery2.count()",
+      "title": "Write, Read, Load Parquet Data",
+      "text": "%spark.pyspark\ndf_bakery1.write.parquet(\u0027output/bakery_parquet\u0027, mode\u003d\u0027overwrite\u0027)\ndf_bakery2 \u003d spark.read.parquet(\u0027output/bakery_parquet\u0027)\n\ndf_bakery2.show(5)\ndf_bakery2.count()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-06 16:43:03.081",
+      "dateUpdated": "2019-11-06 19:50:00.252",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -296,7 +306,9 @@
             }
           }
         ],
-        "enabled": true
+        "enabled": true,
+        "lineNumbers": true,
+        "title": true
       },
       "settings": {
         "params": {},
@@ -336,10 +348,10 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "title": "",
-      "text": "%spark.pyspark\n# create a temporary view of a Spark DataFrame and run a sql query against it\ndf_bakery2.createOrReplaceTempView(\"bakery_table_tmp\")\n\ndf_bakery3 \u003d spark.sql(\"SELECT transaction, date, item \" +\n                       \"FROM bakery_table_tmp \" +\n                       \"WHERE item NOT LIKE \u0027NONE\u0027\" +\n                       \"ORDER BY transaction\")\n\ntype(df_bakery3)\ndf_bakery3.show(5)\ndf_bakery3.count()",
+      "title": "Create Temporary View of Data",
+      "text": "%spark.pyspark\ndf_bakery2.createOrReplaceTempView(\"bakery_table_tmp\")\n\ndf_bakery3 \u003d spark.sql(\"SELECT transaction, date, item \" +\n                       \"FROM bakery_table_tmp \" +\n                       \"WHERE item NOT LIKE \u0027NONE\u0027\" +\n                       \"ORDER BY transaction\")\n\ntype(df_bakery3)\ndf_bakery3.show(5)\ndf_bakery3.count()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-06 16:43:05.094",
+      "dateUpdated": "2019-11-06 19:50:20.890",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -367,7 +379,9 @@
             }
           }
         ],
-        "enabled": true
+        "enabled": true,
+        "lineNumbers": true,
+        "title": true
       },
       "settings": {
         "params": {},
@@ -406,10 +420,10 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "title": "",
-      "text": "%spark.pyspark\n# replace a temporary view of a Spark DataFrame and run a sql query against it\ndf_bakery3.createOrReplaceTempView(\"bakery_table_tmp\")\n\ndf_bakery4 \u003d spark.sql(\"SELECT date, count(*) as item_count \" +\n                       \"FROM bakery_table_tmp \" +\n                       \"WHERE date \u003e\u003d \u00272017-01-01\u0027 \" +\n                       \"GROUP BY date \" +\n                       \"ORDER BY date\")\n\ndf_bakery4.show(5)\ndf_bakery4.count()",
+      "title": "Replace Temporary View with New Query",
+      "text": "%spark.pyspark\ndf_bakery3.createOrReplaceTempView(\"bakery_table_tmp\")\n\ndf_bakery4 \u003d spark.sql(\"SELECT date, count(*) as item_count \" +\n                       \"FROM bakery_table_tmp \" +\n                       \"WHERE date \u003e\u003d \u00272017-01-01\u0027 \" +\n                       \"GROUP BY date \" +\n                       \"ORDER BY date\")\n\ndf_bakery4.show(5)\ndf_bakery4.count()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-06 16:43:08.519",
+      "dateUpdated": "2019-11-06 19:50:50.837",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -437,7 +451,9 @@
             }
           }
         ],
-        "enabled": true
+        "enabled": true,
+        "lineNumbers": true,
+        "title": true
       },
       "settings": {
         "params": {},
@@ -478,9 +494,10 @@
       "progressUpdateIntervalMs": 500
     },
     {
+      "title": "Native Zeppelin Visualization Based on SQL Query",
       "text": "%sql\nSELECT date, count(*) as item_count\nFROM bakery_table_tmp\nWHERE date BETWEEN \u00272017-01-01\u0027 AND \u00272017-03-31\u0027\nGROUP BY date\nORDER BY date",
       "user": "anonymous",
-      "dateUpdated": "2019-11-06 16:43:40.362",
+      "dateUpdated": "2019-11-06 19:51:45.902",
       "config": {
         "editorSetting": {
           "language": "sql",
@@ -556,7 +573,9 @@
             "helium": {}
           }
         },
-        "enabled": true
+        "enabled": true,
+        "lineNumbers": true,
+        "title": true
       },
       "settings": {
         "params": {},
@@ -598,9 +617,10 @@
       "progressUpdateIntervalMs": 500
     },
     {
+      "title": "Native Zeppelin Visualization Based on SQL Query",
       "text": "%sql\nSELECT count(*) as item_count, item\nFROM bakery_table_tmp\nGROUP BY item\nORDER BY item_count\nDESC LIMIT 10",
       "user": "anonymous",
-      "dateUpdated": "2019-11-06 16:43:25.632",
+      "dateUpdated": "2019-11-06 19:51:48.198",
       "config": {
         "editorSetting": {
           "language": "sql",
@@ -677,7 +697,9 @@
             "helium": {}
           }
         },
-        "enabled": true
+        "enabled": true,
+        "lineNumbers": true,
+        "title": true
       },
       "settings": {
         "params": {},
@@ -719,9 +741,10 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%spark.pyspark\n# write tansformed data to parquet\ndf_bakery4.write.parquet(\u0027output/daily_sales_parquet\u0027, mode\u003d\u0027overwrite\u0027)\n",
+      "title": "Write Transformed Data to Parquet Format",
+      "text": "%spark.pyspark\ndf_bakery4.write.parquet(\u0027output/daily_sales_parquet\u0027, mode\u003d\u0027overwrite\u0027)\n",
       "user": "anonymous",
-      "dateUpdated": "2019-11-06 16:43:31.380",
+      "dateUpdated": "2019-11-06 19:52:11.508",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -733,7 +756,9 @@
         "editorMode": "ace/mode/python",
         "fontSize": 9.0,
         "results": {},
-        "enabled": true
+        "enabled": true,
+        "lineNumbers": true,
+        "title": true
       },
       "settings": {
         "params": {},
