@@ -1,0 +1,713 @@
+{
+  "paragraphs": [
+    {
+      "title": "",
+      "text": "%spark.pyspark\nfrom pyspark.sql import SparkSession\nfrom pyspark.sql.types import StructType, StructField, StringType, IntegerType",
+      "user": "anonymous",
+      "dateUpdated": "2019-11-06 09:59:22.751",
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "selectedInterpreter": {
+          "name": "spark.pyspark",
+          "profile": "pyspark",
+          "isCustom": false,
+          "editorLanguage": "python",
+          "className": "org.apache.zeppelin.spark.PySparkInterpreter",
+          "isDefault": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9.0,
+        "results": [
+          {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false
+            }
+          }
+        ],
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1573034362751_-1547102597",
+      "id": "20191009-042517_1466963465",
+      "dateCreated": "2019-11-06 09:59:22.751",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "",
+      "text": "%spark.pyspark\nspark \u003d SparkSession \\\n    .builder \\\n    .appName(\u0027pyspark_demo_app\u0027) \\\n    .master(\"local[*]\") \\\n    .getOrCreate()",
+      "user": "anonymous",
+      "dateUpdated": "2019-11-06 09:59:22.752",
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "selectedInterpreter": {
+          "name": "spark.pyspark",
+          "profile": "pyspark",
+          "isCustom": false,
+          "editorLanguage": "python",
+          "className": "org.apache.zeppelin.spark.PySparkInterpreter",
+          "isDefault": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9.0,
+        "results": [
+          {}
+        ],
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1573034362752_6488147",
+      "id": "20191009-042751_2109019779",
+      "dateCreated": "2019-11-06 09:59:22.752",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "",
+      "text": "%sh\npwd\nDIR\u003dpyspark-setup-demo\nif [ -d \"$DIR\" ]; then\n    echo \"$DIR exist\"\nelse \n    git clone https://github.com/garystafford/pyspark-setup-demo.git\nfi\n\n# hadoop fs -rm /user/zeppelin/BreadBasket_DMS.csv\nhadoop fs -put pyspark-setup-demo/work/BreadBasket_DMS.csv /user/zeppelin/BreadBasket_DMS.csv\nhadoop fs -ls /user/zeppelin/BreadBasket_DMS.csv",
+      "user": "anonymous",
+      "dateUpdated": "2019-11-06 09:59:22.752",
+      "config": {
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "selectedInterpreter": {
+          "name": "python",
+          "profile": "python",
+          "isCustom": false,
+          "editorLanguage": "python",
+          "className": "org.apache.zeppelin.python.PythonInterpreter",
+          "isDefault": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sh",
+        "fontSize": 9.0,
+        "results": [
+          {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false
+            }
+          }
+        ],
+        "enabled": true
+      },
+      "settings": {
+        "params": {
+          "HADOOP_HOME": ""
+        },
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "/var/lib/zeppelin\npyspark-setup-demo exist\nput: `/user/zeppelin/BreadBasket_DMS.csv\u0027: File exists\n-rw-r--r--   1 zeppelin hadoop     710518 2019-11-05 23:56 /user/zeppelin/BreadBasket_DMS.csv\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1573034362752_-1705360379",
+      "id": "20191009-042907_1768707497",
+      "dateCreated": "2019-11-06 09:59:22.752",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "",
+      "text": "%spark.pyspark\nfrom pyspark import SparkFiles\n\nbakery_schema \u003d StructType([\n    StructField(\u0027date\u0027, StringType(), True),\n    StructField(\u0027time\u0027, StringType(), True),\n    StructField(\u0027transaction\u0027, IntegerType(), True),\n    StructField(\u0027item\u0027, StringType(), True)\n])\n\ndf_bakery1 \u003d spark.read \\\n    .format(\"csv\") \\\n    .option(\"header\", \"true\") \\\n    .load(\"BreadBasket_DMS.csv\", schema\u003dbakery_schema)\n\ndf_bakery1.show(10)\ndf_bakery1.count()",
+      "user": "anonymous",
+      "dateUpdated": "2019-11-06 09:59:22.752",
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "selectedInterpreter": {
+          "name": "spark.pyspark",
+          "profile": "pyspark",
+          "isCustom": false,
+          "editorLanguage": "python",
+          "className": "org.apache.zeppelin.spark.PySparkInterpreter",
+          "isDefault": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9.0,
+        "results": [
+          {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false
+            }
+          }
+        ],
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+----------+--------+-----------+-------------+\n|      date|    time|transaction|         item|\n+----------+--------+-----------+-------------+\n|2016-10-30|09:58:11|          1|        Bread|\n|2016-10-30|10:05:34|          2| Scandinavian|\n|2016-10-30|10:05:34|          2| Scandinavian|\n|2016-10-30|10:07:57|          3|Hot chocolate|\n|2016-10-30|10:07:57|          3|          Jam|\n|2016-10-30|10:07:57|          3|      Cookies|\n|2016-10-30|10:08:41|          4|       Muffin|\n|2016-10-30|10:13:03|          5|       Coffee|\n|2016-10-30|10:13:03|          5|       Pastry|\n|2016-10-30|10:13:03|          5|        Bread|\n+----------+--------+-----------+-------------+\nonly showing top 10 rows\n\n21293\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1573034362752_2080489685",
+      "id": "20191009-044129_2035687603",
+      "dateCreated": "2019-11-06 09:59:22.752",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "",
+      "text": "%spark.pyspark\ndf_bakery1.write.parquet(\u0027output/bakery_parquet\u0027, mode\u003d\u0027overwrite\u0027)\ndf_bakery2 \u003d spark.read.parquet(\u0027output/bakery_parquet\u0027)\n\ndf_bakery2.show(10)\ndf_bakery2.count()",
+      "user": "anonymous",
+      "dateUpdated": "2019-11-06 09:59:22.752",
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "selectedInterpreter": {
+          "name": "spark.pyspark",
+          "profile": "pyspark",
+          "isCustom": false,
+          "editorLanguage": "python",
+          "className": "org.apache.zeppelin.spark.PySparkInterpreter",
+          "isDefault": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9.0,
+        "results": [
+          {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false
+            }
+          }
+        ],
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+----------+--------+-----------+-------------+\n|      date|    time|transaction|         item|\n+----------+--------+-----------+-------------+\n|2016-10-30|09:58:11|          1|        Bread|\n|2016-10-30|10:05:34|          2| Scandinavian|\n|2016-10-30|10:05:34|          2| Scandinavian|\n|2016-10-30|10:07:57|          3|Hot chocolate|\n|2016-10-30|10:07:57|          3|          Jam|\n|2016-10-30|10:07:57|          3|      Cookies|\n|2016-10-30|10:08:41|          4|       Muffin|\n|2016-10-30|10:13:03|          5|       Coffee|\n|2016-10-30|10:13:03|          5|       Pastry|\n|2016-10-30|10:13:03|          5|        Bread|\n+----------+--------+-----------+-------------+\nonly showing top 10 rows\n\n21293\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1573034362752_-607122302",
+      "id": "20191010-052611_90769380",
+      "dateCreated": "2019-11-06 09:59:22.752",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "",
+      "text": "%spark.pyspark\ndf_bakery1.write.csv(\u0027output/bakery_csv\u0027, mode\u003d\u0027overwrite\u0027)\ndf_bakery3 \u003d spark.read \\\n    .format(\"csv\") \\\n    .option(\"header\", \"true\") \\\n    .load(\"output/bakery_csv\", schema\u003dbakery_schema)\n\ndf_bakery3.show(10)\ndf_bakery3.count()",
+      "user": "anonymous",
+      "dateUpdated": "2019-11-06 09:59:22.752",
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "selectedInterpreter": {
+          "name": "spark.pyspark",
+          "profile": "pyspark",
+          "isCustom": false,
+          "editorLanguage": "python",
+          "className": "org.apache.zeppelin.spark.PySparkInterpreter",
+          "isDefault": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9.0,
+        "results": [
+          {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false
+            }
+          }
+        ],
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+----------+--------+-----------+-------------+\n|      date|    time|transaction|         item|\n+----------+--------+-----------+-------------+\n|2016-10-30|10:05:34|          2| Scandinavian|\n|2016-10-30|10:05:34|          2| Scandinavian|\n|2016-10-30|10:07:57|          3|Hot chocolate|\n|2016-10-30|10:07:57|          3|          Jam|\n|2016-10-30|10:07:57|          3|      Cookies|\n|2016-10-30|10:08:41|          4|       Muffin|\n|2016-10-30|10:13:03|          5|       Coffee|\n|2016-10-30|10:13:03|          5|       Pastry|\n|2016-10-30|10:13:03|          5|        Bread|\n|2016-10-30|10:16:55|          6|    Medialuna|\n+----------+--------+-----------+-------------+\nonly showing top 10 rows\n\n21292\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1573034362752_33362188",
+      "id": "20191010-052835_581841331",
+      "dateCreated": "2019-11-06 09:59:22.752",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "",
+      "text": "%spark.pyspark\ndf_bakery1.createOrReplaceTempView(\"bakery_table_tmp1\")\n\ndf_bakery4 \u003d spark.sql(\"SELECT date, transaction, item \" +\n                       \"FROM bakery_table_tmp1 \" +\n                       \"WHERE item NOT LIKE \u0027NONE\u0027\" +\n                       \"ORDER BY transaction\")\n\ndf_bakery4.show(5)\ndf_bakery4.count()",
+      "user": "anonymous",
+      "dateUpdated": "2019-11-06 09:59:22.752",
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "selectedInterpreter": {
+          "name": "spark.pyspark",
+          "profile": "pyspark",
+          "isCustom": false,
+          "editorLanguage": "python",
+          "className": "org.apache.zeppelin.spark.PySparkInterpreter",
+          "isDefault": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9.0,
+        "results": [
+          {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false
+            }
+          }
+        ],
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+----------+-----------+-------------+\n|      date|transaction|         item|\n+----------+-----------+-------------+\n|2016-10-30|          1|        Bread|\n|2016-10-30|          2| Scandinavian|\n|2016-10-30|          2| Scandinavian|\n|2016-10-30|          3|Hot chocolate|\n|2016-10-30|          3|          Jam|\n+----------+-----------+-------------+\nonly showing top 5 rows\n\n20507\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1573034362752_621840856",
+      "id": "20191009-050109_648011188",
+      "dateCreated": "2019-11-06 09:59:22.752",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "",
+      "text": "%spark.pyspark\ndf_bakery4.createOrReplaceTempView(\"bakery_table_tmp2\")\n\ndf_bakery5 \u003d spark.sql(\"SELECT date, count(*) as count \" +\n                       \"FROM bakery_table_tmp2 \" +\n                       \"WHERE date \u003e\u003d \u00272017-01-01\u0027 \" +\n                       \"GROUP BY date \" +\n                       \"ORDER BY date\")\n\ndf_bakery5.show(5)\ndf_bakery5.count()",
+      "user": "anonymous",
+      "dateUpdated": "2019-11-06 09:59:22.752",
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "selectedInterpreter": {
+          "name": "spark.pyspark",
+          "profile": "pyspark",
+          "isCustom": false,
+          "editorLanguage": "python",
+          "className": "org.apache.zeppelin.spark.PySparkInterpreter",
+          "isDefault": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9.0,
+        "results": [
+          {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false
+            }
+          }
+        ],
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+----------+-----+\n|      date|count|\n+----------+-----+\n|2017-01-01|    1|\n|2017-01-03|   87|\n|2017-01-04|   76|\n|2017-01-05|   95|\n|2017-01-06|   84|\n+----------+-----+\nonly showing top 5 rows\n\n98\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1573034362752_-1924382620",
+      "id": "20191009-050155_2142326603",
+      "dateCreated": "2019-11-06 09:59:22.752",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\n-- https://events.static.linuxfound.org/sites/events/files/slides/ApacheCon%202017%20May%2C%20FL.pdf\nSELECT date, count(*) as count FROM bakery_table_tmp2 WHERE date \u003e\u003d \u00272017-01-01\u0027 GROUP BY date ORDER BY date",
+      "user": "anonymous",
+      "dateUpdated": "2019-11-06 09:59:26.119",
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9.0,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300.0,
+              "optionOpen": true,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "date": "string",
+                      "count": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default",
+                  "stacked": false
+                },
+                "stackedAreaChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "lineChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "date",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "count",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "date\tcount\n2017-01-01\t1\n2017-01-03\t87\n2017-01-04\t76\n2017-01-05\t95\n2017-01-06\t84\n2017-01-07\t188\n2017-01-08\t103\n2017-01-09\t82\n2017-01-10\t71\n2017-01-11\t95\n2017-01-12\t72\n2017-01-13\t109\n2017-01-14\t187\n2017-01-15\t119\n2017-01-16\t66\n2017-01-17\t91\n2017-01-18\t82\n2017-01-19\t119\n2017-01-20\t136\n2017-01-21\t195\n2017-01-22\t166\n2017-01-23\t108\n2017-01-24\t112\n2017-01-25\t69\n2017-01-26\t113\n2017-01-27\t160\n2017-01-28\t237\n2017-01-29\t147\n2017-01-30\t73\n2017-01-31\t113\n2017-02-01\t124\n2017-02-02\t121\n2017-02-03\t138\n2017-02-04\t292\n2017-02-05\t170\n2017-02-06\t136\n2017-02-07\t107\n2017-02-08\t103\n2017-02-09\t123\n2017-02-10\t143\n2017-02-11\t185\n2017-02-12\t113\n2017-02-13\t148\n2017-02-14\t113\n2017-02-15\t79\n2017-02-16\t109\n2017-02-17\t176\n2017-02-18\t227\n2017-02-19\t181\n2017-02-20\t114\n2017-02-21\t88\n2017-02-22\t113\n2017-02-23\t103\n2017-02-24\t142\n2017-02-25\t175\n2017-02-26\t186\n2017-02-27\t76\n2017-02-28\t121\n2017-03-01\t91\n2017-03-02\t94\n2017-03-03\t135\n2017-03-04\t257\n2017-03-05\t124\n2017-03-06\t94\n2017-03-07\t118\n2017-03-08\t77\n2017-03-09\t104\n2017-03-10\t139\n2017-03-11\t203\n2017-03-12\t146\n2017-03-13\t103\n2017-03-14\t103\n2017-03-15\t87\n2017-03-16\t113\n2017-03-17\t118\n2017-03-18\t177\n2017-03-19\t128\n2017-03-20\t95\n2017-03-21\t102\n2017-03-22\t105\n2017-03-23\t123\n2017-03-24\t131\n2017-03-25\t246\n2017-03-26\t161\n2017-03-27\t87\n2017-03-28\t110\n2017-03-29\t99\n2017-03-30\t123\n2017-03-31\t151\n2017-04-01\t176\n2017-04-02\t114\n2017-04-03\t118\n2017-04-04\t115\n2017-04-05\t143\n2017-04-06\t118\n2017-04-07\t99\n2017-04-08\t205\n2017-04-09\t69\n"
+          },
+          {
+            "type": "TEXT",
+            "data": ""
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1573034362752_-1913084599",
+      "id": "20191106-005218_589421977",
+      "dateCreated": "2019-11-06 09:59:22.752",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "",
+      "text": "",
+      "user": "anonymous",
+      "dateUpdated": "2019-11-06 09:59:22.753",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1573034362753_1301647379",
+      "id": "20191010-052525_405503506",
+      "dateCreated": "2019-11-06 09:59:22.753",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\nSELECT count(*) as count, item FROM bakery_table_tmp2 GROUP BY item ORDER BY count DESC LIMIT 10",
+      "user": "anonymous",
+      "dateUpdated": "2019-11-06 09:59:22.753",
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9.0,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "pieChart",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "item": "string",
+                      "count": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "stackedAreaChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "lineChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "pieChart": {}
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "item",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "count",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "count\titem\n5471\tCoffee\n3325\tBread\n1435\tTea\n1025\tCake\n856\tPastry\n771\tSandwich\n616\tMedialuna\n590\tHot chocolate\n540\tCookies\n379\tBrownie\n"
+          },
+          {
+            "type": "TEXT",
+            "data": ""
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1573034362753_1064380337",
+      "id": "20191106-042245_200419154",
+      "dateCreated": "2019-11-06 09:59:22.753",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "user": "anonymous",
+      "dateUpdated": "2019-11-06 09:59:22.753",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1573034362753_-306043147",
+      "id": "20191106-042250_948270951",
+      "dateCreated": "2019-11-06 09:59:22.753",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "demo_zeppelin_nb_1",
+  "id": "2EUNWFQMC",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "python:shared_process": [],
+    "sh:shared_process": [],
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
