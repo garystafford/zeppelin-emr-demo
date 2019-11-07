@@ -4,7 +4,7 @@
       "title": "Zepl Demo Notebook 1",
       "text": "%md\nDemonstrate loading, querying, visualizing, and saving a small ~21k row kaggle dataset.\nThe \u0027Transactions from a bakery\u0027 dataset available to download on [kaggle](https://www.kaggle.com/sulmansarwar/transactions-from-a-bakery/data#).",
       "user": "anonymous",
-      "dateUpdated": "2019-11-06 18:25:51.000",
+      "dateUpdated": "2019-11-07 21:21:22.852",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -38,18 +38,16 @@
         "code": "SUCCESS",
         "msg": [
           {
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eDemonstrate loading, querying, visualizing, and saving a small ~21k row kaggle dataset.\u003cbr/\u003eThe \u0026lsquo;Transactions from a bakery\u0026rsquo; dataset available to download on \u003ca href\u003d\"https://www.kaggle.com/sulmansarwar/transactions-from-a-bakery/data#\"\u003ekaggle\u003c/a\u003e.\u003c/p\u003e\n\u003c/div\u003e",
-            "type": "HTML"
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eDemonstrate loading, querying, visualizing, and saving a small ~21k row kaggle dataset.\u003cbr/\u003eThe \u0026lsquo;Transactions from a bakery\u0026rsquo; dataset available to download on \u003ca href\u003d\"https://www.kaggle.com/sulmansarwar/transactions-from-a-bakery/data#\"\u003ekaggle\u003c/a\u003e.\u003c/p\u003e\n\u003c/div\u003e"
           }
         ]
       },
       "apps": [],
-      "jobName": "paragraph_1573058000759_-1487542903",
+      "jobName": "paragraph_1573161682849_-625500423",
       "id": "20191106-153644_419077851",
-      "dateCreated": "2019-11-06 16:33:20.759",
-      "dateStarted": "2019-11-06 18:25:51.409",
-      "dateFinished": "2019-11-06 18:25:51.411",
-      "status": "FINISHED",
+      "dateCreated": "2019-11-07 21:21:22.849",
+      "status": "READY",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
@@ -57,7 +55,7 @@
       "title": "Import Python Packages",
       "text": "%spark.pyspark\nfrom pyspark import SparkFiles\nfrom pyspark.sql import SparkSession\nfrom pyspark.sql.types import StructType, StructField, StringType, IntegerType",
       "user": "anonymous",
-      "dateUpdated": "2019-11-06 18:25:51.000",
+      "dateUpdated": "2019-11-07 21:21:22.852",
       "config": {
         "lineNumbers": true,
         "editorSetting": {
@@ -98,12 +96,10 @@
         "msg": []
       },
       "apps": [],
-      "jobName": "paragraph_1573058000760_1826550872",
+      "jobName": "paragraph_1573161682852_-466943802",
       "id": "20191009-042517_1466963465",
-      "dateCreated": "2019-11-06 16:33:20.760",
-      "dateStarted": "2019-11-06 18:25:51.454",
-      "dateFinished": "2019-11-06 18:25:51.563",
-      "status": "FINISHED",
+      "dateCreated": "2019-11-07 21:21:22.852",
+      "status": "READY",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
@@ -111,7 +107,7 @@
       "title": "Create Spark Session",
       "text": "%spark.pyspark\nspark \u003d SparkSession \\\n    .builder \\\n    .appName(\u0027pyspark_demo_app\u0027) \\\n    .master(\"local[*]\") \\\n    .getOrCreate()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-06 18:25:51.000",
+      "dateUpdated": "2019-11-07 21:21:22.853",
       "config": {
         "lineNumbers": true,
         "editorSetting": {
@@ -145,20 +141,18 @@
         "msg": []
       },
       "apps": [],
-      "jobName": "paragraph_1573058000760_-178139685",
+      "jobName": "paragraph_1573161682853_-1332588868",
       "id": "20191009-042751_2109019779",
-      "dateCreated": "2019-11-06 16:33:20.760",
-      "dateStarted": "2019-11-06 18:25:51.564",
-      "dateFinished": "2019-11-06 18:25:51.670",
-      "status": "FINISHED",
+      "dateCreated": "2019-11-07 21:21:22.853",
+      "status": "READY",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Load Data",
       "text": "%python\n!wget http://zdata/BreadBasket_DMS.csv",
-      "user": "",
-      "dateUpdated": "2019-11-06 18:25:52.000",
+      "user": "anonymous",
+      "dateUpdated": "2019-11-07 21:21:22.853",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -188,26 +182,24 @@
         "code": "SUCCESS",
         "msg": [
           {
-            "data": "--2019-11-06 18:25:51--  http://zdata/BreadBasket_DMS.csv\r\nResolving zdata (zdata)... 172.17.0.6\r\nConnecting to zdata (zdata)|172.17.0.6|:80... connected.\r\nHTTP request sent, awaiting response... 200 OK\r\nLength: unspecified [text/plain]\r\nSaving to: \u0027BreadBasket_DMS.csv.4\u0027\r\n\r\n\rBreadBasket_DMS.csv     [\u003c\u003d\u003e                 ]       0  --.-KB/s               \rBreadBasket_DMS.csv     [ \u003c\u003d\u003e                ] 693.87K  --.-KB/s    in 0.02s   \r\n\r\n2019-11-06 18:25:52 (40.4 MB/s) - \u0027BreadBasket_DMS.csv.4\u0027 saved [710518]\r\n\r\n",
-            "type": "TEXT"
+            "type": "TEXT",
+            "data": "--2019-11-06 18:25:51--  http://zdata/BreadBasket_DMS.csv\r\nResolving zdata (zdata)... 172.17.0.6\r\nConnecting to zdata (zdata)|172.17.0.6|:80... connected.\r\nHTTP request sent, awaiting response... 200 OK\r\nLength: unspecified [text/plain]\r\nSaving to: \u0027BreadBasket_DMS.csv.4\u0027\r\n\r\n\rBreadBasket_DMS.csv     [\u003c\u003d\u003e                 ]       0  --.-KB/s               \rBreadBasket_DMS.csv     [ \u003c\u003d\u003e                ] 693.87K  --.-KB/s    in 0.02s   \r\n\r\n2019-11-06 18:25:52 (40.4 MB/s) - \u0027BreadBasket_DMS.csv.4\u0027 saved [710518]\r\n\r\n"
           }
         ]
       },
       "apps": [],
-      "jobName": "",
+      "jobName": "paragraph_1573161682853_-1605551989",
       "id": "20191106-172926_1397815489",
-      "dateCreated": "2019-11-06 17:29:26.000",
-      "dateStarted": "2019-11-06 18:25:51.673",
-      "dateFinished": "2019-11-06 18:25:52.333",
-      "status": "FINISHED",
+      "dateCreated": "2019-11-07 21:21:22.853",
+      "status": "READY",
       "errorMessage": "",
-      "progressUpdateIntervalMs": 0
+      "progressUpdateIntervalMs": 500
     },
     {
       "title": "Load CSV Data into DataFrame",
       "text": "%spark.pyspark\n# load csv format data file into Spark DataFrame\nbakery_schema \u003d StructType([\n    StructField(\u0027date\u0027, StringType(), True),\n    StructField(\u0027time\u0027, StringType(), True),\n    StructField(\u0027transaction\u0027, IntegerType(), True),\n    StructField(\u0027item\u0027, StringType(), True)\n])\n\ndf_bakery1 \u003d spark.read \\\n    .format(\"csv\") \\\n    .option(\"header\", \"true\") \\\n    .load(\"BreadBasket_DMS.csv\", schema\u003dbakery_schema)\n\ndf_bakery1.show(10)\ndf_bakery1.count()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-06 18:25:52.000",
+      "dateUpdated": "2019-11-07 21:21:22.854",
       "config": {
         "lineNumbers": true,
         "editorSetting": {
@@ -246,18 +238,16 @@
         "code": "SUCCESS",
         "msg": [
           {
-            "data": "+----------+--------+-----------+-------------+\n|      date|    time|transaction|         item|\n+----------+--------+-----------+-------------+\n|2016-10-30|09:58:11|          1|        Bread|\n|2016-10-30|10:05:34|          2| Scandinavian|\n|2016-10-30|10:05:34|          2| Scandinavian|\n|2016-10-30|10:07:57|          3|Hot chocolate|\n|2016-10-30|10:07:57|          3|          Jam|\n|2016-10-30|10:07:57|          3|      Cookies|\n|2016-10-30|10:08:41|          4|       Muffin|\n|2016-10-30|10:13:03|          5|       Coffee|\n|2016-10-30|10:13:03|          5|       Pastry|\n|2016-10-30|10:13:03|          5|        Bread|\n+----------+--------+-----------+-------------+\nonly showing top 10 rows\n\n21293",
-            "type": "TEXT"
+            "type": "TEXT",
+            "data": "+----------+--------+-----------+-------------+\n|      date|    time|transaction|         item|\n+----------+--------+-----------+-------------+\n|2016-10-30|09:58:11|          1|        Bread|\n|2016-10-30|10:05:34|          2| Scandinavian|\n|2016-10-30|10:05:34|          2| Scandinavian|\n|2016-10-30|10:07:57|          3|Hot chocolate|\n|2016-10-30|10:07:57|          3|          Jam|\n|2016-10-30|10:07:57|          3|      Cookies|\n|2016-10-30|10:08:41|          4|       Muffin|\n|2016-10-30|10:13:03|          5|       Coffee|\n|2016-10-30|10:13:03|          5|       Pastry|\n|2016-10-30|10:13:03|          5|        Bread|\n+----------+--------+-----------+-------------+\nonly showing top 10 rows\n\n21293"
           }
         ]
       },
       "apps": [],
-      "jobName": "paragraph_1573058000760_886915304",
+      "jobName": "paragraph_1573161682854_-1145602954",
       "id": "20191009-044129_2035687603",
-      "dateCreated": "2019-11-06 16:33:20.760",
-      "dateStarted": "2019-11-06 18:25:52.334",
-      "dateFinished": "2019-11-06 18:25:52.543",
-      "status": "FINISHED",
+      "dateCreated": "2019-11-07 21:21:22.854",
+      "status": "READY",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
@@ -265,7 +255,7 @@
       "title": "Write, Read, Load Parquet Data",
       "text": "%spark.pyspark\n# write, read, load parquet format data files into Spark DataFrame\ndf_bakery1.write.parquet(\u0027output/bakery_parquet\u0027, mode\u003d\u0027overwrite\u0027)\ndf_bakery2 \u003d spark.read.parquet(\u0027output/bakery_parquet\u0027)\n\ndf_bakery2.show(5)\ndf_bakery2.count()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-06 18:25:52.000",
+      "dateUpdated": "2019-11-07 21:21:22.854",
       "config": {
         "lineNumbers": true,
         "editorSetting": {
@@ -304,18 +294,16 @@
         "code": "SUCCESS",
         "msg": [
           {
-            "data": "+----------+--------+-----------+-------------+\n|      date|    time|transaction|         item|\n+----------+--------+-----------+-------------+\n|2016-10-30|09:58:11|          1|        Bread|\n|2016-10-30|10:05:34|          2| Scandinavian|\n|2016-10-30|10:05:34|          2| Scandinavian|\n|2016-10-30|10:07:57|          3|Hot chocolate|\n|2016-10-30|10:07:57|          3|          Jam|\n+----------+--------+-----------+-------------+\nonly showing top 5 rows\n\n21293",
-            "type": "TEXT"
+            "type": "TEXT",
+            "data": "+----------+--------+-----------+-------------+\n|      date|    time|transaction|         item|\n+----------+--------+-----------+-------------+\n|2016-10-30|09:58:11|          1|        Bread|\n|2016-10-30|10:05:34|          2| Scandinavian|\n|2016-10-30|10:05:34|          2| Scandinavian|\n|2016-10-30|10:07:57|          3|Hot chocolate|\n|2016-10-30|10:07:57|          3|          Jam|\n+----------+--------+-----------+-------------+\nonly showing top 5 rows\n\n21293"
           }
         ]
       },
       "apps": [],
-      "jobName": "paragraph_1573058000760_-634386583",
+      "jobName": "paragraph_1573161682854_-1119083335",
       "id": "20191010-052611_90769380",
-      "dateCreated": "2019-11-06 16:33:20.760",
-      "dateStarted": "2019-11-06 18:25:52.545",
-      "dateFinished": "2019-11-06 18:25:52.854",
-      "status": "FINISHED",
+      "dateCreated": "2019-11-07 21:21:22.854",
+      "status": "READY",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
@@ -323,7 +311,7 @@
       "title": "Create Temporary View of Data",
       "text": "%spark.pyspark\n# create a temporary view of a Spark DataFrame and run a sql query against it\ndf_bakery2.createOrReplaceTempView(\"bakery_table_tmp\")\n\ndf_bakery3 \u003d spark.sql(\"SELECT transaction, date, item \" +\n                       \"FROM bakery_table_tmp \" +\n                       \"WHERE item NOT LIKE \u0027NONE\u0027\" +\n                       \"ORDER BY transaction\")\n\ntype(df_bakery3)\ndf_bakery3.show(5)\ndf_bakery3.count()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-06 18:25:53.000",
+      "dateUpdated": "2019-11-07 21:21:22.855",
       "config": {
         "lineNumbers": true,
         "editorSetting": {
@@ -362,18 +350,16 @@
         "code": "SUCCESS",
         "msg": [
           {
-            "data": "+-----------+----------+-------------+\n|transaction|      date|         item|\n+-----------+----------+-------------+\n|          1|2016-10-30|        Bread|\n|          2|2016-10-30| Scandinavian|\n|          2|2016-10-30| Scandinavian|\n|          3|2016-10-30|Hot chocolate|\n|          3|2016-10-30|          Jam|\n+-----------+----------+-------------+\nonly showing top 5 rows\n\n20507",
-            "type": "TEXT"
+            "type": "TEXT",
+            "data": "+-----------+----------+-------------+\n|transaction|      date|         item|\n+-----------+----------+-------------+\n|          1|2016-10-30|        Bread|\n|          2|2016-10-30| Scandinavian|\n|          2|2016-10-30| Scandinavian|\n|          3|2016-10-30|Hot chocolate|\n|          3|2016-10-30|          Jam|\n+-----------+----------+-------------+\nonly showing top 5 rows\n\n20507"
           }
         ]
       },
       "apps": [],
-      "jobName": "paragraph_1573058000760_-1417833523",
+      "jobName": "paragraph_1573161682854_1290655096",
       "id": "20191009-050109_648011188",
-      "dateCreated": "2019-11-06 16:33:20.760",
-      "dateStarted": "2019-11-06 18:25:52.855",
-      "dateFinished": "2019-11-06 18:25:53.214",
-      "status": "FINISHED",
+      "dateCreated": "2019-11-07 21:21:22.854",
+      "status": "READY",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
@@ -381,7 +367,7 @@
       "title": "Replace Temporary View",
       "text": "%spark.pyspark\n# replace a temporary view of a Spark DataFrame and run a sql query against it\ndf_bakery3.createOrReplaceTempView(\"bakery_table_tmp\")\n\ndf_bakery4 \u003d spark.sql(\"SELECT date, count(*) as item_count \" +\n                       \"FROM bakery_table_tmp \" +\n                       \"WHERE date \u003e\u003d \u00272017-01-01\u0027 \" +\n                       \"GROUP BY date \" +\n                       \"ORDER BY date\")\n\ndf_bakery4.show(5)\ndf_bakery4.count()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-06 18:25:54.000",
+      "dateUpdated": "2019-11-07 21:21:22.855",
       "config": {
         "lineNumbers": true,
         "editorSetting": {
@@ -420,18 +406,16 @@
         "code": "SUCCESS",
         "msg": [
           {
-            "data": "+----------+----------+\n|      date|item_count|\n+----------+----------+\n|2017-01-01|         1|\n|2017-01-03|        87|\n|2017-01-04|        76|\n|2017-01-05|        95|\n|2017-01-06|        84|\n+----------+----------+\nonly showing top 5 rows\n\n98",
-            "type": "TEXT"
+            "type": "TEXT",
+            "data": "+----------+----------+\n|      date|item_count|\n+----------+----------+\n|2017-01-01|         1|\n|2017-01-03|        87|\n|2017-01-04|        76|\n|2017-01-05|        95|\n|2017-01-06|        84|\n+----------+----------+\nonly showing top 5 rows\n\n98"
           }
         ]
       },
       "apps": [],
-      "jobName": "paragraph_1573058000760_-945322986",
+      "jobName": "paragraph_1573161682855_-1688449137",
       "id": "20191009-050155_2142326603",
-      "dateCreated": "2019-11-06 16:33:20.760",
-      "dateStarted": "2019-11-06 18:25:53.216",
-      "dateFinished": "2019-11-06 18:25:54.427",
-      "status": "FINISHED",
+      "dateCreated": "2019-11-07 21:21:22.855",
+      "status": "READY",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
@@ -439,7 +423,7 @@
       "title": "Native ZELP Visualization Based on SQL Query ",
       "text": "%sql\nSELECT date, count(*) as items\nFROM bakery_table_tmp\nWHERE date BETWEEN \u00272017-01-01\u0027 AND \u00272017-03-31\u0027\nGROUP BY date\nORDER BY date",
       "user": "anonymous",
-      "dateUpdated": "2019-11-06 18:25:55.000",
+      "dateUpdated": "2019-11-07 21:21:22.855",
       "config": {
         "lineNumbers": true,
         "editorSetting": {
@@ -12089,22 +12073,20 @@
         "code": "SUCCESS",
         "msg": [
           {
-            "data": "date\titems\n2017-01-01\t1\n2017-01-03\t87\n2017-01-04\t76\n2017-01-05\t95\n2017-01-06\t84\n2017-01-07\t188\n2017-01-08\t103\n2017-01-09\t82\n2017-01-10\t71\n2017-01-11\t95\n2017-01-12\t72\n2017-01-13\t109\n2017-01-14\t187\n2017-01-15\t119\n2017-01-16\t66\n2017-01-17\t91\n2017-01-18\t82\n2017-01-19\t119\n2017-01-20\t136\n2017-01-21\t195\n2017-01-22\t166\n2017-01-23\t108\n2017-01-24\t112\n2017-01-25\t69\n2017-01-26\t113\n2017-01-27\t160\n2017-01-28\t237\n2017-01-29\t147\n2017-01-30\t73\n2017-01-31\t113\n2017-02-01\t124\n2017-02-02\t121\n2017-02-03\t138\n2017-02-04\t292\n2017-02-05\t170\n2017-02-06\t136\n2017-02-07\t107\n2017-02-08\t103\n2017-02-09\t123\n2017-02-10\t143\n2017-02-11\t185\n2017-02-12\t113\n2017-02-13\t148\n2017-02-14\t113\n2017-02-15\t79\n2017-02-16\t109\n2017-02-17\t176\n2017-02-18\t227\n2017-02-19\t181\n2017-02-20\t114\n2017-02-21\t88\n2017-02-22\t113\n2017-02-23\t103\n2017-02-24\t142\n2017-02-25\t175\n2017-02-26\t186\n2017-02-27\t76\n2017-02-28\t121\n2017-03-01\t91\n2017-03-02\t94\n2017-03-03\t135\n2017-03-04\t257\n2017-03-05\t124\n2017-03-06\t94\n2017-03-07\t118\n2017-03-08\t77\n2017-03-09\t104\n2017-03-10\t139\n2017-03-11\t203\n2017-03-12\t146\n2017-03-13\t103\n2017-03-14\t103\n2017-03-15\t87\n2017-03-16\t113\n2017-03-17\t118\n2017-03-18\t177\n2017-03-19\t128\n2017-03-20\t95\n2017-03-21\t102\n2017-03-22\t105\n2017-03-23\t123\n2017-03-24\t131\n2017-03-25\t246\n2017-03-26\t161\n2017-03-27\t87\n2017-03-28\t110\n2017-03-29\t99\n2017-03-30\t123\n2017-03-31\t151\n",
-            "type": "TABLE"
+            "type": "TABLE",
+            "data": "date\titems\n2017-01-01\t1\n2017-01-03\t87\n2017-01-04\t76\n2017-01-05\t95\n2017-01-06\t84\n2017-01-07\t188\n2017-01-08\t103\n2017-01-09\t82\n2017-01-10\t71\n2017-01-11\t95\n2017-01-12\t72\n2017-01-13\t109\n2017-01-14\t187\n2017-01-15\t119\n2017-01-16\t66\n2017-01-17\t91\n2017-01-18\t82\n2017-01-19\t119\n2017-01-20\t136\n2017-01-21\t195\n2017-01-22\t166\n2017-01-23\t108\n2017-01-24\t112\n2017-01-25\t69\n2017-01-26\t113\n2017-01-27\t160\n2017-01-28\t237\n2017-01-29\t147\n2017-01-30\t73\n2017-01-31\t113\n2017-02-01\t124\n2017-02-02\t121\n2017-02-03\t138\n2017-02-04\t292\n2017-02-05\t170\n2017-02-06\t136\n2017-02-07\t107\n2017-02-08\t103\n2017-02-09\t123\n2017-02-10\t143\n2017-02-11\t185\n2017-02-12\t113\n2017-02-13\t148\n2017-02-14\t113\n2017-02-15\t79\n2017-02-16\t109\n2017-02-17\t176\n2017-02-18\t227\n2017-02-19\t181\n2017-02-20\t114\n2017-02-21\t88\n2017-02-22\t113\n2017-02-23\t103\n2017-02-24\t142\n2017-02-25\t175\n2017-02-26\t186\n2017-02-27\t76\n2017-02-28\t121\n2017-03-01\t91\n2017-03-02\t94\n2017-03-03\t135\n2017-03-04\t257\n2017-03-05\t124\n2017-03-06\t94\n2017-03-07\t118\n2017-03-08\t77\n2017-03-09\t104\n2017-03-10\t139\n2017-03-11\t203\n2017-03-12\t146\n2017-03-13\t103\n2017-03-14\t103\n2017-03-15\t87\n2017-03-16\t113\n2017-03-17\t118\n2017-03-18\t177\n2017-03-19\t128\n2017-03-20\t95\n2017-03-21\t102\n2017-03-22\t105\n2017-03-23\t123\n2017-03-24\t131\n2017-03-25\t246\n2017-03-26\t161\n2017-03-27\t87\n2017-03-28\t110\n2017-03-29\t99\n2017-03-30\t123\n2017-03-31\t151\n"
           },
           {
-            "data": "",
-            "type": "TEXT"
+            "type": "TEXT",
+            "data": ""
           }
         ]
       },
       "apps": [],
-      "jobName": "paragraph_1573058000760_1142817223",
+      "jobName": "paragraph_1573161682855_-1657384423",
       "id": "20191106-005218_589421977",
-      "dateCreated": "2019-11-06 16:33:20.760",
-      "dateStarted": "2019-11-06 18:25:54.629",
-      "dateFinished": "2019-11-06 18:25:55.100",
-      "status": "FINISHED",
+      "dateCreated": "2019-11-07 21:21:22.855",
+      "status": "READY",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
@@ -12112,7 +12094,7 @@
       "title": "Native ZELP Visualization Based on SQL Query ",
       "text": "%sql\nSELECT count(*) as items, item\nFROM bakery_table_tmp\nGROUP BY item\nORDER BY items\nDESC LIMIT 10",
       "user": "anonymous",
-      "dateUpdated": "2019-11-06 18:25:55.000",
+      "dateUpdated": "2019-11-07 21:21:22.856",
       "config": {
         "lineNumbers": true,
         "editorSetting": {
@@ -23675,22 +23657,20 @@
         "code": "SUCCESS",
         "msg": [
           {
-            "data": "items\titem\n5471\tCoffee\n3325\tBread\n1435\tTea\n1025\tCake\n856\tPastry\n771\tSandwich\n616\tMedialuna\n590\tHot chocolate\n540\tCookies\n379\tBrownie\n",
-            "type": "TABLE"
+            "type": "TABLE",
+            "data": "items\titem\n5471\tCoffee\n3325\tBread\n1435\tTea\n1025\tCake\n856\tPastry\n771\tSandwich\n616\tMedialuna\n590\tHot chocolate\n540\tCookies\n379\tBrownie\n"
           },
           {
-            "data": "",
-            "type": "TEXT"
+            "type": "TEXT",
+            "data": ""
           }
         ]
       },
       "apps": [],
-      "jobName": "paragraph_1573058000760_-1357437731",
+      "jobName": "paragraph_1573161682856_-1208975974",
       "id": "20191106-042245_200419154",
-      "dateCreated": "2019-11-06 16:33:20.760",
-      "dateStarted": "2019-11-06 18:25:55.104",
-      "dateFinished": "2019-11-06 18:25:55.742",
-      "status": "FINISHED",
+      "dateCreated": "2019-11-07 21:21:22.856",
+      "status": "READY",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
@@ -23698,7 +23678,7 @@
       "title": "Write Transformed Data to Parquet Format",
       "text": "%spark.pyspark\n# write transformed data to parquet\ndf_bakery4.write.parquet(\u0027output/daily_sales_parquet\u0027, mode\u003d\u0027overwrite\u0027)\n",
       "user": "anonymous",
-      "dateUpdated": "2019-11-06 18:25:56.000",
+      "dateUpdated": "2019-11-07 21:21:22.857",
       "config": {
         "lineNumbers": true,
         "editorSetting": {
@@ -23730,48 +23710,39 @@
         "msg": []
       },
       "apps": [],
-      "jobName": "paragraph_1573058000761_-1476901850",
+      "jobName": "paragraph_1573161682856_-560977412",
       "id": "20191106-151740_1177114488",
-      "dateCreated": "2019-11-06 16:33:20.761",
-      "dateStarted": "2019-11-06 18:25:55.747",
-      "dateFinished": "2019-11-06 18:25:56.909",
-      "status": "FINISHED",
+      "dateCreated": "2019-11-07 21:21:22.856",
+      "status": "READY",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "",
       "text": "",
-      "user": "",
-      "dateUpdated": "2019-11-06 18:00:05.000",
+      "user": "anonymous",
+      "dateUpdated": "2019-11-07 21:21:22.857",
       "config": {},
       "settings": {
         "params": {},
         "forms": {}
       },
       "apps": [],
-      "jobName": "",
+      "jobName": "paragraph_1573161682857_-282158035",
       "id": "20191106-180005_347564623",
-      "dateCreated": "2019-11-06 18:00:05.000",
-      "dateStarted": "2019-11-06 18:27:26.000",
-      "dateFinished": "2019-11-06 18:27:26.000",
+      "dateCreated": "2019-11-07 21:21:22.857",
       "status": "READY",
       "errorMessage": "",
-      "progressUpdateIntervalMs": 0
+      "progressUpdateIntervalMs": 500
     }
   ],
   "name": "demo-zepl-nb-01",
-  "id": "2ERVVKTCG",
+  "id": "2ESHG6PNS",
   "noteParams": {},
   "noteForms": {},
-  "angularObjects": {
-    "md:shared_process": [],
-    "python:shared_process": [],
-    "sh:shared_process": [],
-    "spark:shared_process": []
-  },
+  "angularObjects": {},
   "config": {
-    "looknfeel": "juno"
+    "isZeppelinNotebookCronEnable": false
   },
   "info": {}
 }
