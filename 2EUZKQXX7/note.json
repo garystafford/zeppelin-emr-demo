@@ -4,7 +4,7 @@
       "title": "Zeppelin Demo Notebook 2",
       "text": "%md\nDemonstrate loading, querying, visualizing, and saving the GroupLens MovieLens 100K Dataset dataset.\nThe \u0027MovieLens 100K Dataset\u0027 dataset available to download on [GroupLens](https://grouplens.org/datasets/movielens/100k/).",
       "user": "anonymous",
-      "dateUpdated": "2019-11-07 21:19:45.790",
+      "dateUpdated": "2019-11-08 00:36:03.752",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -38,15 +38,16 @@
       "jobName": "paragraph_1573161585787_1398568692",
       "id": "20191106-153644_419077851",
       "dateCreated": "2019-11-07 21:19:45.788",
-      "status": "READY",
-      "errorMessage": "",
+      "dateStarted": "2019-11-08 00:36:03.753",
+      "dateFinished": "2019-11-08 00:36:03.762",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Import Python Packages",
-      "text": "%spark.pyspark\nfrom pyspark import SparkFiles\nfrom pyspark.sql import SparkSession\nfrom pyspark.sql.types import StructType, StructField, StringType, IntegerType\nimport org.apache.spark.sql.functions.format_number",
+      "text": "%spark.pyspark\nfrom pyspark import SparkFiles\nfrom pyspark.sql import SparkSession\nfrom pyspark.sql.types import StructType, StructField, StringType, IntegerType, DateType",
       "user": "anonymous",
-      "dateUpdated": "2019-11-07 21:19:45.794",
+      "dateUpdated": "2019-11-08 00:36:12.255",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -85,27 +86,23 @@
         "forms": {}
       },
       "results": {
-        "code": "ERROR",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "Fail to execute line 4: import org.apache.spark.sql.functions.format_number\nTraceback (most recent call last):\n  File \"/tmp/zeppelin_pyspark-4647743927175050782.py\", line 380, in \u003cmodule\u003e\n    exec(code, _zcUserQueryNameSpace)\n  File \"\u003cstdin\u003e\", line 4, in \u003cmodule\u003e\nImportError: No module named org.apache.spark.sql.functions.format_number\n"
-          }
-        ]
+        "code": "SUCCESS",
+        "msg": []
       },
       "apps": [],
       "jobName": "paragraph_1573161585794_-369410071",
       "id": "20191009-042517_1466963465",
       "dateCreated": "2019-11-07 21:19:45.794",
-      "status": "READY",
-      "errorMessage": "",
+      "dateStarted": "2019-11-08 00:36:12.272",
+      "dateFinished": "2019-11-08 00:36:12.278",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Create Spark Session",
       "text": "%spark.pyspark\nspark \u003d SparkSession \\\n    .builder \\\n    .appName(\u0027pyspark_demo_app\u0027) \\\n    .master(\"local[*]\") \\\n    .getOrCreate()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-07 21:19:45.795",
+      "dateUpdated": "2019-11-08 00:36:33.806",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -145,15 +142,16 @@
       "jobName": "paragraph_1573161585794_630658218",
       "id": "20191009-042751_2109019779",
       "dateCreated": "2019-11-07 21:19:45.795",
-      "status": "READY",
-      "errorMessage": "",
+      "dateStarted": "2019-11-08 00:36:33.819",
+      "dateFinished": "2019-11-08 00:36:33.826",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "title": "Load Data from ",
-      "text": "%sh\npwd # /var/lib/zeppelin\n\n# copy bakery data from s3 bucket\nFILE\u003dml-100k/u.user\nif [ -f \"$FILE\" ]; then\n    echo \"$FILE exist\"\nelse \n    wget http://files.grouplens.org/datasets/movielens/ml-100k.zip \u0026\u0026 unzip ml-100k.zip\nfi\n\nls -alh $FILE\n\n# copy from local file system to the destination file system (/user/zeppelin)\nhadoop fs -put -f  ml-100k/u.user u.user\nhadoop fs -ls -h u.user",
+      "title": "Load MovieLens Data from GroupLens",
+      "text": "%sh\npwd # /var/lib/zeppelin\n\n# copy bakery data from s3 bucket\nDIR\u003d\"ml-100k\"\nif [ -d $DIR ]; then\n    echo \"$DIR exist\"\nelse \n    wget http://files.grouplens.org/datasets/movielens/ml-100k.zip \u0026\u0026 unzip ml-100k.zip\nfi\n\n# ls -alh $DIR\n\n# copy from local file system (/var/lib/zeppelin) to the destination file system (/user/zeppelin)\nhadoop fs -put -f  $DIR/u.* .\necho\nhadoop fs -ls -h u.*",
       "user": "anonymous",
-      "dateUpdated": "2019-11-07 21:19:45.795",
+      "dateUpdated": "2019-11-08 00:36:38.009",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -198,7 +196,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "/var/lib/zeppelin\nml-100k/u.user exist\n-rw-r----- 1 zeppelin zeppelin 23K Jul 19  2000 ml-100k/u.user\n-rw-r--r--   1 zeppelin hadoop     22.1 K 2019-11-07 08:09 u.user\n"
+            "data": "/var/lib/zeppelin\nml-100k exist\n\n-rw-r--r--   1 zeppelin hadoop      1.9 M 2019-11-08 00:36 u.data\n-rw-r--r--   1 zeppelin hadoop        202 2019-11-08 00:36 u.genre\n-rw-r--r--   1 zeppelin hadoop         36 2019-11-08 00:36 u.info\n-rw-r--r--   1 zeppelin hadoop    230.8 K 2019-11-08 00:36 u.item\n-rw-r--r--   1 zeppelin hadoop        193 2019-11-08 00:36 u.occupation\n-rw-r--r--   1 zeppelin hadoop     22.1 K 2019-11-08 00:36 u.user\n"
           }
         ]
       },
@@ -206,15 +204,16 @@
       "jobName": "paragraph_1573161585795_2012219506",
       "id": "20191009-042907_1768707497",
       "dateCreated": "2019-11-07 21:19:45.795",
-      "status": "READY",
-      "errorMessage": "",
+      "dateStarted": "2019-11-08 00:36:38.023",
+      "dateFinished": "2019-11-08 00:36:42.848",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Load CSV Data into DataFrame",
-      "text": "%spark.pyspark\n# source schema: user id | age | gender | occupation | zip code\n\nuser_schema \u003d StructType([\n    StructField(\u0027user_id\u0027, IntegerType(), True),\n    StructField(\u0027age\u0027, IntegerType(), True),\n    StructField(\u0027gender\u0027, StringType(), True),\n    StructField(\u0027occupation\u0027, StringType(), True),\n    StructField(\u0027zip_code\u0027, StringType(), True)\n])\n\ndf_user1 \u003d spark.read \\\n    .format(\"csv\") \\\n    .option(\"header\", \"false\") \\\n    .option(\"delimiter\", \"|\") \\\n    .load(\"u.user\", schema\u003duser_schema)\n\ndf_user1.show(10)\ndf_user1.count()",
+      "text": "%spark.pyspark\n# u.data source schema: user id | item id | rating | timestamp\ndataSchema \u003d StructType([\n    StructField(\u0027user_id\u0027, IntegerType(), True),\n    StructField(\u0027item_id\u0027, IntegerType(), True),\n    StructField(\u0027rating\u0027, IntegerType(), True),\n    StructField(\u0027timestamp\u0027, IntegerType(), True)\n])\n\nratingsDF_0 \u003d spark.read \\\n    .format(\"csv\") \\\n    .option(\"header\", \"false\") \\\n    .option(\"delimiter\", \"\\t\") \\\n    .load(\"u.data\", schema\u003ddataSchema)\n\nratingsDF_0.show(10)\nratingsDF_0.count()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-07 21:19:45.796",
+      "dateUpdated": "2019-11-08 00:36:45.277",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -257,23 +256,37 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "+-------+---+------+-------------+--------+\n|user_id|age|gender|   occupation|zip_code|\n+-------+---+------+-------------+--------+\n|      1| 24|     M|   technician|   85711|\n|      2| 53|     F|        other|   94043|\n|      3| 23|     M|       writer|   32067|\n|      4| 24|     M|   technician|   43537|\n|      5| 33|     F|        other|   15213|\n|      6| 42|     M|    executive|   98101|\n|      7| 57|     M|administrator|   91344|\n|      8| 36|     M|administrator|   05201|\n|      9| 29|     M|      student|   01002|\n|     10| 53|     M|       lawyer|   90703|\n+-------+---+------+-------------+--------+\nonly showing top 10 rows\n\n943\n"
+            "data": "+-------+-------+------+---------+\n|user_id|item_id|rating|timestamp|\n+-------+-------+------+---------+\n|    196|    242|     3|881250949|\n|    186|    302|     3|891717742|\n|     22|    377|     1|878887116|\n|    244|     51|     2|880606923|\n|    166|    346|     1|886397596|\n|    298|    474|     4|884182806|\n|    115|    265|     2|881171488|\n|    253|    465|     5|891628467|\n|    305|    451|     3|886324817|\n|      6|     86|     3|883603013|\n+-------+-------+------+---------+\nonly showing top 10 rows\n\n100000\n"
           }
         ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d178",
+            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d179"
+          ],
+          "interpreterSettingId": "spark"
+        }
       },
       "apps": [],
       "jobName": "paragraph_1573161585796_1293011902",
       "id": "20191009-044129_2035687603",
       "dateCreated": "2019-11-07 21:19:45.796",
-      "status": "READY",
-      "errorMessage": "",
+      "dateStarted": "2019-11-08 00:36:45.294",
+      "dateFinished": "2019-11-08 00:36:55.131",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "title": "Write, Read, Load Parquet Data",
-      "text": "%spark.pyspark\ndf_user1.write.parquet(\u0027output/bakery_parquet\u0027, mode\u003d\u0027overwrite\u0027)\ndf_user2 \u003d spark.read.parquet(\u0027output/bakery_parquet\u0027)\n\ndf_user2.show(5)\ndf_user2.count()",
+      "title": "Load CSV Data into DataFrame",
+      "text": "%spark.pyspark\n# u.item source schema: movie id | movie title ...\nitemSchema \u003d StructType([\n    StructField(\u0027movie_id\u0027, IntegerType(), True),\n    StructField(\u0027title\u0027, StringType(), True)\n])\n\nitemsDF \u003d spark.read \\\n    .format(\"csv\") \\\n    .option(\"header\", \"false\") \\\n    .option(\"delimiter\", \"|\") \\\n    .load(\"u.item\", schema\u003ditemSchema)\n\nitemsDF.show(10)\nitemsDF.count()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-07 21:19:45.796",
+      "dateUpdated": "2019-11-08 00:36:58.040",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -316,23 +329,112 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "+-------+---+------+----------+--------+\n|user_id|age|gender|occupation|zip_code|\n+-------+---+------+----------+--------+\n|      1| 24|     M|technician|   85711|\n|      2| 53|     F|     other|   94043|\n|      3| 23|     M|    writer|   32067|\n|      4| 24|     M|technician|   43537|\n|      5| 33|     F|     other|   15213|\n+-------+---+------+----------+--------+\nonly showing top 5 rows\n\n943\n"
+            "data": "+--------+--------------------+\n|movie_id|               title|\n+--------+--------------------+\n|       1|    Toy Story (1995)|\n|       2|    GoldenEye (1995)|\n|       3|   Four Rooms (1995)|\n|       4|   Get Shorty (1995)|\n|       5|      Copycat (1995)|\n|       6|Shanghai Triad (Y...|\n|       7|Twelve Monkeys (1...|\n|       8|         Babe (1995)|\n|       9|Dead Man Walking ...|\n|      10|  Richard III (1995)|\n+--------+--------------------+\nonly showing top 10 rows\n\n1682\n"
           }
         ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d180",
+            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d181"
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1573170957319_-724857282",
+      "id": "20191107-235557_158160591",
+      "dateCreated": "2019-11-07 23:55:57.319",
+      "dateStarted": "2019-11-08 00:36:58.056",
+      "dateFinished": "2019-11-08 00:36:58.425",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Write, Read, Load Parquet Data",
+      "text": "%spark.pyspark\nratingsDF_0.write.parquet(\u0027output/movie_data_parquet\u0027, mode\u003d\u0027overwrite\u0027)\nratingsDF_1 \u003d spark.read.parquet(\u0027output/movie_data_parquet\u0027)\n\nratingsDF_1.show(5)\nratingsDF_1.count()",
+      "user": "anonymous",
+      "dateUpdated": "2019-11-08 00:37:03.411",
+      "config": {
+        "lineNumbers": true,
+        "tableHide": false,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "selectedInterpreter": {
+          "name": "spark.pyspark",
+          "profile": "pyspark",
+          "isCustom": false,
+          "editorLanguage": "python",
+          "className": "org.apache.zeppelin.spark.PySparkInterpreter",
+          "isDefault": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9.0,
+        "editorHide": false,
+        "title": true,
+        "results": [
+          {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false
+            }
+          }
+        ],
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------+-------+------+---------+\n|user_id|item_id|rating|timestamp|\n+-------+-------+------+---------+\n|    196|    242|     3|881250949|\n|    186|    302|     3|891717742|\n|     22|    377|     1|878887116|\n|    244|     51|     2|880606923|\n|    166|    346|     1|886397596|\n+-------+-------+------+---------+\nonly showing top 5 rows\n\n100000\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d182",
+            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d183",
+            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d184",
+            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d185"
+          ],
+          "interpreterSettingId": "spark"
+        }
       },
       "apps": [],
       "jobName": "paragraph_1573161585796_217121452",
       "id": "20191010-052611_90769380",
       "dateCreated": "2019-11-07 21:19:45.796",
-      "status": "READY",
-      "errorMessage": "",
+      "dateStarted": "2019-11-08 00:37:03.424",
+      "dateFinished": "2019-11-08 00:37:05.459",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "title": "Create Temporary View of Data",
-      "text": "%spark.pyspark\ndf_user2.createOrReplaceTempView(\"user_table_tmp\")\n\ndf_user3 \u003d spark.sql(\"SELECT gender, format_number(AVG(age), 1) AS avg_age \" +\n                      \"FROM user_table_tmp \" +\n                      \"GROUP BY gender\")\n\ntype(df_user3)\ndf_user3.show(5)\ndf_user3.count()",
+      "title": "Create Temporary View of Data and Query",
+      "text": "%spark.pyspark\n\nratingsDF_1.createOrReplaceTempView(\"rating_table_tmp\")\n\nratingsDF_2 \u003d spark.sql(\"SELECT item_id, rating, user_id, CAST(timestamp as timestamp) as date_time \" +\n                          \"FROM rating_table_tmp \" +\n                          \"ORDER BY item_id, rating, user_id\")\n\nprint \"ratingsDF type:\", type(ratingsDF)\n\nratingsDF_2.show(5)\nratingsDF_2.count()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-07 21:19:45.797",
+      "dateUpdated": "2019-11-08 00:37:09.062",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -375,23 +477,38 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "+------+-------+\n|gender|avg_age|\n+------+-------+\n|     F|   33.8|\n|     M|   34.1|\n+------+-------+\n\n2\n"
+            "data": "ratingsDF type: \u003cclass \u0027pyspark.sql.dataframe.DataFrame\u0027\u003e\n+-------+------+-------+-------------------+\n|item_id|rating|user_id|          date_time|\n+-------+------+-------+-------------------+\n|      1|     1|     15|1997-11-13 21:13:55|\n|      1|     1|    199|1998-01-02 23:14:14|\n|      1|     1|    331|1997-10-18 17:42:47|\n|      1|     1|    424|1997-11-30 03:11:33|\n|      1|     1|    463|1998-03-21 04:04:35|\n+-------+------+-------+-------------------+\nonly showing top 5 rows\n\n100000\n"
           }
         ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d186",
+            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d187",
+            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d188"
+          ],
+          "interpreterSettingId": "spark"
+        }
       },
       "apps": [],
       "jobName": "paragraph_1573161585796_891183216",
       "id": "20191009-050109_648011188",
       "dateCreated": "2019-11-07 21:19:45.797",
-      "status": "READY",
-      "errorMessage": "",
+      "dateStarted": "2019-11-08 00:37:09.075",
+      "dateFinished": "2019-11-08 00:37:12.784",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Replace Temporary View with New Query",
-      "text": "%spark.pyspark\ndf_bakery3.createOrReplaceTempView(\"bakery_table_tmp\")\n\ndf_bakery4 \u003d spark.sql(\"SELECT date, count(*) as item_count \" +\n                       \"FROM bakery_table_tmp \" +\n                       \"WHERE date \u003e\u003d \u00272017-01-01\u0027 \" +\n                       \"GROUP BY date \" +\n                       \"ORDER BY date\")\n\ndf_bakery4.show(5)\ndf_bakery4.count()",
+      "text": "%spark.pyspark\nratingsDF_2.createOrReplaceTempView(\"rating\")\nitemsDF.createOrReplaceTempView(\"item\")\n\n# ratingsDF \u003d spark.sql(\"SELECT * \" +\n#                       \"FROM rating, item \" +\n#                       \"WHERE rating.item_id \u003d item.movie_id\")\n\nratingsDF_3 \u003d spark.sql(\"SELECT i.title, AVG(r.rating) as avg_rating, COUNT(r.rating) as ratings \" +\n                        \"FROM rating r, item i \" +\n                        \"WHERE r.item_id \u003d i.movie_id \" +\n                        \"GROUP BY i.title \" +\n                        \"ORDER BY avg_rating DESC, ratings DESC, i.title ASC\")\n\nprint \"Top 10 Movies\"\nratingsDF_3.show(10, False)\nratingsDF_3.count()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-07 21:19:45.797",
+      "dateUpdated": "2019-11-08 00:48:55.354",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -434,23 +551,42 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "+----------+----------+\n|      date|item_count|\n+----------+----------+\n|2017-01-01|         1|\n|2017-01-03|        87|\n|2017-01-04|        76|\n|2017-01-05|        95|\n|2017-01-06|        84|\n+----------+----------+\nonly showing top 5 rows\n\n98\n"
+            "data": "Top 10 Movies\n+-------------------------------------------------+----------+-------+\n|title                                            |avg_rating|ratings|\n+-------------------------------------------------+----------+-------+\n|Prefontaine (1997)                               |5.0       |3      |\n|Star Kid (1997)                                  |5.0       |3      |\n|Saint of Fort Washington, The (1993)             |5.0       |2      |\n|Santa with Muscles (1996)                        |5.0       |2      |\n|Aiqing wansui (1994)                             |5.0       |1      |\n|Entertaining Angels: The Dorothy Day Story (1996)|5.0       |1      |\n|Great Day in Harlem, A (1994)                    |5.0       |1      |\n|Marlene Dietrich: Shadow and Light (1996)        |5.0       |1      |\n|Someone Else\u0027s America (1995)                    |5.0       |1      |\n|They Made Me a Criminal (1939)                   |5.0       |1      |\n+-------------------------------------------------+----------+-------+\nonly showing top 10 rows\n\n1664\n"
           }
         ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d254",
+            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d255",
+            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d256",
+            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d257",
+            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d258",
+            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d259",
+            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d260"
+          ],
+          "interpreterSettingId": "spark"
+        }
       },
       "apps": [],
       "jobName": "paragraph_1573161585797_-394721398",
       "id": "20191009-050155_2142326603",
       "dateCreated": "2019-11-07 21:19:45.797",
-      "status": "READY",
-      "errorMessage": "",
+      "dateStarted": "2019-11-08 00:48:55.367",
+      "dateFinished": "2019-11-08 00:49:08.527",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Native Zeppelin Visualization Based on SQL Query",
       "text": "%sql\nSELECT date, count(*) as item_count\nFROM bakery_table_tmp\nWHERE date BETWEEN \u00272017-01-01\u0027 AND \u00272017-03-31\u0027\nGROUP BY date\nORDER BY date",
       "user": "anonymous",
-      "dateUpdated": "2019-11-07 21:19:45.798",
+      "dateUpdated": "2019-11-08 00:41:09.187",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -744,7 +880,12 @@
   "id": "2EUZKQXX7",
   "noteParams": {},
   "noteForms": {},
-  "angularObjects": {},
+  "angularObjects": {
+    "md:shared_process": [],
+    "python:shared_process": [],
+    "sh:shared_process": [],
+    "spark:shared_process": []
+  },
   "config": {
     "isZeppelinNotebookCronEnable": false
   },

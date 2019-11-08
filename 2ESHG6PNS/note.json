@@ -2,9 +2,9 @@
   "paragraphs": [
     {
       "title": "Zepl Demo Notebook 1",
-      "text": "%md\nDemonstrate loading, querying, visualizing, and saving a small ~21k row kaggle dataset.\nThe \u0027Transactions from a bakery\u0027 dataset available to download on [kaggle](https://www.kaggle.com/sulmansarwar/transactions-from-a-bakery/data#).",
+      "text": "%md\n__THIS NOTEBOOK ONLY WORKS ON ZELP PLATFORM__\nDemonstrate loading, querying, visualizing, and saving a small ~21k row kaggle dataset.\nThe \u0027Transactions from a bakery\u0027 dataset available to download on [kaggle](https://www.kaggle.com/sulmansarwar/transactions-from-a-bakery/data#).",
       "user": "anonymous",
-      "dateUpdated": "2019-11-07 21:21:22.852",
+      "dateUpdated": "2019-11-07 21:24:24.328",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -26,9 +26,16 @@
         "editorHide": true,
         "title": true,
         "results": [
-          {}
+          {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false
+            }
+          }
         ],
-        "enabled": true
+        "enabled": true,
+        "fontSize": 9.0
       },
       "settings": {
         "params": {},
@@ -39,7 +46,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eDemonstrate loading, querying, visualizing, and saving a small ~21k row kaggle dataset.\u003cbr/\u003eThe \u0026lsquo;Transactions from a bakery\u0026rsquo; dataset available to download on \u003ca href\u003d\"https://www.kaggle.com/sulmansarwar/transactions-from-a-bakery/data#\"\u003ekaggle\u003c/a\u003e.\u003c/p\u003e\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003e\u003cstrong\u003eTHIS NOTEBOOK ONLY WORKS ON ZELP PLATFORM\u003c/strong\u003e\u003cbr/\u003eDemonstrate loading, querying, visualizing, and saving a small ~21k row kaggle dataset.\u003cbr/\u003eThe \u0026lsquo;Transactions from a bakery\u0026rsquo; dataset available to download on \u003ca href\u003d\"https://www.kaggle.com/sulmansarwar/transactions-from-a-bakery/data#\"\u003ekaggle\u003c/a\u003e.\u003c/p\u003e\n\u003c/div\u003e"
           }
         ]
       },
@@ -47,8 +54,9 @@
       "jobName": "paragraph_1573161682849_-625500423",
       "id": "20191106-153644_419077851",
       "dateCreated": "2019-11-07 21:21:22.849",
-      "status": "READY",
-      "errorMessage": "",
+      "dateStarted": "2019-11-07 21:24:24.340",
+      "dateFinished": "2019-11-07 21:24:27.490",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
@@ -423,7 +431,7 @@
       "title": "Native ZELP Visualization Based on SQL Query ",
       "text": "%sql\nSELECT date, count(*) as items\nFROM bakery_table_tmp\nWHERE date BETWEEN \u00272017-01-01\u0027 AND \u00272017-03-31\u0027\nGROUP BY date\nORDER BY date",
       "user": "anonymous",
-      "dateUpdated": "2019-11-07 21:21:22.855",
+      "dateUpdated": "2019-11-07 21:23:48.560",
       "config": {
         "lineNumbers": true,
         "editorSetting": {
@@ -12057,13 +12065,39 @@
                       "radar"
                     ]
                   }
+                },
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "date": "string",
+                      "items": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
                 }
-              }
+              },
+              "commonSetting": {}
             }
           },
-          {}
+          {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false
+            }
+          }
         ],
-        "enabled": true
+        "enabled": true,
+        "fontSize": 9.0
       },
       "settings": {
         "params": {},
@@ -12094,7 +12128,7 @@
       "title": "Native ZELP Visualization Based on SQL Query ",
       "text": "%sql\nSELECT count(*) as items, item\nFROM bakery_table_tmp\nGROUP BY item\nORDER BY items\nDESC LIMIT 10",
       "user": "anonymous",
-      "dateUpdated": "2019-11-07 21:21:22.856",
+      "dateUpdated": "2019-11-07 21:23:48.668",
       "config": {
         "lineNumbers": true,
         "editorSetting": {
@@ -23641,13 +23675,39 @@
                       "radar"
                     ]
                   }
+                },
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "items": "string",
+                      "item": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
                 }
-              }
+              },
+              "commonSetting": {}
             }
           },
-          {}
+          {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false
+            }
+          }
         ],
-        "enabled": true
+        "enabled": true,
+        "fontSize": 9.0
       },
       "settings": {
         "params": {},
@@ -23740,7 +23800,11 @@
   "id": "2ESHG6PNS",
   "noteParams": {},
   "noteForms": {},
-  "angularObjects": {},
+  "angularObjects": {
+    "md:shared_process": [],
+    "python:shared_process": [],
+    "spark:shared_process": []
+  },
   "config": {
     "isZeppelinNotebookCronEnable": false
   },
