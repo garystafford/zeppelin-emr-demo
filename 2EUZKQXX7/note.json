@@ -4,7 +4,7 @@
       "title": "Zeppelin Demo Notebook 2",
       "text": "%md\nDemonstrate loading, querying, visualizing, and saving the GroupLens MovieLens 100K Dataset dataset.\nThe \u0027MovieLens 100K Dataset\u0027 dataset available to download on [GroupLens](https://grouplens.org/datasets/movielens/100k/).",
       "user": "anonymous",
-      "dateUpdated": "2019-11-08 00:36:03.752",
+      "dateUpdated": "2019-11-08 05:20:35.167",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -38,8 +38,8 @@
       "jobName": "paragraph_1573161585787_1398568692",
       "id": "20191106-153644_419077851",
       "dateCreated": "2019-11-07 21:19:45.788",
-      "dateStarted": "2019-11-08 00:36:03.753",
-      "dateFinished": "2019-11-08 00:36:03.762",
+      "dateStarted": "2019-11-08 05:20:35.178",
+      "dateFinished": "2019-11-08 05:20:35.185",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -47,7 +47,7 @@
       "title": "Import Python Packages",
       "text": "%spark.pyspark\nfrom pyspark import SparkFiles\nfrom pyspark.sql import SparkSession\nfrom pyspark.sql.types import StructType, StructField, StringType, IntegerType, DateType",
       "user": "anonymous",
-      "dateUpdated": "2019-11-08 00:36:12.255",
+      "dateUpdated": "2019-11-08 05:20:35.278",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -93,8 +93,8 @@
       "jobName": "paragraph_1573161585794_-369410071",
       "id": "20191009-042517_1466963465",
       "dateCreated": "2019-11-07 21:19:45.794",
-      "dateStarted": "2019-11-08 00:36:12.272",
-      "dateFinished": "2019-11-08 00:36:12.278",
+      "dateStarted": "2019-11-08 05:20:35.292",
+      "dateFinished": "2019-11-08 05:20:35.295",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -102,7 +102,7 @@
       "title": "Create Spark Session",
       "text": "%spark.pyspark\nspark \u003d SparkSession \\\n    .builder \\\n    .appName(\u0027pyspark_demo_app\u0027) \\\n    .master(\"local[*]\") \\\n    .getOrCreate()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-08 00:36:33.806",
+      "dateUpdated": "2019-11-08 05:20:35.391",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -142,16 +142,16 @@
       "jobName": "paragraph_1573161585794_630658218",
       "id": "20191009-042751_2109019779",
       "dateCreated": "2019-11-07 21:19:45.795",
-      "dateStarted": "2019-11-08 00:36:33.819",
-      "dateFinished": "2019-11-08 00:36:33.826",
+      "dateStarted": "2019-11-08 05:20:35.402",
+      "dateFinished": "2019-11-08 05:20:35.407",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Load MovieLens Data from GroupLens",
-      "text": "%sh\npwd # /var/lib/zeppelin\n\n# copy bakery data from s3 bucket\nDIR\u003d\"ml-100k\"\nif [ -d $DIR ]; then\n    echo \"$DIR exist\"\nelse \n    wget http://files.grouplens.org/datasets/movielens/ml-100k.zip \u0026\u0026 unzip ml-100k.zip\nfi\n\n# ls -alh $DIR\n\n# copy from local file system (/var/lib/zeppelin) to the destination file system (/user/zeppelin)\nhadoop fs -put -f  $DIR/u.* .\necho\nhadoop fs -ls -h u.*",
+      "text": "%sh\nDIR\u003d\"ml-100k\"\nif [ -d $DIR ]; then\n    echo \"$DIR exist\"\nelse \n    wget http://files.grouplens.org/datasets/movielens/ml-100k.zip \u0026\u0026 unzip ml-100k.zip\nfi\n\n# ls -alh $DIR\n\n# copy from local file system (/var/lib/zeppelin) to the destination file system (/user/zeppelin)\nhadoop fs -put -f  $DIR/u.* .\necho\nhadoop fs -ls -h u.*",
       "user": "anonymous",
-      "dateUpdated": "2019-11-08 00:36:38.009",
+      "dateUpdated": "2019-11-08 05:20:35.502",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -196,7 +196,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "/var/lib/zeppelin\nml-100k exist\n\n-rw-r--r--   1 zeppelin hadoop      1.9 M 2019-11-08 00:36 u.data\n-rw-r--r--   1 zeppelin hadoop        202 2019-11-08 00:36 u.genre\n-rw-r--r--   1 zeppelin hadoop         36 2019-11-08 00:36 u.info\n-rw-r--r--   1 zeppelin hadoop    230.8 K 2019-11-08 00:36 u.item\n-rw-r--r--   1 zeppelin hadoop        193 2019-11-08 00:36 u.occupation\n-rw-r--r--   1 zeppelin hadoop     22.1 K 2019-11-08 00:36 u.user\n"
+            "data": "ml-100k exist\n\n-rw-r--r--   1 zeppelin hadoop      1.9 M 2019-11-08 05:20 u.data\n-rw-r--r--   1 zeppelin hadoop        202 2019-11-08 05:20 u.genre\n-rw-r--r--   1 zeppelin hadoop         36 2019-11-08 05:20 u.info\n-rw-r--r--   1 zeppelin hadoop    230.8 K 2019-11-08 05:20 u.item\n-rw-r--r--   1 zeppelin hadoop        193 2019-11-08 05:20 u.occupation\n-rw-r--r--   1 zeppelin hadoop     22.1 K 2019-11-08 05:20 u.user\n"
           }
         ]
       },
@@ -204,16 +204,16 @@
       "jobName": "paragraph_1573161585795_2012219506",
       "id": "20191009-042907_1768707497",
       "dateCreated": "2019-11-07 21:19:45.795",
-      "dateStarted": "2019-11-08 00:36:38.023",
-      "dateFinished": "2019-11-08 00:36:42.848",
+      "dateStarted": "2019-11-08 05:20:35.512",
+      "dateFinished": "2019-11-08 05:20:40.244",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Load CSV Data into DataFrame",
-      "text": "%spark.pyspark\n# u.data source schema: user id | item id | rating | timestamp\ndataSchema \u003d StructType([\n    StructField(\u0027user_id\u0027, IntegerType(), True),\n    StructField(\u0027item_id\u0027, IntegerType(), True),\n    StructField(\u0027rating\u0027, IntegerType(), True),\n    StructField(\u0027timestamp\u0027, IntegerType(), True)\n])\n\nratingsDF_0 \u003d spark.read \\\n    .format(\"csv\") \\\n    .option(\"header\", \"false\") \\\n    .option(\"delimiter\", \"\\t\") \\\n    .load(\"u.data\", schema\u003ddataSchema)\n\nratingsDF_0.show(10)\nratingsDF_0.count()",
+      "text": "%spark.pyspark\n# u.data source schema: user id | item id | rating | timestamp\ndataSchema \u003d StructType([\n    StructField(\u0027user_id\u0027, IntegerType(), True),\n    StructField(\u0027item_id\u0027, IntegerType(), True),\n    StructField(\u0027rating\u0027, IntegerType(), True),\n    StructField(\u0027timestamp\u0027, IntegerType(), True)\n])\n\nratingsDF \u003d spark.read \\\n    .format(\"csv\") \\\n    .option(\"header\", \"false\") \\\n    .option(\"delimiter\", \"\\t\") \\\n    .load(\"u.data\", schema\u003ddataSchema)\n\nratingsDF.show(10, False)\nratingsDF.count()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-08 00:36:45.277",
+      "dateUpdated": "2019-11-08 05:20:40.318",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -256,7 +256,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "+-------+-------+------+---------+\n|user_id|item_id|rating|timestamp|\n+-------+-------+------+---------+\n|    196|    242|     3|881250949|\n|    186|    302|     3|891717742|\n|     22|    377|     1|878887116|\n|    244|     51|     2|880606923|\n|    166|    346|     1|886397596|\n|    298|    474|     4|884182806|\n|    115|    265|     2|881171488|\n|    253|    465|     5|891628467|\n|    305|    451|     3|886324817|\n|      6|     86|     3|883603013|\n+-------+-------+------+---------+\nonly showing top 10 rows\n\n100000\n"
+            "data": "+-------+-------+------+---------+\n|user_id|item_id|rating|timestamp|\n+-------+-------+------+---------+\n|196    |242    |3     |881250949|\n|186    |302    |3     |891717742|\n|22     |377    |1     |878887116|\n|244    |51     |2     |880606923|\n|166    |346    |1     |886397596|\n|298    |474    |4     |884182806|\n|115    |265    |2     |881171488|\n|253    |465    |5     |891628467|\n|305    |451    |3     |886324817|\n|6      |86     |3     |883603013|\n+-------+-------+------+---------+\nonly showing top 10 rows\n\n100000\n"
           }
         ]
       },
@@ -267,8 +267,8 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d178",
-            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d179"
+            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d428",
+            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d429"
           ],
           "interpreterSettingId": "spark"
         }
@@ -277,16 +277,16 @@
       "jobName": "paragraph_1573161585796_1293011902",
       "id": "20191009-044129_2035687603",
       "dateCreated": "2019-11-07 21:19:45.796",
-      "dateStarted": "2019-11-08 00:36:45.294",
-      "dateFinished": "2019-11-08 00:36:55.131",
+      "dateStarted": "2019-11-08 05:20:40.330",
+      "dateFinished": "2019-11-08 05:20:40.994",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Load CSV Data into DataFrame",
-      "text": "%spark.pyspark\n# u.item source schema: movie id | movie title ...\nitemSchema \u003d StructType([\n    StructField(\u0027movie_id\u0027, IntegerType(), True),\n    StructField(\u0027title\u0027, StringType(), True)\n])\n\nitemsDF \u003d spark.read \\\n    .format(\"csv\") \\\n    .option(\"header\", \"false\") \\\n    .option(\"delimiter\", \"|\") \\\n    .load(\"u.item\", schema\u003ditemSchema)\n\nitemsDF.show(10)\nitemsDF.count()",
+      "text": "%spark.pyspark\n# u.item source schema: movie id | movie title ...\nitemSchema \u003d StructType([\n    StructField(\u0027movie_id\u0027, IntegerType(), True),\n    StructField(\u0027title\u0027, StringType(), True)\n])\n\nitemsDF \u003d spark.read \\\n    .format(\"csv\") \\\n    .option(\"header\", \"false\") \\\n    .option(\"delimiter\", \"|\") \\\n    .load(\"u.item\", schema\u003ditemSchema)\n\nitemsDF.show(10, False)\nitemsDF.count()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-08 00:36:58.040",
+      "dateUpdated": "2019-11-08 05:20:41.031",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -329,7 +329,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "+--------+--------------------+\n|movie_id|               title|\n+--------+--------------------+\n|       1|    Toy Story (1995)|\n|       2|    GoldenEye (1995)|\n|       3|   Four Rooms (1995)|\n|       4|   Get Shorty (1995)|\n|       5|      Copycat (1995)|\n|       6|Shanghai Triad (Y...|\n|       7|Twelve Monkeys (1...|\n|       8|         Babe (1995)|\n|       9|Dead Man Walking ...|\n|      10|  Richard III (1995)|\n+--------+--------------------+\nonly showing top 10 rows\n\n1682\n"
+            "data": "+--------+----------------------------------------------------+\n|movie_id|title                                               |\n+--------+----------------------------------------------------+\n|1       |Toy Story (1995)                                    |\n|2       |GoldenEye (1995)                                    |\n|3       |Four Rooms (1995)                                   |\n|4       |Get Shorty (1995)                                   |\n|5       |Copycat (1995)                                      |\n|6       |Shanghai Triad (Yao a yao yao dao waipo qiao) (1995)|\n|7       |Twelve Monkeys (1995)                               |\n|8       |Babe (1995)                                         |\n|9       |Dead Man Walking (1995)                             |\n|10      |Richard III (1995)                                  |\n+--------+----------------------------------------------------+\nonly showing top 10 rows\n\n1682\n"
           }
         ]
       },
@@ -340,8 +340,8 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d180",
-            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d181"
+            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d430",
+            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d431"
           ],
           "interpreterSettingId": "spark"
         }
@@ -350,91 +350,16 @@
       "jobName": "paragraph_1573170957319_-724857282",
       "id": "20191107-235557_158160591",
       "dateCreated": "2019-11-07 23:55:57.319",
-      "dateStarted": "2019-11-08 00:36:58.056",
-      "dateFinished": "2019-11-08 00:36:58.425",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "title": "Write, Read, Load Parquet Data",
-      "text": "%spark.pyspark\nratingsDF_0.write.parquet(\u0027output/movie_data_parquet\u0027, mode\u003d\u0027overwrite\u0027)\nratingsDF_1 \u003d spark.read.parquet(\u0027output/movie_data_parquet\u0027)\n\nratingsDF_1.show(5)\nratingsDF_1.count()",
-      "user": "anonymous",
-      "dateUpdated": "2019-11-08 00:37:03.411",
-      "config": {
-        "lineNumbers": true,
-        "tableHide": false,
-        "editorSetting": {
-          "language": "python",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "selectedInterpreter": {
-          "name": "spark.pyspark",
-          "profile": "pyspark",
-          "isCustom": false,
-          "editorLanguage": "python",
-          "className": "org.apache.zeppelin.spark.PySparkInterpreter",
-          "isDefault": false
-        },
-        "colWidth": 12.0,
-        "editorMode": "ace/mode/python",
-        "fontSize": 9.0,
-        "editorHide": false,
-        "title": true,
-        "results": [
-          {
-            "graph": {
-              "mode": "table",
-              "height": 300.0,
-              "optionOpen": false
-            }
-          }
-        ],
-        "enabled": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "+-------+-------+------+---------+\n|user_id|item_id|rating|timestamp|\n+-------+-------+------+---------+\n|    196|    242|     3|881250949|\n|    186|    302|     3|891717742|\n|     22|    377|     1|878887116|\n|    244|     51|     2|880606923|\n|    166|    346|     1|886397596|\n+-------+-------+------+---------+\nonly showing top 5 rows\n\n100000\n"
-          }
-        ]
-      },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d182",
-            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d183",
-            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d184",
-            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d185"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
-      "apps": [],
-      "jobName": "paragraph_1573161585796_217121452",
-      "id": "20191010-052611_90769380",
-      "dateCreated": "2019-11-07 21:19:45.796",
-      "dateStarted": "2019-11-08 00:37:03.424",
-      "dateFinished": "2019-11-08 00:37:05.459",
+      "dateStarted": "2019-11-08 05:20:41.041",
+      "dateFinished": "2019-11-08 05:20:41.348",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Create Temporary View of Data and Query",
-      "text": "%spark.pyspark\n\nratingsDF_1.createOrReplaceTempView(\"rating_table_tmp\")\n\nratingsDF_2 \u003d spark.sql(\"SELECT item_id, rating, user_id, CAST(timestamp as timestamp) as date_time \" +\n                          \"FROM rating_table_tmp \" +\n                          \"ORDER BY item_id, rating, user_id\")\n\nprint \"ratingsDF type:\", type(ratingsDF)\n\nratingsDF_2.show(5)\nratingsDF_2.count()",
+      "text": "%spark.pyspark\n\nratingsDF.createOrReplaceTempView(\"rating_table_tmp\")\n\nratingsDF_2 \u003d spark.sql(\"SELECT item_id, rating, user_id, CAST(timestamp as timestamp) as date_time \" +\n                          \"FROM rating_table_tmp \" +\n                          \"ORDER BY item_id, rating, user_id\")\n\nratingsDF_2.show(10, False)\nratingsDF_2.count()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-08 00:37:09.062",
+      "dateUpdated": "2019-11-08 05:20:41.441",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -477,7 +402,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "ratingsDF type: \u003cclass \u0027pyspark.sql.dataframe.DataFrame\u0027\u003e\n+-------+------+-------+-------------------+\n|item_id|rating|user_id|          date_time|\n+-------+------+-------+-------------------+\n|      1|     1|     15|1997-11-13 21:13:55|\n|      1|     1|    199|1998-01-02 23:14:14|\n|      1|     1|    331|1997-10-18 17:42:47|\n|      1|     1|    424|1997-11-30 03:11:33|\n|      1|     1|    463|1998-03-21 04:04:35|\n+-------+------+-------+-------------------+\nonly showing top 5 rows\n\n100000\n"
+            "data": "+-------+------+-------+-------------------+\n|item_id|rating|user_id|date_time          |\n+-------+------+-------+-------------------+\n|1      |1     |15     |1997-11-13 21:13:55|\n|1      |1     |199    |1998-01-02 23:14:14|\n|1      |1     |331    |1997-10-18 17:42:47|\n|1      |1     |424    |1997-11-30 03:11:33|\n|1      |1     |463    |1998-03-21 04:04:35|\n|1      |1     |609    |1998-02-08 00:03:05|\n|1      |1     |761    |1997-10-07 02:08:14|\n|1      |1     |865    |1997-11-21 20:17:04|\n|1      |2     |49     |1998-02-21 13:44:11|\n|1      |2     |59     |1998-02-23 03:04:13|\n+-------+------+-------+-------------------+\nonly showing top 10 rows\n\n100000\n"
           }
         ]
       },
@@ -488,9 +413,9 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d186",
-            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d187",
-            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d188"
+            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d432",
+            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d433",
+            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d434"
           ],
           "interpreterSettingId": "spark"
         }
@@ -499,16 +424,16 @@
       "jobName": "paragraph_1573161585796_891183216",
       "id": "20191009-050109_648011188",
       "dateCreated": "2019-11-07 21:19:45.797",
-      "dateStarted": "2019-11-08 00:37:09.075",
-      "dateFinished": "2019-11-08 00:37:12.784",
+      "dateStarted": "2019-11-08 05:20:41.451",
+      "dateFinished": "2019-11-08 05:20:45.124",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Replace Temporary View with New Query",
-      "text": "%spark.pyspark\nratingsDF_2.createOrReplaceTempView(\"rating\")\nitemsDF.createOrReplaceTempView(\"item\")\n\n# ratingsDF \u003d spark.sql(\"SELECT * \" +\n#                       \"FROM rating, item \" +\n#                       \"WHERE rating.item_id \u003d item.movie_id\")\n\nratingsDF_3 \u003d spark.sql(\"SELECT i.title, AVG(r.rating) as avg_rating, COUNT(r.rating) as ratings \" +\n                        \"FROM rating r, item i \" +\n                        \"WHERE r.item_id \u003d i.movie_id \" +\n                        \"GROUP BY i.title \" +\n                        \"ORDER BY avg_rating DESC, ratings DESC, i.title ASC\")\n\nprint \"Top 10 Movies\"\nratingsDF_3.show(10, False)\nratingsDF_3.count()\nratingsDF_3",
+      "text": "%spark.pyspark\nratingsDF_2.createOrReplaceTempView(\"rating\")\nitemsDF.createOrReplaceTempView(\"item\")\n\ntopMoviesDF \u003d spark.sql(\"SELECT i.title, AVG(r.rating) as avg_rating, COUNT(r.rating) as ratings \" +\n                        \"FROM rating r, item i \" +\n                        \"WHERE r.item_id \u003d i.movie_id \" +\n                        \"GROUP BY i.title \" +\n                        \"ORDER BY avg_rating DESC, ratings DESC, i.title ASC\")\n\nprint \"Top 10 Movies\"\ntopMoviesDF.show(10, False)",
       "user": "anonymous",
-      "dateUpdated": "2019-11-08 00:58:08.907",
+      "dateUpdated": "2019-11-08 05:20:45.168",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -551,7 +476,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "Top 10 Movies\n+-------------------------------------------------+----------+-------+\n|title                                            |avg_rating|ratings|\n+-------------------------------------------------+----------+-------+\n|Prefontaine (1997)                               |5.0       |3      |\n|Star Kid (1997)                                  |5.0       |3      |\n|Saint of Fort Washington, The (1993)             |5.0       |2      |\n|Santa with Muscles (1996)                        |5.0       |2      |\n|Aiqing wansui (1994)                             |5.0       |1      |\n|Entertaining Angels: The Dorothy Day Story (1996)|5.0       |1      |\n|Great Day in Harlem, A (1994)                    |5.0       |1      |\n|Marlene Dietrich: Shadow and Light (1996)        |5.0       |1      |\n|Someone Else\u0027s America (1995)                    |5.0       |1      |\n|They Made Me a Criminal (1939)                   |5.0       |1      |\n+-------------------------------------------------+----------+-------+\nonly showing top 10 rows\n\nDataFrame[title: string, avg_rating: double, ratings: bigint]\n"
+            "data": "Top 10 Movies\n+-------------------------------------------------+----------+-------+\n|title                                            |avg_rating|ratings|\n+-------------------------------------------------+----------+-------+\n|Prefontaine (1997)                               |5.0       |3      |\n|Star Kid (1997)                                  |5.0       |3      |\n|Saint of Fort Washington, The (1993)             |5.0       |2      |\n|Santa with Muscles (1996)                        |5.0       |2      |\n|Aiqing wansui (1994)                             |5.0       |1      |\n|Entertaining Angels: The Dorothy Day Story (1996)|5.0       |1      |\n|Great Day in Harlem, A (1994)                    |5.0       |1      |\n|Marlene Dietrich: Shadow and Light (1996)        |5.0       |1      |\n|Someone Else\u0027s America (1995)                    |5.0       |1      |\n|They Made Me a Criminal (1939)                   |5.0       |1      |\n+-------------------------------------------------+----------+-------+\nonly showing top 10 rows\n\n"
           }
         ]
       },
@@ -562,13 +487,9 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d261",
-            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d262",
-            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d263",
-            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d264",
-            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d265",
-            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d266",
-            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d267"
+            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d435",
+            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d436",
+            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d437"
           ],
           "interpreterSettingId": "spark"
         }
@@ -577,16 +498,16 @@
       "jobName": "paragraph_1573161585797_-394721398",
       "id": "20191009-050155_2142326603",
       "dateCreated": "2019-11-07 21:19:45.797",
-      "dateStarted": "2019-11-08 00:58:08.920",
-      "dateFinished": "2019-11-08 00:58:40.530",
+      "dateStarted": "2019-11-08 05:20:45.184",
+      "dateFinished": "2019-11-08 05:20:50.363",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Native Zeppelin Visualization Based on SQL Query",
-      "text": "%sql\nSELECT i.title, AVG(r.rating) as avg_rating, COUNT(r.rating) as ratings\nFROM rating r, item i\nWHERE r.item_id \u003d i.movie_id\nGROUP BY i.title\nORDER BY avg_rating DESC, ratings DESC, i.title ASC",
+      "text": "%sql\nWITH tmp_table AS (\n    SELECT i.title, AVG(r.rating) as avg_rating, COUNT(r.rating) as ratings\n    FROM rating r\n    JOIN item i ON (r.item_id \u003d i.movie_id)\n    GROUP BY i.title)\n    \nSELECT title, CAST(avg_rating AS DECIMAL(38,2)), ratings\nFROM tmp_table\nWHERE avg_rating \u003e\u003d ${avgRatingMin\u003d4} AND ratings \u003e\u003d ${RatingsMin\u003d2}\nORDER BY avg_rating ASC, ratings DESC, title ASC\nLIMIT 25",
       "user": "anonymous",
-      "dateUpdated": "2019-11-08 01:06:21.066",
+      "dateUpdated": "2019-11-08 05:30:45.133",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -604,16 +525,17 @@
         "results": {
           "0": {
             "graph": {
-              "mode": "scatterChart",
-              "height": 300.0,
+              "mode": "multiBarChart",
+              "height": 419.641,
               "optionOpen": false,
               "setting": {
                 "table": {
                   "tableGridState": {},
                   "tableColumnTypeState": {
                     "names": {
-                      "item": "string",
-                      "count": "string"
+                      "title": "string",
+                      "avg_rating": "string",
+                      "ratings": "string"
                     },
                     "updated": false
                   },
@@ -647,14 +569,14 @@
                 },
                 "pieChart": {},
                 "scatterChart": {
-                  "xAxis": {
-                    "name": "ratings",
-                    "index": 2.0,
-                    "aggr": "sum"
-                  },
                   "yAxis": {
                     "name": "avg_rating",
                     "index": 1.0,
+                    "aggr": "sum"
+                  },
+                  "xAxis": {
+                    "name": "ratings",
+                    "index": 2.0,
                     "aggr": "sum"
                   }
                 }
@@ -666,34 +588,62 @@
                   "aggr": "sum"
                 }
               ],
-              "groups": [],
+              "groups": [
+                {
+                  "name": "title",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
               "values": [
                 {
                   "name": "ratings",
                   "index": 2.0,
                   "aggr": "sum"
                 }
-              ]
+              ],
+              "commonSetting": {}
             },
             "helium": {}
+          },
+          "1": {
+            "graph": {
+              "mode": "table",
+              "height": 86.0,
+              "optionOpen": false
+            }
           }
         },
         "enabled": true
       },
       "settings": {
-        "params": {},
-        "forms": {}
+        "params": {
+          "avgRating": "4",
+          "avgRatingMin": "4",
+          "ratingMin": "2",
+          "RatingsMin": "100"
+        },
+        "forms": {
+          "avgRatingMin": {
+            "type": "TextBox",
+            "name": "avgRatingMin",
+            "defaultValue": "4",
+            "hidden": false
+          },
+          "RatingsMin": {
+            "type": "TextBox",
+            "name": "RatingsMin",
+            "defaultValue": "2",
+            "hidden": false
+          }
+        }
       },
       "results": {
         "code": "SUCCESS",
         "msg": [
           {
             "type": "TABLE",
-            "data": "title\tavg_rating\tratings\nPrefontaine (1997)\t5.0\t3\nStar Kid (1997)\t5.0\t3\nSaint of Fort Washington, The (1993)\t5.0\t2\nSanta with Muscles (1996)\t5.0\t2\nAiqing wansui (1994)\t5.0\t1\nEntertaining Angels: The Dorothy Day Story (1996)\t5.0\t1\nGreat Day in Harlem, A (1994)\t5.0\t1\nMarlene Dietrich: Shadow and Light (1996) \t5.0\t1\nSomeone Else\u0027s America (1995)\t5.0\t1\nThey Made Me a Criminal (1939)\t5.0\t1\nPather Panchali (1955)\t4.625\t8\nMaya Lin: A Strong Clear Vision (1994)\t4.5\t4\nAnna (1996)\t4.5\t2\nEverest (1998)\t4.5\t2\nSome Mother\u0027s Son (1996)\t4.5\t2\nClose Shave, A (1995)\t4.491071428571429\t112\nSchindler\u0027s List (1993)\t4.466442953020135\t298\nWrong Trousers, The (1993)\t4.466101694915254\t118\nCasablanca (1942)\t4.45679012345679\t243\nWallace \u0026 Gromit: The Best of Aardman Animation (1996)\t4.447761194029851\t67\nShawshank Redemption, The (1994)\t4.445229681978798\t283\nRear Window (1954)\t4.3875598086124405\t209\nUsual Suspects, The (1995)\t4.385767790262173\t267\nStar Wars (1977)\t4.3584905660377355\t583\n12 Angry Men (1957)\t4.344\t125\nThird Man, The (1949)\t4.333333333333333\t72\nBitter Sugar (Azucar Amargo) (1996)\t4.333333333333333\t3\nLetter From Death Row, A (1998)\t4.333333333333333\t3\nCitizen Kane (1941)\t4.292929292929293\t198\nSome Folks Call It a Sling Blade (1993)\t4.2926829268292686\t41\nTo Kill a Mockingbird (1962)\t4.292237442922374\t219\nOne Flew Over the Cuckoo\u0027s Nest (1975)\t4.291666666666667\t264\nSilence of the Lambs, The (1991)\t4.28974358974359\t390\nNorth by Northwest (1959)\t4.284916201117318\t179\nGodfather, The (1972)\t4.283292978208232\t413\nSecrets \u0026 Lies (1996)\t4.265432098765432\t162\nGood Will Hunting (1997)\t4.262626262626263\t198\nShall We Dance? (1996)\t4.260869565217392\t46\nManchurian Candidate, The (1962)\t4.259541984732825\t131\nDr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb (1963)\t4.252577319587629\t194\nRaiders of the Lost Ark (1981)\t4.252380952380952\t420\nVertigo (1958)\t4.251396648044692\t179\nKaspar Hauser (1993)\t4.25\t8\nCrossfire (1947)\t4.25\t4\nInnocents, The (1961)\t4.25\t4\nTitanic (1997)\t4.2457142857142856\t350\nLawrence of Arabia (1962)\t4.23121387283237\t173\nPaths of Glory (1957)\t4.212121212121212\t33\nMaltese Falcon, The (1941)\t4.2101449275362315\t138\nEmpire Strikes Back, The (1980)\t4.204359673024523\t367\nBoot, Das (1981)\t4.203980099502488\t201\nSunset Blvd. (1950)\t4.2\t65\nFaust (1994)\t4.2\t5\nStonewall (1995)\t4.2\t5\nSling Blade (1996)\t4.198529411764706\t136\nAs Good As It Gets (1997)\t4.196428571428571\t112\nAffair to Remember, An (1957)\t4.1923076923076925\t26\nGodfather: Part II, The (1974)\t4.186602870813397\t209\nAfrican Queen, The (1951)\t4.184210526315789\t152\nBridge on the River Kwai, The (1957)\t4.175757575757576\t165\nCinema Paradiso (1988)\t4.1735537190082646\t121\nPrincess Bride, The (1987)\t4.172839506172839\t324\nAmadeus (1984)\t4.163043478260869\t276\nL.A. Confidential (1997)\t4.161616161616162\t297\nFargo (1996)\t4.155511811023622\t508\nRaise the Red Lantern (1991)\t4.155172413793103\t58\nBraveheart (1995)\t4.151515151515151\t297\nThin Man, The (1934)\t4.15\t60\nBlade Runner (1982)\t4.138181818181818\t275\nHenry V (1989)\t4.137096774193548\t124\nChinatown (1974)\t4.136054421768708\t147\nKilling Fields, The (1984)\t4.132231404958677\t121\nWaiting for Guffman (1996)\t4.127659574468085\t47\nA Chef in Love (1996)\t4.125\t8\nMr. Smith Goes to Washington (1939)\t4.123809523809523\t105\nIt\u0027s a Wonderful Life (1946)\t4.121212121212121\t231\nTaxi Driver (1976)\t4.1208791208791204\t182\nRaging Bull (1980)\t4.120689655172414\t116\nManon of the Spring (Manon des sources) (1986)\t4.120689655172414\t58\nPhiladelphia Story, The (1940)\t4.115384615384615\t104\nNotorious (1946)\t4.115384615384615\t52\nHorseman on the Roof, The (Hussard sur le toit, Le) (1995)\t4.111111111111111\t9\nJean de Florette (1986)\t4.109375\t64\nGrand Day Out, A (1992)\t4.106060606060606\t66\nGreat Escape, The (1963)\t4.104838709677419\t124\nGraduate, The (1967)\t4.104602510460251\t239\nRoman Holiday (1953)\t4.102941176470588\t68\nHigh Noon (1952)\t4.1022727272727275\t88\nPsycho (1960)\t4.100418410041841\t239\nApt Pupil (1998)\t4.1\t160\nTreasure of the Sierra Madre, The (1948)\t4.1\t80\nRan (1985)\t4.1\t70\nLaura (1944)\t4.1\t40\nFresh (1994)\t4.1\t10\nHoop Dreams (1994)\t4.094017094017094\t117\nArsenic and Old Lace (1944)\t4.078260869565217\t115\nWizard of Oz, The (1939)\t4.0772357723577235\t246\nGlory (1989)\t4.076023391812866\t171\nMonty Python and the Holy Grail (1974)\t4.0664556962025316\t316\nOnce Were Warriors (1994)\t4.064516129032258\t31\nMuch Ado About Nothing (1993)\t4.0625\t176\nPulp Fiction (1994)\t4.060913705583756\t394\nThree Colors: Red (1994)\t4.0602409638554215\t83\nSting, The (1973)\t4.058091286307054\t241\nChristmas Carol, A (1938)\t4.057971014492754\t69\nLone Star (1996)\t4.053475935828877\t187\n39 Steps, The (1935)\t4.0508474576271185\t59\nEat Drink Man Woman (1994)\t4.05\t80\nParadise Lost: The Child Murders at Robin Hood Hills (1996)\t4.05\t20\nTop Hat (1935)\t4.0476190476190474\t21\nAll About Eve (1950)\t4.045454545454546\t66\nPersuasion (1995)\t4.045454545454546\t44\nWhen We Were Kings (1996)\t4.045454545454546\t44\nApocalypse Now (1979)\t4.04524886877828\t221\nFugitive, The (1993)\t4.044642857142857\t336\nMy Man Godfrey (1936)\t4.037037037037037\t27\nAlien (1979)\t4.034364261168385\t291\nQuiet Man, The (1952)\t4.029850746268656\t67\nStrictly Ballroom (1992)\t4.028846153846154\t104\nBig Sleep, The (1946)\t4.027397260273973\t73\nMan Who Would Be King, The (1975)\t4.025\t80\nWild Bunch, The (1969)\t4.023255813953488\t43\nGreat Dictator, The (1940)\t4.021739130434782\t46\nGandhi (1982)\t4.02051282051282\t195\nTo Catch a Thief (1955)\t4.02\t50\nThree Colors: Blue (1993)\t4.015625\t64\nIt Happened One Night (1934)\t4.012345679012346\t81\nSense and Sensibility (1995)\t4.0111940298507465\t268\nHamlet (1996)\t4.011111111111111\t90\nReturn of the Jedi (1983)\t4.007889546351085\t507\nNikita (La Femme Nikita) (1990)\t4.0078740157480315\t127\nTerminator 2: Judgment Day (1991)\t4.0067796610169495\t295\nDuck Soup (1933)\t4.0\t93\nDial M for Murder (1954)\t4.0\t68\nWings of Desire (1987)\t4.0\t57\nHis Girl Friday (1940)\t4.0\t56\nM (1931)\t4.0\t44\nPriest (1994)\t4.0\t40\nFor Whom the Bell Tolls (1943)\t4.0\t20\nHard Eight (1996)\t4.0\t15\nSafe (1995)\t4.0\t13\nWonderful, Horrible Life of Leni Riefenstahl, The (1993)\t4.0\t10\nMargaret\u0027s Museum (1995)\t4.0\t6\nWhole Wide World, The (1996)\t4.0\t6\nWorld of Apu, The (Apur Sansar) (1959)\t4.0\t6\nCosi (1996)\t4.0\t4\nFille seule, La (A Single Girl) (1995)\t4.0\t4\nPerfect Candidate, A (1996)\t4.0\t4\nC�r�monie, La (1995)\t4.0\t3\nWedding Gift, The (1994)\t4.0\t3\nButcher Boy, The (1998)\t4.0\t2\nCelestial Clockwork (1994)\t4.0\t2\nGolden Earrings (1947)\t4.0\t2\nNico Icon (1995)\t4.0\t2\nBig Bang Theory, The (1994)\t4.0\t1\nBrothers in Trouble (1995)\t4.0\t1\nDamsel in Distress, A (1937)\t4.0\t1\nDeath in Brunswick (1991)\t4.0\t1\nDesert Winds (1995)\t4.0\t1\nFarmer \u0026 Chase (1995)\t4.0\t1\nGate of Heavenly Peace, The (1995)\t4.0\t1\nHe Walked by Night (1948)\t4.0\t1\nI Don\u0027t Want to Talk About It (De eso no se habla) (1993)\t4.0\t1\nJupiter\u0027s Wife (1994)\t4.0\t1\nKiller: A Journal of Murder (1995)\t4.0\t1\nLady of Burlesque (1943)\t4.0\t1\nMamma Roma (1962)\t4.0\t1\nObject of My Affection, The (1998)\t4.0\t1\nSpanish Prisoner, The (1997)\t4.0\t1\nTokyo Fist (1995)\t4.0\t1\nWindow to Paris (1994)\t4.0\t1\nWings of Courage (1995)\t4.0\t1\nWitness (1985)\t4.0\t1\nBabe (1995)\t3.9954337899543377\t219\nCool Hand Luke (1967)\t3.9939024390243905\t164\nSingin\u0027 in the Rain (1952)\t3.9927007299270074\t137\nPatton (1970)\t3.9926470588235294\t136\nKolya (1996)\t3.9914529914529915\t117\nReservoir Dogs (1992)\t3.9864864864864864\t148\nRoom with a View, A (1986)\t3.985074626865672\t134\nSome Like It Hot (1959)\t3.984375\t128\nMy Life as a Dog (Mitt liv som hund) (1985)\t3.978494623655914\t93\nFarewell My Concubine (1993)\t3.9782608695652173\t46\nRebecca (1940)\t3.9696969696969697\t66\n2001: A Space Odyssey (1968)\t3.969111969111969\t259\nLocal Hero (1983)\t3.9682539682539684\t63\nDie xue shuang xiong (Killer, The) (1989)\t3.967741935483871\t31\nPostino, Il (1994)\t3.9672131147540983\t183\nBeautiful Thing (1996)\t3.9655172413793105\t29\nAntonia\u0027s Line (1995)\t3.9565217391304346\t69\nCat on a Hot Tin Roof (1958)\t3.9516129032258065\t62\nGoodFellas (1990)\t3.9513274336283186\t226\nButch Cassidy and the Sundance Kid (1969)\t3.949074074074074\t216\nMrs. Brown (Her Majesty, Mrs. Brown) (1997)\t3.9479166666666665\t96\nAliens (1986)\t3.9471830985915495\t284\nBelle de jour (1967)\t3.945945945945946\t37\nYoung Frankenstein (1974)\t3.945\t200\nThirty-Two Short Films About Glenn Gould (1993)\t3.9444444444444446\t18\nMagnificent Seven, The (1954)\t3.9421487603305785\t121\nLost Horizon (1937)\t3.9411764705882355\t34\nRemains of the Day, The (1993)\t3.94\t150\nDay the Earth Stood Still, The (1951)\t3.9381443298969074\t97\nBrassed Off (1996)\t3.9375\t32\nApartment, The (1960)\t3.9365079365079363\t63\nShadowlands (1993)\t3.9358974358974357\t78\nTerminator, The (1984)\t3.9335548172757475\t301\nSpellbound (1945)\t3.933333333333333\t30\nApollo 13 (1995)\t3.931159420289855\t276\nIndiana Jones and the Last Crusade (1989)\t3.930513595166163\t331\nEnchanted April (1991)\t3.9285714285714284\t70\nFull Monty, The (1997)\t3.926984126984127\t315\nCharade (1963)\t3.925\t40\nPrimary Colors (1998)\t3.923076923076923\t13\nShine (1996)\t3.9224806201550386\t129\nMeet John Doe (1941)\t3.92\t25\nRight Stuff, The (1983)\t3.917197452229299\t157\nGarden of Finzi-Contini, The (Giardino dei Finzi-Contini, Il) (1970)\t3.9166666666666665\t24\nDead Poets Society (1989)\t3.9163346613545817\t251\nM*A*S*H (1970)\t3.912621359223301\t206\nIn the Name of the Father (1993)\t3.911764705882353\t102\nTouch of Evil (1958)\t3.911764705882353\t34\nAnnie Hall (1977)\t3.911111111111111\t180\nWhen Harry Met Sally... (1989)\t3.910344827586207\t290\nClockwork Orange, A (1971)\t3.909502262443439\t221\nSearching for Bobby Fischer (1993)\t3.9057971014492754\t138\nThis Is Spinal Tap (1984)\t3.905759162303665\t191\nBeing There (1979)\t3.9051724137931036\t116\nBig Night (1996)\t3.9005847953216373\t171\nLove in the Afternoon (1957)\t3.9\t10\nSophie\u0027s Choice (1982)\t3.896551724137931\t58\nDead Man Walking (1995)\t3.8963210702341136\t299\nCelluloid Closet, The (1995)\t3.892857142857143\t56\nRosencrantz and Guildenstern Are Dead (1990)\t3.888888888888889\t90\nGaslight (1944)\t3.8857142857142857\t35\nTrainspotting (1996)\t3.884\t250\nStand by Me (1986)\t3.881057268722467\t227\nToy Story (1995)\t3.8783185840707963\t452\nDelicatessen (1991)\t3.876923076923077\t65\nRaising Arizona (1987)\t3.875\t256\nRuling Class, The (1972)\t3.875\t16\nDie Hard (1988)\t3.8724279835390947\t243\nGone with the Wind (1939)\t3.871345029239766\t171\nOnce Upon a Time in the West (1969)\t3.8684210526315788\t38\nUnforgiven (1992)\t3.868131868131868\t182\nForeign Correspondent (1940)\t3.8666666666666667\t15\nGay Divorcee, The (1934)\t3.8666666666666667\t15\nEast of Eden (1955)\t3.864406779661017\t59\nThree Colors: White (1994)\t3.864406779661017\t59\nHunt for Red October, The (1990)\t3.8634361233480177\t227\nGood, The Bad and The Ugly, The (1966)\t3.8613138686131387\t137\nSecret of Roan Inish, The (1994)\t3.859154929577465\t71\nAnne Frank Remembered (1995)\t3.857142857142857\t21\nBraindead (1992)\t3.857142857142857\t14\nRebel Without a Cause (1955)\t3.8555555555555556\t90\nAmistad (1997)\t3.8548387096774195\t124\nPhiladelphia (1993)\t3.854014598540146\t137\nForrest Gump (1994)\t3.853582554517134\t321\nMy Left Foot (1989)\t3.8512396694214877\t121\nSeven (Se7en) (1995)\t3.847457627118644\t236\nWalkabout (1971)\t3.8461538461538463\t26\nChasing Amy (1997)\t3.8390501319261214\t379\nBringing Up Baby (1938)\t3.838235294117647\t68\nBlues Brothers, The (1980)\t3.8366533864541834\t251\nForbidden Planet (1956)\t3.8358208955223883\t67\nBack to the Future (1985)\t3.834285714285714\t350\nE.T. the Extra-Terrestrial (1982)\t3.8333333333333335\t300\nDeer Hunter, The (1978)\t3.8333333333333335\t120\nBig Lebowski, The (1998)\t3.8333333333333335\t42\nNight on Earth (1991)\t3.8333333333333335\t36\nFarewell to Arms, A (1932)\t3.8333333333333335\t12\nRichard III (1995)\t3.831460674157303\t89\nBen-Hur (1959)\t3.8306451612903225\t124\nSwingers (1996)\t3.828025477707006\t157\nShining, The (1980)\t3.825242718446602\t206\nCold Comfort Farm (1995)\t3.824\t125\nDead Man (1995)\t3.823529411764706\t34\nBound (1996)\t3.8217054263565893\t129\nBonnie and Clyde (1967)\t3.819672131147541\t122\nHarold and Maude (1971)\t3.8181818181818183\t121\nCyrano de Bergerac (1990)\t3.8181818181818183\t66\nShallow Grave (1994)\t3.8181818181818183\t66\nBrazil (1985)\t3.8173076923076925\t208\nStreetcar Named Desire, A (1951)\t3.816326530612245\t98\nMy Fair Lady (1964)\t3.816\t125\n8 1/2 (1963)\t3.8157894736842106\t38\nStar Trek: The Wrath of Khan (1982)\t3.8155737704918034\t244\nParis Is Burning (1990)\t3.814814814814815\t27\nAladdin (1992)\t3.8127853881278537\t219\nBirds, The (1963)\t3.808641975308642\t162\nSpitfire Grill, The (1996)\t3.804123711340206\t97\nClerks (1994)\t3.804054054054054\t148\nLike Water For Chocolate (Como agua para chocolate) (1992)\t3.804054054054054\t148\nContact (1997)\t3.8035363457760316\t509\nDonnie Brasco (1997)\t3.802721088435374\t147\nWinnie the Pooh and the Blustery Day (1968)\t3.8\t75\nBefore the Rain (Pred dozhdot) (1994)\t3.8\t10\nHearts and Minds (1996)\t3.8\t5\nStripes (1981)\t3.8\t5\nTwelve Monkeys (1995)\t3.798469387755102\t392\nSabrina (1954)\t3.796875\t64\nDances with Wolves (1990)\t3.79296875\t256\nIn the Line of Fire (1993)\t3.7928994082840237\t169\nBeauty and the Beast (1991)\t3.792079207920792\t202\nCity of Lost Children, The (1995)\t3.7916666666666665\t96\nBronx Tale, A (1993)\t3.7916666666666665\t48\nAdventures of Robin Hood, The (1938)\t3.791044776119403\t67\nCrumb (1994)\t3.7901234567901234\t81\nTrust (1990)\t3.789473684210526\t19\nTo Live (Huozhe) (1994)\t3.7857142857142856\t14\nFish Called Wanda, A (1988)\t3.785425101214575\t247\nLion King, The (1994)\t3.7818181818181817\t220\nMr. Holland\u0027s Opus (1995)\t3.7781569965870307\t293\nBlue Angel, The (Blaue Engel, Der) (1930)\t3.7777777777777777\t18\nShort Cuts (1993)\t3.7761194029850746\t67\nJaws (1975)\t3.775\t280\nReturn of Martin Guerre, The (Retour de Martin Guerre, Le) (1982)\t3.772727272727273\t44\nSweet Hereafter, The (1997)\t3.772727272727273\t44\nDown by Law (1986)\t3.7714285714285714\t35\nThin Blue Line, The (1988)\t3.7714285714285714\t35\nSix Degrees of Separation (1993)\t3.77027027027027\t74\nFantasia (1940)\t3.7701149425287355\t174\nMadness of King George, The (1994)\t3.769230769230769\t91\nManhattan (1979)\t3.769230769230769\t91\nNinotchka (1939)\t3.769230769230769\t26\nDangerous Beauty (1998)\t3.769230769230769\t13\nFace/Off (1997)\t3.768041237113402\t194\nSound of Music, The (1965)\t3.765765765765766\t222\nFried Green Tomatoes (1991)\t3.764705882352941\t153\nGroundhog Day (1993)\t3.7642857142857142\t280\nUmbrellas of Cherbourg, The (Parapluies de Cherbourg, Les) (1964)\t3.761904761904762\t21\nUlee\u0027s Gold (1997)\t3.760869565217391\t184\nCry, the Beloved Country (1995)\t3.75\t24\nMicrocosmos: Le peuple de l\u0027herbe (1996)\t3.75\t24\nFour Days in September (1997)\t3.75\t12\n8 Seconds (1994)\t3.75\t4\nAngel Baby (1995)\t3.75\t4\nGuantanamera (1994)\t3.75\t4\nLamerica (1994)\t3.75\t4\nLeading Man, The (1996)\t3.75\t4\nTwo or Three Things I Know About Her (1966)\t3.75\t4\nMonty Python\u0027s Life of Brian (1979)\t3.7471264367816093\t174\nMen in Black (1997)\t3.745874587458746\t303\nGiant (1956)\t3.7450980392156863\t51\nBob Roberts (1992)\t3.7411764705882353\t85\nLiving in Oblivion (1995)\t3.740740740740741\t27\nHaunted World of Edward D. Wood Jr., The (1995)\t3.7333333333333334\t15\nBreaking the Waves (1996)\t3.72972972972973\t74\nDiva (1981)\t3.727272727272727\t66\nLooking for Richard (1996)\t3.727272727272727\t55\nBreakfast at Tiffany\u0027s (1961)\t3.7263157894736842\t95\nMary Poppins (1964)\t3.7247191011235956\t178\nWelcome to the Dollhouse (1995)\t3.7232142857142856\t112\nMiracle on 34th Street (1994)\t3.722772277227723\t101\nInspector General, The (1949)\t3.7222222222222223\t18\nBullets Over Broadway (1994)\t3.7209302325581395\t86\nJurassic Park (1993)\t3.7203065134099615\t261\nEmma (1996)\t3.7175141242937855\t177\nBeat the Devil (1954)\t3.7142857142857144\t7\nNight Flier (1997)\t3.7142857142857144\t7\nThieves (Voleurs, Les) (1996)\t3.7142857142857144\t7\nIn the Company of Men (1997)\t3.712121212121212\t66\nJerry Maguire (1996)\t3.7109375\t384\nSnow White and the Seven Dwarfs (1937)\t3.7093023255813953\t172\nBurnt By the Sun (1994)\t3.7083333333333335\t24\nShall We Dance? (1937)\t3.7058823529411766\t17\nProfessional, The (1994)\t3.704697986577181\t149\nRidicule (1996)\t3.7045454545454546\t44\nBananas (1971)\t3.7017543859649122\t57\nAmerican in Paris, An (1951)\t3.7\t50\nTin Drum, The (Blechtrommel, Die) (1979)\t3.7\t40\nField of Dreams (1989)\t3.69811320754717\t212\nLeaving Las Vegas (1995)\t3.697986577181208\t298\nRock, The (1996)\t3.693121693121693\t378\nPlatoon (1986)\t3.6929133858267718\t127\nPillow Book, The (1995)\t3.6923076923076925\t26\nFlirting With Disaster (1996)\t3.6904761904761907\t42\nKundun (1997)\t3.6904761904761907\t42\nHeathers (1989)\t3.690058479532164\t171\nIn the Bleak Midwinter (1995)\t3.6875\t16\nTime to Kill, A (1996)\t3.685344827586207\t232\nFull Metal Jacket (1987)\t3.6823529411764704\t170\nDouble vie de V�ronique, La (Double Life of Veronique, The) (1991)\t3.6818181818181817\t22\nWings of the Dove, The (1997)\t3.68\t75\nPerfect World, A (1993)\t3.68\t50\nLittle Women (1994)\t3.676470588235294\t102\nMediterraneo (1991)\t3.676470588235294\t34\nGrosse Pointe Blank (1997)\t3.675\t160\nPinocchio (1940)\t3.6732673267326734\t101\nHeavenly Creatures (1994)\t3.6714285714285713\t70\nRosewood (1997)\t3.6666666666666665\t114\nTombstone (1993)\t3.6666666666666665\t108\nAlice in Wonderland (1951)\t3.6666666666666665\t81\nFunny Face (1957)\t3.6666666666666665\t21\nMy Family (1995)\t3.6666666666666665\t21\nDaytrippers, The (1996)\t3.6666666666666665\t15\nWomen, The (1939)\t3.6666666666666665\t15\nSubUrbia (1997)\t3.6666666666666665\t12\nBand Wagon, The (1953)\t3.6666666666666665\t9\nMina Tannenbaum (1994)\t3.6666666666666665\t6\nBewegte Mann, Der (1994)\t3.6666666666666665\t3\nJoy Luck Club, The (1993)\t3.6666666666666665\t3\nLast Time I Saw Paris, The (1954)\t3.6666666666666665\t3\nMy Favorite Season (1993)\t3.6666666666666665\t3\nNelly \u0026 Monsieur Arnaud (1995)\t3.6666666666666665\t3\nQuiet Room, The (1996)\t3.6666666666666665\t3\nReal Genius (1985)\t3.6638655462184873\t119\nFour Weddings and a Funeral (1994)\t3.6613545816733066\t251\nAround the World in 80 Days (1956)\t3.6610169491525424\t59\nSome Kind of Wonderful (1987)\t3.6610169491525424\t59\nStar Trek: First Contact (1996)\t3.66027397260274\t365\nGigi (1958)\t3.658536585365854\t41\nLittle Princess, A (1995)\t3.658536585365854\t41\nEnglish Patient, The (1996)\t3.656964656964657\t481\nApostle, The (1997)\t3.6545454545454548\t55\nGhost in the Shell (Kokaku kidotai) (1995)\t3.6538461538461537\t26\nIt Could Happen to You (1994)\t3.652173913043478\t46\nMiller\u0027s Crossing (1990)\t3.651685393258427\t89\nGhost and Mrs. Muir, The (1947)\t3.6511627906976742\t43\nDave (1993)\t3.65\t180\nCasino (1995)\t3.6483516483516483\t91\nSpeed (1994)\t3.6478260869565218\t230\nQuiz Show (1994)\t3.645714285714286\t175\nRansom (1996)\t3.644194756554307\t267\nJackie Brown (1997)\t3.642857142857143\t126\nCandidate, The (1972)\t3.641025641025641\t39\nSleeper (1973)\t3.6341463414634148\t82\nMy Own Private Idaho (1991)\t3.6333333333333333\t30\nWilly Wonka and the Chocolate Factory (1971)\t3.6319018404907975\t326\nAir Force One (1997)\t3.6310904872389793\t431\nCrimson Tide (1995)\t3.6298701298701297\t154\nManhattan Murder Mystery (1993)\t3.6296296296296298\t27\nAmerican President, The (1995)\t3.6280487804878048\t164\nSelena (1997)\t3.625\t16\nWalking and Talking (1996)\t3.625\t8\nCitizen Ruth (1996)\t3.6222222222222222\t45\nCrying Game, The (1992)\t3.6218487394957983\t119\nSmoke (1995)\t3.6216216216216215\t74\nMis�rables, Les (1995)\t3.619047619047619\t21\nOrlando (1993)\t3.6176470588235294\t34\nTrue Romance (1993)\t3.6153846153846154\t104\nLove! Valour! Compassion! (1997)\t3.6153846153846154\t26\nMark of Zorro, The (1940)\t3.6153846153846154\t13\nIce Storm, The (1997)\t3.611111111111111\t108\nOthello (1995)\t3.611111111111111\t72\nPicnic (1955)\t3.611111111111111\t18\nTo Be or Not to Be (1942)\t3.611111111111111\t18\nCourage Under Fire (1996)\t3.6108597285067874\t221\nEve\u0027s Bayou (1997)\t3.609375\t64\nBride of Frankenstein (1935)\t3.608695652173913\t46\nNobody\u0027s Fool (1994)\t3.608695652173913\t46\nEd Wood (1994)\t3.601503759398496\t133\nPiano, The (1993)\t3.6011904761904763\t168\nPrimal Fear (1996)\t3.601123595505618\t178\nFly Away Home (1996)\t3.6\t180\nRainmaker, The (1997)\t3.6\t145\nMurder in the First (1995)\t3.6\t60\nMrs. Dalloway (1997)\t3.6\t15\nCement Garden, The (1993)\t3.6\t10\nFlirt (1995)\t3.6\t5\nMagic Hour, The (1998)\t3.6\t5\nRed Rock West (1992)\t3.5961538461538463\t52\nGattaca (1997)\t3.5955882352941178\t136\nPeople vs. Larry Flynt, The (1996)\t3.5953488372093023\t215\nAdventures of Priscilla, Queen of the Desert, The (1994)\t3.5945945945945947\t111\nWilliam Shakespeare\u0027s Romeo and Juliet (1996)\t3.5943396226415096\t106\nGame, The (1997)\t3.593625498007968\t251\nVanya on 42nd Street (1994)\t3.5925925925925926\t27\nMarvin\u0027s Room (1996)\t3.58974358974359\t78\nAbyss, The (1989)\t3.589403973509934\t151\nNightmare Before Christmas, The (1993)\t3.5874125874125875\t143\nBoogie Nights (1997)\t3.5873015873015874\t189\nFather of the Bride (1950)\t3.5833333333333335\t60\nCinderella (1950)\t3.5813953488372094\t129\nWidows\u0027 Peak (1994)\t3.5789473684210527\t19\nShanghai Triad (Yao a yao yao dao waipo qiao) (1995)\t3.576923076923077\t26\nSwimming with Sharks (1995)\t3.574468085106383\t47\nChungking Express (1994)\t3.5714285714285716\t28\nHour of the Pig, The (1993)\t3.5714285714285716\t14\nAparajito (1956)\t3.5714285714285716\t7\nMadame Butterfly (1995)\t3.5714285714285716\t7\nClear and Present Danger (1994)\t3.569832402234637\t179\nBetter Off Dead... (1985)\t3.569620253164557\t79\nHeat (1995)\t3.569506726457399\t223\nRob Roy (1995)\t3.5652173913043477\t92\nJungle Book, The (1994)\t3.5647058823529414\t85\nTrue Lies (1994)\t3.5625\t208\nWhen the Cats Away (Chacun cherche son chat) (1996)\t3.5625\t16\nPhenomenon (1996)\t3.557377049180328\t244\nOn Golden Pond (1981)\t3.556603773584906\t106\nNosferatu (Nosferatu, eine Symphonie des Grauens) (1922)\t3.5555555555555554\t54\nFamily Thing, A (1996)\t3.5555555555555554\t45\nExotica (1994)\t3.5555555555555554\t27\nLittle Princess, The (1939)\t3.5555555555555554\t9\nMurder, My Sweet (1944)\t3.5555555555555554\t9\nHudsucker Proxy, The (1994)\t3.5545454545454547\t110\nReturn of the Pink Panther, The (1974)\t3.5543478260869565\t92\nDon Juan DeMarco (1995)\t3.5526315789473686\t76\nGet Shorty (1995)\t3.550239234449761\t209\nMuriel\u0027s Wedding (1994)\t3.55\t100\nWhile You Were Sleeping (1995)\t3.549382716049383\t162\nLast of the Mohicans, The (1992)\t3.546875\t128\nStalker (1979)\t3.5454545454545454\t11\nSum of Us, The (1994)\t3.5454545454545454\t11\nUnzipped (1995)\t3.5454545454545454\t11\nSecret Garden, The (1993)\t3.5443037974683542\t79\nMan Without a Face, The (1993)\t3.5441176470588234\t68\nParis, Texas (1984)\t3.5434782608695654\t46\nSeventh Seal, The (Sjunde inseglet, Det) (1957)\t3.5416666666666665\t72\nSleepless in Seattle (1993)\t3.539906103286385\t213\nEdge, The (1997)\t3.5398230088495577\t113\nWhat\u0027s Eating Gilbert Grape (1993)\t3.5391304347826087\t115\nSupercop (1992)\t3.5384615384615383\t65\nHighlander (1986)\t3.5359477124183005\t153\nAmerican Werewolf in London, An (1981)\t3.5353535353535355\t99\nMy Favorite Year (1982)\t3.532258064516129\t62\nPrivate Parts (1997)\t3.53\t100\nJeffrey (1995)\t3.5294117647058822\t34\nCape Fear (1962)\t3.5232558139534884\t86\nEvil Dead II (1987)\t3.5168539325842696\t89\nDevil\u0027s Advocate, The (1997)\t3.515957446808511\t188\nHercules (1997)\t3.515151515151515\t66\nSleepers (1996)\t3.514792899408284\t169\nSneakers (1992)\t3.513333333333333\t150\nWag the Dog (1997)\t3.510948905109489\t137\nCarrie (1976)\t3.5041322314049586\t121\nSabrina (1995)\t3.5\t190\n20,000 Leagues Under the Sea (1954)\t3.5\t72\nMoll Flanders (1996)\t3.5\t42\nQueen Margot (Reine Margot, La) (1994)\t3.5\t24\nBody Snatcher, The (1945)\t3.5\t22\nAssignment, The (1997)\t3.5\t18\nHate (Haine, La) (1995)\t3.5\t18\nDark City (1998)\t3.5\t16\nCrooklyn (1994)\t3.5\t10\nIncognito (1997)\t3.5\t10\nMaybe, Maybe Not (Bewegte Mann, Der) (1994)\t3.5\t8\nN�nette et Boni (1996)\t3.5\t6\nTwisted (1996)\t3.5\t6\nColonel Chabert, Le (1994)\t3.5\t4\nGrateful Dead (1995)\t3.5\t4\nKing of the Hill (1993)\t3.5\t4\nBeans of Egypt, Maine, The (1994)\t3.5\t2\nLittle City (1998)\t3.5\t2\nMen With Guns (1997)\t3.5\t2\nSlingshot, The (1993)\t3.5\t2\nVisitors, The (Visiteurs, Les) (1993)\t3.5\t2\nDumbo (1941)\t3.4959349593495936\t123\nKoyaanisqatsi (1983)\t3.490566037735849\t53\nWhat\u0027s Love Got to Do with It (1993)\t3.488888888888889\t45\nWhen a Man Loves a Woman (1994)\t3.4871794871794872\t39\nCircle of Friends (1995)\t3.486842105263158\t76\nWedding Singer, The (1998)\t3.486111111111111\t72\nTruth About Cats \u0026 Dogs, The (1996)\t3.485294117647059\t272\nOld Yeller (1957)\t3.484375\t64\nGrifters, The (1990)\t3.4831460674157304\t89\nGhosts of Mississippi (1996)\t3.4827586206896552\t29\nTop Gun (1986)\t3.481818181818182\t220\nNell (1994)\t3.4814814814814814\t81\nFifth Element, The (1997)\t3.4771573604060912\t197\nJane Eyre (1996)\t3.4761904761904763\t63\nSex, Lies, and Videotape (1989)\t3.4752475247524752\t101\nKilling Zoe (1994)\t3.475\t40\nBackbeat (1993)\t3.473684210526316\t19\nLong Kiss Goodnight, The (1996)\t3.4702702702702704\t185\nMaverick (1994)\t3.46875\t128\nDazed and Confused (1993)\t3.46875\t64\nOne Night Stand (1997)\t3.466666666666667\t15\nThat Thing You Do! (1996)\t3.465909090909091\t176\nRestoration (1995)\t3.464788732394366\t71\nGhost (1990)\t3.4647058823529413\t170\nGlengarry Glen Ross (1992)\t3.463768115942029\t69\nKiss the Girls (1997)\t3.4615384615384617\t143\nFriday (1995)\t3.4615384615384617\t26\nRed Firecracker, Green Firecracker (1994)\t3.4615384615384617\t13\nBenny \u0026 Joon (1993)\t3.4607843137254903\t102\nImmortal Beloved (1994)\t3.4603174603174605\t63\nMenace II Society (1993)\t3.46\t50\nCon Air (1997)\t3.45985401459854\t137\nClueless (1995)\t3.458823529411765\t170\nNow and Then (1995)\t3.4583333333333335\t24\nSeven Years in Tibet (1997)\t3.458064516129032\t155\nLegends of the Fall (1994)\t3.45679012345679\t81\nMichael Collins (1996)\t3.4565217391304346\t92\nUnbearable Lightness of Being, The (1988)\t3.4565217391304346\t92\nCape Fear (1991)\t3.456140350877193\t171\nBottle Rocket (1996)\t3.4545454545454546\t44\nDesperado (1995)\t3.4536082474226806\t97\nBrothers McMullen, The (1995)\t3.452054794520548\t73\nMa vie en rose (My Life in Pink) (1997)\t3.45\t20\nRumble in the Bronx (1995)\t3.4482758620689653\t174\nLast Supper, The (1995)\t3.4482758620689653\t58\nStar Trek IV: The Voyage Home (1986)\t3.4472361809045227\t199\nMallrats (1995)\t3.4444444444444446\t54\nBlack Beauty (1994)\t3.4444444444444446\t27\nWinter Guest, The (1997)\t3.4444444444444446\t9\nunknown\t3.4444444444444446\t9\nBirdcage, The (1996)\t3.4436860068259385\t293\nScream (1996)\t3.4414225941422596\t478\nIndependence Day (ID4) (1996)\t3.438228438228438\t429\nFast, Cheap \u0026 Out of Control (1997)\t3.4375\t32\nArmy of Darkness (1993)\t3.4310344827586206\t116\nMystery Science Theater 3000: The Movie (1996)\t3.4307692307692306\t130\nDeath and the Maiden (1994)\t3.4285714285714284\t28\nIn Love and War (1996)\t3.4285714285714284\t28\nDouble Happiness (1994)\t3.4285714285714284\t7\nMan of No Importance, A (1994)\t3.4285714285714284\t7\nMercury Rising (1998)\t3.4285714285714284\t7\nBatman (1989)\t3.427860696517413\t201\nTomorrow Never Dies (1997)\t3.4277777777777776\t180\nSomewhere in Time (1980)\t3.426829268292683\t82\nBasketball Diaries, The (1995)\t3.425\t40\nAnastasia (1997)\t3.4242424242424243\t66\nConspiracy Theory (1997)\t3.4237288135593222\t295\nNight of the Living Dead (1968)\t3.421875\t64\nSet It Off (1996)\t3.4210526315789473\t19\nMighty Aphrodite (1995)\t3.4184782608695654\t184\nCrow, The (1994)\t3.417910447761194\t134\nPump Up the Volume (1990)\t3.4177215189873418\t79\nAngels and Insects (1995)\t3.4166666666666665\t72\nBlue Sky (1994)\t3.4166666666666665\t12\nMan in the Iron Mask, The (1998)\t3.4166666666666665\t12\nTwelfth Night (1996)\t3.413793103448276\t29\nMrs. Doubtfire (1993)\t3.4114583333333335\t192\nBefore Sunrise (1995)\t3.4081632653061225\t49\nCarlito\u0027s Way (1993)\t3.4074074074074074\t54\nThousand Acres, A (1997)\t3.4054054054054053\t37\nBreakdown (1997)\t3.4025974025974026\t77\nWhite Squall (1996)\t3.4\t85\nDeconstructing Harry (1997)\t3.4\t65\nOnce Upon a Time in America (1984)\t3.4\t50\nBest Men (1997)\t3.4\t5\nLate Bloomers (1996)\t3.4\t5\nLegal Deceit (1997)\t3.4\t5\nWhen Night Is Falling (1995)\t3.4\t5\nBeautiful Girls (1996)\t3.391304347826087\t115\nHappy Gilmore (1996)\t3.389261744966443\t149\nOmen, The (1976)\t3.388235294117647\t85\nDevil in a Blue Dress (1995)\t3.3859649122807016\t57\nRed Corner (1997)\t3.3859649122807016\t57\nAge of Innocence, The (1993)\t3.3846153846153846\t65\nBoys of St. Vincent, The (1993)\t3.3846153846153846\t13\nTango Lesson, The (1997)\t3.3846153846153846\t13\nClient, The (1994)\t3.381443298969072\t97\nAkira (1988)\t3.38\t50\nI Shot Andy Warhol (1996)\t3.3783783783783785\t37\nHunchback of Notre Dame, The (1996)\t3.377952755905512\t127\nCop Land (1997)\t3.3771428571428572\t175\nStealing Beauty (1996)\t3.375\t64\nEnglishman Who Went Up a Hill, But Came Down a Mountain, The (1995)\t3.375\t32\nNight Falls on Manhattan (1997)\t3.375\t32\nBad Taste (1987)\t3.375\t16\nAbsolute Power (1997)\t3.37007874015748\t127\nMirror Has Two Faces, The (1996)\t3.3636363636363638\t66\nWelcome To Sarajevo (1997)\t3.3636363636363638\t22\nThat Old Feeling (1997)\t3.3636363636363638\t11\nMy Best Friend\u0027s Wedding (1997)\t3.36046511627907\t172\nG.I. Jane (1997)\t3.36\t175\nU Turn (1997)\t3.359375\t64\nSwiss Family Robinson (1960)\t3.358974358974359\t39\nFreeway (1996)\t3.357142857142857\t42\nExecutive Decision (1996)\t3.356687898089172\t157\nDie Hard 2 (1990)\t3.355421686746988\t166\nMeet Me in St. Louis (1944)\t3.3548387096774195\t31\nPink Floyd - The Wall (1982)\t3.3508771929824563\t114\nGrease (1978)\t3.347058823529412\t170\nOld Man and the Sea, The (1958)\t3.34375\t32\nDolores Claiborne (1994)\t3.3417721518987342\t79\nYoung Poisoner\u0027s Handbook, The (1995)\t3.341463414634146\t41\nDangerous Minds (1995)\t3.3404255319148937\t47\nHow to Make an American Quilt (1995)\t3.3380281690140845\t71\nCrucible, The (1996)\t3.3376623376623376\t77\nVictor/Victoria (1982)\t3.3376623376623376\t77\nStar Trek: Generations (1994)\t3.336206896551724\t116\nFrench Kiss (1995)\t3.3333333333333335\t84\nHigher Learning (1995)\t3.3333333333333335\t30\nAlphaville (1965)\t3.3333333333333335\t12\nRadioland Murders (1994)\t3.3333333333333335\t12\nMonth by the Lake, A (1995)\t3.3333333333333335\t9\nTom \u0026 Viv (1994)\t3.3333333333333335\t9\nTrue Crime (1995)\t3.3333333333333335\t9\nWar Room, The (1993)\t3.3333333333333335\t9\nBoy\u0027s Life 2 (1997)\t3.3333333333333335\t6\nBoys (1996)\t3.3333333333333335\t6\nCure, The (1995)\t3.3333333333333335\t6\nGabbeh (1996)\t3.3333333333333335\t6\nPromesse, La (1996)\t3.3333333333333335\t6\nBoys, Les (1997)\t3.3333333333333335\t3\nInkwell, The (1994)\t3.3333333333333335\t3\nPrice Above Rubies, A (1998)\t3.3333333333333335\t3\nRendezvous in Paris (Rendez-vous de Paris, Les) (1995)\t3.3333333333333335\t3\nSword in the Stone, The (1963)\t3.3292682926829267\t82\nUnforgettable (1996)\t3.323529411764706\t34\nPretty Woman (1990)\t3.323170731707317\t164\nI.Q. (1994)\t3.3209876543209877\t81\nDesperate Measures (1998)\t3.3194444444444446\t72\nMichael (1996)\t3.319327731092437\t119\nKama Sutra: A Tale of Love (1996)\t3.3181818181818183\t22\nLittle Buddha (1993)\t3.3181818181818183\t22\nUnstrung Heroes (1995)\t3.3181818181818183\t22\nGet on the Bus (1996)\t3.3157894736842106\t38\nMission: Impossible (1996)\t3.313953488372093\t344\nJumanji (1995)\t3.3125\t96\nRudy (1993)\t3.3125\t64\nReplacement Killers, The (1998)\t3.3076923076923075\t39\nTraveller (1997)\t3.3076923076923075\t13\nIn \u0026 Out (1997)\t3.3043478260869565\t230\nThree Musketeers, The (1993)\t3.303370786516854\t89\nCopycat (1995)\t3.302325581395349\t86\nBitter Moon (1992)\t3.3\t10\nFaithful (1996)\t3.3\t10\nPonette (1996)\t3.3\t10\nWashington Square (1997)\t3.2941176470588234\t34\nUnder Siege (1992)\t3.2903225806451615\t124\nGreat Race, The (1965)\t3.2903225806451615\t31\nWalk in the Clouds, A (1995)\t3.2857142857142856\t63\nOnce Upon a Time... When We Were Colored (1995)\t3.2857142857142856\t28\nIt\u0027s My Party (1995)\t3.2857142857142856\t21\nFar From Home: The Adventures of Yellow Dog (1995)\t3.2857142857142856\t7\nHugo Pool (1997)\t3.2857142857142856\t7\nKim (1950)\t3.2857142857142856\t7\nNothing to Lose (1994)\t3.2857142857142856\t7\nParadise Road (1997)\t3.2857142857142856\t7\nYear of the Horse (1997)\t3.2857142857142856\t7\nDie Hard: With a Vengeance (1995)\t3.2847682119205297\t151\nStar Trek VI: The Undiscovered Country (1991)\t3.279503105590062\t161\nFirm, The (1993)\t3.2781456953642385\t151\nTo Die For (1995)\t3.2758620689655173\t87\nEveryone Says I Love You (1996)\t3.2738095238095237\t168\nMrs. Parker and the Vicious Circle (1994)\t3.272727272727273\t22\nThree Caballeros, The (1945)\t3.272727272727273\t22\nStrawberry and Chocolate (Fresa y chocolate) (1993)\t3.272727272727273\t11\nPeacemaker, The (1997)\t3.2720588235294117\t136\nWar, The (1994)\t3.2666666666666666\t15\nStrange Days (1995)\t3.264367816091954\t87\nHeavy Metal (1981)\t3.26027397260274\t73\nCareer Girls (1997)\t3.2564102564102564\t39\nMad City (1997)\t3.25531914893617\t47\nUp in Smoke (1978)\t3.25531914893617\t47\nJackie Chan\u0027s First Strike (1996)\t3.2551724137931033\t145\nBasquiat (1996)\t3.25\t44\nIndian Summer (1996)\t3.25\t20\nCaught (1996)\t3.25\t8\nGrace of My Heart (1996)\t3.25\t8\nHear My Song (1991)\t3.25\t8\nLosing Chase (1996)\t3.25\t8\n8 Heads in a Duffel Bag (1997)\t3.25\t4\nGrosse Fatigue (1994)\t3.25\t4\nHotel de Love (1996)\t3.25\t4\nRun of the Country, The (1995)\t3.25\t4\nSo Dear to My Heart (1949)\t3.25\t4\nSubstance of Fire, The (1996)\t3.25\t4\nAustin Powers: International Man of Mystery (1997)\t3.246153846153846\t130\nAssociate, The (1996)\t3.2439024390243905\t41\nEscape from New York (1981)\t3.241758241758242\t91\nOutbreak (1995)\t3.2403846153846154\t104\nTrees Lounge (1996)\t3.24\t50\nFearless (1993)\t3.24\t25\nNaked (1993)\t3.24\t25\nBig Blue, The (Grand bleu, Le) (1988)\t3.235294117647059\t17\nFrighteners, The (1996)\t3.234782608695652\t115\nBed of Roses (1996)\t3.2333333333333334\t60\nStarship Troopers (1997)\t3.2322274881516586\t211\nOne Fine Day (1996)\t3.232142857142857\t112\nCarrington (1995)\t3.230769230769231\t13\nRoommates (1995)\t3.230769230769231\t13\nSwitchblade Sisters (1975)\t3.230769230769231\t13\nTelling Lies in America (1997)\t3.230769230769231\t13\nWithnail and I (1987)\t3.230769230769231\t13\nBasic Instinct (1992)\t3.227722772277228\t101\nRobin Hood: Prince of Thieves (1991)\t3.2266666666666666\t75\n2 Days in the Valley (1996)\t3.225806451612903\t93\nPaper, The (1994)\t3.225\t40\nPostman, The (1997)\t3.2241379310344827\t58\nGreat Expectations (1998)\t3.2222222222222223\t27\nM. Butterfly (1993)\t3.2222222222222223\t18\nGrass Harp, The (1995)\t3.2222222222222223\t9\nSixth Man, The (1997)\t3.2222222222222223\t9\nThree Wishes (1995)\t3.2222222222222223\t9\nKalifornia (1993)\t3.2203389830508473\t59\nScream 2 (1997)\t3.2169811320754715\t106\nTwister (1996)\t3.2150170648464163\t293\nHomeward Bound: The Incredible Journey (1993)\t3.2131147540983607\t61\nMatilda (1996)\t3.210526315789474\t95\nGridlock\u0027d (1997)\t3.210526315789474\t19\nPowder (1995)\t3.2083333333333335\t48\nQuick and the Dead, The (1995)\t3.2083333333333335\t48\nYoung Guns (1988)\t3.207920792079208\t101\nGoldenEye (1995)\t3.2061068702290076\t131\nFrench Twist (Gazon maudit) (1995)\t3.2051282051282053\t39\nBulletproof (1996)\t3.204081632653061\t49\nGhost and the Darkness, The (1996)\t3.203125\t128\nTrigger Effect, The (1996)\t3.2\t35\nGo Fish (1994)\t3.2\t15\nCronos (1992)\t3.2\t10\nFear of a Black Hat (1993)\t3.2\t10\nSimple Twist of Fate, A (1994)\t3.2\t10\nWonderland (1997)\t3.2\t10\nBoys Life (1995)\t3.2\t5\nChildren of the Revolution (1996)\t3.2\t5\nOf Human Bondage (1934)\t3.2\t5\nStory of Xinghua, The (1993)\t3.2\t5\nMask, The (1994)\t3.193798449612403\t129\nForget Paris (1995)\t3.193548387096774\t62\nOscar \u0026 Lucinda (1997)\t3.1904761904761907\t21\nUp Close and Personal (1996)\t3.1882352941176473\t85\nTie Me Up! Tie Me Down! (1990)\t3.1875\t32\nInterview with the Vampire (1994)\t3.1824817518248176\t137\nMother Night (1996)\t3.1818181818181817\t22\nMy Crazy Life (Mi vida loca) (1993)\t3.1818181818181817\t11\nPassion Fish (1992)\t3.1785714285714284\t28\nBlue in the Face (1995)\t3.1777777777777776\t45\nMatchMaker, The (1997)\t3.176470588235294\t51\nMalice (1993)\t3.1739130434782608\t46\nExtreme Measures (1996)\t3.171875\t64\nNightmare on Elm Street, A (1984)\t3.171171171171171\t111\nSoul Food (1997)\t3.169491525423729\t59\nAddicted to Love (1997)\t3.1666666666666665\t54\nSmilla\u0027s Sense of Snow (1997)\t3.1666666666666665\t48\nAmateur (1994)\t3.1666666666666665\t18\nLost in Space (1998)\t3.1666666666666665\t18\nBread and Chocolate (Pane e cioccolata) (1973)\t3.1666666666666665\t12\nLittle Lord Fauntleroy (1936)\t3.1666666666666665\t12\nLove \u0026 Human Remains (1993)\t3.1666666666666665\t12\nStalingrad (1993)\t3.1666666666666665\t12\nStar Maker, The (Uomo delle stelle, L\u0027) (1995)\t3.1666666666666665\t12\nTom and Huck (1995)\t3.1666666666666665\t12\nDuoluo tianshi (1995)\t3.1666666666666665\t6\nFlower of My Secret, The (Flor de mi secreto, La) (1995)\t3.1666666666666665\t6\nOf Love and Shadows (1994)\t3.1666666666666665\t6\nBridges of Madison County, The (1995)\t3.1641791044776117\t67\nMy Fellow Americans (1996)\t3.1627906976744184\t86\nMidnight in the Garden of Good and Evil (1997)\t3.1625\t80\nCool Runnings (1993)\t3.161764705882353\t68\nKiss Me, Guido (1997)\t3.161290322580645\t31\nTin Cup (1996)\t3.160621761658031\t193\nFear (1996)\t3.159090909090909\t44\nBram Stoker\u0027s Dracula (1992)\t3.158333333333333\t120\nLiar Liar (1997)\t3.156701030927835\t485\nHome for the Holidays (1995)\t3.1551724137931036\t58\nThings to Do in Denver when You\u0027re Dead (1995)\t3.1549295774647885\t71\nCorrina, Corrina (1994)\t3.1538461538461537\t39\nOnly You (1994)\t3.1538461538461537\t39\nManny \u0026 Lo (1996)\t3.1538461538461537\t13\nDemolition Man (1993)\t3.152173913043478\t92\nEraser (1996)\t3.150485436893204\t206\nJackal, The (1997)\t3.1494252873563218\t87\nPollyanna (1960)\t3.1481481481481484\t27\nFox and the Hound, The (1981)\t3.1475409836065573\t61\nBoys on the Side (1995)\t3.1470588235294117\t34\nFallen (1998)\t3.1463414634146343\t41\nRiver Wild, The (1994)\t3.143835616438356\t146\nJack (1996)\t3.142857142857143\t70\nJust Cause (1995)\t3.142857142857143\t28\nPalmetto (1998)\t3.142857142857143\t14\nWild Reeds (1994)\t3.142857142857143\t14\nAyn Rand: A Sense of Life (1997)\t3.142857142857143\t7\nDream With the Fishes (1997)\t3.142857142857143\t7\nPurple Noon (1960)\t3.142857142857143\t7\nStargate (1994)\t3.141732283464567\t127\nCity Hall (1996)\t3.1392405063291138\t79\nLost Highway (1997)\t3.136\t125\nBye Bye, Love (1995)\t3.1333333333333333\t15\nPrincess Caraboo (1994)\t3.1333333333333333\t15\nInventing the Abbotts (1997)\t3.130434782608696\t23\nRuby in Paradise (1993)\t3.130434782608696\t23\nMother (1996)\t3.1301775147928996\t169\nKingpin (1996)\t3.1296296296296298\t162\nAristocats, The (1970)\t3.1296296296296298\t54\nJames and the Giant Peach (1996)\t3.126984126984127\t126\nFull Speed (1996)\t3.125\t8\nLove and a .45 (1994)\t3.125\t8\nSaint, The (1997)\t3.1234177215189876\t316\nNixon (1995)\t3.1222222222222222\t90\nFrom Dusk Till Dawn (1996)\t3.119565217391304\t92\nFarinelli: il castrato (1994)\t3.1176470588235294\t17\nCraft, The (1996)\t3.1153846153846154\t104\nFierce Creatures (1997)\t3.1145833333333335\t96\nStar Trek III: The Search for Spock (1984)\t3.111111111111111\t171\nAfterglow (1997)\t3.111111111111111\t18\nAndre (1994)\t3.111111111111111\t18\nGeronimo: An American Legend (1993)\t3.111111111111111\t9\nLast Dance (1996)\t3.111111111111111\t9\nMan of the Year (1995)\t3.111111111111111\t9\nDevil\u0027s Own, The (1997)\t3.1083333333333334\t240\nBad Boys (1995)\t3.1052631578947367\t57\nSurviving Picasso (1996)\t3.1052631578947367\t19\nDirty Dancing (1987)\t3.1020408163265305\t98\nWyatt Earp (1994)\t3.1\t50\nGold Diggers: The Secret of Bear Mountain (1995)\t3.1\t10\nPicture Bride (1995)\t3.1\t10\nSanta Clause, The (1994)\t3.097560975609756\t82\nAlien: Resurrection (1997)\t3.096774193548387\t124\nTimecop (1994)\t3.096774193548387\t31\nParent Trap, The (1961)\t3.095890410958904\t73\nLove Jones (1997)\t3.0952380952380953\t42\nFan, The (1996)\t3.09375\t64\nChamber, The (1996)\t3.0930232558139537\t43\nAnna Karenina (1997)\t3.090909090909091\t33\nCritical Care (1997)\t3.090909090909091\t11\nHome Alone (1990)\t3.0875912408759123\t137\nMurder at 1600 (1997)\t3.0871559633027523\t218\nLive Nude Girls (1995)\t3.0869565217391304\t23\nSpeechless (1994)\t3.0833333333333335\t36\nDragonheart (1996)\t3.0822784810126582\t158\nBilly Madison (1995)\t3.081081081081081\t37\nTin Men (1987)\t3.0784313725490198\t51\nKids in the Hall: Brain Candy (1996)\t3.076923076923077\t65\nCasper (1995)\t3.076923076923077\t52\nLife Less Ordinary, A (1997)\t3.0754716981132075\t53\nSpanking the Monkey (1994)\t3.074074074074074\t27\nBedknobs and Broomsticks (1971)\t3.0701754385964914\t57\nTo Gillian on Her 37th Birthday (1996)\t3.0681818181818183\t44\nMary Shelley\u0027s Frankenstein (1994)\t3.0677966101694913\t59\nWith Honors (1994)\t3.0652173913043477\t46\nRomy and Michele\u0027s High School Reunion (1997)\t3.061224489795918\t98\nKids (1995)\t3.061224489795918\t49\nI Know What You Did Last Summer (1997)\t3.06\t100\nBeyond Rangoon (1995)\t3.0555555555555554\t18\nSo I Married an Axe Murderer (1993)\t3.0526315789473686\t95\nStar Maps (1997)\t3.0526315789473686\t19\nAdventures of Pinocchio, The (1996)\t3.051282051282051\t39\nAce Ventura: Pet Detective (1994)\t3.0485436893203883\t103\nConan the Barbarian (1981)\t3.046728971962617\t107\nNick of Time (1995)\t3.0454545454545454\t44\nMrs. Winterbourne (1996)\t3.0454545454545454\t22\nHouse of the Spirits, The (1993)\t3.0416666666666665\t24\nGrumpier Old Men (1995)\t3.0405405405405403\t148\nArrival, The (1996)\t3.036144578313253\t83\nRef, The (1994)\t3.0344827586206895\t58\nStar Trek: The Motion Picture (1979)\t3.034188034188034\t117\nFour Rooms (1995)\t3.033333333333333\t90\nBroken Arrow (1996)\t3.031496062992126\t254\nEye for an Eye (1996)\t3.03125\t32\nHowling, The (1981)\t3.026315789473684\t38\nCook the Thief His Wife \u0026 Her Lover, The (1989)\t3.024390243902439\t82\n187 (1997)\t3.024390243902439\t41\nFirst Knight (1995)\t3.0232558139534884\t86\nJunior (1994)\t3.022222222222222\t45\nCliffhanger (1993)\t3.021505376344086\t93\nBarcelona (1994)\t3.018867924528302\t53\nFirst Wives Club, The (1996)\t3.01875\t160\nShe\u0027s the One (1996)\t3.0136986301369864\t73\nNet, The (1995)\t3.0083333333333333\t120\nDumb \u0026 Dumber (1994)\t3.0\t69\nRenaissance Man (1994)\t3.0\t43\nDisclosure (1994)\t3.0\t40\nRomeo Is Bleeding (1993)\t3.0\t37\nClockers (1995)\t3.0\t33\nShaggy Dog, The (1959)\t3.0\t30\nCrossing Guard, The (1995)\t3.0\t28\nFools Rush In (1997)\t3.0\t24\nJude (1996)\t3.0\t23\nBlink (1994)\t3.0\t19\nHouse of Yes, The (1997)\t3.0\t18\nRobert A. Heinlein\u0027s The Puppet Masters (1994)\t3.0\t18\nI\u0027m Not Rappaport (1996)\t3.0\t17\nBalto (1995)\t3.0\t16\nLosing Isaiah (1995)\t3.0\t12\nCarried Away (1996)\t3.0\t11\nBrowning Version, The (1994)\t3.0\t10\nLightning Jack (1994)\t3.0\t10\nWarriors of Virtue (1997)\t3.0\t10\nContempt (M�pris, Le) (1963)\t3.0\t9\nU.S. Marshalls (1998)\t3.0\t9\nCity of Angels (1998)\t3.0\t8\nJason\u0027s Lyric (1994)\t3.0\t8\nPenny Serenade (1941)\t3.0\t8\nRent-a-Kid (1995)\t3.0\t8\nDenise Calls Up (1995)\t3.0\t7\nFaster Pussycat! Kill! Kill! (1965)\t3.0\t7\nPompatus of Love, The (1996)\t3.0\t7\nAngel and the Badman (1947)\t3.0\t6\nKissed (1996)\t3.0\t6\nSecret Agent, The (1996)\t3.0\t6\nAbove the Rim (1994)\t3.0\t5\nBrother Minister: The Assassination of Malcolm X (1994)\t3.0\t5\nPrisoner of the Mountains (Kavkazsky Plennik) (1996)\t3.0\t5\nRomper Stomper (1992)\t3.0\t5\nC\u0027est arriv� pr�s de chez vous (1992)\t3.0\t4\nEnfer, L\u0027 (1994)\t3.0\t4\nFaces (1968)\t3.0\t4\nGerminal (1993)\t3.0\t4\nHead Above Water (1996)\t3.0\t4\nLast Klezmer: Leopold Kozlowski, His Life and Music, The (1995)\t3.0\t4\nLove Serenade (1996)\t3.0\t4\nMr. Wonderful (1993)\t3.0\t4\nNewton Boys, The (1998)\t3.0\t4\nSchizopolis (1996)\t3.0\t4\nThe Innocent (1994)\t3.0\t4\nAll Over Me (1997)\t3.0\t3\nFausto (1993)\t3.0\t3\nMondo (1996)\t3.0\t3\nNightwatch (1997)\t3.0\t3\nSavage Nights (Nuits fauves, Les) (1992)\t3.0\t3\nStranger, The (1994)\t3.0\t3\nDaniel Defoe\u0027s Robinson Crusoe (1996)\t3.0\t2\nDelta of Venus (1994)\t3.0\t2\nDestiny Turns on the Radio (1995)\t3.0\t2\nGood Man in Africa, A (1994)\t3.0\t2\nIntimate Relations (1996)\t3.0\t2\n"
-          },
-          {
-            "type": "HTML",
-            "data": "\u003cdiv class\u003d\"result-alert alert-warning\" role\u003d\"alert\"\u003e\u003cbutton type\u003d\"button\" class\u003d\"close\" data-dismiss\u003d\"alert\" aria-label\u003d\"Close\"\u003e\u003cspan aria-hidden\u003d\"true\"\u003e\u0026times;\u003c/span\u003e\u003c/button\u003e\u003cstrong\u003eOutput is truncated\u003c/strong\u003e to 1000 rows. Learn more about \u003cstrong\u003ezeppelin.spark.maxResult\u003c/strong\u003e\u003c/div\u003e\n"
+            "data": "title\tavg_rating\tratings\nReturn of the Jedi (1983)\t4.01\t507\nTerminator 2: Judgment Day (1991)\t4.01\t295\nSense and Sensibility (1995)\t4.01\t268\nNikita (La Femme Nikita) (1990)\t4.01\t127\nGandhi (1982)\t4.02\t195\nAlien (1979)\t4.03\t291\nStrictly Ballroom (1992)\t4.03\t104\nFugitive, The (1993)\t4.04\t336\nApocalypse Now (1979)\t4.05\t221\nLone Star (1996)\t4.05\t187\nPulp Fiction (1994)\t4.06\t394\nSting, The (1973)\t4.06\t241\nMuch Ado About Nothing (1993)\t4.06\t176\nMonty Python and the Holy Grail (1974)\t4.07\t316\nWizard of Oz, The (1939)\t4.08\t246\nGlory (1989)\t4.08\t171\nArsenic and Old Lace (1944)\t4.08\t115\nHoop Dreams (1994)\t4.09\t117\nGraduate, The (1967)\t4.10\t239\nPsycho (1960)\t4.10\t239\nApt Pupil (1998)\t4.10\t160\nGreat Escape, The (1963)\t4.10\t124\nIt\u0027s a Wonderful Life (1946)\t4.12\t231\nTaxi Driver (1976)\t4.12\t182\nRaging Bull (1980)\t4.12\t116\n"
           },
           {
             "type": "TEXT",
@@ -708,9 +658,9 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d270",
-            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d271",
-            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d272"
+            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d438",
+            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d439",
+            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d440"
           ],
           "interpreterSettingId": "spark"
         }
@@ -719,16 +669,16 @@
       "jobName": "paragraph_1573161585798_1054325402",
       "id": "20191106-042245_200419154",
       "dateCreated": "2019-11-07 21:19:45.798",
-      "dateStarted": "2019-11-08 01:02:41.938",
-      "dateFinished": "2019-11-08 01:02:58.881",
+      "dateStarted": "2019-11-08 05:20:50.420",
+      "dateFinished": "2019-11-08 05:20:54.576",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "title": "Write Transformed Data to Parquet Format",
-      "text": "%spark.pyspark\ndf_bakery4.write.parquet(\u0027output/daily_sales_parquet\u0027, mode\u003d\u0027overwrite\u0027)\n",
+      "title": "Write, Read, Load Parquet Data",
+      "text": "%spark.pyspark\ntopMoviesDF.write.parquet(\u0027output/movies.parquet\u0027, mode\u003d\u0027overwrite\u0027)\ntopMoviesPrqtDF \u003d spark.read.parquet(\u0027output/movies.parquet\u0027)\ntopMoviesPrqtDF.orderBy([\u0027avg_rating\u0027, \u0027ratings\u0027], ascending\u003d[0, 0]).show(10, False)\ntopMoviesPrqtDF.count()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-07 21:19:45.799",
+      "dateUpdated": "2019-11-08 05:35:06.536",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -738,12 +688,28 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
+        "selectedInterpreter": {
+          "name": "spark.pyspark",
+          "profile": "pyspark",
+          "isCustom": false,
+          "editorLanguage": "python",
+          "className": "org.apache.zeppelin.spark.PySparkInterpreter",
+          "isDefault": false
+        },
         "colWidth": 12.0,
         "editorMode": "ace/mode/python",
         "fontSize": 9.0,
         "editorHide": false,
         "title": true,
-        "results": {},
+        "results": [
+          {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false
+            }
+          }
+        ],
         "enabled": true
       },
       "settings": {
@@ -752,46 +718,93 @@
       },
       "results": {
         "code": "SUCCESS",
-        "msg": []
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------------------------------------------------+----------+-------+\n|title                                            |avg_rating|ratings|\n+-------------------------------------------------+----------+-------+\n|Prefontaine (1997)                               |5.0       |3      |\n|Star Kid (1997)                                  |5.0       |3      |\n|Santa with Muscles (1996)                        |5.0       |2      |\n|Saint of Fort Washington, The (1993)             |5.0       |2      |\n|Aiqing wansui (1994)                             |5.0       |1      |\n|Marlene Dietrich: Shadow and Light (1996)        |5.0       |1      |\n|Someone Else\u0027s America (1995)                    |5.0       |1      |\n|Great Day in Harlem, A (1994)                    |5.0       |1      |\n|Entertaining Angels: The Dorothy Day Story (1996)|5.0       |1      |\n|They Made Me a Criminal (1939)                   |5.0       |1      |\n+-------------------------------------------------+----------+-------+\nonly showing top 10 rows\n\n1664\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d497",
+            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d498",
+            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d499",
+            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d500",
+            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d501",
+            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d502",
+            "http://ip-172-31-41-170.ec2.internal:4040/jobs/job?id\u003d503"
+          ],
+          "interpreterSettingId": "spark"
+        }
       },
       "apps": [],
-      "jobName": "paragraph_1573161585798_-1481409466",
-      "id": "20191106-151740_1177114488",
-      "dateCreated": "2019-11-07 21:19:45.798",
-      "status": "READY",
-      "errorMessage": "",
+      "jobName": "paragraph_1573161585796_217121452",
+      "id": "20191010-052611_90769380",
+      "dateCreated": "2019-11-07 21:19:45.796",
+      "dateStarted": "2019-11-08 05:35:06.548",
+      "dateFinished": "2019-11-08 05:35:43.069",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "title": "",
-      "text": "%spark.pyspark\n",
+      "text": "%sh\nhadoop fs -ls -h output/movies.parquet",
       "user": "anonymous",
-      "dateUpdated": "2019-11-07 21:19:45.799",
+      "dateUpdated": "2019-11-08 05:35:49.079",
       "config": {
-        "tableHide": false,
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
         "editorSetting": {
-          "language": "python",
+          "language": "sh",
           "editOnDblClick": false,
           "completionKey": "TAB",
-          "completionSupport": true
+          "completionSupport": false
         },
-        "colWidth": 12.0,
-        "editorMode": "ace/mode/python",
-        "fontSize": 9.0,
-        "editorHide": false,
-        "results": {},
-        "enabled": true
+        "editorMode": "ace/mode/sh"
       },
       "settings": {
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Found 201 items\n-rw-r--r--   1 zeppelin hadoop          0 2019-11-08 05:35 output/movies.parquet/_SUCCESS\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00000-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00001-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00002-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.4 K 2019-11-08 05:35 output/movies.parquet/part-00003-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.4 K 2019-11-08 05:35 output/movies.parquet/part-00004-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00005-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00006-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00007-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00008-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00009-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00010-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00011-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00012-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00013-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00014-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00015-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00016-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00017-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00018-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00019-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.1 K 2019-11-08 05:35 output/movies.parquet/part-00020-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00021-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00022-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00023-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00024-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00025-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00026-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00027-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00028-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00029-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00030-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00031-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00032-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00033-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00034-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00035-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00036-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00037-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00038-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.4 K 2019-11-08 05:35 output/movies.parquet/part-00039-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00040-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00041-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00042-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00043-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00044-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.4 K 2019-11-08 05:35 output/movies.parquet/part-00045-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00046-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00047-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00048-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00049-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00050-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00051-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00052-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00053-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00054-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.4 K 2019-11-08 05:35 output/movies.parquet/part-00055-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00056-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00057-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00058-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00059-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00060-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00061-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00062-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00063-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00064-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00065-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00066-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00067-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00068-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00069-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00070-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00071-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00072-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00073-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00074-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00075-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00076-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00077-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00078-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00079-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00080-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00081-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00082-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00083-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00084-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00085-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00086-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00087-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00088-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00089-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00090-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00091-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00092-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00093-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00094-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00095-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00096-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00097-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00098-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.4 K 2019-11-08 05:35 output/movies.parquet/part-00099-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00100-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00101-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00102-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00103-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00104-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00105-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00106-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00107-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00108-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00109-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00110-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00111-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00112-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.1 K 2019-11-08 05:35 output/movies.parquet/part-00113-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00114-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00115-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00116-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00117-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00118-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00119-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00120-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00121-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.1 K 2019-11-08 05:35 output/movies.parquet/part-00122-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00123-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00124-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00125-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00126-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.1 K 2019-11-08 05:35 output/movies.parquet/part-00127-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00128-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00129-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00130-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00131-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00132-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00133-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00134-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.4 K 2019-11-08 05:35 output/movies.parquet/part-00135-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00136-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00137-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00138-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00139-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00140-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00141-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00142-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00143-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00144-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00145-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00146-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00147-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.1 K 2019-11-08 05:35 output/movies.parquet/part-00148-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00149-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00150-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00151-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00152-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.4 K 2019-11-08 05:35 output/movies.parquet/part-00153-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00154-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00155-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00156-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00157-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00158-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00159-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.1 K 2019-11-08 05:35 output/movies.parquet/part-00160-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00161-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00162-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00163-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00164-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00165-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00166-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00167-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00168-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00169-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00170-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00171-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.1 K 2019-11-08 05:35 output/movies.parquet/part-00172-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00173-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00174-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00175-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00176-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00177-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00178-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00179-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00180-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00181-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00182-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00183-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00184-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00185-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00186-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00187-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00188-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00189-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00190-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00191-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00192-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.1 K 2019-11-08 05:35 output/movies.parquet/part-00193-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00194-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00195-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00196-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00197-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.3 K 2019-11-08 05:35 output/movies.parquet/part-00198-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n-rw-r--r--   1 zeppelin hadoop      1.2 K 2019-11-08 05:35 output/movies.parquet/part-00199-f3516b46-62f8-4433-beca-fc1ac94270a8-c000.snappy.parquet\n"
+          }
+        ]
+      },
       "apps": [],
-      "jobName": "paragraph_1573161585799_-373846647",
-      "id": "20191106-163429_1826445055",
-      "dateCreated": "2019-11-07 21:19:45.799",
+      "jobName": "paragraph_1573190315753_-1478849068",
+      "id": "20191108-051835_542028928",
+      "dateCreated": "2019-11-08 05:18:35.753",
+      "dateStarted": "2019-11-08 05:35:49.092",
+      "dateFinished": "2019-11-08 05:35:51.768",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-11-08 05:31:28.991",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1573191088991_-765507571",
+      "id": "20191108-053128_1591075156",
+      "dateCreated": "2019-11-08 05:31:28.991",
       "status": "READY",
-      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     }
   ],
