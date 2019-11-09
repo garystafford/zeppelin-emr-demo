@@ -4,7 +4,7 @@
       "title": "Zeppelin Demo Notebook 2",
       "text": "%md\nDemonstrate loading, querying, visualizing, and saving the GroupLens MovieLens Latest Datasets.\nThe latest datasets are available to download on [GroupLens](https://grouplens.org/datasets/movielens/).\n\nMovieLens Datasets Specifications:\n- Small: 100,000 ratings and 3,600 tag applications applied to 9,000 movies by 600 users. Last updated 9/2018.\n- Full: 27,000,000 ratings and 1,100,000 tag applications applied to 58,000 movies by 280,000 users. Includes tag genome data with 14 million relevance scores across 1,100 tags. Last updated 9/2018.",
       "user": "anonymous",
-      "dateUpdated": "2019-11-08 22:29:30.546",
+      "dateUpdated": "2019-11-09 00:33:16.118",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -38,8 +38,8 @@
       "jobName": "paragraph_1573161585787_1398568692",
       "id": "20191106-153644_419077851",
       "dateCreated": "2019-11-07 21:19:45.788",
-      "dateStarted": "2019-11-08 22:29:30.557",
-      "dateFinished": "2019-11-08 22:29:30.565",
+      "dateStarted": "2019-11-09 00:33:16.234",
+      "dateFinished": "2019-11-09 00:33:18.659",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -47,7 +47,7 @@
       "title": "Import Python Packages",
       "text": "%spark.pyspark\nfrom pyspark import SparkFiles\nfrom pyspark.sql import SparkSession\nfrom pyspark.sql.types import StructType, StructField, StringType, IntegerType, DateType",
       "user": "anonymous",
-      "dateUpdated": "2019-11-08 22:29:30.656",
+      "dateUpdated": "2019-11-09 00:33:18.735",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -93,8 +93,8 @@
       "jobName": "paragraph_1573161585794_-369410071",
       "id": "20191009-042517_1466963465",
       "dateCreated": "2019-11-07 21:19:45.794",
-      "dateStarted": "2019-11-08 22:29:30.666",
-      "dateFinished": "2019-11-08 22:29:30.669",
+      "dateStarted": "2019-11-09 00:33:18.833",
+      "dateFinished": "2019-11-09 00:33:54.840",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -102,7 +102,7 @@
       "title": "Create Spark Session",
       "text": "%spark.pyspark\nspark \u003d SparkSession \\\n    .builder \\\n    .appName(\u0027pyspark_demo_app\u0027) \\\n    .master(\"local[*]\") \\\n    .getOrCreate()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-08 22:29:30.765",
+      "dateUpdated": "2019-11-09 00:33:54.915",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -142,8 +142,8 @@
       "jobName": "paragraph_1573161585794_630658218",
       "id": "20191009-042751_2109019779",
       "dateCreated": "2019-11-07 21:19:45.795",
-      "dateStarted": "2019-11-08 22:29:30.775",
-      "dateFinished": "2019-11-08 22:29:30.780",
+      "dateStarted": "2019-11-09 00:33:55.227",
+      "dateFinished": "2019-11-09 00:33:57.901",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -151,7 +151,7 @@
       "title": "Load MovieLens Data from GroupLens",
       "text": "%sh\nDIR\u003d\"ml-latest\" # ml-latest or ml-latest-small\nif [ -d $DIR ]; then\n    echo \"$DIR exist\"\nelse \n    wget -nv http://files.grouplens.org/datasets/movielens/$DIR.zip \u0026\u0026 unzip $DIR.zip\nfi\n\nls -alh $DIR\n# copy from local file system (/var/lib/zeppelin) to the destination file system (/user/zeppelin)\nhadoop fs -put -f  $DIR/*.csv .\necho\nhadoop fs -ls -h *.csv",
       "user": "anonymous",
-      "dateUpdated": "2019-11-08 22:29:30.874",
+      "dateUpdated": "2019-11-09 00:33:57.981",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -196,7 +196,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "ml-latest exist\ntotal 1.2G\ndrwxr-xr-x 2 zeppelin zeppelin  142 Sep 26  2018 .\ndrwxr-xr-x 9 zeppelin zeppelin  228 Nov  8 22:11 ..\n-rw-r--r-- 1 zeppelin zeppelin 396M Sep 26  2018 genome-scores.csv\n-rw-r--r-- 1 zeppelin zeppelin  18K Sep 26  2018 genome-tags.csv\n-rw-r--r-- 1 zeppelin zeppelin 1.3M Sep 26  2018 links.csv\n-rw-r--r-- 1 zeppelin zeppelin 2.8M Sep 26  2018 movies.csv\n-rw-r--r-- 1 zeppelin zeppelin 725M Sep 26  2018 ratings.csv\n-rw-r--r-- 1 zeppelin zeppelin 9.6K Sep 26  2018 README.txt\n-rw-r--r-- 1 zeppelin zeppelin  38M Sep 26  2018 tags.csv\n\n-rw-r--r--   1 zeppelin hadoop    395.6 M 2019-11-08 22:29 genome-scores.csv\n-rw-r--r--   1 zeppelin hadoop     17.7 K 2019-11-08 22:29 genome-tags.csv\n-rw-r--r--   1 zeppelin hadoop      1.2 M 2019-11-08 22:29 links.csv\n-rw-r--r--   1 zeppelin hadoop      2.7 M 2019-11-08 22:29 movies.csv\n-rw-r--r--   1 zeppelin hadoop    724.0 M 2019-11-08 22:29 ratings.csv\n-rw-r--r--   1 zeppelin hadoop     37.9 M 2019-11-08 22:29 tags.csv\n"
+            "data": "2019-11-09 00:34:04 URL:http://files.grouplens.org/datasets/movielens/ml-latest.zip [277113433/277113433] -\u003e \"ml-latest.zip\" [1]\nArchive:  ml-latest.zip\n   creating: ml-latest/\n  inflating: ml-latest/links.csv     \n  inflating: ml-latest/tags.csv      \n  inflating: ml-latest/genome-tags.csv  \n  inflating: ml-latest/ratings.csv   \n  inflating: ml-latest/README.txt    \n  inflating: ml-latest/genome-scores.csv  \n  inflating: ml-latest/movies.csv    \ntotal 1.2G\ndrwxr-xr-x 2 zeppelin zeppelin  142 Sep 26  2018 .\ndrwxr-xr-x 6 zeppelin zeppelin  114 Nov  9 00:34 ..\n-rw-r--r-- 1 zeppelin zeppelin 396M Sep 26  2018 genome-scores.csv\n-rw-r--r-- 1 zeppelin zeppelin  18K Sep 26  2018 genome-tags.csv\n-rw-r--r-- 1 zeppelin zeppelin 1.3M Sep 26  2018 links.csv\n-rw-r--r-- 1 zeppelin zeppelin 2.8M Sep 26  2018 movies.csv\n-rw-r--r-- 1 zeppelin zeppelin 725M Sep 26  2018 ratings.csv\n-rw-r--r-- 1 zeppelin zeppelin 9.6K Sep 26  2018 README.txt\n-rw-r--r-- 1 zeppelin zeppelin  38M Sep 26  2018 tags.csv\n\n-rw-r--r--   1 zeppelin hadoop    395.6 M 2019-11-09 00:34 genome-scores.csv\n-rw-r--r--   1 zeppelin hadoop     17.7 K 2019-11-09 00:34 genome-tags.csv\n-rw-r--r--   1 zeppelin hadoop      1.2 M 2019-11-09 00:34 links.csv\n-rw-r--r--   1 zeppelin hadoop      2.7 M 2019-11-09 00:34 movies.csv\n-rw-r--r--   1 zeppelin hadoop    724.0 M 2019-11-09 00:34 ratings.csv\n-rw-r--r--   1 zeppelin hadoop     37.9 M 2019-11-09 00:34 tags.csv\n"
           }
         ]
       },
@@ -204,8 +204,8 @@
       "jobName": "paragraph_1573161585795_2012219506",
       "id": "20191009-042907_1768707497",
       "dateCreated": "2019-11-07 21:19:45.795",
-      "dateStarted": "2019-11-08 22:29:30.884",
-      "dateFinished": "2019-11-08 22:29:36.721",
+      "dateStarted": "2019-11-09 00:33:58.275",
+      "dateFinished": "2019-11-09 00:34:32.537",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -213,7 +213,7 @@
       "title": "Load CSV Data into DataFrame",
       "text": "%spark.pyspark\nratingsDF \u003d spark.read \\\n    .format(\"csv\") \\\n    .option(\"header\", \"true\") \\\n    .option(\"delimiter\", \",\") \\\n    .option(\"inferSchema\", \"true\") \\\n    .load(\"ratings.csv\")\n\nratingsDF.show(10, False)\nratingsDF.count()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-08 22:29:36.792",
+      "dateUpdated": "2019-11-09 00:34:32.604",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -267,10 +267,10 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://ip-172-31-8-205.ec2.internal:4040/jobs/job?id\u003d388",
-            "http://ip-172-31-8-205.ec2.internal:4040/jobs/job?id\u003d389",
-            "http://ip-172-31-8-205.ec2.internal:4040/jobs/job?id\u003d390",
-            "http://ip-172-31-8-205.ec2.internal:4040/jobs/job?id\u003d391"
+            "http://ip-172-31-43-216.ec2.internal:4040/jobs/job?id\u003d0",
+            "http://ip-172-31-43-216.ec2.internal:4040/jobs/job?id\u003d1",
+            "http://ip-172-31-43-216.ec2.internal:4040/jobs/job?id\u003d2",
+            "http://ip-172-31-43-216.ec2.internal:4040/jobs/job?id\u003d3"
           ],
           "interpreterSettingId": "spark"
         }
@@ -279,8 +279,8 @@
       "jobName": "paragraph_1573161585796_1293011902",
       "id": "20191009-044129_2035687603",
       "dateCreated": "2019-11-07 21:19:45.796",
-      "dateStarted": "2019-11-08 22:29:36.801",
-      "dateFinished": "2019-11-08 22:30:21.198",
+      "dateStarted": "2019-11-09 00:34:32.660",
+      "dateFinished": "2019-11-09 00:35:44.151",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -288,7 +288,7 @@
       "title": "Load CSV Data into DataFrame",
       "text": "%spark.pyspark\nmoviesDF \u003d spark.read \\\n    .format(\"csv\") \\\n    .option(\"header\", \"true\") \\\n    .option(\"delimiter\", \",\") \\\n    .option(\"inferSchema\", \"true\") \\\n    .load(\"movies.csv\")\n\nmoviesDF.show(10, False)\nmoviesDF.count()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-08 22:30:21.229",
+      "dateUpdated": "2019-11-09 00:35:44.192",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -342,10 +342,10 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://ip-172-31-8-205.ec2.internal:4040/jobs/job?id\u003d392",
-            "http://ip-172-31-8-205.ec2.internal:4040/jobs/job?id\u003d393",
-            "http://ip-172-31-8-205.ec2.internal:4040/jobs/job?id\u003d394",
-            "http://ip-172-31-8-205.ec2.internal:4040/jobs/job?id\u003d395"
+            "http://ip-172-31-43-216.ec2.internal:4040/jobs/job?id\u003d4",
+            "http://ip-172-31-43-216.ec2.internal:4040/jobs/job?id\u003d5",
+            "http://ip-172-31-43-216.ec2.internal:4040/jobs/job?id\u003d6",
+            "http://ip-172-31-43-216.ec2.internal:4040/jobs/job?id\u003d7"
           ],
           "interpreterSettingId": "spark"
         }
@@ -354,8 +354,8 @@
       "jobName": "paragraph_1573170957319_-724857282",
       "id": "20191107-235557_158160591",
       "dateCreated": "2019-11-07 23:55:57.319",
-      "dateStarted": "2019-11-08 22:30:21.239",
-      "dateFinished": "2019-11-08 22:30:22.228",
+      "dateStarted": "2019-11-09 00:35:44.263",
+      "dateFinished": "2019-11-09 00:35:46.440",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -363,7 +363,7 @@
       "title": "Create Temporary View of Data and Query",
       "text": "%spark.pyspark\n\nratingsDF.createOrReplaceTempView(\"ratings\")\n\nratingsDF_2 \u003d spark.sql(\"SELECT movieId, rating, userId, CAST(timestamp as timestamp) as dateTime \" +\n                        \"FROM ratings \" +\n                        \"ORDER BY movieId, rating, userId\")\n\nratingsDF_2.show(10, False)\nratingsDF_2.count()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-08 22:30:22.239",
+      "dateUpdated": "2019-11-09 00:35:46.460",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -417,9 +417,9 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://ip-172-31-8-205.ec2.internal:4040/jobs/job?id\u003d396",
-            "http://ip-172-31-8-205.ec2.internal:4040/jobs/job?id\u003d397",
-            "http://ip-172-31-8-205.ec2.internal:4040/jobs/job?id\u003d398"
+            "http://ip-172-31-43-216.ec2.internal:4040/jobs/job?id\u003d8",
+            "http://ip-172-31-43-216.ec2.internal:4040/jobs/job?id\u003d9",
+            "http://ip-172-31-43-216.ec2.internal:4040/jobs/job?id\u003d10"
           ],
           "interpreterSettingId": "spark"
         }
@@ -428,16 +428,16 @@
       "jobName": "paragraph_1573161585796_891183216",
       "id": "20191009-050109_648011188",
       "dateCreated": "2019-11-07 21:19:45.797",
-      "dateStarted": "2019-11-08 22:30:22.249",
-      "dateFinished": "2019-11-08 22:31:01.032",
+      "dateStarted": "2019-11-09 00:35:46.644",
+      "dateFinished": "2019-11-09 00:37:23.407",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Replace Temporary View with New Query",
-      "text": "%spark.pyspark\nratingsDF_2.createOrReplaceTempView(\"ratings\")\nitemsDF.createOrReplaceTempView(\"movies\")\n\ntopMoviesDF \u003d spark.sql(\"SELECT m.title, AVG(r.rating) as avg_rating, COUNT(r.rating) as cnt_ratings \" +\n                        \"FROM ratings r \" +\n                        \"JOIN movies m ON (r.movieId \u003d m.movieId) \" +\n                        \"GROUP BY m.title \" +\n                        \"ORDER BY avg_rating DESC, cnt_ratings DESC, m.title ASC\")\n\nprint \"Top 10 Movies\"\ntopMoviesDF.show(10, False)\ntopMoviesDF.count()",
+      "text": "%spark.pyspark\nratingsDF_2.createOrReplaceTempView(\"ratings\")\nmoviesDF.createOrReplaceTempView(\"movies\")\n\ntopMoviesDF \u003d spark.sql(\"SELECT m.title, AVG(r.rating) as avg_rating, COUNT(r.rating) as cnt_ratings \" +\n                        \"FROM ratings r \" +\n                        \"JOIN movies m ON (r.movieId \u003d m.movieId) \" +\n                        \"GROUP BY m.title \" +\n                        \"ORDER BY avg_rating DESC, cnt_ratings DESC, m.title ASC\")\n\nprint \"Top 10 Movies\"\ntopMoviesDF.show(10, False)\ntopMoviesDF.count()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-08 22:31:01.074",
+      "dateUpdated": "2019-11-09 00:38:06.315",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -476,46 +476,28 @@
         "forms": {}
       },
       "results": {
-        "code": "SUCCESS",
+        "code": "ERROR",
         "msg": [
           {
             "type": "TEXT",
-            "data": "Top 10 Movies\n+-------------------------------------------------------------------------+------------------+-----------+\n|title                                                                    |avg_rating        |cnt_ratings|\n+-------------------------------------------------------------------------+------------------+-----------+\n|Hijacking Catastrophe: 9/11, Fear \u0026 the Selling of American Empire (2004)|5.0               |1          |\n|Shawshank Redemption, The (1994)                                         |4.424188001918387 |97999      |\n|Shrink Is In, The (2001)                                                 |4.333333333333333 |3          |\n|Godfather, The (1972)                                                    |4.332892749244713 |60904      |\n|Usual Suspects, The (1995)                                               |4.291958829205532 |62180      |\n|Godfather: Part II, The (1974)                                           |4.2630353697749195|38875      |\n|Schindler\u0027s List (1993)                                                  |4.257501817775044 |71516      |\n|Seven Samurai (Shichinin no samurai) (1954)                              |4.2541157909178215|14578      |\n|12 Angry Men (1957)                                                      |4.237075455914338 |17931      |\n|Rear Window (1954)                                                       |4.230798598634567 |22264      |\n+-------------------------------------------------------------------------+------------------+-----------+\nonly showing top 10 rows\n\n10019\n"
+            "data": "Fail to execute line 2: itemsDF.createOrReplaceTempView(\"movies\")\nTraceback (most recent call last):\n  File \"/tmp/zeppelin_pyspark-2791557012583091250.py\", line 375, in \u003cmodule\u003e\n    exec(code, _zcUserQueryNameSpace)\n  File \"\u003cstdin\u003e\", line 2, in \u003cmodule\u003e\nNameError: name \u0027itemsDF\u0027 is not defined\n"
           }
         ]
-      },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://ip-172-31-8-205.ec2.internal:4040/jobs/job?id\u003d399",
-            "http://ip-172-31-8-205.ec2.internal:4040/jobs/job?id\u003d400",
-            "http://ip-172-31-8-205.ec2.internal:4040/jobs/job?id\u003d401",
-            "http://ip-172-31-8-205.ec2.internal:4040/jobs/job?id\u003d402",
-            "http://ip-172-31-8-205.ec2.internal:4040/jobs/job?id\u003d403",
-            "http://ip-172-31-8-205.ec2.internal:4040/jobs/job?id\u003d404",
-            "http://ip-172-31-8-205.ec2.internal:4040/jobs/job?id\u003d405"
-          ],
-          "interpreterSettingId": "spark"
-        }
       },
       "apps": [],
       "jobName": "paragraph_1573161585797_-394721398",
       "id": "20191009-050155_2142326603",
       "dateCreated": "2019-11-07 21:19:45.797",
-      "dateStarted": "2019-11-08 22:31:01.084",
-      "dateFinished": "2019-11-08 22:31:57.539",
-      "status": "FINISHED",
+      "dateStarted": "2019-11-09 00:37:23.564",
+      "dateFinished": "2019-11-09 00:37:23.624",
+      "status": "ERROR",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Native Zeppelin Visualization Based on SQL Query",
       "text": "%sql\nWITH tmp_table AS (\n    SELECT m.title, AVG(r.rating) as avg_rating, COUNT(r.rating) as cnt_ratings\n    FROM ratings r\n    JOIN movies m ON (r.movieId \u003d m.movieId)\n    GROUP BY m.title)\n    \nSELECT title, CAST(avg_rating AS DECIMAL(38,2)), cnt_ratings\nFROM tmp_table\nWHERE avg_rating \u003e\u003d ${avgRatingMin\u003d4} AND cnt_ratings \u003e\u003d ${RatingsMin\u003d2}\nORDER BY avg_rating ASC, cnt_ratings DESC, title ASC\nLIMIT 25",
       "user": "anonymous",
-      "dateUpdated": "2019-11-08 22:32:52.204",
+      "dateUpdated": "2019-11-09 00:33:05.427",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -664,20 +646,6 @@
           }
         ]
       },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://ip-172-31-8-205.ec2.internal:4040/jobs/job?id\u003d406",
-            "http://ip-172-31-8-205.ec2.internal:4040/jobs/job?id\u003d407",
-            "http://ip-172-31-8-205.ec2.internal:4040/jobs/job?id\u003d408"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
       "apps": [],
       "jobName": "paragraph_1573161585798_1054325402",
       "id": "20191106-042245_200419154",
@@ -737,24 +705,6 @@
             "data": "+-------------------------------------------------------------------------+------------------+-----------+\n|title                                                                    |avg_rating        |cnt_ratings|\n+-------------------------------------------------------------------------+------------------+-----------+\n|Hijacking Catastrophe: 9/11, Fear \u0026 the Selling of American Empire (2004)|5.0               |1          |\n|Shawshank Redemption, The (1994)                                         |4.424188001918387 |97999      |\n|Shrink Is In, The (2001)                                                 |4.333333333333333 |3          |\n|Godfather, The (1972)                                                    |4.332892749244713 |60904      |\n|Usual Suspects, The (1995)                                               |4.291958829205532 |62180      |\n|Godfather: Part II, The (1974)                                           |4.2630353697749195|38875      |\n|Schindler\u0027s List (1993)                                                  |4.257501817775044 |71516      |\n|Seven Samurai (Shichinin no samurai) (1954)                              |4.2541157909178215|14578      |\n|12 Angry Men (1957)                                                      |4.237075455914338 |17931      |\n|Rear Window (1954)                                                       |4.230798598634567 |22264      |\n+-------------------------------------------------------------------------+------------------+-----------+\nonly showing top 10 rows\n\n10019\n"
           }
         ]
-      },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://ip-172-31-8-205.ec2.internal:4040/jobs/job?id\u003d409",
-            "http://ip-172-31-8-205.ec2.internal:4040/jobs/job?id\u003d410",
-            "http://ip-172-31-8-205.ec2.internal:4040/jobs/job?id\u003d411",
-            "http://ip-172-31-8-205.ec2.internal:4040/jobs/job?id\u003d412",
-            "http://ip-172-31-8-205.ec2.internal:4040/jobs/job?id\u003d413",
-            "http://ip-172-31-8-205.ec2.internal:4040/jobs/job?id\u003d414",
-            "http://ip-172-31-8-205.ec2.internal:4040/jobs/job?id\u003d415"
-          ],
-          "interpreterSettingId": "spark"
-        }
       },
       "apps": [],
       "jobName": "paragraph_1573161585796_217121452",
