@@ -44,6 +44,47 @@
       "progressUpdateIntervalMs": 500
     },
     {
+      "title": "Make sure PySpark is using Python3",
+      "text": "%sh\n# https://aws.amazon.com/premiumsupport/knowledge-center/emr-pyspark-python-3x/\npyspark --version\npython3 --version",
+      "user": "anonymous",
+      "dateUpdated": "2019-11-10 15:23:37.620",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/sh",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Python 3.6.8\nWelcome to\n      ____              __\n     / __/__  ___ _____/ /__\n    _\\ \\/ _ \\/ _ `/ __/  \u0027_/\n   /___/ .__/\\_,_/_/ /_/\\_\\   version 2.4.4\n      /_/\n                        \nUsing Scala version 2.11.12, OpenJDK 64-Bit Server VM, 1.8.0_222\nBranch HEAD\nCompiled by user ec2-user on 2019-09-10T23:04:45Z\nRevision 082e98ac708024722b9a71933768ecad2e086acc\nUrl git@aws157git.com:/pkg/Aws157BigTop\nType --help for more information.\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1573397927936_476746870",
+      "id": "20191110-145847_274927668",
+      "dateCreated": "2019-11-10 14:58:47.936",
+      "dateStarted": "2019-11-10 15:21:28.308",
+      "dateFinished": "2019-11-10 15:21:29.519",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
       "title": "Import Python Packages",
       "text": "%spark.pyspark\nfrom pyspark import SparkFiles\nfrom pyspark.sql import SparkSession\nfrom pyspark.sql.types import StructType, StructField, StringType, IntegerType, DateType",
       "user": "anonymous",
@@ -100,9 +141,9 @@
     },
     {
       "title": "Create Spark Session",
-      "text": "%spark.pyspark\nspark \u003d SparkSession \\\n    .builder \\\n    .appName(\"pyspark_demo_app\") \\\n    .getOrCreate()",
+      "text": "%spark.pyspark\nspark \u003d SparkSession \\\n    .builder \\\n    .appName(\"pyspark_demo_app\") \\\n    .getOrCreate()\n\n# spark.sparkContext.getConf().getAll()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-10 07:52:28.917",
+      "dateUpdated": "2019-11-10 15:32:01.452",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -126,7 +167,13 @@
         "editorHide": false,
         "title": true,
         "results": [
-          {}
+          {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false
+            }
+          }
         ],
         "enabled": true
       },
@@ -142,8 +189,8 @@
       "jobName": "paragraph_1573161585794_630658218",
       "id": "20191009-042751_2109019779",
       "dateCreated": "2019-11-07 21:19:45.795",
-      "dateStarted": "2019-11-10 07:52:28.929",
-      "dateFinished": "2019-11-10 07:52:28.933",
+      "dateStarted": "2019-11-10 15:32:01.468",
+      "dateFinished": "2019-11-10 15:32:01.471",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -247,9 +294,9 @@
     },
     {
       "title": "Load CSV Data into DataFrame",
-      "text": "%spark.pyspark\nratingsDF \u003d spark.read \\\n    .format(\"csv\") \\\n    .option(\"header\", \"true\") \\\n    .option(\"delimiter\", \",\") \\\n    .option(\"inferSchema\", \"true\") \\\n    .load(\"ratings.csv\")\n\nratingsDF.show(10, False)\nprint ratingsDF.count()\nprint ratingsDF",
+      "text": "%spark.pyspark\nratingsDF \u003d spark.read \\\n    .format(\"csv\") \\\n    .option(\"header\", \"true\") \\\n    .option(\"delimiter\", \",\") \\\n    .option(\"inferSchema\", \"true\") \\\n    .load(\"ratings.csv\")\n\nratingsDF.show(10, False)\nprint \"Row count: %d\" % ratingsDF.count()\nprint ratingsDF",
       "user": "anonymous",
-      "dateUpdated": "2019-11-10 07:52:32.852",
+      "dateUpdated": "2019-11-10 14:57:48.043",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -292,7 +339,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "+------+-------+------+---------+\n|userId|movieId|rating|timestamp|\n+------+-------+------+---------+\n|1     |1      |4.0   |964982703|\n|1     |3      |4.0   |964981247|\n|1     |6      |4.0   |964982224|\n|1     |47     |5.0   |964983815|\n|1     |50     |5.0   |964982931|\n|1     |70     |3.0   |964982400|\n|1     |101    |5.0   |964980868|\n|1     |110    |4.0   |964982176|\n|1     |151    |5.0   |964984041|\n|1     |157    |5.0   |964984100|\n+------+-------+------+---------+\nonly showing top 10 rows\n\n100836\nDataFrame[userId: int, movieId: int, rating: double, timestamp: int]\n"
+            "data": "+------+-------+------+---------+\n|userId|movieId|rating|timestamp|\n+------+-------+------+---------+\n|1     |1      |4.0   |964982703|\n|1     |3      |4.0   |964981247|\n|1     |6      |4.0   |964982224|\n|1     |47     |5.0   |964983815|\n|1     |50     |5.0   |964982931|\n|1     |70     |3.0   |964982400|\n|1     |101    |5.0   |964980868|\n|1     |110    |4.0   |964982176|\n|1     |151    |5.0   |964984041|\n|1     |157    |5.0   |964984100|\n+------+-------+------+---------+\nonly showing top 10 rows\n\nRow count: 100836\nDataFrame[userId: int, movieId: int, rating: double, timestamp: int]\n"
           }
         ]
       },
@@ -303,10 +350,10 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://ip-172-31-2-238.ec2.internal:4040/jobs/job?id\u003d292",
-            "http://ip-172-31-2-238.ec2.internal:4040/jobs/job?id\u003d293",
-            "http://ip-172-31-2-238.ec2.internal:4040/jobs/job?id\u003d294",
-            "http://ip-172-31-2-238.ec2.internal:4040/jobs/job?id\u003d295"
+            "http://ip-172-31-2-238.ec2.internal:4040/jobs/job?id\u003d332",
+            "http://ip-172-31-2-238.ec2.internal:4040/jobs/job?id\u003d333",
+            "http://ip-172-31-2-238.ec2.internal:4040/jobs/job?id\u003d334",
+            "http://ip-172-31-2-238.ec2.internal:4040/jobs/job?id\u003d335"
           ],
           "interpreterSettingId": "spark"
         }
@@ -315,8 +362,8 @@
       "jobName": "paragraph_1573161585796_1293011902",
       "id": "20191009-044129_2035687603",
       "dateCreated": "2019-11-07 21:19:45.796",
-      "dateStarted": "2019-11-10 07:52:32.863",
-      "dateFinished": "2019-11-10 07:52:42.546",
+      "dateStarted": "2019-11-10 14:57:48.054",
+      "dateFinished": "2019-11-10 14:57:57.549",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -660,7 +707,7 @@
       "title": "Native Zeppelin Visualization Based on SQL Query",
       "text": "%sql\nWITH tmp_table AS (\n    SELECT m.title, AVG(r.rating) as avg_rating, COUNT(r.rating) as cnt_ratings\n    FROM ratings r\n    JOIN movies m ON (r.movieId \u003d m.movieId)\n    GROUP BY m.title)\n    \nSELECT title, CAST(avg_rating AS DECIMAL(38,2)), cnt_ratings\nFROM tmp_table\nWHERE avg_rating \u003e\u003d ${avgRatingMin\u003d4} AND cnt_ratings \u003e\u003d ${RatingsMin\u003d2}\nORDER BY avg_rating ASC, cnt_ratings DESC, title ASC\nLIMIT 25",
       "user": "anonymous",
-      "dateUpdated": "2019-11-10 07:54:03.668",
+      "dateUpdated": "2019-11-10 15:29:56.548",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
