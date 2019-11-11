@@ -480,10 +480,10 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://ip-172-31-12-66.ec2.internal:4040/jobs/job?id\u003d14",
-            "http://ip-172-31-12-66.ec2.internal:4040/jobs/job?id\u003d15",
-            "http://ip-172-31-12-66.ec2.internal:4040/jobs/job?id\u003d16",
-            "http://ip-172-31-12-66.ec2.internal:4040/jobs/job?id\u003d17"
+            "http://ip-172-31-12-66.ec2.internal:4040/jobs/job?id\u003d37",
+            "http://ip-172-31-12-66.ec2.internal:4040/jobs/job?id\u003d38",
+            "http://ip-172-31-12-66.ec2.internal:4040/jobs/job?id\u003d39",
+            "http://ip-172-31-12-66.ec2.internal:4040/jobs/job?id\u003d40"
           ],
           "interpreterSettingId": "spark"
         }
@@ -492,8 +492,8 @@
       "jobName": "paragraph_1573364755638_1580655931",
       "id": "20191110-054555_1490759128",
       "dateCreated": "2019-11-10 05:45:55.638",
-      "dateStarted": "2019-11-11 05:17:23.051",
-      "dateFinished": "2019-11-11 05:17:55.248",
+      "dateStarted": "2019-11-11 05:18:40.520",
+      "dateFinished": "2019-11-11 05:19:04.358",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -501,7 +501,7 @@
       "title": "Load CSV Data into DataFrame",
       "text": "%spark.pyspark\nmoviesDF \u003d spark.read \\\n    .format(\"csv\") \\\n    .option(\"header\", \"true\") \\\n    .option(\"delimiter\", \",\") \\\n    .option(\"inferSchema\", \"true\") \\\n    .load(\"movies.csv\")\n\nprint(\"Row count: %s\" % moviesDF.count())\nprint(\"Schema: %s\" % moviesDF)\nmoviesDF.show(10, False)",
       "user": "anonymous",
-      "dateUpdated": "2019-11-11 05:17:55.296",
+      "dateUpdated": "2019-11-11 05:19:04.438",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -555,10 +555,10 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://ip-172-31-12-66.ec2.internal:4040/jobs/job?id\u003d18",
-            "http://ip-172-31-12-66.ec2.internal:4040/jobs/job?id\u003d19",
-            "http://ip-172-31-12-66.ec2.internal:4040/jobs/job?id\u003d20",
-            "http://ip-172-31-12-66.ec2.internal:4040/jobs/job?id\u003d21"
+            "http://ip-172-31-12-66.ec2.internal:4040/jobs/job?id\u003d41",
+            "http://ip-172-31-12-66.ec2.internal:4040/jobs/job?id\u003d42",
+            "http://ip-172-31-12-66.ec2.internal:4040/jobs/job?id\u003d43",
+            "http://ip-172-31-12-66.ec2.internal:4040/jobs/job?id\u003d44"
           ],
           "interpreterSettingId": "spark"
         }
@@ -567,8 +567,8 @@
       "jobName": "paragraph_1573170957319_-724857282",
       "id": "20191107-235557_158160591",
       "dateCreated": "2019-11-07 23:55:57.319",
-      "dateStarted": "2019-11-11 05:17:55.312",
-      "dateFinished": "2019-11-11 05:17:58.038",
+      "dateStarted": "2019-11-11 05:19:04.453",
+      "dateFinished": "2019-11-11 05:19:04.938",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -576,7 +576,7 @@
       "title": "Save as Parquet to S3",
       "text": "%spark.pyspark\nmoviesDF.write.parquet(DATA_BUCKET + \"movies.parquet\", mode\u003d\"overwrite\")\nmoviesDF \u003d spark.read.parquet(DATA_BUCKET + \"movies.parquet\")\nprint(\"Row count: %s\" % moviesDF.count())",
       "user": "anonymous",
-      "dateUpdated": "2019-11-11 05:17:58.119",
+      "dateUpdated": "2019-11-11 05:19:04.953",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -611,9 +611,9 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://ip-172-31-12-66.ec2.internal:4040/jobs/job?id\u003d22",
-            "http://ip-172-31-12-66.ec2.internal:4040/jobs/job?id\u003d23",
-            "http://ip-172-31-12-66.ec2.internal:4040/jobs/job?id\u003d24"
+            "http://ip-172-31-12-66.ec2.internal:4040/jobs/job?id\u003d45",
+            "http://ip-172-31-12-66.ec2.internal:4040/jobs/job?id\u003d46",
+            "http://ip-172-31-12-66.ec2.internal:4040/jobs/job?id\u003d47"
           ],
           "interpreterSettingId": "spark"
         }
@@ -622,8 +622,8 @@
       "jobName": "paragraph_1573364882403_-409250558",
       "id": "20191110-054802_1565191258",
       "dateCreated": "2019-11-10 05:48:02.403",
-      "dateStarted": "2019-11-11 05:17:58.134",
-      "dateFinished": "2019-11-11 05:17:59.700",
+      "dateStarted": "2019-11-11 05:19:04.983",
+      "dateFinished": "2019-11-11 05:19:06.600",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -631,7 +631,7 @@
       "title": "Replace Temporary View with New Query",
       "text": "%spark.pyspark\nratingsDF.createOrReplaceTempView(\"ratings\")\nmoviesDF.createOrReplaceTempView(\"movies\")\n\ntopMoviesDF \u003d spark.sql(\"SELECT m.title, AVG(r.rating) as avg_rating, COUNT(r.rating) as cnt_ratings \" +\n                        \"FROM ratings r \" +\n                        \"JOIN movies m ON (r.movieId \u003d m.movieId) \" +\n                        \"GROUP BY m.title \" +\n                        \"ORDER BY avg_rating DESC, cnt_ratings DESC, m.title ASC\")\n                        \n# topMoviesDF \u003d topMoviesDF.filter(topMoviesDF.cnt_ratings \u003e\u003d 25)\n\nprint(\"Row count: %s\" % moviesDF.count())\nprint(\"Top 10 Movies\")\ntopMoviesDF.show(10, False)\n",
       "user": "anonymous",
-      "dateUpdated": "2019-11-11 05:18:10.003",
+      "dateUpdated": "2019-11-11 05:19:06.678",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -685,9 +685,9 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://ip-172-31-12-66.ec2.internal:4040/jobs/job?id\u003d25",
-            "http://ip-172-31-12-66.ec2.internal:4040/jobs/job?id\u003d26",
-            "http://ip-172-31-12-66.ec2.internal:4040/jobs/job?id\u003d27"
+            "http://ip-172-31-12-66.ec2.internal:4040/jobs/job?id\u003d48",
+            "http://ip-172-31-12-66.ec2.internal:4040/jobs/job?id\u003d49",
+            "http://ip-172-31-12-66.ec2.internal:4040/jobs/job?id\u003d50"
           ],
           "interpreterSettingId": "spark"
         }
@@ -696,8 +696,8 @@
       "jobName": "paragraph_1573161585797_-394721398",
       "id": "20191009-050155_2142326603",
       "dateCreated": "2019-11-07 21:19:45.797",
-      "dateStarted": "2019-11-11 05:17:59.749",
-      "dateFinished": "2019-11-11 05:18:17.308",
+      "dateStarted": "2019-11-11 05:19:06.696",
+      "dateFinished": "2019-11-11 05:19:19.756",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -705,7 +705,7 @@
       "title": "Native Zeppelin Visualization Based on SQL Query",
       "text": "%sql\nWITH tmp_table AS (\n    SELECT m.title, AVG(r.rating) as avg_rating, COUNT(r.rating) as cnt_ratings\n    FROM ratings r\n    JOIN movies m ON (r.movieId \u003d m.movieId)\n    GROUP BY m.title)\n    \nSELECT title, CAST(avg_rating AS DECIMAL(38,2)), cnt_ratings\nFROM tmp_table\nWHERE avg_rating \u003e\u003d ${avgRatingMin\u003d4} AND cnt_ratings \u003e\u003d ${RatingsMin\u003d2}\nORDER BY avg_rating ASC, cnt_ratings DESC, title ASC\nLIMIT 25",
       "user": "anonymous",
-      "dateUpdated": "2019-11-11 05:18:31.129",
+      "dateUpdated": "2019-11-11 05:19:33.977",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -861,8 +861,8 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://ip-172-31-12-66.ec2.internal:4040/jobs/job?id\u003d28",
-            "http://ip-172-31-12-66.ec2.internal:4040/jobs/job?id\u003d29"
+            "http://ip-172-31-12-66.ec2.internal:4040/jobs/job?id\u003d51",
+            "http://ip-172-31-12-66.ec2.internal:4040/jobs/job?id\u003d52"
           ],
           "interpreterSettingId": "spark"
         }
@@ -871,15 +871,15 @@
       "jobName": "paragraph_1573161585798_1054325402",
       "id": "20191106-042245_200419154",
       "dateCreated": "2019-11-07 21:19:45.798",
-      "dateStarted": "2019-11-11 05:18:17.392",
-      "dateFinished": "2019-11-11 05:18:30.819",
+      "dateStarted": "2019-11-11 05:19:19.856",
+      "dateFinished": "2019-11-11 05:19:33.654",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%sh\n",
       "user": "anonymous",
-      "dateUpdated": "2019-11-11 05:18:30.904",
+      "dateUpdated": "2019-11-11 05:19:33.678",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
