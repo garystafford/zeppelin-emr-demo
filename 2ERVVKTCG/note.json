@@ -424,9 +424,9 @@
     },
     {
       "title": "Create Temporary View of Data",
-      "text": "%spark.pyspark\ndf_bakery.createOrReplaceTempView(\"bakery\")\n\ndf_bakeryClean \u003d spark.sql(\"SELECT transaction, date, item \" +\n                       \"FROM bakery \" +\n                       \"WHERE item NOT LIKE \u0027NONE\u0027\" +\n                       \"ORDER BY transaction\")\n\nprint(\"Row count: %s\" % df_bakeryClean.count())\ndf_bakeryClean.show(10, False)",
+      "text": "%spark.pyspark\ndf_bakery.createOrReplaceTempView(\"bakery\")\n\ndf_bakeryClean \u003d spark.sql(\"SELECT transaction, date, item \" +\n                           \"FROM bakery \" +\n                           \"WHERE item NOT LIKE \u0027NONE\u0027\" +\n                           \"ORDER BY transaction\")\n\nprint(\"Row count: %s\" % df_bakeryClean.count())\ndf_bakeryClean.show(10, False)",
       "user": "anonymous",
-      "dateUpdated": "2019-11-12 02:17:38.743",
+      "dateUpdated": "2019-11-12 02:47:39.312",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -498,9 +498,9 @@
     },
     {
       "title": "Replace Temporary View with New Query",
-      "text": "%spark.pyspark\ndf_bakeryClean.createOrReplaceTempView(\"bakery\")\n\ndf_bakerySummary \u003d spark.sql(\"SELECT date, count(*) as item_count \" +\n                       \"FROM bakery \" +\n                       \"WHERE date \u003e\u003d \u00272017-01-01\u0027 \" +\n                       \"GROUP BY date \" +\n                       \"ORDER BY date\")\n\nprint(\"Row count: %s\" % df_bakerySummary.count())\ndf_bakerySummary.show(10, False)",
+      "text": "%spark.pyspark\ndf_bakeryClean.createOrReplaceTempView(\"bakery\")\n\ndf_bakerySummary \u003d spark.sql(\"SELECT date, count(*) as item_count \" +\n                             \"FROM bakery \" +\n                             \"WHERE date \u003e\u003d \u00272017-01-01\u0027 \" +\n                             \"GROUP BY date \" +\n                             \"ORDER BY date\")\n\nprint(\"Row count: %s\" % df_bakerySummary.count())\ndf_bakerySummary.show(10, False)",
       "user": "anonymous",
-      "dateUpdated": "2019-11-12 02:17:50.186",
+      "dateUpdated": "2019-11-12 02:48:04.450",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -576,7 +576,7 @@
       "title": "Native Zeppelin Visualization Based on SQL Query",
       "text": "%sql\nSELECT date, count(*) as item_count\nFROM bakery\nWHERE date BETWEEN \u00272017-01-01\u0027 AND \u00272017-03-31\u0027\nGROUP BY date\nORDER BY date",
       "user": "anonymous",
-      "dateUpdated": "2019-11-12 02:18:21.046",
+      "dateUpdated": "2019-11-12 02:47:14.689",
       "config": {
         "editorSetting": {
           "language": "sql",
