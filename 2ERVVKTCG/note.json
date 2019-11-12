@@ -2,9 +2,9 @@
   "paragraphs": [
     {
       "title": "Zeppelin Demo Notebook 1",
-      "text": "%md\nDemonstrate loading, querying, visualizing, and saving a small ~21k row kaggle dataset.\nThe \u0027Transactions from a bakery\u0027 dataset available to download on [kaggle](https://www.kaggle.com/sulmansarwar/transactions-from-a-bakery/data#).",
+      "text": "%md\nDemonstrate loading, querying, visualizing, and saving a small ~21k row kaggle dataset.\nThe \u0027Transactions from a bakery\u0027 dataset is documented on [kaggle](https://www.kaggle.com/sulmansarwar/transactions-from-a-bakery).",
       "user": "anonymous",
-      "dateUpdated": "2019-11-12 01:07:32.182",
+      "dateUpdated": "2019-11-12 01:13:11.570",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -30,7 +30,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eDemonstrate loading, querying, visualizing, and saving a small ~21k row kaggle dataset.\u003cbr/\u003eThe \u0026lsquo;Transactions from a bakery\u0026rsquo; dataset available to download on \u003ca href\u003d\"https://www.kaggle.com/sulmansarwar/transactions-from-a-bakery/data#\"\u003ekaggle\u003c/a\u003e.\u003c/p\u003e\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eDemonstrate loading, querying, visualizing, and saving a small ~21k row kaggle dataset.\u003cbr/\u003eThe \u0026lsquo;Transactions from a bakery\u0026rsquo; dataset is documented on \u003ca href\u003d\"https://www.kaggle.com/sulmansarwar/transactions-from-a-bakery\"\u003ekaggle\u003c/a\u003e.\u003c/p\u003e\n\u003c/div\u003e"
           }
         ]
       },
@@ -38,8 +38,8 @@
       "jobName": "paragraph_1573058000759_-1487542903",
       "id": "20191106-153644_419077851",
       "dateCreated": "2019-11-06 16:33:20.759",
-      "dateStarted": "2019-11-12 01:07:32.197",
-      "dateFinished": "2019-11-12 01:07:32.202",
+      "dateStarted": "2019-11-12 01:13:11.571",
+      "dateFinished": "2019-11-12 01:13:11.578",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -576,7 +576,7 @@
       "title": "Native Zeppelin Visualization Based on SQL Query",
       "text": "%sql\nSELECT date, count(*) as item_count\nFROM bakery\nWHERE date BETWEEN \u00272017-01-01\u0027 AND \u00272017-03-31\u0027\nGROUP BY date\nORDER BY date",
       "user": "anonymous",
-      "dateUpdated": "2019-11-12 01:08:37.608",
+      "dateUpdated": "2019-11-12 01:15:03.309",
       "config": {
         "editorSetting": {
           "language": "sql",
