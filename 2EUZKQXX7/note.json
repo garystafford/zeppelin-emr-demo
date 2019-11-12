@@ -196,9 +196,9 @@
     },
     {
       "title": "Load MovieLens Data from GroupLens",
-      "text": "%sh\nDIR\u003d\"ml-latest-small\" # ml-latest or ml-latest-small\nif [ -d $DIR ]; then\n    echo \"$DIR exist\"\nelse \n    wget -nvO http://files.grouplens.org/datasets/movielens/$DIR.zip \u0026\u0026 unzip $DIR.zip\nfi\n\nls -alh $DIR\n\n# copy from local file system (/var/lib/zeppelin) to the destination file system (/user/zeppelin)\nhadoop fs -put -f  $DIR/movies.csv $DIR/ratings.csv .\necho\nhadoop fs -ls -h *.csv",
+      "text": "%sh\n# choices: or ml-latest-small (100k) or ml-latest (27MM)\nDIR\u003d\"ml-latest-small\"\nif [ -d $DIR ]; then\n    echo \"$DIR exist\"\nelse \n    wget -nvO http://files.grouplens.org/datasets/movielens/$DIR.zip \u0026\u0026 unzip $DIR.zip\nfi\n\nls -alh $DIR\n\n# copy from local file system (/var/lib/zeppelin) to the destination file system (/user/zeppelin)\nhadoop fs -put -f  $DIR/movies.csv $DIR/ratings.csv .\necho\nhadoop fs -ls -h *.csv",
       "user": "anonymous",
-      "dateUpdated": "2019-11-12 00:14:25.653",
+      "dateUpdated": "2019-11-12 01:12:03.442",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
