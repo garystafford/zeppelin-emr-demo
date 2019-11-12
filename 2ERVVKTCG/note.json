@@ -576,7 +576,7 @@
       "title": "Native Zeppelin Visualization Based on SQL Query",
       "text": "%sql\nSELECT date, count(*) as item_count\nFROM bakery\nWHERE date BETWEEN \u00272017-01-01\u0027 AND \u00272017-03-31\u0027\nGROUP BY date\nORDER BY date",
       "user": "anonymous",
-      "dateUpdated": "2019-11-12 03:16:19.541",
+      "dateUpdated": "2019-11-12 03:26:36.329",
       "config": {
         "editorSetting": {
           "language": "sql",
@@ -701,7 +701,7 @@
       "title": "Native Zeppelin Visualization Based on SQL Query",
       "text": "%sql\nSELECT count(*) as item_count, item\nFROM bakery\nGROUP BY item\nORDER BY item_count\nDESC LIMIT 10",
       "user": "anonymous",
-      "dateUpdated": "2019-11-12 03:16:05.850",
+      "dateUpdated": "2019-11-12 03:24:49.725",
       "config": {
         "editorSetting": {
           "language": "sql",
