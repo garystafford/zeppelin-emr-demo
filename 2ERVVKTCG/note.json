@@ -4,7 +4,7 @@
       "title": "Zeppelin Demo Notebook 1",
       "text": "%md\nDemonstrate loading, querying, visualizing, and saving a small ~21k row kaggle dataset.\nThe \u0027Transactions from a bakery\u0027 dataset is documented on [kaggle](https://www.kaggle.com/sulmansarwar/transactions-from-a-bakery).",
       "user": "anonymous",
-      "dateUpdated": "2019-11-12 01:13:11.570",
+      "dateUpdated": "2019-11-12 02:16:03.057",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -38,8 +38,8 @@
       "jobName": "paragraph_1573058000759_-1487542903",
       "id": "20191106-153644_419077851",
       "dateCreated": "2019-11-06 16:33:20.759",
-      "dateStarted": "2019-11-12 01:13:11.571",
-      "dateFinished": "2019-11-12 01:13:11.578",
+      "dateStarted": "2019-11-12 02:16:03.158",
+      "dateFinished": "2019-11-12 02:16:05.276",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -47,7 +47,7 @@
       "title": "Import Python Packages",
       "text": "%spark.pyspark\nfrom pyspark import SparkFiles\nfrom pyspark.sql import SparkSession\nfrom pyspark.sql.types import StructType, StructField, StringType, IntegerType",
       "user": "anonymous",
-      "dateUpdated": "2019-11-12 01:07:32.297",
+      "dateUpdated": "2019-11-12 02:16:05.356",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -93,8 +93,8 @@
       "jobName": "paragraph_1573058000760_1826550872",
       "id": "20191009-042517_1466963465",
       "dateCreated": "2019-11-06 16:33:20.760",
-      "dateStarted": "2019-11-12 01:07:32.308",
-      "dateFinished": "2019-11-12 01:07:32.312",
+      "dateStarted": "2019-11-12 02:16:05.442",
+      "dateFinished": "2019-11-12 02:16:38.329",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -102,7 +102,7 @@
       "title": "Create Spark Session",
       "text": "%spark.pyspark\nspark \u003d SparkSession \\\n    .builder \\\n    .appName(\u0027pyspark_demo_app\u0027) \\\n    .getOrCreate()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-12 01:07:32.407",
+      "dateUpdated": "2019-11-12 02:16:38.380",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -142,16 +142,16 @@
       "jobName": "paragraph_1573058000760_-178139685",
       "id": "20191009-042751_2109019779",
       "dateCreated": "2019-11-06 16:33:20.760",
-      "dateStarted": "2019-11-12 01:07:32.418",
-      "dateFinished": "2019-11-12 01:07:32.422",
+      "dateStarted": "2019-11-12 02:16:38.570",
+      "dateFinished": "2019-11-12 02:16:40.240",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Save CSV Data File to S3",
-      "text": "%sh\n# change me for shell interpreter binding\nDATA_BUCKET\u003d\"gstafford-aws-emr-notebooks\"\n\nDATA_FILE\u003d\"BreadBasket_DMS.csv\"\n\n# copy bakery data to/from s3 bucket\nif [ -f \"$DATA_FILE\" ]; then\n    echo \"$DATA_FILE exist\"\nelse\n    wget -nv https://raw.githubusercontent.com/garystafford/pyspark-setup-demo/master/work/$DATA_FILE -O $DATA_FILE\nfi\n\naws s3 cp $DATA_FILE s3://$DATA_BUCKET/files/$DATA_FILE\n\n# ls -alh data/$DATA_FILE\n\n# copy from local file system (/var/lib/zeppelin) to the destination file system (/user/zeppelin)\n# hadoop fs -put -f  data/$DATA_FILE $DATA_FILE\n# hadoop fs -ls -h $DATA_FILE",
+      "text": "%sh\n# change me for shell interpreter binding\nDATA_BUCKET\u003d\"gstafford-aws-emr-notebooks\"\n\nDATA_FILE\u003d\"BreadBasket_DMS.csv\"\n\n# copy bakery data to/from s3 bucket\nif [ -f \"$DATA_FILE\" ]; then\n    echo \"$DATA_FILE exist\"\nelse\n    wget -nv https://raw.githubusercontent.com/garystafford/pyspark-setup-demo/master/work/$DATA_FILE -O $DATA_FILE\nfi\n\naws s3 cp $DATA_FILE s3://$DATA_BUCKET/data/$DATA_FILE\n\n# ls -alh data/$DATA_FILE\n\n# copy from local file system (/var/lib/zeppelin) to the destination file system (/user/zeppelin)\n# hadoop fs -put -f  data/$DATA_FILE $DATA_FILE\n# hadoop fs -ls -h $DATA_FILE",
       "user": "anonymous",
-      "dateUpdated": "2019-11-12 01:07:32.518",
+      "dateUpdated": "2019-11-12 02:17:12.846",
       "config": {
         "editorSetting": {
           "language": "sh",
@@ -196,7 +196,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "BreadBasket_DMS.csv exist\nCompleted 256.0 KiB/693.9 KiB (5.6 MiB/s) with 1 file(s) remaining\rCompleted 512.0 KiB/693.9 KiB (10.1 MiB/s) with 1 file(s) remaining\rCompleted 693.9 KiB/693.9 KiB (2.3 MiB/s) with 1 file(s) remaining \rupload: ./BreadBasket_DMS.csv to s3://gstafford-aws-emr-notebooks/files/BreadBasket_DMS.csv\n"
+            "data": "2019-11-12 02:16:42 URL:https://raw.githubusercontent.com/garystafford/pyspark-setup-demo/master/work/BreadBasket_DMS.csv [710518/710518] -\u003e \"BreadBasket_DMS.csv\" [1]\nCompleted 256.0 KiB/693.9 KiB (3.4 MiB/s) with 1 file(s) remaining\rCompleted 512.0 KiB/693.9 KiB (6.2 MiB/s) with 1 file(s) remaining\rCompleted 693.9 KiB/693.9 KiB (4.6 MiB/s) with 1 file(s) remaining\rupload: ./BreadBasket_DMS.csv to s3://gstafford-aws-emr-notebooks/files/BreadBasket_DMS.csv\n"
           }
         ]
       },
@@ -204,8 +204,8 @@
       "jobName": "paragraph_1573058000760_961427148",
       "id": "20191009-042907_1768707497",
       "dateCreated": "2019-11-06 16:33:20.760",
-      "dateStarted": "2019-11-12 01:07:32.533",
-      "dateFinished": "2019-11-12 01:07:33.235",
+      "dateStarted": "2019-11-12 02:16:40.425",
+      "dateFinished": "2019-11-12 02:16:43.706",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -213,7 +213,7 @@
       "title": "Load CSV Data from S3 into DataFrame",
       "text": "%spark.pyspark\n# change me to same value as shell interpreter binding, for pyspark interpreter binding\nDATA_BUCKET\u003d\"gstafford-aws-emr-notebooks\"\n\nDATA_FILE\u003d\"BreadBasket_DMS.csv\"\n\nbakery_schema \u003d StructType([\n    StructField(\"date\", StringType(), True),\n    StructField(\"time\", StringType(), True),\n    StructField(\"transaction\", IntegerType(), True),\n    StructField(\"item\", StringType(), True)\n])\n\ndf_bakery \u003d spark.read \\\n    .format(\"csv\") \\\n    .option(\"header\", \"true\") \\\n    .load(\"s3://\" + DATA_BUCKET + \"/data/\" + DATA_FILE, schema\u003dbakery_schema)\n\nprint(\"Row count: %s\" % df_bakery.count())\nprint(\"Schema: %s\" % df_bakery)\ndf_bakery.show(10, False)",
       "user": "anonymous",
-      "dateUpdated": "2019-11-12 01:07:33.333",
+      "dateUpdated": "2019-11-12 02:16:43.709",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -252,34 +252,21 @@
         "forms": {}
       },
       "results": {
-        "code": "SUCCESS",
+        "code": "ERROR",
         "msg": [
           {
             "type": "TEXT",
-            "data": "Row count: 21293\nSchema: DataFrame[date: string, time: string, transaction: int, item: string]\n+----------+--------+-----------+-------------+\n|date      |time    |transaction|item         |\n+----------+--------+-----------+-------------+\n|2016-10-30|09:58:11|1          |Bread        |\n|2016-10-30|10:05:34|2          |Scandinavian |\n|2016-10-30|10:05:34|2          |Scandinavian |\n|2016-10-30|10:07:57|3          |Hot chocolate|\n|2016-10-30|10:07:57|3          |Jam          |\n|2016-10-30|10:07:57|3          |Cookies      |\n|2016-10-30|10:08:41|4          |Muffin       |\n|2016-10-30|10:13:03|5          |Coffee       |\n|2016-10-30|10:13:03|5          |Pastry       |\n|2016-10-30|10:13:03|5          |Bread        |\n+----------+--------+-----------+-------------+\nonly showing top 10 rows\n\n"
+            "data": "Fail to execute line 16:     .load(\"s3://\" + DATA_BUCKET + \"/data/\" + DATA_FILE, schema\u003dbakery_schema)\nTraceback (most recent call last):\n  File \"/usr/lib/spark/python/lib/pyspark.zip/pyspark/sql/utils.py\", line 63, in deco\n    return f(*a, **kw)\n  File \"/usr/lib/spark/python/lib/py4j-0.10.7-src.zip/py4j/protocol.py\", line 328, in get_return_value\n    format(target_id, \".\", name), value)\npy4j.protocol.Py4JJavaError: An error occurred while calling o103.load.\n: org.apache.spark.sql.AnalysisException: Path does not exist: s3://gstafford-aws-emr-notebooks/data/BreadBasket_DMS.csv;\n\tat org.apache.spark.sql.execution.datasources.DataSource$$anonfun$org$apache$spark$sql$execution$datasources$DataSource$$checkAndGlobPathIfNecessary$1.apply(DataSource.scala:558)\n\tat org.apache.spark.sql.execution.datasources.DataSource$$anonfun$org$apache$spark$sql$execution$datasources$DataSource$$checkAndGlobPathIfNecessary$1.apply(DataSource.scala:545)\n\tat scala.collection.TraversableLike$$anonfun$flatMap$1.apply(TraversableLike.scala:241)\n\tat scala.collection.TraversableLike$$anonfun$flatMap$1.apply(TraversableLike.scala:241)\n\tat scala.collection.immutable.List.foreach(List.scala:392)\n\tat scala.collection.TraversableLike$class.flatMap(TraversableLike.scala:241)\n\tat scala.collection.immutable.List.flatMap(List.scala:355)\n\tat org.apache.spark.sql.execution.datasources.DataSource.org$apache$spark$sql$execution$datasources$DataSource$$checkAndGlobPathIfNecessary(DataSource.scala:545)\n\tat org.apache.spark.sql.execution.datasources.DataSource.resolveRelation(DataSource.scala:359)\n\tat org.apache.spark.sql.DataFrameReader.loadV1Source(DataFrameReader.scala:223)\n\tat org.apache.spark.sql.DataFrameReader.load(DataFrameReader.scala:211)\n\tat org.apache.spark.sql.DataFrameReader.load(DataFrameReader.scala:178)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)\n\tat py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)\n\tat py4j.Gateway.invoke(Gateway.java:282)\n\tat py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)\n\tat py4j.commands.CallCommand.execute(CallCommand.java:79)\n\tat py4j.GatewayConnection.run(GatewayConnection.java:238)\n\tat java.lang.Thread.run(Thread.java:748)\n\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/tmp/zeppelin_pyspark-865127453345757506.py\", line 375, in \u003cmodule\u003e\n    exec(code, _zcUserQueryNameSpace)\n  File \"\u003cstdin\u003e\", line 16, in \u003cmodule\u003e\n  File \"/usr/lib/spark/python/lib/pyspark.zip/pyspark/sql/readwriter.py\", line 166, in load\n    return self._df(self._jreader.load(path))\n  File \"/usr/lib/spark/python/lib/py4j-0.10.7-src.zip/py4j/java_gateway.py\", line 1257, in __call__\n    answer, self.gateway_client, self.target_id, self.name)\n  File \"/usr/lib/spark/python/lib/pyspark.zip/pyspark/sql/utils.py\", line 69, in deco\n    raise AnalysisException(s.split(\u0027: \u0027, 1)[1], stackTrace)\npyspark.sql.utils.AnalysisException: \u0027Path does not exist: s3://gstafford-aws-emr-notebooks/data/BreadBasket_DMS.csv;\u0027\n"
           }
         ]
-      },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://ip-172-31-8-141.ec2.internal:4040/jobs/job?id\u003d78",
-            "http://ip-172-31-8-141.ec2.internal:4040/jobs/job?id\u003d79"
-          ],
-          "interpreterSettingId": "spark"
-        }
       },
       "apps": [],
       "jobName": "paragraph_1573058000760_886915304",
       "id": "20191009-044129_2035687603",
       "dateCreated": "2019-11-06 16:33:20.760",
-      "dateStarted": "2019-11-12 01:07:33.344",
-      "dateFinished": "2019-11-12 01:07:33.760",
-      "status": "FINISHED",
+      "dateStarted": "2019-11-12 02:16:43.805",
+      "dateFinished": "2019-11-12 02:16:47.557",
+      "status": "ERROR",
       "progressUpdateIntervalMs": 500
     },
     {
@@ -327,18 +314,6 @@
       "results": {
         "code": "SUCCESS",
         "msg": []
-      },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://ip-172-31-8-141.ec2.internal:4040/jobs/job?id\u003d80"
-          ],
-          "interpreterSettingId": "spark"
-        }
       },
       "apps": [],
       "jobName": "paragraph_1573058000760_-634386583",
@@ -400,19 +375,6 @@
           }
         ]
       },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://ip-172-31-8-141.ec2.internal:4040/jobs/job?id\u003d81",
-            "http://ip-172-31-8-141.ec2.internal:4040/jobs/job?id\u003d82"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
       "apps": [],
       "jobName": "paragraph_1573519493699_-257068444",
       "id": "20191112-004453_863376777",
@@ -472,20 +434,6 @@
             "data": "Row count: 20507\n+-----------+----------+-------------+\n|transaction|date      |item         |\n+-----------+----------+-------------+\n|1          |2016-10-30|Bread        |\n|2          |2016-10-30|Scandinavian |\n|2          |2016-10-30|Scandinavian |\n|3          |2016-10-30|Hot chocolate|\n|3          |2016-10-30|Cookies      |\n|3          |2016-10-30|Jam          |\n|4          |2016-10-30|Muffin       |\n|5          |2016-10-30|Coffee       |\n|5          |2016-10-30|Pastry       |\n|5          |2016-10-30|Bread        |\n+-----------+----------+-------------+\nonly showing top 10 rows\n\n"
           }
         ]
-      },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://ip-172-31-8-141.ec2.internal:4040/jobs/job?id\u003d83",
-            "http://ip-172-31-8-141.ec2.internal:4040/jobs/job?id\u003d84",
-            "http://ip-172-31-8-141.ec2.internal:4040/jobs/job?id\u003d85"
-          ],
-          "interpreterSettingId": "spark"
-        }
       },
       "apps": [],
       "jobName": "paragraph_1573058000760_-1417833523",
@@ -547,22 +495,6 @@
           }
         ]
       },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://ip-172-31-8-141.ec2.internal:4040/jobs/job?id\u003d86",
-            "http://ip-172-31-8-141.ec2.internal:4040/jobs/job?id\u003d87",
-            "http://ip-172-31-8-141.ec2.internal:4040/jobs/job?id\u003d88",
-            "http://ip-172-31-8-141.ec2.internal:4040/jobs/job?id\u003d89",
-            "http://ip-172-31-8-141.ec2.internal:4040/jobs/job?id\u003d90"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
       "apps": [],
       "jobName": "paragraph_1573058000760_-945322986",
       "id": "20191009-050155_2142326603",
@@ -576,7 +508,7 @@
       "title": "Native Zeppelin Visualization Based on SQL Query",
       "text": "%sql\nSELECT date, count(*) as item_count\nFROM bakery\nWHERE date BETWEEN \u00272017-01-01\u0027 AND \u00272017-03-31\u0027\nGROUP BY date\nORDER BY date",
       "user": "anonymous",
-      "dateUpdated": "2019-11-12 01:15:03.309",
+      "dateUpdated": "2019-11-12 02:15:57.665",
       "config": {
         "editorSetting": {
           "language": "sql",
@@ -674,19 +606,6 @@
             "data": ""
           }
         ]
-      },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://ip-172-31-8-141.ec2.internal:4040/jobs/job?id\u003d91",
-            "http://ip-172-31-8-141.ec2.internal:4040/jobs/job?id\u003d92"
-          ],
-          "interpreterSettingId": "spark"
-        }
       },
       "apps": [],
       "jobName": "paragraph_1573058000760_1142817223",
@@ -801,19 +720,6 @@
           }
         ]
       },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://ip-172-31-8-141.ec2.internal:4040/jobs/job?id\u003d93",
-            "http://ip-172-31-8-141.ec2.internal:4040/jobs/job?id\u003d94"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
       "apps": [],
       "jobName": "paragraph_1573058000760_-1357437731",
       "id": "20191106-042245_200419154",
@@ -852,20 +758,6 @@
       "results": {
         "code": "SUCCESS",
         "msg": []
-      },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://ip-172-31-8-141.ec2.internal:4040/jobs/job?id\u003d95",
-            "http://ip-172-31-8-141.ec2.internal:4040/jobs/job?id\u003d96",
-            "http://ip-172-31-8-141.ec2.internal:4040/jobs/job?id\u003d97"
-          ],
-          "interpreterSettingId": "spark"
-        }
       },
       "apps": [],
       "jobName": "paragraph_1573058000761_-1476901850",
