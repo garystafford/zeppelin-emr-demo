@@ -4,7 +4,7 @@
       "title": "Zeppelin Demo Notebook 3",
       "text": "%md\nDemonstrate loading data from S3, using an [AWS Glue Data Catalog](https://aws.amazon.com/glue/features/). The AWS Glue Data Catalog is a persistent metadata store for all data assets, regardless of where they are located. Using the Data Catalog greatly reduces the amount boilerplate PySpark code.",
       "user": "anonymous",
-      "dateUpdated": "2019-11-13 06:27:09.211",
+      "dateUpdated": "2019-11-13 06:45:49.983",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -38,8 +38,8 @@
       "jobName": "paragraph_1573621930599_-673697681",
       "id": "20191106-153644_419077851",
       "dateCreated": "2019-11-13 05:12:10.600",
-      "dateStarted": "2019-11-13 06:27:09.216",
-      "dateFinished": "2019-11-13 06:27:09.226",
+      "dateStarted": "2019-11-13 06:45:49.993",
+      "dateFinished": "2019-11-13 06:45:49.999",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -47,7 +47,7 @@
       "title": "AWS Glue Crawler CloudFormation Template",
       "text": "%md\nRun the following AWS CLI command to create an AWS Glue Data Catalog Database, IAM Role, and five Crawlers.\n\n```bash\n# change me\nexport ZEPPELIN_DEMO_BUCKET\u003dyour-bucket-name\n\naws cloudformation create-stack \\\n    --stack-name zeppelin-crawlers-stack \\\n    --template-body file://crawler.yml \\\n    --parameters ParameterKey\u003dZeppelinDemoBucket,ParameterValue\u003d$ZEPPELIN_DEMO_BUCKET \\\n                 ParameterKey\u003dGlueDatabase,ParameterValue\u003dzeppelin_demo \\\n    --capabilities CAPABILITY_NAMED_IAM\n```\n\nThen run the new crawlers, one time each.\n```bash\naws glue start-crawler --name bakery-csv-s3\naws glue start-crawler --name bakery-parquet-s3\naws glue start-crawler --name bakery-summary-parquet-s3\naws glue start-crawler --name ratings-parquet-s3\naws glue start-crawler --name movies-parquet-s3\n```",
       "user": "anonymous",
-      "dateUpdated": "2019-11-13 06:25:26.568",
+      "dateUpdated": "2019-11-13 06:45:50.092",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -81,8 +81,8 @@
       "jobName": "paragraph_1573625588720_284418062",
       "id": "20191113-061308_201880928",
       "dateCreated": "2019-11-13 06:13:08.720",
-      "dateStarted": "2019-11-13 06:25:26.569",
-      "dateFinished": "2019-11-13 06:25:26.577",
+      "dateStarted": "2019-11-13 06:45:50.102",
+      "dateFinished": "2019-11-13 06:45:50.105",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -90,7 +90,7 @@
       "title": "Import Python Packages",
       "text": "%spark.pyspark\nfrom pyspark import SparkFiles\nfrom pyspark.sql import SparkSession\nfrom pyspark.sql.types import StructType, StructField, StringType, IntegerType, DateType",
       "user": "anonymous",
-      "dateUpdated": "2019-11-13 05:50:34.807",
+      "dateUpdated": "2019-11-13 06:45:50.201",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -136,8 +136,8 @@
       "jobName": "paragraph_1573621930600_1184234075",
       "id": "20191009-042517_1466963465",
       "dateCreated": "2019-11-13 05:12:10.600",
-      "dateStarted": "2019-11-13 05:50:34.816",
-      "dateFinished": "2019-11-13 05:50:34.823",
+      "dateStarted": "2019-11-13 06:45:50.211",
+      "dateFinished": "2019-11-13 06:45:50.215",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -145,7 +145,7 @@
       "title": "Create Spark Session",
       "text": "%spark.pyspark\nspark \u003d SparkSession \\\n    .builder \\\n    .appName(\"pyspark_demo_app\") \\\n    .getOrCreate()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-13 05:50:34.916",
+      "dateUpdated": "2019-11-13 06:45:50.310",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -191,16 +191,16 @@
       "jobName": "paragraph_1573621930601_-992987428",
       "id": "20191009-042751_2109019779",
       "dateCreated": "2019-11-13 05:12:10.601",
-      "dateStarted": "2019-11-13 05:50:34.925",
-      "dateFinished": "2019-11-13 05:50:34.929",
+      "dateStarted": "2019-11-13 06:45:50.320",
+      "dateFinished": "2019-11-13 06:45:50.324",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Show AWS Glue Data Catalog Database Tables",
-      "text": "%spark.pyspark\nspark.sql(\"show databases\").show(10, False)\nspark.sql(\"use zeppelin_demo\")\nspark.sql(\"show tables\").show(10, False)",
+      "text": "%spark.pyspark\nspark.sql(\"show databases\").show(10, False)\nspark.sql(\"use zeppelin_demo\")\nspark.sql(\"show tables\").show(10, False)\nspark.sql(\"REFRESH TABLE ratings_parquet\")\nspark.sql(\"REFRESH TABLE movies_parquet\")\n",
       "user": "anonymous",
-      "dateUpdated": "2019-11-13 06:10:20.624",
+      "dateUpdated": "2019-11-13 06:45:50.420",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -243,7 +243,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "+---------------+\n|databaseName   |\n+---------------+\n|default        |\n|mydatabase     |\n|rds-presto-demo|\n|sampledb       |\n|zeppelin_demo  |\n+---------------+\n\n+-------------+----------------------+-----------+\n|database     |tableName             |isTemporary|\n+-------------+----------------------+-----------+\n|zeppelin_demo|bakery_csv            |false      |\n|zeppelin_demo|bakery_parquet        |false      |\n|zeppelin_demo|bakery_summary_parquet|false      |\n|zeppelin_demo|movies_parquet        |false      |\n|zeppelin_demo|ratings_parquet       |false      |\n|             |bakery                |true       |\n|             |movies                |true       |\n|             |ratings               |true       |\n+-------------+----------------------+-----------+\n\n"
+            "data": "+---------------+\n|databaseName   |\n+---------------+\n|default        |\n|mydatabase     |\n|rds-presto-demo|\n|sampledb       |\n|zeppelin_demo  |\n+---------------+\n\n+-------------+----------------------+-----------+\n|database     |tableName             |isTemporary|\n+-------------+----------------------+-----------+\n|zeppelin_demo|bakery_csv            |false      |\n|zeppelin_demo|bakery_parquet        |false      |\n|zeppelin_demo|bakery_summary_parquet|false      |\n|zeppelin_demo|movies_parquet        |false      |\n|zeppelin_demo|ratings_parquet       |false      |\n|             |bakery                |true       |\n|             |movies                |true       |\n|             |ratings               |true       |\n+-------------+----------------------+-----------+\n\nDataFrame[]\n"
           }
         ]
       },
@@ -251,8 +251,8 @@
       "jobName": "paragraph_1573621930602_-1857252041",
       "id": "20191009-050109_648011188",
       "dateCreated": "2019-11-13 05:12:10.602",
-      "dateStarted": "2019-11-13 06:10:20.635",
-      "dateFinished": "2019-11-13 06:10:21.160",
+      "dateStarted": "2019-11-13 06:45:50.430",
+      "dateFinished": "2019-11-13 06:45:52.143",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -260,7 +260,7 @@
       "title": "Create Temporary View of Ratings Data and Query",
       "text": "%spark.pyspark\nratingsDF \u003d spark.sql(\"SELECT movieId, rating, userId, CAST(timestamp as timestamp) as dateTime \" +\n                      \"FROM ratings_parquet \" +\n                      \"ORDER BY movieId, rating, userId\")\n\nprint(\"DataFrame rows: %d\" % ratingsDF.count())\nratingsDF.show(10, False)",
       "user": "anonymous",
-      "dateUpdated": "2019-11-13 06:10:40.548",
+      "dateUpdated": "2019-11-13 06:45:52.230",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -314,9 +314,10 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://ip-172-31-1-166.ec2.internal:4040/jobs/job?id\u003d200",
-            "http://ip-172-31-1-166.ec2.internal:4040/jobs/job?id\u003d201",
-            "http://ip-172-31-1-166.ec2.internal:4040/jobs/job?id\u003d202"
+            "http://ip-172-31-1-166.ec2.internal:4040/jobs/job?id\u003d281",
+            "http://ip-172-31-1-166.ec2.internal:4040/jobs/job?id\u003d282",
+            "http://ip-172-31-1-166.ec2.internal:4040/jobs/job?id\u003d283",
+            "http://ip-172-31-1-166.ec2.internal:4040/jobs/job?id\u003d284"
           ],
           "interpreterSettingId": "spark"
         }
@@ -325,8 +326,8 @@
       "jobName": "paragraph_1573625323551_-951185720",
       "id": "20191113-060843_1299023600",
       "dateCreated": "2019-11-13 06:08:43.551",
-      "dateStarted": "2019-11-13 06:10:40.557",
-      "dateFinished": "2019-11-13 06:10:53.757",
+      "dateStarted": "2019-11-13 06:45:52.240",
+      "dateFinished": "2019-11-13 06:46:09.062",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -334,7 +335,7 @@
       "title": "Replace Temporary View with New Query",
       "text": "%spark.pyspark\ntopMoviesDF \u003d spark.sql(\"SELECT m.title, AVG(r.rating) as avg_rating, COUNT(r.rating) as cnt_ratings \" +\n                        \"FROM ratings_parquet r \" +\n                        \"JOIN movies_parquet m ON (r.movieId \u003d m.movieId) \" +\n                        \"GROUP BY m.title \" +\n                        \"ORDER BY avg_rating DESC, cnt_ratings DESC, m.title ASC\")\n                        \n# topMoviesDF \u003d topMoviesDF.filter(topMoviesDF.cnt_ratings \u003e\u003d 25)\n\nprint(\"DataFrame rows: %d\" % moviesDF.count())\nprint(\"Top 10 Movies\")\ntopMoviesDF.show(10, False)\n",
       "user": "anonymous",
-      "dateUpdated": "2019-11-13 06:08:03.770",
+      "dateUpdated": "2019-11-13 06:46:09.160",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -388,8 +389,9 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://ip-172-31-1-166.ec2.internal:4040/jobs/job?id\u003d198",
-            "http://ip-172-31-1-166.ec2.internal:4040/jobs/job?id\u003d199"
+            "http://ip-172-31-1-166.ec2.internal:4040/jobs/job?id\u003d285",
+            "http://ip-172-31-1-166.ec2.internal:4040/jobs/job?id\u003d286",
+            "http://ip-172-31-1-166.ec2.internal:4040/jobs/job?id\u003d287"
           ],
           "interpreterSettingId": "spark"
         }
@@ -398,8 +400,8 @@
       "jobName": "paragraph_1573621930602_-2028436114",
       "id": "20191009-050155_2142326603",
       "dateCreated": "2019-11-13 05:12:10.602",
-      "dateStarted": "2019-11-13 06:08:03.779",
-      "dateFinished": "2019-11-13 06:08:26.746",
+      "dateStarted": "2019-11-13 06:46:09.206",
+      "dateFinished": "2019-11-13 06:46:22.703",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -407,7 +409,7 @@
       "title": "Native Zeppelin Visualization Based on SQL Query",
       "text": "%sql\nWITH tmp_table AS (\n    SELECT m.title, AVG(r.rating) as avg_rating, COUNT(r.rating) as cnt_ratings\n    FROM ratings_parquet r\n    JOIN movies_parquet m ON (r.movieId \u003d m.movieId)\n    GROUP BY m.title)\n    \nSELECT title, CAST(avg_rating AS DECIMAL(38,2)), cnt_ratings\nFROM tmp_table\nWHERE avg_rating \u003e\u003d ${avgRatingMin\u003d4} AND cnt_ratings \u003e\u003d ${RatingsMin\u003d2}\nORDER BY avg_rating ASC, cnt_ratings DESC, title ASC\nLIMIT 25",
       "user": "anonymous",
-      "dateUpdated": "2019-11-13 06:11:53.953",
+      "dateUpdated": "2019-11-13 06:46:28.011",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -3173,7 +3175,7 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://ip-172-31-1-166.ec2.internal:4040/jobs/job?id\u003d203"
+            "http://ip-172-31-1-166.ec2.internal:4040/jobs/job?id\u003d288"
           ],
           "interpreterSettingId": "spark"
         }
@@ -3182,15 +3184,15 @@
       "jobName": "paragraph_1573621930602_1385770344",
       "id": "20191106-042245_200419154",
       "dateCreated": "2019-11-13 05:12:10.602",
-      "dateStarted": "2019-11-13 06:11:42.548",
-      "dateFinished": "2019-11-13 06:11:53.262",
+      "dateStarted": "2019-11-13 06:46:22.753",
+      "dateFinished": "2019-11-13 06:46:27.648",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%sh\n",
       "user": "anonymous",
-      "dateUpdated": "2019-11-13 05:12:10.602",
+      "dateUpdated": "2019-11-13 06:46:27.669",
       "config": {
         "editorSetting": {
           "language": "sh",
@@ -3212,7 +3214,7 @@
       "jobName": "paragraph_1573621930602_419156213",
       "id": "20191108-053128_1591075156",
       "dateCreated": "2019-11-13 05:12:10.602",
-      "status": "READY",
+      "status": "FINISHED",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
     }
