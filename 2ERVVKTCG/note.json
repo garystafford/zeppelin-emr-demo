@@ -284,9 +284,9 @@
     },
     {
       "title": "Save Data in Parquet-format to S3",
-      "text": "%spark.pyspark\ndf_bakery.write.parquet(\"s3://\" + DATA_BUCKET + \"/data/bakery.parquet\", mode\u003d\"overwrite\")",
+      "text": "%spark.pyspark\ndf_bakery.write.parquet(\"s3://\" + DATA_BUCKET + \"/data/bakery-parquet\", mode\u003d\"overwrite\")",
       "user": "anonymous",
-      "dateUpdated": "2019-11-13 05:46:38.514",
+      "dateUpdated": "2019-11-13 06:34:21.301",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -351,9 +351,9 @@
     },
     {
       "title": "Load Parquet-format Data from S3",
-      "text": "%spark.pyspark\ndf_bakery \u003d spark.read.parquet(\"s3://\" + DATA_BUCKET + \"/data/bakery.parquet\")\n\nprint(\"DataFrame rows: %d\" % df_bakery.count())",
+      "text": "%spark.pyspark\ndf_bakery \u003d spark.read.parquet(\"s3://\" + DATA_BUCKET + \"/data/bakery-parquet\")\n\nprint(\"DataFrame rows: %d\" % df_bakery.count())",
       "user": "anonymous",
-      "dateUpdated": "2019-11-13 05:46:40.130",
+      "dateUpdated": "2019-11-13 06:34:31.264",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -576,7 +576,7 @@
       "title": "Native Zeppelin Visualization Based on SQL Query",
       "text": "%sql\nSELECT date, count(*) as item_count\nFROM bakery\nWHERE date BETWEEN \u00272017-01-01\u0027 AND \u00272017-03-31\u0027\nGROUP BY date\nORDER BY date",
       "user": "anonymous",
-      "dateUpdated": "2019-11-13 06:28:42.959",
+      "dateUpdated": "2019-11-13 06:33:59.761",
       "config": {
         "editorSetting": {
           "language": "sql",
@@ -9703,9 +9703,9 @@
     },
     {
       "title": "Write Transformed Data to Parquet Format",
-      "text": "%spark.pyspark\ndf_bakerySummary.write.parquet(\"s3://\" + DATA_BUCKET + \"/data/bakery.summary.parquet\", mode\u003d\"overwrite\")",
+      "text": "%spark.pyspark\ndf_bakerySummary.write.parquet(\"s3://\" + DATA_BUCKET + \"/data/bakery-summary-parquet\", mode\u003d\"overwrite\")",
       "user": "anonymous",
-      "dateUpdated": "2019-11-13 05:47:06.933",
+      "dateUpdated": "2019-11-13 06:34:39.181",
       "config": {
         "editorSetting": {
           "language": "python",
