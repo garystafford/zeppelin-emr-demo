@@ -196,9 +196,9 @@
     },
     {
       "title": "Load MovieLens Data from GroupLens",
-      "text": "%sh\n# choices: or ml-latest-small (100k) or ml-latest (27MM)\nDIR\u003d\"ml-latest-small\"\nif [ -d $DIR ]; then\n    echo \"$DIR exist\"\nelse \n    wget -nv http://files.grouplens.org/datasets/movielens/$DIR.zip -O $DIR.zip \u0026\u0026 unzip $DIR.zip\nfi\n\nls -alh $DIR\n\n# copy from local file system (/var/lib/zeppelin) to the destination file system (/user/zeppelin)\nhadoop fs -put -f  $DIR/movies.csv $DIR/ratings.csv .\nhadoop fs -ls -h .",
+      "text": "%sh\n#change me - choices: or ml-latest-small (100k) or ml-latest (27MM)\nDIR\u003d\"ml-latest-small\"\n\nif [ -d $DIR ]; then\n    echo \"$DIR exist\"\nelse \n    wget -nv http://files.grouplens.org/datasets/movielens/$DIR.zip -O $DIR.zip \u0026\u0026 unzip $DIR.zip\nfi\n\nls -alh $DIR\n\n# copy from local file system (/var/lib/zeppelin) to the destination file system (/user/zeppelin)\nhadoop fs -put -f  $DIR/movies.csv $DIR/ratings.csv .\nhadoop fs -ls -h .",
       "user": "anonymous",
-      "dateUpdated": "2019-11-13 02:36:57.305",
+      "dateUpdated": "2019-11-13 04:39:17.153",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -718,7 +718,7 @@
       "title": "Native Zeppelin Visualization Based on SQL Query",
       "text": "%sql\nWITH tmp_table AS (\n    SELECT m.title, AVG(r.rating) as avg_rating, COUNT(r.rating) as cnt_ratings\n    FROM ratings r\n    JOIN movies m ON (r.movieId \u003d m.movieId)\n    GROUP BY m.title)\n    \nSELECT title, CAST(avg_rating AS DECIMAL(38,2)), cnt_ratings\nFROM tmp_table\nWHERE avg_rating \u003e\u003d ${avgRatingMin\u003d4} AND cnt_ratings \u003e\u003d ${RatingsMin\u003d2}\nORDER BY avg_rating ASC, cnt_ratings DESC, title ASC\nLIMIT 25",
       "user": "anonymous",
-      "dateUpdated": "2019-11-13 02:37:42.447",
+      "dateUpdated": "2019-11-13 04:38:49.480",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
