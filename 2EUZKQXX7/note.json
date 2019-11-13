@@ -408,9 +408,9 @@
     },
     {
       "title": "Save Data in Parquet-format to S3",
-      "text": "%spark.pyspark\n# change me\nDATA_BUCKET\u003d\"gstafford-aws-emr-notebooks\"\n\nBUCKET_PATH\u003d\"s3://\" + DATA_BUCKET + \"/data/\"\nratingsDF.write.parquet(BUCKET_PATH + \"ratings.parquet\", mode\u003d\"overwrite\")\nmoviesDF.write.parquet(BUCKET_PATH + \"movies.parquet\", mode\u003d\"overwrite\")\n",
+      "text": "%spark.pyspark\n# change me\nDATA_BUCKET\u003d\"gstafford-aws-emr-notebooks\"\n\nBUCKET_PATH\u003d\"s3://\" + DATA_BUCKET + \"/data/\"\nratingsDF.write.parquet(BUCKET_PATH + \"ratings-parquet\", mode\u003d\"overwrite\")\nmoviesDF.write.parquet(BUCKET_PATH + \"movies-parquet\", mode\u003d\"overwrite\")\n",
       "user": "anonymous",
-      "dateUpdated": "2019-11-13 05:48:46.667",
+      "dateUpdated": "2019-11-13 06:32:45.995",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -457,9 +457,9 @@
     },
     {
       "title": "Load Parquet-format Data from S3",
-      "text": "%spark.pyspark\nratingsDF \u003d spark.read.parquet(BUCKET_PATH + \"ratings.parquet\")\nprint(\"DataFrame rows: %d\" % ratingsDF.count())",
+      "text": "%spark.pyspark\nratingsDF \u003d spark.read.parquet(BUCKET_PATH + \"ratings-parquet\")\nprint(\"DataFrame rows: %d\" % ratingsDF.count())",
       "user": "anonymous",
-      "dateUpdated": "2019-11-13 05:48:49.794",
+      "dateUpdated": "2019-11-13 06:32:48.805",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -512,9 +512,9 @@
     },
     {
       "title": "Load Parquet-format Data from S3",
-      "text": "%spark.pyspark\nmoviesDF \u003d spark.read.parquet(BUCKET_PATH + \"movies.parquet\")\nprint(\"DataFrame rows: %d\" % moviesDF.count())",
+      "text": "%spark.pyspark\nmoviesDF \u003d spark.read.parquet(BUCKET_PATH + \"movies-parquet\")\nprint(\"DataFrame rows: %d\" % moviesDF.count())",
       "user": "anonymous",
-      "dateUpdated": "2019-11-13 05:48:50.812",
+      "dateUpdated": "2019-11-13 06:33:00.469",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -718,7 +718,7 @@
       "title": "Native Zeppelin Visualization Based on SQL Query",
       "text": "%sql\nWITH tmp_table AS (\n    SELECT m.title, AVG(r.rating) as avg_rating, COUNT(r.rating) as cnt_ratings\n    FROM ratings r\n    JOIN movies m ON (r.movieId \u003d m.movieId)\n    GROUP BY m.title)\n    \nSELECT title, CAST(avg_rating AS DECIMAL(38,2)), cnt_ratings\nFROM tmp_table\nWHERE avg_rating \u003e\u003d ${avgRatingMin\u003d4} AND cnt_ratings \u003e\u003d ${RatingsMin\u003d2}\nORDER BY avg_rating ASC, cnt_ratings DESC, title ASC\nLIMIT 25",
       "user": "anonymous",
-      "dateUpdated": "2019-11-13 06:28:50.843",
+      "dateUpdated": "2019-11-13 06:30:13.348",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
