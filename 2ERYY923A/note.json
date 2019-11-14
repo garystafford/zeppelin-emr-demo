@@ -45,9 +45,9 @@
     },
     {
       "title": "AWS Glue CloudFormation Template",
-      "text": "%md\nRun the following AWS CLI command to create an AWS Glue Data Catalog Database, IAM Role, and five Crawlers.\n\n```sh\naws cloudformation create-stack \\\n    --stack-name zeppelin-crawlers-stack \\\n    --template-body file://crawler.yml \\\n    --parameters ParameterKey\u003dZeppelinDemoBucket,ParameterValue\u003dgstafford-emr-demo-us-east1 \\\n                 ParameterKey\u003dGlueDatabase,ParameterValue\u003dzeppelin_demo \\\n    --capabilities CAPABILITY_NAMED_IAM\n```\n\nThen run the new crawlers, one time each.\n\n```%sh\naws glue start-crawler --name bakery-csv-s3\naws glue start-crawler --name bakery-parquet-s3\naws glue start-crawler --name bakery-summary-parquet-s3\naws glue start-crawler --name ratings-parquet-s3\naws glue start-crawler --name movies-parquet-s3\n```",
+      "text": "%md\nRun the following AWS CLI command to create an AWS Glue Data Catalog Database, IAM Role, and five Crawlers.\nMake sure you change the `ZeppelinDemoBucket` parameter value.\n\n```sh\naws cloudformation create-stack \\\n    --stack-name zeppelin-crawlers-stack \\\n    --template-body file://crawler.yml \\\n    --parameters ParameterKey\u003dZeppelinDemoBucket,ParameterValue\u003dgstafford-emr-demo-us-east1 \\\n                 ParameterKey\u003dGlueDatabase,ParameterValue\u003dzeppelin_demo \\\n    --capabilities CAPABILITY_NAMED_IAM\n```\n\nThen run the new crawlers, one time each.\n\n```%sh\naws glue start-crawler --name bakery-csv-s3\naws glue start-crawler --name bakery-parquet-s3\naws glue start-crawler --name bakery-summary-parquet-s3\naws glue start-crawler --name ratings-parquet-s3\naws glue start-crawler --name movies-parquet-s3\n```",
       "user": "anonymous",
-      "dateUpdated": "2019-11-14 00:01:11.854",
+      "dateUpdated": "2019-11-14 00:07:13.236",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -76,7 +76,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eRun the following AWS CLI command to create an AWS Glue Data Catalog Database, IAM Role, and five Crawlers.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class\u003d\"sh\"\u003eaws cloudformation create-stack \\\n    --stack-name zeppelin-crawlers-stack \\\n    --template-body file://crawler.yml \\\n    --parameters ParameterKey\u003dZeppelinDemoBucket,ParameterValue\u003dgstafford-emr-demo-us-east1 \\\n                 ParameterKey\u003dGlueDatabase,ParameterValue\u003dzeppelin_demo \\\n    --capabilities CAPABILITY_NAMED_IAM\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThen run the new crawlers, one time each.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class\u003d\"%sh\"\u003eaws glue start-crawler --name bakery-csv-s3\naws glue start-crawler --name bakery-parquet-s3\naws glue start-crawler --name bakery-summary-parquet-s3\naws glue start-crawler --name ratings-parquet-s3\naws glue start-crawler --name movies-parquet-s3\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eRun the following AWS CLI command to create an AWS Glue Data Catalog Database, IAM Role, and five Crawlers.\u003cbr/\u003eMake sure you change the \u003ccode\u003eZeppelinDemoBucket\u003c/code\u003e parameter value.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class\u003d\"sh\"\u003eaws cloudformation create-stack \\\n    --stack-name zeppelin-crawlers-stack \\\n    --template-body file://crawler.yml \\\n    --parameters ParameterKey\u003dZeppelinDemoBucket,ParameterValue\u003dgstafford-emr-demo-us-east1 \\\n                 ParameterKey\u003dGlueDatabase,ParameterValue\u003dzeppelin_demo \\\n    --capabilities CAPABILITY_NAMED_IAM\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThen run the new crawlers, one time each.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class\u003d\"%sh\"\u003eaws glue start-crawler --name bakery-csv-s3\naws glue start-crawler --name bakery-parquet-s3\naws glue start-crawler --name bakery-summary-parquet-s3\naws glue start-crawler --name ratings-parquet-s3\naws glue start-crawler --name movies-parquet-s3\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/div\u003e"
           }
         ]
       },
@@ -84,8 +84,8 @@
       "jobName": "paragraph_1573625588720_284418062",
       "id": "20191113-061308_201880928",
       "dateCreated": "2019-11-13 06:13:08.720",
-      "dateStarted": "2019-11-14 00:01:11.863",
-      "dateFinished": "2019-11-14 00:01:11.867",
+      "dateStarted": "2019-11-14 00:07:13.239",
+      "dateFinished": "2019-11-14 00:07:13.245",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
