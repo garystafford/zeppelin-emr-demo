@@ -113,9 +113,9 @@
     },
     {
       "title": "Create Spark Session",
-      "text": "%spark.pyspark\nspark \u003d SparkSession \\\n    .builder \\\n    .appName(\u0027pyspark_demo_app\u0027) \\\n    .master(\"local[*]\") \\\n    .getOrCreate()",
+      "text": "%spark.pyspark\nspark \u003d SparkSession \\\n    .builder \\\n    .appName(\u0027pyspark_demo_app\u0027) \\\n    .getOrCreate()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-07 21:21:22.853",
+      "dateUpdated": "2019-11-14 00:13:01.518",
       "config": {
         "lineNumbers": true,
         "editorSetting": {
@@ -138,7 +138,8 @@
         "results": [
           {}
         ],
-        "enabled": true
+        "enabled": true,
+        "fontSize": 9.0
       },
       "settings": {
         "params": {},
@@ -205,9 +206,9 @@
     },
     {
       "title": "Load CSV Data into DataFrame",
-      "text": "%spark.pyspark\n# load csv format data file into Spark DataFrame\nbakery_schema \u003d StructType([\n    StructField(\u0027date\u0027, StringType(), True),\n    StructField(\u0027time\u0027, StringType(), True),\n    StructField(\u0027transaction\u0027, IntegerType(), True),\n    StructField(\u0027item\u0027, StringType(), True)\n])\n\ndf_bakery1 \u003d spark.read \\\n    .format(\"csv\") \\\n    .option(\"header\", \"true\") \\\n    .load(\"BreadBasket_DMS.csv\", schema\u003dbakery_schema)\n\ndf_bakery1.show(10)\ndf_bakery1.count()",
+      "text": "%spark.pyspark\n# load csv format data file into Spark DataFrame\nbakery_schema \u003d StructType([\n    StructField(\u0027date\u0027, StringType(), True),\n    StructField(\u0027time\u0027, StringType(), True),\n    StructField(\u0027transaction\u0027, IntegerType(), True),\n    StructField(\u0027item\u0027, StringType(), True)\n])\n\ndf_bakery1 \u003d spark.read \\\n    .format(\"csv\") \\\n    .option(\"header\", \"true\") \\\n    .load(\"BreadBasket_DMS.csv\", schema\u003dbakery_schema)\n\ndf_bakery1.show(10, False)\ndf_bakery1.count()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-07 21:21:22.854",
+      "dateUpdated": "2019-11-14 00:13:59.440",
       "config": {
         "lineNumbers": true,
         "editorSetting": {
@@ -236,7 +237,8 @@
             }
           }
         ],
-        "enabled": true
+        "enabled": true,
+        "fontSize": 9.0
       },
       "settings": {
         "params": {},
@@ -261,9 +263,9 @@
     },
     {
       "title": "Write, Read, Load Parquet Data",
-      "text": "%spark.pyspark\n# write, read, load parquet format data files into Spark DataFrame\ndf_bakery1.write.parquet(\u0027output/bakery_parquet\u0027, mode\u003d\u0027overwrite\u0027)\ndf_bakery2 \u003d spark.read.parquet(\u0027output/bakery_parquet\u0027)\n\ndf_bakery2.show(5)\ndf_bakery2.count()",
+      "text": "%spark.pyspark\n# write, read, load parquet format data files into Spark DataFrame\ndf_bakery1.write.parquet(\u0027data/bakery_parquet_zepl\u0027, mode\u003d\u0027overwrite\u0027)\ndf_bakery2 \u003d spark.read.parquet(\u0027data/bakery_parquet_zepl\u0027)\n\ndf_bakery2.show(5, False)\ndf_bakery2.count()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-07 21:21:22.854",
+      "dateUpdated": "2019-11-14 00:13:46.651",
       "config": {
         "lineNumbers": true,
         "editorSetting": {
@@ -292,7 +294,8 @@
             }
           }
         ],
-        "enabled": true
+        "enabled": true,
+        "fontSize": 9.0
       },
       "settings": {
         "params": {},
@@ -373,9 +376,9 @@
     },
     {
       "title": "Replace Temporary View",
-      "text": "%spark.pyspark\n# replace a temporary view of a Spark DataFrame and run a sql query against it\ndf_bakery3.createOrReplaceTempView(\"bakery_table_tmp\")\n\ndf_bakery4 \u003d spark.sql(\"SELECT date, count(*) as item_count \" +\n                       \"FROM bakery_table_tmp \" +\n                       \"WHERE date \u003e\u003d \u00272017-01-01\u0027 \" +\n                       \"GROUP BY date \" +\n                       \"ORDER BY date\")\n\ndf_bakery4.show(5)\ndf_bakery4.count()",
+      "text": "%spark.pyspark\n# replace a temporary view of a Spark DataFrame and run a sql query against it\ndf_bakery3.createOrReplaceTempView(\"bakery\")\n\ndf_bakery4 \u003d spark.sql(\"SELECT date, count(*) as item_count \" +\n                       \"FROM bakery \" +\n                       \"WHERE date \u003e\u003d \u00272017-01-01\u0027 \" +\n                       \"GROUP BY date \" +\n                       \"ORDER BY date\")\n\ndf_bakery4.show(5)\ndf_bakery4.count()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-07 21:21:22.855",
+      "dateUpdated": "2019-11-14 00:16:19.377",
       "config": {
         "lineNumbers": true,
         "editorSetting": {
@@ -404,7 +407,8 @@
             }
           }
         ],
-        "enabled": true
+        "enabled": true,
+        "fontSize": 9.0
       },
       "settings": {
         "params": {},
@@ -429,9 +433,9 @@
     },
     {
       "title": "Native ZELP Visualization Based on SQL Query ",
-      "text": "%sql\nSELECT date, count(*) as items\nFROM bakery_table_tmp\nWHERE date BETWEEN \u00272017-01-01\u0027 AND \u00272017-03-31\u0027\nGROUP BY date\nORDER BY date",
+      "text": "%sql\nSELECT date, count(*) as items\nFROM bakery\nWHERE date BETWEEN \u00272017-01-01\u0027 AND \u00272017-03-31\u0027\nGROUP BY date\nORDER BY date",
       "user": "anonymous",
-      "dateUpdated": "2019-11-07 21:23:48.560",
+      "dateUpdated": "2019-11-14 00:16:24.176",
       "config": {
         "lineNumbers": true,
         "editorSetting": {
@@ -12126,9 +12130,9 @@
     },
     {
       "title": "Native ZELP Visualization Based on SQL Query ",
-      "text": "%sql\nSELECT count(*) as items, item\nFROM bakery_table_tmp\nGROUP BY item\nORDER BY items\nDESC LIMIT 10",
+      "text": "%sql\nSELECT count(*) as items, item\nFROM bakery\nGROUP BY item\nORDER BY items\nDESC LIMIT 10",
       "user": "anonymous",
-      "dateUpdated": "2019-11-07 21:23:48.668",
+      "dateUpdated": "2019-11-14 00:16:37.963",
       "config": {
         "lineNumbers": true,
         "editorSetting": {
@@ -23736,9 +23740,9 @@
     },
     {
       "title": "Write Transformed Data to Parquet Format",
-      "text": "%spark.pyspark\n# write transformed data to parquet\ndf_bakery4.write.parquet(\u0027output/daily_sales_parquet\u0027, mode\u003d\u0027overwrite\u0027)\n",
+      "text": "%spark.pyspark\n# write transformed data to parquet\ndf_bakery4.write.parquet(\u0027data/daily_sales_parquet_zepl\u0027, mode\u003d\u0027overwrite\u0027)\n",
       "user": "anonymous",
-      "dateUpdated": "2019-11-07 21:21:22.857",
+      "dateUpdated": "2019-11-14 00:14:51.548",
       "config": {
         "lineNumbers": true,
         "editorSetting": {
@@ -23759,7 +23763,8 @@
         "editorMode": "ace/mode/python",
         "title": true,
         "results": [],
-        "enabled": true
+        "enabled": true,
+        "fontSize": 9.0
       },
       "settings": {
         "params": {},
@@ -23802,7 +23807,7 @@
   "noteForms": {},
   "angularObjects": {
     "md:shared_process": [],
-    "python:shared_process": [],
+    "sh:shared_process": [],
     "spark:shared_process": []
   },
   "config": {
