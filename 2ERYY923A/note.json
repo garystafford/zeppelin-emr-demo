@@ -336,9 +336,9 @@
     },
     {
       "title": "Replace Temporary View with New Query",
-      "text": "%spark.pyspark\ntopMoviesDF \u003d spark.sql(\"SELECT m.title, AVG(r.rating) as avg_rating, COUNT(r.rating) as cnt_ratings \" +\n                        \"FROM ratings_parquet r \" +\n                        \"JOIN movies_parquet m ON (r.movieId \u003d m.movieId) \" +\n                        \"GROUP BY m.title \" +\n                        \"ORDER BY avg_rating DESC, cnt_ratings DESC, m.title ASC\")\n                        \ntopMoviesDF \u003d topMoviesDF.filter(topMoviesDF.cnt_ratings \u003e\u003d 25)\n\nprint(\"DataFrame rows: %d\" % moviesDF.count())\nprint(\"Top 10 Movies\")\ntopMoviesDF.show(10, False)\n",
+      "text": "%spark.pyspark\ntopMoviesDF \u003d spark.sql(\"SELECT m.title, CAST(AVG(r.rating) AS DECIMAL(38,2)) as avg_rating, COUNT(r.rating) as cnt_ratings \" +\n                        \"FROM ratings_parquet r \" +\n                        \"JOIN movies_parquet m ON (r.movieId \u003d m.movieId) \" +\n                        \"GROUP BY m.title \" +\n                        \"ORDER BY avg_rating DESC, cnt_ratings DESC, m.title ASC\")\n                        \ntopMoviesDF \u003d topMoviesDF.filter(topMoviesDF.cnt_ratings \u003e\u003d 25)\n\nprint(\"DataFrame rows: %d\" % moviesDF.count())\nprint(\"Top 10 Movies\")\ntopMoviesDF.show(10, False)\n",
       "user": "anonymous",
-      "dateUpdated": "2019-11-14 00:01:32.128",
+      "dateUpdated": "2019-11-14 00:04:46.691",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -381,7 +381,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "DataFrame rows: 9742\nTop 10 Movies\n+---------------------------------------------+-----------------+-----------+\n|title                                        |avg_rating       |cnt_ratings|\n+---------------------------------------------+-----------------+-----------+\n|Shawshank Redemption, The (1994)             |4.429022082018927|317        |\n|Sunset Blvd. (a.k.a. Sunset Boulevard) (1950)|4.333333333333333|27         |\n|Philadelphia Story, The (1940)               |4.310344827586207|29         |\n|Lawrence of Arabia (1962)                    |4.3              |45         |\n|In the Name of the Father (1993)             |4.3              |25         |\n|Hoop Dreams (1994)                           |4.293103448275862|29         |\n|Godfather, The (1972)                        |4.2890625        |192        |\n|Harold and Maude (1971)                      |4.288461538461538|26         |\n|Logan (2017)                                 |4.28             |25         |\n|Fight Club (1999)                            |4.272935779816514|218        |\n+---------------------------------------------+-----------------+-----------+\nonly showing top 10 rows\n\n"
+            "data": "DataFrame rows: 9742\nTop 10 Movies\n+---------------------------------------------+----------+-----------+\n|title                                        |avg_rating|cnt_ratings|\n+---------------------------------------------+----------+-----------+\n|Shawshank Redemption, The (1994)             |4.43      |317        |\n|Sunset Blvd. (a.k.a. Sunset Boulevard) (1950)|4.33      |27         |\n|Philadelphia Story, The (1940)               |4.31      |29         |\n|Lawrence of Arabia (1962)                    |4.30      |45         |\n|In the Name of the Father (1993)             |4.30      |25         |\n|Godfather, The (1972)                        |4.29      |192        |\n|Hoop Dreams (1994)                           |4.29      |29         |\n|Harold and Maude (1971)                      |4.29      |26         |\n|Logan (2017)                                 |4.28      |25         |\n|Fight Club (1999)                            |4.27      |218        |\n+---------------------------------------------+----------+-----------+\nonly showing top 10 rows\n\n"
           }
         ]
       },
@@ -392,9 +392,8 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://ip-172-31-7-200.ec2.internal:4040/jobs/job?id\u003d156",
-            "http://ip-172-31-7-200.ec2.internal:4040/jobs/job?id\u003d157",
-            "http://ip-172-31-7-200.ec2.internal:4040/jobs/job?id\u003d158"
+            "http://ip-172-31-7-200.ec2.internal:4040/jobs/job?id\u003d160",
+            "http://ip-172-31-7-200.ec2.internal:4040/jobs/job?id\u003d161"
           ],
           "interpreterSettingId": "spark"
         }
@@ -403,8 +402,8 @@
       "jobName": "paragraph_1573621930602_-2028436114",
       "id": "20191009-050155_2142326603",
       "dateCreated": "2019-11-13 05:12:10.602",
-      "dateStarted": "2019-11-14 00:01:32.141",
-      "dateFinished": "2019-11-14 00:01:47.556",
+      "dateStarted": "2019-11-14 00:04:46.700",
+      "dateFinished": "2019-11-14 00:05:10.619",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
