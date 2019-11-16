@@ -349,9 +349,9 @@
     },
     {
       "title": "Replace Temporary View with New Query",
-      "text": "%spark.pyspark\ntopMoviesDF \u003d spark.sql(\"SELECT m.title, CAST(AVG(r.rating) AS DECIMAL(38,2)) as avg_rating, COUNT(r.rating) as cnt_ratings \" +\n                        \"FROM ratings_parquet_100k r \" +\n                        \"JOIN movies_parquet_100k m ON (r.movieId \u003d m.movieId) \" +\n                        \"GROUP BY m.title \" +\n                        \"ORDER BY avg_rating DESC, cnt_ratings DESC, m.title ASC\")\n                        \ntopMoviesDF \u003d topMoviesDF.filter(topMoviesDF.cnt_ratings \u003e\u003d 25)\n\nprint(\"DataFrame rows: %d\" % moviesDF.count())\nprint(\"Top 10 Movies\")\ntopMoviesDF.show(10, False)\n",
+      "text": "%spark.pyspark\ntopMoviesDF \u003d spark.sql(\"SELECT m.title, CAST(AVG(r.rating) AS DECIMAL(4,3)) as avg_rating, COUNT(r.rating) as cnt_ratings \" +\n                        \"FROM ratings_parquet_100k r \" +\n                        \"JOIN movies_parquet_100k m ON (r.movieId \u003d m.movieId) \" +\n                        \"GROUP BY m.title \" +\n                        \"ORDER BY avg_rating DESC, cnt_ratings DESC, m.title ASC\")\n                        \ntopMoviesDF \u003d topMoviesDF.filter(topMoviesDF.cnt_ratings \u003e\u003d 25)\n\nprint(\"DataFrame rows: %d\" % moviesDF.count())\nprint(\"Top 10 Movies\")\ntopMoviesDF.show(10, False)\n",
       "user": "anonymous",
-      "dateUpdated": "2019-11-16 07:39:28.810",
+      "dateUpdated": "2019-11-16 07:54:39.086",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -394,7 +394,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "DataFrame rows: 58098\nTop 10 Movies\n+---------------------------------------------+----------+-----------+\n|title                                        |avg_rating|cnt_ratings|\n+---------------------------------------------+----------+-----------+\n|Shawshank Redemption, The (1994)             |4.43      |317        |\n|Sunset Blvd. (a.k.a. Sunset Boulevard) (1950)|4.33      |27         |\n|Philadelphia Story, The (1940)               |4.31      |29         |\n|Lawrence of Arabia (1962)                    |4.30      |45         |\n|In the Name of the Father (1993)             |4.30      |25         |\n|Godfather, The (1972)                        |4.29      |192        |\n|Hoop Dreams (1994)                           |4.29      |29         |\n|Harold and Maude (1971)                      |4.29      |26         |\n|Logan (2017)                                 |4.28      |25         |\n|Fight Club (1999)                            |4.27      |218        |\n+---------------------------------------------+----------+-----------+\nonly showing top 10 rows\n\n"
+            "data": "DataFrame rows: 9742\nTop 10 Movies\n+---------------------------------------------+----------+-----------+\n|title                                        |avg_rating|cnt_ratings|\n+---------------------------------------------+----------+-----------+\n|Shawshank Redemption, The (1994)             |4.429     |317        |\n|Sunset Blvd. (a.k.a. Sunset Boulevard) (1950)|4.333     |27         |\n|Philadelphia Story, The (1940)               |4.310     |29         |\n|Lawrence of Arabia (1962)                    |4.300     |45         |\n|In the Name of the Father (1993)             |4.300     |25         |\n|Hoop Dreams (1994)                           |4.293     |29         |\n|Godfather, The (1972)                        |4.289     |192        |\n|Harold and Maude (1971)                      |4.288     |26         |\n|Logan (2017)                                 |4.280     |25         |\n|Fight Club (1999)                            |4.273     |218        |\n+---------------------------------------------+----------+-----------+\nonly showing top 10 rows\n\n"
           }
         ]
       },
@@ -405,9 +405,8 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d193",
-            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d194",
-            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d195"
+            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d215",
+            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d216"
           ],
           "interpreterSettingId": "spark"
         }
@@ -416,8 +415,8 @@
       "jobName": "paragraph_1573621930602_-2028436114",
       "id": "20191009-050155_2142326603",
       "dateCreated": "2019-11-13 05:12:10.602",
-      "dateStarted": "2019-11-16 07:39:28.869",
-      "dateFinished": "2019-11-16 07:39:43.317",
+      "dateStarted": "2019-11-16 07:54:39.099",
+      "dateFinished": "2019-11-16 07:54:44.568",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -425,7 +424,7 @@
       "title": "Native Zeppelin Visualization Based on SQL Query",
       "text": "%sql\nWITH tmp_table AS (\n    SELECT m.title, AVG(r.rating) as avg_rating, COUNT(r.rating) as cnt_ratings\n    FROM ratings_parquet_100k r\n    JOIN movies_parquet_100k m ON (r.movieId \u003d m.movieId)\n    GROUP BY m.title)\n    \nSELECT title, CAST(avg_rating AS DECIMAL(38,2)), cnt_ratings\nFROM tmp_table\nWHERE avg_rating \u003e\u003d ${avgRatingMin\u003d4} AND cnt_ratings \u003e\u003d ${RatingsMin\u003d2}\nORDER BY avg_rating ASC, cnt_ratings DESC, title ASC\nLIMIT 25",
       "user": "anonymous",
-      "dateUpdated": "2019-11-16 07:39:49.049",
+      "dateUpdated": "2019-11-16 07:52:16.793",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
