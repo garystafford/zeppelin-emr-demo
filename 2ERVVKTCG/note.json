@@ -4,7 +4,7 @@
       "title": "Zeppelin Demo Notebook 1",
       "text": "%md\nDemonstrate loading, querying, visualizing, and saving a small ~21k row kaggle dataset.\nThe \u0027Transactions from a bakery\u0027 dataset is documented on [kaggle](https://www.kaggle.com/sulmansarwar/transactions-from-a-bakery).",
       "user": "anonymous",
-      "dateUpdated": "2019-11-13 18:58:20.938",
+      "dateUpdated": "2019-11-16 06:29:47.639",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -38,8 +38,8 @@
       "jobName": "paragraph_1573058000759_-1487542903",
       "id": "20191106-153644_419077851",
       "dateCreated": "2019-11-06 16:33:20.759",
-      "dateStarted": "2019-11-13 18:58:20.975",
-      "dateFinished": "2019-11-13 18:58:20.990",
+      "dateStarted": "2019-11-16 06:29:47.668",
+      "dateFinished": "2019-11-16 06:29:47.681",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -47,7 +47,7 @@
       "title": "Import Python Packages",
       "text": "%spark.pyspark\nfrom pyspark import SparkFiles\nfrom pyspark.sql import SparkSession\nfrom pyspark.sql.types import StructType, StructField, StringType, IntegerType",
       "user": "anonymous",
-      "dateUpdated": "2019-11-13 18:58:21.074",
+      "dateUpdated": "2019-11-16 06:29:47.767",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -93,8 +93,8 @@
       "jobName": "paragraph_1573058000760_1826550872",
       "id": "20191009-042517_1466963465",
       "dateCreated": "2019-11-06 16:33:20.760",
-      "dateStarted": "2019-11-13 18:58:21.102",
-      "dateFinished": "2019-11-13 18:58:21.110",
+      "dateStarted": "2019-11-16 06:29:47.794",
+      "dateFinished": "2019-11-16 06:29:47.803",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -102,7 +102,7 @@
       "title": "Create Spark Session",
       "text": "%spark.pyspark\nspark \u003d SparkSession \\\n    .builder \\\n    .appName(\u0027pyspark_demo_app\u0027) \\\n    .getOrCreate()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-13 18:58:21.201",
+      "dateUpdated": "2019-11-16 06:29:47.894",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -142,8 +142,8 @@
       "jobName": "paragraph_1573058000760_-178139685",
       "id": "20191009-042751_2109019779",
       "dateCreated": "2019-11-06 16:33:20.760",
-      "dateStarted": "2019-11-13 18:58:21.228",
-      "dateFinished": "2019-11-13 18:58:21.244",
+      "dateStarted": "2019-11-16 06:29:47.932",
+      "dateFinished": "2019-11-16 06:29:47.940",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -151,7 +151,7 @@
       "title": "Save CSV Data File to S3",
       "text": "%sh\n# change me for shell interpreter binding\nZEPPELIN_DEMO_BUCKET\u003d\"gstafford-emr-demo-us-east1\"\n\nDATA_FILE\u003d\"BreadBasket_DMS.csv\"\n\n# copy bakery data to/from s3 bucket\nif [ -f \"$DATA_FILE\" ]; then\n    echo \"$DATA_FILE exist\"\nelse\n    wget -nv https://raw.githubusercontent.com/garystafford/pyspark-setup-demo/master/work/$DATA_FILE -O $DATA_FILE\nfi\n\naws s3 cp $DATA_FILE s3://$ZEPPELIN_DEMO_BUCKET/data/bakery-csv/$DATA_FILE",
       "user": "anonymous",
-      "dateUpdated": "2019-11-13 18:58:21.328",
+      "dateUpdated": "2019-11-16 06:29:48.031",
       "config": {
         "editorSetting": {
           "language": "sh",
@@ -196,7 +196,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "BreadBasket_DMS.csv exist\nCompleted 256.0 KiB/693.9 KiB (4.2 MiB/s) with 1 file(s) remaining\rCompleted 512.0 KiB/693.9 KiB (7.8 MiB/s) with 1 file(s) remaining\rCompleted 693.9 KiB/693.9 KiB (4.7 MiB/s) with 1 file(s) remaining\rupload: ./BreadBasket_DMS.csv to s3://gstafford-emr-demo-us-east1/data/bakery-csv/BreadBasket_DMS.csv\n"
+            "data": "BreadBasket_DMS.csv exist\nCompleted 256.0 KiB/693.9 KiB (2.6 MiB/s) with 1 file(s) remaining\rCompleted 512.0 KiB/693.9 KiB (5.0 MiB/s) with 1 file(s) remaining\rCompleted 693.9 KiB/693.9 KiB (2.3 MiB/s) with 1 file(s) remaining\rupload: ./BreadBasket_DMS.csv to s3://gstafford-emr-demo-us-east1/data/bakery-csv/BreadBasket_DMS.csv\n"
           }
         ]
       },
@@ -204,8 +204,8 @@
       "jobName": "paragraph_1573058000760_961427148",
       "id": "20191009-042907_1768707497",
       "dateCreated": "2019-11-06 16:33:20.760",
-      "dateStarted": "2019-11-13 18:58:21.358",
-      "dateFinished": "2019-11-13 18:58:21.921",
+      "dateStarted": "2019-11-16 06:29:48.058",
+      "dateFinished": "2019-11-16 06:29:48.761",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -213,7 +213,7 @@
       "title": "Load CSV Data from S3 into DataFrame",
       "text": "%spark.pyspark\n# change me to same value as shell interpreter binding, for pyspark interpreter binding\nZEPPELIN_DEMO_BUCKET\u003d\"gstafford-emr-demo-us-east1\"\n\nDATA_FILE\u003d\"BreadBasket_DMS.csv\"\n\nbakery_schema \u003d StructType([\n    StructField(\"date\", StringType(), True),\n    StructField(\"time\", StringType(), True),\n    StructField(\"transaction\", IntegerType(), True),\n    StructField(\"item\", StringType(), True)\n])\n\ndf_bakery \u003d spark.read \\\n    .format(\"csv\") \\\n    .option(\"header\", \"true\") \\\n    .load(\"s3://\" + ZEPPELIN_DEMO_BUCKET + \"/data/bakery-csv/\" + DATA_FILE, schema\u003dbakery_schema)\n\nprint(\"DataFrame rows: %d\" % df_bakery.count())\nprint(\"DataFrame schema: %s\" % df_bakery)\ndf_bakery.show(10, False)",
       "user": "anonymous",
-      "dateUpdated": "2019-11-13 18:58:21.958",
+      "dateUpdated": "2019-11-16 06:29:48.859",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -267,8 +267,8 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://ip-172-31-7-200.ec2.internal:4040/jobs/job?id\u003d0",
-            "http://ip-172-31-7-200.ec2.internal:4040/jobs/job?id\u003d1"
+            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d20",
+            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d21"
           ],
           "interpreterSettingId": "spark"
         }
@@ -277,8 +277,8 @@
       "jobName": "paragraph_1573058000760_886915304",
       "id": "20191009-044129_2035687603",
       "dateCreated": "2019-11-06 16:33:20.760",
-      "dateStarted": "2019-11-13 18:58:21.993",
-      "dateFinished": "2019-11-13 18:58:34.276",
+      "dateStarted": "2019-11-16 06:29:48.892",
+      "dateFinished": "2019-11-16 06:29:57.806",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -286,7 +286,7 @@
       "title": "Save Data in Parquet-format to S3",
       "text": "%spark.pyspark\ndf_bakery.write.parquet(\"s3://\" + ZEPPELIN_DEMO_BUCKET + \"/data/bakery-parquet\", mode\u003d\"overwrite\")",
       "user": "anonymous",
-      "dateUpdated": "2019-11-13 18:58:34.304",
+      "dateUpdated": "2019-11-16 06:29:57.899",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -335,7 +335,7 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://ip-172-31-7-200.ec2.internal:4040/jobs/job?id\u003d2"
+            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d22"
           ],
           "interpreterSettingId": "spark"
         }
@@ -344,8 +344,8 @@
       "jobName": "paragraph_1573058000760_-634386583",
       "id": "20191010-052611_90769380",
       "dateCreated": "2019-11-06 16:33:20.760",
-      "dateStarted": "2019-11-13 18:58:34.338",
-      "dateFinished": "2019-11-13 18:58:36.218",
+      "dateStarted": "2019-11-16 06:29:57.923",
+      "dateFinished": "2019-11-16 06:29:59.924",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -353,7 +353,7 @@
       "title": "Load Parquet-format Data from S3",
       "text": "%spark.pyspark\ndf_bakery \u003d spark.read.parquet(\"s3://\" + ZEPPELIN_DEMO_BUCKET + \"/data/bakery-parquet\")\n\nprint(\"DataFrame rows: %d\" % df_bakery.count())",
       "user": "anonymous",
-      "dateUpdated": "2019-11-13 18:58:36.239",
+      "dateUpdated": "2019-11-16 06:29:59.924",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -407,8 +407,8 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://ip-172-31-7-200.ec2.internal:4040/jobs/job?id\u003d3",
-            "http://ip-172-31-7-200.ec2.internal:4040/jobs/job?id\u003d4"
+            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d23",
+            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d24"
           ],
           "interpreterSettingId": "spark"
         }
@@ -417,8 +417,8 @@
       "jobName": "paragraph_1573519493699_-257068444",
       "id": "20191112-004453_863376777",
       "dateCreated": "2019-11-12 00:44:53.699",
-      "dateStarted": "2019-11-13 18:58:36.262",
-      "dateFinished": "2019-11-13 18:58:37.466",
+      "dateStarted": "2019-11-16 06:29:59.963",
+      "dateFinished": "2019-11-16 06:30:00.949",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -426,7 +426,7 @@
       "title": "Create Temporary View of Data",
       "text": "%spark.pyspark\ndf_bakery.createOrReplaceTempView(\"bakery\")\n\ndf_bakeryClean \u003d spark.sql(\"SELECT transaction, date, item \" +\n                           \"FROM bakery \" +\n                           \"WHERE item NOT LIKE \u0027NONE\u0027\" +\n                           \"ORDER BY transaction\")\n\nprint(\"DataFrame rows: %d\" % df_bakeryClean.count())\ndf_bakeryClean.show(10, False)",
       "user": "anonymous",
-      "dateUpdated": "2019-11-13 18:58:37.563",
+      "dateUpdated": "2019-11-16 06:30:00.963",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -480,9 +480,9 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://ip-172-31-7-200.ec2.internal:4040/jobs/job?id\u003d5",
-            "http://ip-172-31-7-200.ec2.internal:4040/jobs/job?id\u003d6",
-            "http://ip-172-31-7-200.ec2.internal:4040/jobs/job?id\u003d7"
+            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d25",
+            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d26",
+            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d27"
           ],
           "interpreterSettingId": "spark"
         }
@@ -491,8 +491,8 @@
       "jobName": "paragraph_1573058000760_-1417833523",
       "id": "20191009-050109_648011188",
       "dateCreated": "2019-11-06 16:33:20.760",
-      "dateStarted": "2019-11-13 18:58:37.594",
-      "dateFinished": "2019-11-13 18:58:47.317",
+      "dateStarted": "2019-11-16 06:30:00.995",
+      "dateFinished": "2019-11-16 06:30:06.660",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -500,7 +500,7 @@
       "title": "Replace Temporary View with New Query",
       "text": "%spark.pyspark\ndf_bakeryClean.createOrReplaceTempView(\"bakery\")\n\ndf_bakerySummary \u003d spark.sql(\"SELECT date, count(*) as item_count \" +\n                             \"FROM bakery \" +\n                             \"WHERE date \u003e\u003d \u00272017-01-01\u0027 \" +\n                             \"GROUP BY date \" +\n                             \"ORDER BY date\")\n\nprint(\"DataFrame rows: %d\" % df_bakerySummary.count())\ndf_bakerySummary.show(10, False)",
       "user": "anonymous",
-      "dateUpdated": "2019-11-13 18:58:47.405",
+      "dateUpdated": "2019-11-16 06:30:06.711",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -554,11 +554,11 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://ip-172-31-7-200.ec2.internal:4040/jobs/job?id\u003d8",
-            "http://ip-172-31-7-200.ec2.internal:4040/jobs/job?id\u003d9",
-            "http://ip-172-31-7-200.ec2.internal:4040/jobs/job?id\u003d10",
-            "http://ip-172-31-7-200.ec2.internal:4040/jobs/job?id\u003d11",
-            "http://ip-172-31-7-200.ec2.internal:4040/jobs/job?id\u003d12"
+            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d28",
+            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d29",
+            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d30",
+            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d31",
+            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d32"
           ],
           "interpreterSettingId": "spark"
         }
@@ -567,8 +567,8 @@
       "jobName": "paragraph_1573058000760_-945322986",
       "id": "20191009-050155_2142326603",
       "dateCreated": "2019-11-06 16:33:20.760",
-      "dateStarted": "2019-11-13 18:58:47.463",
-      "dateFinished": "2019-11-13 18:59:05.008",
+      "dateStarted": "2019-11-16 06:30:06.767",
+      "dateFinished": "2019-11-16 06:30:22.037",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -576,7 +576,7 @@
       "title": "Native Zeppelin Visualization Based on SQL Query",
       "text": "%sql\nSELECT date, count(*) as item_count\nFROM bakery\nWHERE date BETWEEN \u00272017-01-01\u0027 AND \u00272017-03-31\u0027\nGROUP BY date\nORDER BY date",
       "user": "anonymous",
-      "dateUpdated": "2019-11-14 00:12:09.858",
+      "dateUpdated": "2019-11-16 06:30:39.373",
       "config": {
         "editorSetting": {
           "language": "sql",
@@ -682,8 +682,8 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://ip-172-31-7-200.ec2.internal:4040/jobs/job?id\u003d13",
-            "http://ip-172-31-7-200.ec2.internal:4040/jobs/job?id\u003d14"
+            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d33",
+            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d34"
           ],
           "interpreterSettingId": "spark"
         }
@@ -692,8 +692,8 @@
       "jobName": "paragraph_1573058000760_1142817223",
       "id": "20191106-005218_589421977",
       "dateCreated": "2019-11-06 16:33:20.760",
-      "dateStarted": "2019-11-13 18:59:05.161",
-      "dateFinished": "2019-11-13 18:59:09.365",
+      "dateStarted": "2019-11-16 06:30:22.151",
+      "dateFinished": "2019-11-16 06:30:25.145",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -701,7 +701,7 @@
       "title": "Native Zeppelin Visualization Based on SQL Query",
       "text": "%sql\nSELECT count(*) as item_count, item\nFROM bakery\nGROUP BY item\nORDER BY item_count\nDESC LIMIT 10",
       "user": "anonymous",
-      "dateUpdated": "2019-11-13 18:59:09.460",
+      "dateUpdated": "2019-11-16 06:30:25.159",
       "config": {
         "editorSetting": {
           "language": "sql",
@@ -9686,8 +9686,8 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://ip-172-31-7-200.ec2.internal:4040/jobs/job?id\u003d15",
-            "http://ip-172-31-7-200.ec2.internal:4040/jobs/job?id\u003d16"
+            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d35",
+            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d36"
           ],
           "interpreterSettingId": "spark"
         }
@@ -9696,8 +9696,8 @@
       "jobName": "paragraph_1573058000760_-1357437731",
       "id": "20191106-042245_200419154",
       "dateCreated": "2019-11-06 16:33:20.760",
-      "dateStarted": "2019-11-13 18:59:09.520",
-      "dateFinished": "2019-11-13 18:59:13.912",
+      "dateStarted": "2019-11-16 06:30:25.225",
+      "dateFinished": "2019-11-16 06:30:28.223",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -9705,7 +9705,7 @@
       "title": "Write Transformed Data to Parquet Format",
       "text": "%spark.pyspark\ndf_bakerySummary.write.parquet(\"s3://\" + ZEPPELIN_DEMO_BUCKET + \"/data/bakery-summary-parquet\", mode\u003d\"overwrite\")",
       "user": "anonymous",
-      "dateUpdated": "2019-11-13 18:59:13.935",
+      "dateUpdated": "2019-11-16 06:30:28.229",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -9738,9 +9738,9 @@
           "tooltip": "View in Spark web UI",
           "group": "spark",
           "values": [
-            "http://ip-172-31-7-200.ec2.internal:4040/jobs/job?id\u003d17",
-            "http://ip-172-31-7-200.ec2.internal:4040/jobs/job?id\u003d18",
-            "http://ip-172-31-7-200.ec2.internal:4040/jobs/job?id\u003d19"
+            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d37",
+            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d38",
+            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d39"
           ],
           "interpreterSettingId": "spark"
         }
@@ -9749,37 +9749,25 @@
       "jobName": "paragraph_1573058000761_-1476901850",
       "id": "20191106-151740_1177114488",
       "dateCreated": "2019-11-06 16:33:20.761",
-      "dateStarted": "2019-11-13 18:59:14.042",
-      "dateFinished": "2019-11-13 18:59:23.107",
+      "dateStarted": "2019-11-16 06:30:28.371",
+      "dateFinished": "2019-11-16 06:30:39.305",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%sh\n",
+      "text": "%spark.pyspark\n",
       "user": "anonymous",
-      "dateUpdated": "2019-11-13 18:59:23.146",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "sh",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": false
-        },
-        "editorMode": "ace/mode/sh"
-      },
+      "dateUpdated": "2019-11-16 06:30:28.230",
+      "config": {},
       "settings": {
         "params": {},
         "forms": {}
       },
       "apps": [],
-      "jobName": "paragraph_1573520537776_-813967489",
-      "id": "20191112-010217_318317354",
-      "dateCreated": "2019-11-12 01:02:17.777",
-      "status": "FINISHED",
+      "jobName": "paragraph_1573885828229_999049507",
+      "id": "20191116-063028_791125785",
+      "dateCreated": "2019-11-16 06:30:28.229",
+      "status": "READY",
       "progressUpdateIntervalMs": 500
     }
   ],
