@@ -510,10 +510,10 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "title": "Query RDS Database using Zeppelin JDBC PostgreSQL Interpreter",
+      "title": "List RDS Tables using Zeppelin JDBC PostgreSQL Interpreter",
       "text": "%postgre\nSELECT table_schema, table_catalog, table_name\nFROM information_schema.tables\nWHERE table_schema\u003d\u0027public\u0027\nORDER BY table_schema, table_catalog, table_name;\n",
       "user": "anonymous",
-      "dateUpdated": "2019-11-18 07:35:18.264",
+      "dateUpdated": "2019-11-18 07:36:06.394",
       "config": {
         "editorSetting": {
           "language": "sql",
