@@ -250,19 +250,6 @@
           }
         ]
       },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d187",
-            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d188"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
       "apps": [],
       "jobName": "paragraph_1573621930602_-1857252041",
       "id": "20191009-050109_648011188",
@@ -322,21 +309,6 @@
             "data": "DataFrame rows: 100836\n+-------+------+------+-------------------+\n|movieId|rating|userId|dateTime           |\n+-------+------+------+-------------------+\n|1      |0.5   |76    |2015-08-10 00:12:28|\n|1      |1.5   |462   |2006-07-27 22:00:53|\n|1      |2.0   |132   |2006-09-10 20:56:25|\n|1      |2.0   |153   |2018-05-05 19:30:42|\n|1      |2.0   |193   |2015-07-02 17:08:10|\n|1      |2.0   |266   |1999-12-20 05:59:02|\n|1      |2.0   |298   |2015-11-14 16:24:17|\n|1      |2.0   |412   |1999-10-05 09:05:53|\n|1      |2.5   |15    |2017-11-13 12:59:30|\n|1      |2.5   |68    |2006-09-17 22:17:06|\n+-------+------+------+-------------------+\nonly showing top 10 rows\n\n"
           }
         ]
-      },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d189",
-            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d190",
-            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d191",
-            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d192"
-          ],
-          "interpreterSettingId": "spark"
-        }
       },
       "apps": [],
       "jobName": "paragraph_1573625323551_-951185720",
@@ -398,19 +370,6 @@
           }
         ]
       },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d215",
-            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d216"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
       "apps": [],
       "jobName": "paragraph_1573621930602_-2028436114",
       "id": "20191009-050155_2142326603",
@@ -424,7 +383,7 @@
       "title": "Native Zeppelin Visualization Based on SQL Query",
       "text": "%sql\nWITH tmp_table AS (\n    SELECT m.title, AVG(r.rating) as avg_rating, COUNT(r.rating) as cnt_ratings\n    FROM ratings_parquet_100k r\n    JOIN movies_parquet_100k m ON (r.movieId \u003d m.movieId)\n    GROUP BY m.title)\n    \nSELECT title, CAST(avg_rating AS DECIMAL(38,2)), cnt_ratings\nFROM tmp_table\nWHERE avg_rating \u003e\u003d ${avgRatingMin\u003d4} AND cnt_ratings \u003e\u003d ${RatingsMin\u003d2}\nORDER BY avg_rating ASC, cnt_ratings DESC, title ASC\nLIMIT 25",
       "user": "anonymous",
-      "dateUpdated": "2019-11-16 07:52:16.793",
+      "dateUpdated": "2019-11-18 07:19:51.538",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -444,7 +403,7 @@
             "graph": {
               "mode": "multiBarChart",
               "height": 419.641,
-              "optionOpen": false,
+              "optionOpen": true,
               "setting": {
                 "table": {
                   "tableGridState": {},
@@ -3182,18 +3141,6 @@
             "data": ""
           }
         ]
-      },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d196"
-          ],
-          "interpreterSettingId": "spark"
-        }
       },
       "apps": [],
       "jobName": "paragraph_1573621930602_1385770344",
