@@ -44,48 +44,6 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "title": "Confirm PySpark and Python3 Versions",
-      "text": "%sh\n# https://aws.amazon.com/premiumsupport/knowledge-center/emr-pyspark-python-3x/\npyspark --version\npython3 --version",
-      "user": "anonymous",
-      "dateUpdated": "2019-11-16 07:07:09.158",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "sh",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": false
-        },
-        "editorMode": "ace/mode/sh",
-        "title": true,
-        "lineNumbers": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "Welcome to\n      ____              __\n     / __/__  ___ _____/ /__\n    _\\ \\/ _ \\/ _ `/ __/  \u0027_/\n   /___/ .__/\\_,_/_/ /_/\\_\\   version 2.4.4\n      /_/\n                        \nUsing Scala version 2.11.12, OpenJDK 64-Bit Server VM, 1.8.0_222\nBranch HEAD\nCompiled by user ec2-user on 2019-09-10T23:04:45Z\nRevision 082e98ac708024722b9a71933768ecad2e086acc\nUrl git@aws157git.com:/pkg/Aws157BigTop\nType --help for more information.\nPython 3.6.8\n"
-          }
-        ]
-      },
-      "apps": [],
-      "jobName": "paragraph_1573397927936_476746870",
-      "id": "20191110-145847_274927668",
-      "dateCreated": "2019-11-10 14:58:47.936",
-      "dateStarted": "2019-11-16 07:07:09.172",
-      "dateFinished": "2019-11-16 07:07:09.995",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
       "title": "Import Python Packages",
       "text": "%spark.pyspark\nfrom pyspark import SparkFiles\nfrom pyspark.sql import SparkSession\nfrom pyspark.sql.types import StructType, StructField, StringType, IntegerType, DateType",
       "user": "anonymous",
@@ -142,9 +100,9 @@
     },
     {
       "title": "Create Spark Session",
-      "text": "%spark.pyspark\nspark \u003d SparkSession \\\n    .builder \\\n    .appName(\"pyspark_demo_app\") \\\n    .getOrCreate()\n\n# spark.sparkContext.getConf().getAll()\nsqlContext.clearCache()",
+      "text": "%spark.pyspark\nspark \u003d SparkSession \\\n    .builder \\\n    .appName(\"pyspark_demo_app\") \\\n    .getOrCreate()\n\nsqlContext.clearCache()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-16 07:07:10.186",
+      "dateUpdated": "2019-11-18 23:15:02.198",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -308,21 +266,6 @@
           }
         ]
       },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d145",
-            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d146",
-            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d147",
-            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d148"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
       "apps": [],
       "jobName": "paragraph_1573161585796_1293011902",
       "id": "20191009-044129_2035687603",
@@ -383,21 +326,6 @@
           }
         ]
       },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d149",
-            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d150",
-            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d151",
-            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d152"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
       "apps": [],
       "jobName": "paragraph_1573170957319_-724857282",
       "id": "20191107-235557_158160591",
@@ -438,19 +366,6 @@
       "results": {
         "code": "SUCCESS",
         "msg": []
-      },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d153",
-            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d154"
-          ],
-          "interpreterSettingId": "spark"
-        }
       },
       "apps": [],
       "jobName": "paragraph_1573364755638_1580655931",
@@ -495,19 +410,6 @@
           }
         ]
       },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d155",
-            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d156"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
       "apps": [],
       "jobName": "paragraph_1573517924706_797063234",
       "id": "20191112-001844_87079831",
@@ -550,19 +452,6 @@
             "data": "DataFrame rows: 58098\n"
           }
         ]
-      },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d157",
-            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d158"
-          ],
-          "interpreterSettingId": "spark"
-        }
       },
       "apps": [],
       "jobName": "paragraph_1573528048880_1044998074",
@@ -624,20 +513,6 @@
           }
         ]
       },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d159",
-            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d160",
-            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d161"
-          ],
-          "interpreterSettingId": "spark"
-        }
-      },
       "apps": [],
       "jobName": "paragraph_1573161585796_891183216",
       "id": "20191009-050109_648011188",
@@ -697,21 +572,6 @@
             "data": "DataFrame rows: 58098\nTop 10 Movies\n+-------------------------------------------------------+----------+-----------+\n|title                                                  |avg_rating|cnt_ratings|\n+-------------------------------------------------------+----------+-----------+\n|2 (2007)                                               |5.0       |2          |\n|3-D Sex and Zen: Extreme Ecstasy (2011)                |5.0       |2          |\n|A Royal Winter (2017)                                  |5.0       |2          |\n|Awaken (2013)                                          |5.0       |2          |\n|Brad Williams: Daddy Issues (2016)                     |5.0       |2          |\n|Genius on Hold (2013)                                  |5.0       |2          |\n|Hooligan (1998)                                        |5.0       |2          |\n|Love Finds You in Valentine (2016)                     |5.0       |2          |\n|North of the Sun (2012)                                |5.0       |2          |\n|Placebo: Soulmates Never Die: Live in Paris 2003 (2004)|5.0       |2          |\n+-------------------------------------------------------+----------+-----------+\nonly showing top 10 rows\n\n"
           }
         ]
-      },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d162",
-            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d163",
-            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d164",
-            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d165"
-          ],
-          "interpreterSettingId": "spark"
-        }
       },
       "apps": [],
       "jobName": "paragraph_1573161585797_-394721398",
@@ -3512,20 +3372,6 @@
             "data": ""
           }
         ]
-      },
-      "runtimeInfos": {
-        "jobUrl": {
-          "propertyName": "jobUrl",
-          "label": "SPARK JOB",
-          "tooltip": "View in Spark web UI",
-          "group": "spark",
-          "values": [
-            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d184",
-            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d185",
-            "http://ip-172-31-3-193.ec2.internal:4040/jobs/job?id\u003d186"
-          ],
-          "interpreterSettingId": "spark"
-        }
       },
       "apps": [],
       "jobName": "paragraph_1573161585798_1054325402",
