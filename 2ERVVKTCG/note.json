@@ -44,10 +44,10 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "title": "Check Spark Versions",
+      "title": "Check Spark Version",
       "text": "%sh\npyspark --version",
       "user": "anonymous",
-      "dateUpdated": "2019-11-18 23:54:46.353",
+      "dateUpdated": "2019-11-19 00:25:36.104",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
