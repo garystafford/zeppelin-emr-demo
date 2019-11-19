@@ -2,9 +2,9 @@
   "paragraphs": [
     {
       "title": "Zeppelin Demo Notebook 4",
-      "text": "%md\nDemonstrate loading, querying, visualizing, and saving the GroupLens MovieLens Latest Datasets from an Amazon RDS PostgreSQL database.",
+      "text": "%md\nDemonstrate loading, querying, visualizing, and saving the GroupLens MovieLens Latest Datasets from an [Amazon RDS PostgreSQL](https://aws.amazon.com/rds/postgresql/) database.",
       "user": "anonymous",
-      "dateUpdated": "2019-11-18 07:31:42.850",
+      "dateUpdated": "2019-11-19 06:25:28.041",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -30,7 +30,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eDemonstrate loading, querying, visualizing, and saving the GroupLens MovieLens Latest Datasets from an Amazon RDS PostgreSQL database.\u003c/p\u003e\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eDemonstrate loading, querying, visualizing, and saving the GroupLens MovieLens Latest Datasets from an \u003ca href\u003d\"https://aws.amazon.com/rds/postgresql/\"\u003eAmazon RDS PostgreSQL\u003c/a\u003e database.\u003c/p\u003e\n\u003c/div\u003e"
           }
         ]
       },
@@ -38,8 +38,8 @@
       "jobName": "paragraph_1573857447055_1018817003",
       "id": "20191106-153644_419077851",
       "dateCreated": "2019-11-15 22:37:27.055",
-      "dateStarted": "2019-11-18 07:31:42.865",
-      "dateFinished": "2019-11-18 07:31:42.872",
+      "dateStarted": "2019-11-19 06:25:28.043",
+      "dateFinished": "2019-11-19 06:25:28.059",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -2482,8 +2482,7 @@
   "angularObjects": {
     "md:shared_process": [],
     "sh:shared_process": [],
-    "spark:shared_process": [],
-    "postgre:shared_process": []
+    "spark:shared_process": []
   },
   "config": {
     "isZeppelinNotebookCronEnable": false
