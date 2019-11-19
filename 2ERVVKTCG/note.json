@@ -4,7 +4,7 @@
       "title": "Zeppelin Demo Notebook 1",
       "text": "%md\nDemonstrate loading, querying, visualizing, and saving a small ~21k row kaggle dataset.\nThe \u0027Transactions from a bakery\u0027 dataset is documented on [kaggle](https://www.kaggle.com/sulmansarwar/transactions-from-a-bakery).",
       "user": "anonymous",
-      "dateUpdated": "2019-11-19 00:37:12.618",
+      "dateUpdated": "2019-11-19 02:15:22.171",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -38,8 +38,8 @@
       "jobName": "paragraph_1573058000759_-1487542903",
       "id": "20191106-153644_419077851",
       "dateCreated": "2019-11-06 16:33:20.759",
-      "dateStarted": "2019-11-19 00:37:12.690",
-      "dateFinished": "2019-11-19 00:37:15.134",
+      "dateStarted": "2019-11-19 02:15:22.173",
+      "dateFinished": "2019-11-19 02:15:24.788",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -9824,9 +9824,7 @@
   "noteParams": {},
   "noteForms": {},
   "angularObjects": {
-    "md:shared_process": [],
-    "sh:shared_process": [],
-    "spark:shared_process": []
+    "md:shared_process": []
   },
   "config": {
     "isZeppelinNotebookCronEnable": false,
