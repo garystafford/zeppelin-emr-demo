@@ -86,9 +86,9 @@
     },
     {
       "title": "Check Python Version",
-      "text": "%spark.pyspark\nimport sys\n\nprint(sys.version)",
+      "text": "%spark.pyspark\nimport sys\n\n# should be Python 3.x\nprint(sys.version)",
       "user": "anonymous",
-      "dateUpdated": "2019-11-18 23:54:49.558",
+      "dateUpdated": "2019-11-19 00:31:55.316",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -121,8 +121,8 @@
       "jobName": "paragraph_1574119072258_-45549021",
       "id": "20191118-231752_1271013072",
       "dateCreated": "2019-11-18 23:17:52.258",
-      "dateStarted": "2019-11-18 23:54:49.662",
-      "dateFinished": "2019-11-18 23:55:19.046",
+      "dateStarted": "2019-11-19 00:31:55.423",
+      "dateFinished": "2019-11-19 00:32:22.115",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
