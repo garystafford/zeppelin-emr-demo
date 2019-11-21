@@ -25,22 +25,14 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eDemonstrate loading, querying, visualizing, and saving the GroupLens MovieLens Latest Datasets from an \u003ca href\u003d\"https://aws.amazon.com/rds/postgresql/\"\u003eAmazon RDS PostgreSQL\u003c/a\u003e database.\u003c/p\u003e\n\u003c/div\u003e"
-          }
-        ]
-      },
       "apps": [],
       "jobName": "paragraph_1573857447055_1018817003",
       "id": "20191106-153644_419077851",
       "dateCreated": "2019-11-15 22:37:27.055",
-      "dateStarted": "2019-11-21 19:41:58.090",
-      "dateFinished": "2019-11-21 19:41:58.097",
+      "dateStarted": "2019-11-21 19:47:12.506",
+      "dateFinished": "2019-11-21 19:47:14.595",
       "status": "FINISHED",
+      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
@@ -67,22 +59,14 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "RDS_JDBC: jdbc:postgresql://zeppelin-demo.c6louiq8ibk3.us-east-1.rds.amazonaws.com:5432/ratings\nRDS_CONN_STR: host\u003dzeppelin-demo.c6louiq8ibk3.us-east-1.rds.amazonaws.com port\u003d5432 dbname\u003dratings user\u003dmasteruser password\u003d5up3r53cr3tPa55w0rd\n"
-          }
-        ]
-      },
       "apps": [],
       "jobName": "paragraph_1573858334281_-1541930181",
       "id": "20191115-225214_1100995277",
       "dateCreated": "2019-11-15 22:52:14.281",
-      "dateStarted": "2019-11-21 19:41:58.203",
-      "dateFinished": "2019-11-21 19:41:58.211",
+      "dateStarted": "2019-11-21 19:47:14.729",
+      "dateFinished": "2019-11-21 19:47:42.551",
       "status": "FINISHED",
+      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
@@ -129,22 +113,14 @@
         },
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "ml-latest-small exist\nFound 3 items\ndrwxr-xr-x   - zeppelin hadoop          0 2019-11-21 17:17 .sparkStaging\n-rw-r--r--   1 zeppelin hadoop    482.8 K 2019-11-21 19:41 movies.csv\n-rw-r--r--   1 zeppelin hadoop      2.4 M 2019-11-21 19:42 ratings.csv\n"
-          }
-        ]
-      },
       "apps": [],
       "jobName": "paragraph_1573857447060_-73940823",
       "id": "20191009-042907_1768707497",
       "dateCreated": "2019-11-15 22:37:27.060",
-      "dateStarted": "2019-11-21 19:41:58.315",
-      "dateFinished": "2019-11-21 19:42:02.478",
+      "dateStarted": "2019-11-21 19:47:42.608",
+      "dateFinished": "2019-11-21 19:47:50.331",
       "status": "FINISHED",
+      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
@@ -189,17 +165,14 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": []
-      },
       "apps": [],
       "jobName": "paragraph_1573857447060_1873578708",
       "id": "20191009-042751_2109019779",
       "dateCreated": "2019-11-15 22:37:27.060",
-      "dateStarted": "2019-11-21 19:42:02.535",
-      "dateFinished": "2019-11-21 19:42:02.539",
+      "dateStarted": "2019-11-21 19:47:50.401",
+      "dateFinished": "2019-11-21 19:47:50.928",
       "status": "FINISHED",
+      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
@@ -226,22 +199,14 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "-- Create simple \u0027Movie Ratings\u0027 PostgreSQL database schema (DDL)\nDROP TABLE IF EXISTS public.ratings\n\nDROP TABLE IF EXISTS public.movies\n\nDROP SCHEMA IF EXISTS public\n\n\nCREATE SCHEMA public\n\n\nCOMMENT ON SCHEMA public IS \u0027standard public schema\u0027\n\n\nALTER SCHEMA public OWNER TO masteruser\n\n\nCREATE TABLE IF NOT EXISTS movies (\n    movieId bigint NOT NULL CONSTRAINT movies_pkey PRIMARY KEY,\n    title text NOT NULL,\n    genres text NOT NULL\n)\n\n\nALTER TABLE movies OWNER TO masteruser\n\n\nCREATE TABLE IF NOT EXISTS ratings (\n    userId bigint NOT NULL,\n    movieId bigint NOT NULL CONSTRAINT ratings_movies_movie_id_fk REFERENCES movies ON UPDATE RESTRICT ON DELETE RESTRICT,\n    rating numeric (2, 1) NOT NULL,\n    timestamp bigint NOT NULL\n)\n\n"
-          }
-        ]
-      },
       "apps": [],
       "jobName": "paragraph_1573858621983_-719772124",
       "id": "20191115-225701_570184306",
       "dateCreated": "2019-11-15 22:57:01.983",
-      "dateStarted": "2019-11-21 19:42:02.667",
-      "dateFinished": "2019-11-21 19:42:02.906",
+      "dateStarted": "2019-11-21 19:47:51.002",
+      "dateFinished": "2019-11-21 19:47:51.445",
       "status": "FINISHED",
+      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
@@ -268,22 +233,14 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "[\u0027movieId\u0027, \u0027title\u0027, \u0027genres\u0027]\n"
-          }
-        ]
-      },
       "apps": [],
       "jobName": "paragraph_1573859119530_1400559415",
       "id": "20191115-230519_1758370056",
       "dateCreated": "2019-11-15 23:05:19.530",
-      "dateStarted": "2019-11-21 19:42:02.979",
-      "dateFinished": "2019-11-21 19:42:16.425",
+      "dateStarted": "2019-11-21 19:47:51.504",
+      "dateFinished": "2019-11-21 19:48:05.036",
       "status": "FINISHED",
+      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
@@ -311,22 +268,14 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "\u0027userId,movieId,rating,timestamp\\n\u0027\n"
-          }
-        ]
-      },
       "apps": [],
       "jobName": "paragraph_1573859599003_571265236",
       "id": "20191115-231319_636045926",
       "dateCreated": "2019-11-15 23:13:19.003",
-      "dateStarted": "2019-11-21 19:42:16.501",
-      "dateFinished": "2019-11-21 19:42:17.333",
+      "dateStarted": "2019-11-21 19:48:05.115",
+      "dateFinished": "2019-11-21 19:48:05.954",
       "status": "FINISHED",
+      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
@@ -371,22 +320,14 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "DataFrame rows: 9742\nDataFrame schema: DataFrame[movieid: bigint, title: string, genres: string]\n+-------+----------------------------------+-------------------------------------------+\n|movieid|title                             |genres                                     |\n+-------+----------------------------------+-------------------------------------------+\n|1      |Toy Story (1995)                  |Adventure|Animation|Children|Comedy|Fantasy|\n|2      |Jumanji (1995)                    |Adventure|Children|Fantasy                 |\n|3      |Grumpier Old Men (1995)           |Comedy|Romance                             |\n|4      |Waiting to Exhale (1995)          |Comedy|Drama|Romance                       |\n|5      |Father of the Bride Part II (1995)|Comedy                                     |\n|6      |Heat (1995)                       |Action|Crime|Thriller                      |\n|7      |Sabrina (1995)                    |Comedy|Romance                             |\n|8      |Tom and Huck (1995)               |Adventure|Children                         |\n|9      |Sudden Death (1995)               |Action                                     |\n|10     |GoldenEye (1995)                  |Action|Adventure|Thriller                  |\n+-------+----------------------------------+-------------------------------------------+\nonly showing top 10 rows\n\n"
-          }
-        ]
-      },
       "apps": [],
       "jobName": "paragraph_1573857447061_-1063899103",
       "id": "20191009-044129_2035687603",
       "dateCreated": "2019-11-15 22:37:27.061",
-      "dateStarted": "2019-11-21 19:42:17.414",
-      "dateFinished": "2019-11-21 19:42:24.408",
+      "dateStarted": "2019-11-21 19:48:06.016",
+      "dateFinished": "2019-11-21 19:48:11.221",
       "status": "FINISHED",
+      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
@@ -431,29 +372,21 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "DataFrame rows: 100836\nDataFrame schema: DataFrame[userid: bigint, movieid: bigint, rating: decimal(2,1), timestamp: bigint]\n+------+-------+------+---------+\n|userid|movieid|rating|timestamp|\n+------+-------+------+---------+\n|1     |1      |4.0   |964982703|\n|1     |3      |4.0   |964981247|\n|1     |6      |4.0   |964982224|\n|1     |47     |5.0   |964983815|\n|1     |50     |5.0   |964982931|\n|1     |70     |3.0   |964982400|\n|1     |101    |5.0   |964980868|\n|1     |110    |4.0   |964982176|\n|1     |151    |5.0   |964984041|\n|1     |157    |5.0   |964984100|\n+------+-------+------+---------+\nonly showing top 10 rows\n\n"
-          }
-        ]
-      },
       "apps": [],
       "jobName": "paragraph_1573857447061_1340957005",
       "id": "20191107-235557_158160591",
       "dateCreated": "2019-11-15 22:37:27.061",
-      "dateStarted": "2019-11-21 19:42:24.442",
-      "dateFinished": "2019-11-21 19:42:24.952",
+      "dateStarted": "2019-11-21 19:48:11.224",
+      "dateFinished": "2019-11-21 19:48:12.416",
       "status": "FINISHED",
+      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Create Temporary View and Query Data using SQL",
       "text": "%spark.pyspark\nratingsDF.createOrReplaceTempView(\"ratings\")\nmoviesDF.createOrReplaceTempView(\"movies\")\n\ntopMoviesDF \u003d spark.sql(\"SELECT m.title, CAST(AVG(r.rating) AS DECIMAL(3,2)) as avg_rating, COUNT(r.rating) as cnt_ratings \" +\n                        \"FROM ratings r \" +\n                        \"JOIN movies m ON (r.movieId \u003d m.movieId) \" +\n                        \"GROUP BY m.title \" +\n                        \"ORDER BY avg_rating DESC, cnt_ratings DESC, m.title ASC\")\n                        \ntopMoviesDF \u003d topMoviesDF.filter(topMoviesDF.cnt_ratings \u003e\u003d 25)\n\nprint(\"DataFrame rows: %d\" % moviesDF.count())\nprint(\"Top 10 Movies\")\ntopMoviesDF.show(10, False)",
       "user": "anonymous",
-      "dateUpdated": "2019-11-21 19:42:25.042",
+      "dateUpdated": "2019-11-21 19:51:34.799",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -491,73 +424,32 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "DataFrame rows: 9742\nTop 10 Movies\n+---------------------------------------------+----------+-----------+\n|title                                        |avg_rating|cnt_ratings|\n+---------------------------------------------+----------+-----------+\n|Shawshank Redemption, The (1994)             |4.43      |317        |\n|Sunset Blvd. (a.k.a. Sunset Boulevard) (1950)|4.33      |27         |\n|Philadelphia Story, The (1940)               |4.31      |29         |\n|Lawrence of Arabia (1962)                    |4.30      |45         |\n|In the Name of the Father (1993)             |4.30      |25         |\n|Godfather, The (1972)                        |4.29      |192        |\n|Hoop Dreams (1994)                           |4.29      |29         |\n|Harold and Maude (1971)                      |4.29      |26         |\n|Logan (2017)                                 |4.28      |25         |\n|Fight Club (1999)                            |4.27      |218        |\n+---------------------------------------------+----------+-----------+\nonly showing top 10 rows\n\n"
-          }
-        ]
-      },
       "apps": [],
       "jobName": "paragraph_1573857447063_873096470",
       "id": "20191009-050155_2142326603",
       "dateCreated": "2019-11-15 22:37:27.063",
-      "dateStarted": "2019-11-21 19:42:25.056",
-      "dateFinished": "2019-11-21 19:42:37.863",
+      "dateStarted": "2019-11-21 19:51:34.838",
+      "dateFinished": "2019-11-21 19:51:55.149",
       "status": "FINISHED",
+      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
-      "title": "List RDS Tables using Zeppelin JDBC PostgreSQL Interpreter",
       "text": "%postgre\nSELECT table_schema, table_catalog, table_name\nFROM information_schema.tables\nWHERE table_schema\u003d\u0027public\u0027\nORDER BY table_schema, table_catalog, table_name;",
       "user": "anonymous",
-      "dateUpdated": "2019-11-21 19:45:15.410",
+      "dateUpdated": "2019-11-21 20:26:18.514",
       "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
         "editorSetting": {
           "language": "sql",
           "editOnDblClick": false,
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "colWidth": 12.0,
-        "editorMode": "ace/mode/sql",
-        "fontSize": 9.0,
-        "results": {
-          "0": {
-            "graph": {
-              "mode": "table",
-              "height": 300.0,
-              "optionOpen": false,
-              "setting": {
-                "table": {
-                  "tableGridState": {},
-                  "tableColumnTypeState": {
-                    "names": {
-                      "table_schema": "string",
-                      "table_catalog": "string",
-                      "table_name": "string"
-                    },
-                    "updated": false
-                  },
-                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
-                  "tableOptionValue": {
-                    "useFilter": false,
-                    "showPagination": false,
-                    "showAggregationFooter": false
-                  },
-                  "updated": false,
-                  "initialized": false
-                }
-              },
-              "commonSetting": {}
-            }
-          }
-        },
-        "enabled": false,
-        "title": true,
-        "lineNumbers": true
+        "editorMode": "ace/mode/sql"
       },
       "settings": {
         "params": {},
@@ -573,11 +465,11 @@
         ]
       },
       "apps": [],
-      "jobName": "paragraph_1573857447064_-1625012928",
-      "id": "20191108-053128_1591075156",
-      "dateCreated": "2019-11-15 22:37:27.064",
-      "dateStarted": "2019-11-21 19:41:06.261",
-      "dateFinished": "2019-11-21 19:41:08.253",
+      "jobName": "paragraph_1574367954183_-409309382",
+      "id": "20191121-202554_1031349848",
+      "dateCreated": "2019-11-21 20:25:54.183",
+      "dateStarted": "2019-11-21 20:26:18.533",
+      "dateFinished": "2019-11-21 20:26:18.541",
       "status": "ERROR",
       "errorMessage": "org.apache.thrift.TApplicationException: Internal error processing createInterpreter\n\tat org.apache.thrift.TApplicationException.read(TApplicationException.java:111)\n\tat org.apache.thrift.TServiceClient.receiveBase(TServiceClient.java:71)\n\tat org.apache.zeppelin.interpreter.thrift.RemoteInterpreterService$Client.recv_createInterpreter(RemoteInterpreterService.java:209)\n\tat org.apache.zeppelin.interpreter.thrift.RemoteInterpreterService$Client.createInterpreter(RemoteInterpreterService.java:192)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreter$2.call(RemoteInterpreter.java:173)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreter$2.call(RemoteInterpreter.java:169)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreterProcess.callRemoteFunction(RemoteInterpreterProcess.java:135)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreter.internal_create(RemoteInterpreter.java:169)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreter.open(RemoteInterpreter.java:136)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreter.getFormType(RemoteInterpreter.java:312)\n\tat org.apache.zeppelin.notebook.Paragraph.jobRun(Paragraph.java:408)\n\tat org.apache.zeppelin.scheduler.Job.run(Job.java:188)\n\tat org.apache.zeppelin.scheduler.RemoteScheduler$JobRunner.run(RemoteScheduler.java:315)\n\tat java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\n\tat java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)\n\tat java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\n\tat java.lang.Thread.run(Thread.java:748)\n",
       "progressUpdateIntervalMs": 500
@@ -586,7 +478,7 @@
       "title": "Query RDS Database using Zeppelin JDBC PostgreSQL Interpreter",
       "text": "%postgre\nWITH tmp_table AS (\n    SELECT m.title, AVG(r.rating) as avg_rating, COUNT(r.rating) as cnt_ratings\n    FROM ratings r\n    JOIN movies m ON (r.movieId \u003d m.movieId)\n    GROUP BY m.title)\n    \nSELECT title, CAST(avg_rating AS DECIMAL(3,2)), cnt_ratings\nFROM tmp_table\nWHERE avg_rating \u003e ${avgRatingMin\u003d4} AND cnt_ratings \u003e\u003d ${RatingsMin\u003d100}\nORDER BY avg_rating ASC, cnt_ratings DESC, title ASC\nLIMIT 25;",
       "user": "anonymous",
-      "dateUpdated": "2019-11-21 19:44:19.831",
+      "dateUpdated": "2019-11-21 20:24:55.414",
       "config": {
         "editorSetting": {
           "language": "sql",
@@ -2444,8 +2336,8 @@
       "jobName": "paragraph_1574061250957_532560724",
       "id": "20191118-071410_1331801439",
       "dateCreated": "2019-11-18 07:14:10.957",
-      "dateStarted": "2019-11-21 19:44:19.847",
-      "dateFinished": "2019-11-21 19:44:19.852",
+      "dateStarted": "2019-11-21 20:24:55.436",
+      "dateFinished": "2019-11-21 20:24:55.439",
       "status": "ERROR",
       "errorMessage": "org.apache.thrift.TApplicationException: Internal error processing createInterpreter\n\tat org.apache.thrift.TApplicationException.read(TApplicationException.java:111)\n\tat org.apache.thrift.TServiceClient.receiveBase(TServiceClient.java:71)\n\tat org.apache.zeppelin.interpreter.thrift.RemoteInterpreterService$Client.recv_createInterpreter(RemoteInterpreterService.java:209)\n\tat org.apache.zeppelin.interpreter.thrift.RemoteInterpreterService$Client.createInterpreter(RemoteInterpreterService.java:192)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreter$2.call(RemoteInterpreter.java:173)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreter$2.call(RemoteInterpreter.java:169)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreterProcess.callRemoteFunction(RemoteInterpreterProcess.java:135)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreter.internal_create(RemoteInterpreter.java:169)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreter.open(RemoteInterpreter.java:136)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreter.getFormType(RemoteInterpreter.java:312)\n\tat org.apache.zeppelin.notebook.Paragraph.jobRun(Paragraph.java:408)\n\tat org.apache.zeppelin.scheduler.Job.run(Job.java:188)\n\tat org.apache.zeppelin.scheduler.RemoteScheduler$JobRunner.run(RemoteScheduler.java:315)\n\tat java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\n\tat java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)\n\tat java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\n\tat java.lang.Thread.run(Thread.java:748)\n",
       "progressUpdateIntervalMs": 500
@@ -2476,6 +2368,7 @@
       "id": "20191118-050955_800867164",
       "dateCreated": "2019-11-18 05:09:55.719",
       "status": "FINISHED",
+      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     }
   ],
