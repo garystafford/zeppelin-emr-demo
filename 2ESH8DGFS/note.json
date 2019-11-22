@@ -512,7 +512,7 @@
     {
       "text": "%postgres\nSELECT table_schema, table_catalog, table_name\nFROM information_schema.tables\nWHERE table_schema\u003d\u0027public\u0027\nORDER BY table_schema, table_catalog, table_name;",
       "user": "anonymous",
-      "dateUpdated": "2019-11-22 03:33:33.598",
+      "dateUpdated": "2019-11-22 03:35:46.375",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -554,7 +554,8 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/sql"
+        "editorMode": "ace/mode/sql",
+        "lineNumbers": true
       },
       "settings": {
         "params": {},
