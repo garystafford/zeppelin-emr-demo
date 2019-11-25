@@ -4,7 +4,7 @@
       "title": "Zeppelin Demo Notebook 2",
       "text": "%md\nDemonstrate loading, querying, visualizing, and saving the GroupLens MovieLens Latest Datasets.\nThe latest datasets are available to download on [GroupLens](https://grouplens.org/datasets/movielens/).\n\nMovieLens Datasets Specifications:\n- Small: __100,000__ ratings and 3,600 tag applications applied to 9,000 movies by 600 users. Last updated 9/2018.\n- Full: __27,000,000__ ratings and 1,100,000 tag applications applied to 58,000 movies by 280,000 users. Includes tag genome data with 14 million relevance scores across 1,100 tags. Last updated 9/2018.",
       "user": "anonymous",
-      "dateUpdated": "2019-11-21 18:01:38.627",
+      "dateUpdated": "2019-11-25 04:59:18.471",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -38,8 +38,8 @@
       "jobName": "paragraph_1573161585787_1398568692",
       "id": "20191106-153644_419077851",
       "dateCreated": "2019-11-07 21:19:45.788",
-      "dateStarted": "2019-11-21 18:01:38.628",
-      "dateFinished": "2019-11-21 18:01:38.651",
+      "dateStarted": "2019-11-25 04:59:18.484",
+      "dateFinished": "2019-11-25 04:59:18.491",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -47,7 +47,7 @@
       "title": "Import Python Packages",
       "text": "%spark.pyspark\nfrom pyspark import SparkFiles\nfrom pyspark.sql import SparkSession\nfrom pyspark.sql.types import StructType, StructField, StringType, IntegerType, DateType",
       "user": "anonymous",
-      "dateUpdated": "2019-11-21 18:01:41.226",
+      "dateUpdated": "2019-11-25 04:59:18.584",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -93,8 +93,8 @@
       "jobName": "paragraph_1573161585794_-369410071",
       "id": "20191009-042517_1466963465",
       "dateCreated": "2019-11-07 21:19:45.794",
-      "dateStarted": "2019-11-21 18:01:41.243",
-      "dateFinished": "2019-11-21 18:01:41.249",
+      "dateStarted": "2019-11-25 04:59:18.598",
+      "dateFinished": "2019-11-25 04:59:18.602",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -102,7 +102,7 @@
       "title": "Create Spark Session",
       "text": "%spark.pyspark\nspark \u003d SparkSession \\\n    .builder \\\n    .appName(\"pyspark_demo_app\") \\\n    .getOrCreate()\n\nsqlContext.clearCache()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-21 18:01:45.534",
+      "dateUpdated": "2019-11-25 04:59:18.697",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -148,8 +148,8 @@
       "jobName": "paragraph_1573161585794_630658218",
       "id": "20191009-042751_2109019779",
       "dateCreated": "2019-11-07 21:19:45.795",
-      "dateStarted": "2019-11-21 18:01:45.547",
-      "dateFinished": "2019-11-21 18:01:45.552",
+      "dateStarted": "2019-11-25 04:59:18.711",
+      "dateFinished": "2019-11-25 04:59:18.715",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -157,7 +157,7 @@
       "title": "Load MovieLens Data from GroupLens",
       "text": "%sh\n#change me - choices: or ml-latest-small (100k) or ml-latest (27MM)\nDIR\u003d\"ml-latest-small\"\n\nif [ -d $DIR ]; then\n    echo \"$DIR exist\"\nelse \n    wget -nv http://files.grouplens.org/datasets/movielens/$DIR.zip -O $DIR.zip \u0026\u0026 unzip $DIR.zip\nfi\n\n# copy from local file system (/var/lib/zeppelin) to the destination file system (/user/zeppelin)\nhadoop fs -put -f $DIR/movies.csv $DIR/ratings.csv .\nhadoop fs -ls -h .",
       "user": "anonymous",
-      "dateUpdated": "2019-11-21 18:11:23.356",
+      "dateUpdated": "2019-11-25 04:59:18.810",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -204,7 +204,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "ml-latest-small exist\nFound 3 items\ndrwxr-xr-x   - zeppelin hadoop          0 2019-11-21 17:17 .sparkStaging\n-rw-r--r--   1 zeppelin hadoop    482.8 K 2019-11-21 18:11 movies.csv\n-rw-r--r--   1 zeppelin hadoop      2.4 M 2019-11-21 18:11 ratings.csv\n"
+            "data": "ml-latest-small exist\nFound 3 items\ndrwxr-xr-x   - zeppelin hadoop          0 2019-11-25 04:04 .sparkStaging\n-rw-r--r--   1 zeppelin hadoop    482.8 K 2019-11-25 04:59 movies.csv\n-rw-r--r--   1 zeppelin hadoop      2.4 M 2019-11-25 04:59 ratings.csv\n"
           }
         ]
       },
@@ -212,8 +212,8 @@
       "jobName": "paragraph_1574358212005_1983965227",
       "id": "20191121-174332_1708209916",
       "dateCreated": "2019-11-21 17:43:32.005",
-      "dateStarted": "2019-11-21 18:11:23.370",
-      "dateFinished": "2019-11-21 18:11:27.140",
+      "dateStarted": "2019-11-25 04:59:18.826",
+      "dateFinished": "2019-11-25 04:59:23.498",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -221,7 +221,7 @@
       "title": "Load Ratings CSV Data into DataFrame",
       "text": "%spark.pyspark\nratingsDF \u003d spark.read \\\n    .format(\"csv\") \\\n    .option(\"header\", \"true\") \\\n    .option(\"delimiter\", \",\") \\\n    .option(\"inferSchema\", \"true\") \\\n    .load(\"ratings.csv\")\n\nprint(\"DataFrame rows: %d\" % ratingsDF.count())\nprint(\"DataFrame schema: %s\" % ratingsDF)\nratingsDF.show(10, False)",
       "user": "anonymous",
-      "dateUpdated": "2019-11-21 18:06:18.054",
+      "dateUpdated": "2019-11-25 04:59:23.529",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -272,8 +272,8 @@
       "jobName": "paragraph_1573161585796_1293011902",
       "id": "20191009-044129_2035687603",
       "dateCreated": "2019-11-07 21:19:45.796",
-      "dateStarted": "2019-11-21 18:06:18.068",
-      "dateFinished": "2019-11-21 18:06:30.391",
+      "dateStarted": "2019-11-25 04:59:23.541",
+      "dateFinished": "2019-11-25 04:59:33.503",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -281,7 +281,7 @@
       "title": "Load Movies CSV Data into DataFrame",
       "text": "%spark.pyspark\nmoviesDF \u003d spark.read \\\n    .format(\"csv\") \\\n    .option(\"header\", \"true\") \\\n    .option(\"delimiter\", \",\") \\\n    .option(\"inferSchema\", \"true\") \\\n    .load(\"movies.csv\")\n\nprint(\"DataFrame rows: %d\" % moviesDF.count())\nprint(\"DataFrame schema: %s\" % moviesDF)\nmoviesDF.show(10, False)",
       "user": "anonymous",
-      "dateUpdated": "2019-11-21 18:06:23.740",
+      "dateUpdated": "2019-11-25 04:59:33.551",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -332,8 +332,8 @@
       "jobName": "paragraph_1573170957319_-724857282",
       "id": "20191107-235557_158160591",
       "dateCreated": "2019-11-07 23:55:57.319",
-      "dateStarted": "2019-11-21 18:06:23.766",
-      "dateFinished": "2019-11-21 18:06:31.417",
+      "dateStarted": "2019-11-25 04:59:33.565",
+      "dateFinished": "2019-11-25 04:59:34.182",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -341,7 +341,7 @@
       "title": "Save Data in CSV- and Parquet-formats to S3",
       "text": "%spark.pyspark\n# change me\nZEPPELIN_DEMO_BUCKET\u003dz.input(\"ZEPPELIN_DEMO_BUCKET\",\"gstafford-emr-demo-us-east1\")\nRECORD_SIZE\u003dz.select(\"RECORD_SIZE\", [(\"100k\",\"100k\"), (\"27MM\",\"27MM\")])\nprint(\"ZEPPELIN_DEMO_BUCKET:\", ZEPPELIN_DEMO_BUCKET)\nprint(\"RECORD_SIZE:\", RECORD_SIZE)\n",
       "user": "anonymous",
-      "dateUpdated": "2019-11-21 18:08:30.371",
+      "dateUpdated": "2019-11-25 04:59:34.265",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -407,8 +407,8 @@
       "jobName": "paragraph_1573364755638_1580655931",
       "id": "20191110-054555_1490759128",
       "dateCreated": "2019-11-10 05:45:55.638",
-      "dateStarted": "2019-11-21 18:08:30.385",
-      "dateFinished": "2019-11-21 18:08:30.414",
+      "dateStarted": "2019-11-25 04:59:34.288",
+      "dateFinished": "2019-11-25 04:59:34.325",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -416,7 +416,7 @@
       "title": "Save Data in CSV- and Parquet-formats to S3",
       "text": "%spark.pyspark\nBUCKET_PATH\u003d\"s3://\" + ZEPPELIN_DEMO_BUCKET + \"/data/\"\nratingsDF.write.parquet(BUCKET_PATH + \"ratings-csv-\" + RECORD_SIZE, mode\u003d\"overwrite\")\nmoviesDF.write.parquet(BUCKET_PATH + \"movies-csv-\" + RECORD_SIZE, mode\u003d\"overwrite\")\n\nratingsDF.write.parquet(BUCKET_PATH + \"ratings-parquet-\" + RECORD_SIZE, mode\u003d\"overwrite\")\nmoviesDF.write.parquet(BUCKET_PATH + \"movies-parquet-\" + RECORD_SIZE, mode\u003d\"overwrite\")",
       "user": "anonymous",
-      "dateUpdated": "2019-11-21 18:08:09.611",
+      "dateUpdated": "2019-11-25 04:59:34.386",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -450,8 +450,8 @@
       "jobName": "paragraph_1574357455353_-315744678",
       "id": "20191121-173055_17334635",
       "dateCreated": "2019-11-21 17:30:55.353",
-      "dateStarted": "2019-11-21 18:08:09.625",
-      "dateFinished": "2019-11-21 18:08:12.333",
+      "dateStarted": "2019-11-25 04:59:34.399",
+      "dateFinished": "2019-11-25 04:59:39.485",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -459,7 +459,7 @@
       "title": "Load Parquet-format Data from S3",
       "text": "%spark.pyspark\nratingsDF \u003d spark.read.parquet(BUCKET_PATH + \"ratings-parquet-\" + RECORD_SIZE)\nprint(\"DataFrame rows: %d\" % ratingsDF.count())",
       "user": "anonymous",
-      "dateUpdated": "2019-11-21 18:08:52.767",
+      "dateUpdated": "2019-11-25 04:59:39.503",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -493,8 +493,8 @@
       "jobName": "paragraph_1573517924706_797063234",
       "id": "20191112-001844_87079831",
       "dateCreated": "2019-11-12 00:18:44.706",
-      "dateStarted": "2019-11-21 18:08:52.790",
-      "dateFinished": "2019-11-21 18:08:53.946",
+      "dateStarted": "2019-11-25 04:59:39.519",
+      "dateFinished": "2019-11-25 04:59:40.290",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -502,7 +502,7 @@
       "title": "Load Parquet-format Data from S3",
       "text": "%spark.pyspark\nmoviesDF \u003d spark.read.parquet(BUCKET_PATH + \"movies-parquet-\" + RECORD_SIZE)\nprint(\"DataFrame rows: %d\" % moviesDF.count())",
       "user": "anonymous",
-      "dateUpdated": "2019-11-21 18:08:55.396",
+      "dateUpdated": "2019-11-25 04:59:40.319",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -536,8 +536,8 @@
       "jobName": "paragraph_1573528048880_1044998074",
       "id": "20191112-030728_1238589766",
       "dateCreated": "2019-11-12 03:07:28.880",
-      "dateStarted": "2019-11-21 18:08:55.410",
-      "dateFinished": "2019-11-21 18:08:56.678",
+      "dateStarted": "2019-11-25 04:59:40.337",
+      "dateFinished": "2019-11-25 04:59:41.177",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -545,7 +545,7 @@
       "title": "Create Temporary View of Ratings Data and Query",
       "text": "%spark.pyspark\n\nratingsDF.createOrReplaceTempView(\"ratings\")\n\nratingsDF \u003d spark.sql(\"SELECT movieId, rating, userId, CAST(timestamp as timestamp) as dateTime \" +\n                      \"FROM ratings \" +\n                      \"ORDER BY movieId, rating, userId\")\n\nprint(\"DataFrame rows: %d\" % ratingsDF.count())\nratingsDF.show(10, False)",
       "user": "anonymous",
-      "dateUpdated": "2019-11-21 18:09:01.723",
+      "dateUpdated": "2019-11-25 04:59:41.236",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -596,8 +596,8 @@
       "jobName": "paragraph_1573161585796_891183216",
       "id": "20191009-050109_648011188",
       "dateCreated": "2019-11-07 21:19:45.797",
-      "dateStarted": "2019-11-21 18:09:01.737",
-      "dateFinished": "2019-11-21 18:09:09.876",
+      "dateStarted": "2019-11-25 04:59:41.260",
+      "dateFinished": "2019-11-25 04:59:45.428",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -605,7 +605,7 @@
       "title": "Replace Temporary View with New Query",
       "text": "%spark.pyspark\nratingsDF.createOrReplaceTempView(\"ratings\")\nmoviesDF.createOrReplaceTempView(\"movies\")\n\ntopMoviesDF \u003d spark.sql(\"SELECT m.title, AVG(r.rating) as avg_rating, COUNT(r.rating) as cnt_ratings \" +\n                        \"FROM ratings r \" +\n                        \"JOIN movies m ON (r.movieId \u003d m.movieId) \" +\n                        \"GROUP BY m.title \" +\n                        \"ORDER BY avg_rating DESC, cnt_ratings DESC, m.title ASC\")\n                        \n# topMoviesDF \u003d topMoviesDF.filter(topMoviesDF.cnt_ratings \u003e\u003d 25)\n\nprint(\"DataFrame rows: %d\" % moviesDF.count())\nprint(\"Top 10 Movies\")\ntopMoviesDF.show(10, False)\n",
       "user": "anonymous",
-      "dateUpdated": "2019-11-21 18:09:13.593",
+      "dateUpdated": "2019-11-25 04:59:45.464",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -656,8 +656,8 @@
       "jobName": "paragraph_1573161585797_-394721398",
       "id": "20191009-050155_2142326603",
       "dateCreated": "2019-11-07 21:19:45.797",
-      "dateStarted": "2019-11-21 18:09:13.607",
-      "dateFinished": "2019-11-21 18:09:26.603",
+      "dateStarted": "2019-11-25 04:59:45.524",
+      "dateFinished": "2019-11-25 04:59:56.257",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -665,7 +665,7 @@
       "title": "Native Zeppelin Visualization Based on SQL Query",
       "text": "%sql\nWITH tmp_table AS (\n    SELECT m.title, AVG(r.rating) as avg_rating, COUNT(r.rating) as cnt_ratings\n    FROM ratings r\n    JOIN movies m ON (r.movieId \u003d m.movieId)\n    GROUP BY m.title)\n    \nSELECT title, CAST(avg_rating AS DECIMAL(38,2)), cnt_ratings\nFROM tmp_table\nWHERE avg_rating \u003e\u003d ${avgRatingMin\u003d4} AND cnt_ratings \u003e\u003d ${RatingsMin\u003d2}\nORDER BY avg_rating ASC, cnt_ratings DESC, title ASC\nLIMIT 25",
       "user": "anonymous",
-      "dateUpdated": "2019-11-21 18:09:31.801",
+      "dateUpdated": "2019-11-25 04:59:56.349",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -3428,38 +3428,31 @@
       "jobName": "paragraph_1573161585798_1054325402",
       "id": "20191106-042245_200419154",
       "dateCreated": "2019-11-07 21:19:45.798",
-      "dateStarted": "2019-11-21 18:09:31.821",
-      "dateFinished": "2019-11-21 18:09:38.486",
+      "dateStarted": "2019-11-25 04:59:56.378",
+      "dateFinished": "2019-11-25 05:00:03.502",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%sh\n",
+      "text": "%sql\n",
       "user": "anonymous",
-      "dateUpdated": "2019-11-19 06:18:41.310",
+      "dateUpdated": "2019-11-25 05:00:03.587",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
         "enabled": true,
         "results": {},
-        "editorSetting": {
-          "language": "sh",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": false
-        },
-        "editorMode": "ace/mode/sh"
+        "editorSetting": {}
       },
       "settings": {
         "params": {},
         "forms": {}
       },
       "apps": [],
-      "jobName": "paragraph_1573191088991_-765507571",
-      "id": "20191108-053128_1591075156",
-      "dateCreated": "2019-11-08 05:31:28.991",
+      "jobName": "paragraph_1574657224818_1193364271",
+      "id": "20191125-044704_932718481",
+      "dateCreated": "2019-11-25 04:47:04.818",
       "status": "FINISHED",
-      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     }
   ],
