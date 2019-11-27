@@ -4,7 +4,7 @@
       "title": "Zeppelin Demo Notebook 1",
       "text": "%md\nDemonstrate loading, querying, visualizing, and saving a small ~21k row kaggle dataset.\nThe \u0027Transactions from a bakery\u0027 dataset is documented on [kaggle](https://www.kaggle.com/sulmansarwar/transactions-from-a-bakery).",
       "user": "anonymous",
-      "dateUpdated": "2019-11-25 04:04:34.033",
+      "dateUpdated": "2019-11-27 01:45:42.156",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -38,8 +38,8 @@
       "jobName": "paragraph_1573058000759_-1487542903",
       "id": "20191106-153644_419077851",
       "dateCreated": "2019-11-06 16:33:20.759",
-      "dateStarted": "2019-11-25 04:04:34.180",
-      "dateFinished": "2019-11-25 04:04:36.261",
+      "dateStarted": "2019-11-27 01:45:42.175",
+      "dateFinished": "2019-11-27 01:45:42.180",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -47,7 +47,7 @@
       "title": "Check Spark Version",
       "text": "%sh\npyspark --version",
       "user": "anonymous",
-      "dateUpdated": "2019-11-25 04:12:40.505",
+      "dateUpdated": "2019-11-27 01:45:42.274",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -80,8 +80,8 @@
       "jobName": "paragraph_1574118869129_-2118062120",
       "id": "20191118-231429_912289705",
       "dateCreated": "2019-11-18 23:14:29.129",
-      "dateStarted": "2019-11-25 04:04:36.498",
-      "dateFinished": "2019-11-25 04:04:39.477",
+      "dateStarted": "2019-11-27 01:45:42.293",
+      "dateFinished": "2019-11-27 01:45:43.107",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -89,7 +89,7 @@
       "title": "Check Python Version",
       "text": "%spark.pyspark\nimport sys\n\n# should be Python 3.x\nprint(sys.version)",
       "user": "anonymous",
-      "dateUpdated": "2019-11-25 04:12:57.107",
+      "dateUpdated": "2019-11-27 01:45:43.193",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -123,8 +123,8 @@
       "jobName": "paragraph_1574119072258_-45549021",
       "id": "20191118-231752_1271013072",
       "dateCreated": "2019-11-18 23:17:52.258",
-      "dateStarted": "2019-11-25 04:04:39.605",
-      "dateFinished": "2019-11-25 04:05:13.084",
+      "dateStarted": "2019-11-27 01:45:43.218",
+      "dateFinished": "2019-11-27 01:45:43.223",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -132,7 +132,7 @@
       "title": "Import Python Packages",
       "text": "%spark.pyspark\nfrom pyspark import SparkFiles\nfrom pyspark.sql import SparkSession\nfrom pyspark.sql.types import StructType, StructField, StringType, IntegerType",
       "user": "anonymous",
-      "dateUpdated": "2019-11-25 04:05:13.169",
+      "dateUpdated": "2019-11-27 01:45:43.318",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -178,8 +178,8 @@
       "jobName": "paragraph_1573058000760_1826550872",
       "id": "20191009-042517_1466963465",
       "dateCreated": "2019-11-06 16:33:20.760",
-      "dateStarted": "2019-11-25 04:05:13.421",
-      "dateFinished": "2019-11-25 04:05:13.471",
+      "dateStarted": "2019-11-27 01:45:43.336",
+      "dateFinished": "2019-11-27 01:45:43.339",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -187,7 +187,7 @@
       "title": "Create Spark Session",
       "text": "%spark.pyspark\nspark \u003d SparkSession \\\n    .builder \\\n    .appName(\"pyspark_demo_app\") \\\n    .getOrCreate()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-25 04:05:13.513",
+      "dateUpdated": "2019-11-27 01:45:43.436",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -227,8 +227,8 @@
       "jobName": "paragraph_1573058000760_-178139685",
       "id": "20191009-042751_2109019779",
       "dateCreated": "2019-11-06 16:33:20.760",
-      "dateStarted": "2019-11-25 04:05:13.701",
-      "dateFinished": "2019-11-25 04:05:14.995",
+      "dateStarted": "2019-11-27 01:45:43.455",
+      "dateFinished": "2019-11-27 01:45:43.460",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -236,7 +236,7 @@
       "title": "Displat Spark Context Configuration",
       "text": "%spark.pyspark\nspark.sparkContext.getConf().getAll()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-25 04:05:15.081",
+      "dateUpdated": "2019-11-27 01:45:43.554",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -279,7 +279,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "[(\u0027spark.eventLog.enabled\u0027, \u0027true\u0027), (\u0027master\u0027, \u0027yarn-client\u0027), (\u0027zeppelin.spark.concurrentSQL\u0027, \u0027false\u0027), (\u0027spark.yarn.executor.memoryOverheadFactor\u0027, \u00270.1875\u0027), (\u0027zeppelin.pyspark.useIPython\u0027, \u0027true\u0027), (\u0027spark.driver.extraLibraryPath\u0027, \u0027/usr/lib/hadoop/lib/native:/usr/lib/hadoop-lzo/lib/native\u0027), (\u0027spark.driver.appUIAddress\u0027, \u0027http://ip-172-31-7-93.ec2.internal:4040\u0027), (\u0027spark.sql.parquet.output.committer.class\u0027, \u0027com.amazon.emr.committer.EmrOptimizedSparkSqlParquetOutputCommitter\u0027), (\u0027spark.blacklist.decommissioning.timeout\u0027, \u00271h\u0027), (\u0027zeppelin.spark.useNew\u0027, \u0027true\u0027), (\u0027spark.yarn.appMasterEnv.SPARK_PUBLIC_DNS\u0027, \u0027$(hostname -f)\u0027), (\u0027spark.ui.proxyBase\u0027, \u0027/proxy/application_1574652749252_0001\u0027), (\u0027spark.sql.emr.internal.extensions\u0027, \u0027com.amazonaws.emr.spark.EmrSparkSessionExtensions\u0027), (\u0027spark.executor.extraJavaOptions\u0027, \"-verbose:gc -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction\u003d70 -XX:MaxHeapFreeRatio\u003d70 -XX:+CMSClassUnloadingEnabled -XX:OnOutOfMemoryError\u003d\u0027kill -9 %p\u0027\"), (\u0027spark.org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter.param.PROXY_URI_BASES\u0027, \u0027http://ip-172-31-7-93.ec2.internal:20888/proxy/application_1574652749252_0001\u0027), (\u0027spark.eventLog.dir\u0027, \u0027hdfs:///var/log/spark/apps\u0027), (\u0027spark.useHiveContext\u0027, \u0027true\u0027), (\u0027spark.sql.warehouse.dir\u0027, \u0027hdfs:///user/spark/warehouse\u0027), (\u0027spark.driver.extraJavaOptions\u0027, \u0027 -Dfile.encoding\u003dUTF-8 -Dlog4j.configuration\u003dfile:///etc/zeppelin/conf/log4j.properties -Dzeppelin.log.file\u003d/var/log/zeppelin/zeppelin-interpreter-spark-zeppelin-ip-172-31-7-93.log\u0027), (\u0027spark.history.fs.logDirectory\u0027, \u0027hdfs:///var/log/spark/apps\u0027), (\u0027spark.ui.filters\u0027, \u0027org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter\u0027), (\u0027zeppelin.dep.localrepo\u0027, \u0027/usr/lib/zeppelin/local-repo\u0027), (\u0027spark.executor.memory\u0027, \u00274743M\u0027), (\u0027spark.executor.extraClassPath\u0027, \u0027/usr/lib/hadoop-lzo/lib/*:/usr/lib/hadoop/hadoop-aws.jar:/usr/share/aws/aws-java-sdk/*:/usr/share/aws/emr/emrfs/conf:/usr/share/aws/emr/emrfs/lib/*:/usr/share/aws/emr/emrfs/auxlib/*:/usr/share/aws/emr/goodies/lib/emr-spark-goodies.jar:/usr/share/aws/emr/security/conf:/usr/share/aws/emr/security/lib/*:/usr/share/aws/hmclient/lib/aws-glue-datacatalog-spark-client.jar:/usr/share/java/Hive-JSON-Serde/hive-openx-serde.jar:/usr/share/aws/sagemaker-spark-sdk/lib/sagemaker-spark-sdk.jar:/usr/share/aws/emr/s3select/lib/emr-s3-select-spark-connector.jar:/home/hadoop/extrajars/*\u0027), (\u0027spark.repl.class.outputDir\u0027, \u0027/tmp/spark8425005518476224464\u0027), (\u0027spark.home\u0027, \u0027/usr/lib/spark\u0027), (\u0027spark.hadoop.yarn.timeline-service.enabled\u0027, \u0027false\u0027), (\u0027zeppelin.spark.printREPLOutput\u0027, \u0027true\u0027), (\u0027zeppelin.spark.enableSupportedVersionCheck\u0027, \u0027true\u0027), (\u0027zeppelin.spark.maxResult\u0027, \u00271000\u0027), (\u0027spark.executor.id\u0027, \u0027driver\u0027), (\u0027zeppelin.pyspark.python\u0027, \u0027python3\u0027), (\u0027zeppelin.interpreter.localRepo\u0027, \u0027/usr/lib/zeppelin/local-repo/spark\u0027), (\u0027spark.repl.class.uri\u0027, \u0027spark://ip-172-31-7-93.ec2.internal:34065/classes\u0027), (\u0027zeppelin.R.image.width\u0027, \u0027100%\u0027), (\u0027spark.driver.memory\u0027, \u00272048M\u0027), (\u0027zeppelin.spark.ui.hidden\u0027, \u0027false\u0027), (\u0027spark.decommissioning.timeout.threshold\u0027, \u002720\u0027), (\u0027spark.sql.catalogImplementation\u0027, \u0027hive\u0027), (\u0027spark.stage.attempt.ignoreOnDecommissionFetchFailure\u0027, \u0027true\u0027), (\u0027spark.app.name\u0027, \u0027pyspark_demo_app\u0027), (\u0027spark.executor.extraLibraryPath\u0027, \u0027/usr/lib/hadoop/lib/native:/usr/lib/hadoop-lzo/lib/native\u0027), (\u0027spark.jars\u0027, \u0027file:/usr/lib/zeppelin/interpreter/spark/spark-interpreter-0.8.2.jar\u0027), (\u0027zeppelin.spark.sql.interpolation\u0027, \u0027false\u0027), (\u0027spark.app.id\u0027, \u0027application_1574652749252_0001\u0027), (\u0027spark.hadoop.fs.s3.getObject.initialSocketTimeoutMilliseconds\u0027, \u00272000\u0027), (\u0027spark.yarn.historyServer.address\u0027, \u0027ip-172-31-7-93.ec2.internal:18080\u0027), (\u0027spark.hadoop.mapreduce.fileoutputcommitter.algorithm.version.emr_internal_use_only.EmrFileSystem\u0027, \u00272\u0027), (\u0027zeppelin.R.cmd\u0027, \u0027R\u0027), (\u0027zeppelin.spark.importImplicit\u0027, \u0027true\u0027), (\u0027zeppelin.interpreter.output.limit\u0027, \u0027102400\u0027), (\u0027spark.yarn.dist.archives\u0027, \u0027file:/usr/lib/spark/R/lib/sparkr.zip#sparkr\u0027), (\u0027spark.executorEnv.PYTHONPATH\u0027, \u0027/usr/lib/spark/python/lib/py4j-src.zip:/usr/lib/spark/python/:\u003cCPS\u003e{{PWD}}/pyspark.zip\u003cCPS\u003e{{PWD}}/py4j-src.zip\u003cCPS\u003e/usr/lib/spark/python/lib/py4j-0.10.7-src.zip:/usr/lib/spark/python/:\u003cCPS\u003e{{PWD}}/pyspark.zip\u003cCPS\u003e{{PWD}}/py4j-0.10.7-src.zip\u0027), (\u0027spark.sql.hive.metastore.sharedPrefixes\u0027, \u0027com.amazonaws.services.dynamodbv2\u0027), (\u0027spark.submit.deployMode\u0027, \u0027client\u0027), (\u0027zeppelin.R.knitr\u0027, \u0027true\u0027), (\u0027spark.sql.parquet.fs.optimized.committer.optimization-enabled\u0027, \u0027true\u0027), (\u0027zeppelin.spark.useHiveContext\u0027, \u0027true\u0027), (\u0027spark.hadoop.mapreduce.fileoutputcommitter.cleanup-failures.ignored.emr_internal_use_only.EmrFileSystem\u0027, \u0027true\u0027), (\u0027spark.history.ui.port\u0027, \u002718080\u0027), (\u0027spark.shuffle.service.enabled\u0027, \u0027true\u0027), (\u0027spark.driver.port\u0027, \u002734065\u0027), (\u0027spark.resourceManager.cleanupExpiredHost\u0027, \u0027true\u0027), (\u0027zeppelin.R.render.options\u0027, \"out.format \u003d \u0027html\u0027, comment \u003d NA, echo \u003d FALSE, results \u003d \u0027asis\u0027, message \u003d F, warning \u003d F, fig.retina \u003d 2\"), (\u0027spark.executor.cores\u0027, \u00272\u0027), (\u0027spark.files.fetchFailure.unRegisterOutputOnHost\u0027, \u0027true\u0027), (\u0027zeppelin.spark.sql.stacktrace\u0027, \u0027false\u0027), (\u0027spark.org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter.param.PROXY_HOSTS\u0027, \u0027ip-172-31-7-93.ec2.internal\u0027), (\u0027spark.master\u0027, \u0027yarn\u0027), (\u0027spark.driver.host\u0027, \u0027ip-172-31-7-93.ec2.internal\u0027), (\u0027spark.driver.extraClassPath\u0027, \u0027:/usr/lib/zeppelin/interpreter/spark/*:/usr/lib/zeppelin/lib/interpreter/*::/usr/lib/hadoop-lzo/lib/*:/usr/lib/hadoop/hadoop-aws.jar:/usr/share/java/Hive-JSON-Serde/hive-openx-serde.jar:/usr/share/aws/aws-java-sdk/*:/usr/share/aws/emr/emrfs/conf:/usr/share/aws/emr/emrfs/lib/*:/usr/share/aws/emr/emrfs/auxlib/*:/usr/share/aws/hmclient/lib/aws-glue-datacatalog-spark-client.jar:/usr/share/aws/sagemaker-spark-sdk/lib/sagemaker-spark-sdk.jar:/home/hadoop/extrajars/*:/usr/lib/zeppelin/interpreter/spark/spark-interpreter-0.8.2.jar:/etc/hadoop/conf\u0027), (\u0027spark.yarn.isPython\u0027, \u0027true\u0027), (\u0027spark.dynamicAllocation.enabled\u0027, \u0027true\u0027), (\u0027zeppelin.dep.additionalRemoteRepository\u0027, \u0027spark-packages,http://dl.bintray.com/spark-packages/maven,false;\u0027), (\u0027zeppelin.interpreter.max.poolsize\u0027, \u002710\u0027), (\u0027spark.blacklist.decommissioning.enabled\u0027, \u0027true\u0027)]\n"
+            "data": "[(\u0027spark.eventLog.enabled\u0027, \u0027true\u0027), (\u0027master\u0027, \u0027yarn-client\u0027), (\u0027zeppelin.spark.concurrentSQL\u0027, \u0027false\u0027), (\u0027zeppelin.pyspark.useIPython\u0027, \u0027true\u0027), (\u0027spark.driver.extraLibraryPath\u0027, \u0027/usr/lib/hadoop/lib/native:/usr/lib/hadoop-lzo/lib/native\u0027), (\u0027spark.app.id\u0027, \u0027application_1574815336934_0001\u0027), (\u0027spark.sql.parquet.output.committer.class\u0027, \u0027com.amazon.emr.committer.EmrOptimizedSparkSqlParquetOutputCommitter\u0027), (\u0027spark.blacklist.decommissioning.timeout\u0027, \u00271h\u0027), (\u0027zeppelin.spark.useNew\u0027, \u0027true\u0027), (\u0027spark.yarn.appMasterEnv.SPARK_PUBLIC_DNS\u0027, \u0027$(hostname -f)\u0027), (\u0027spark.sql.emr.internal.extensions\u0027, \u0027com.amazonaws.emr.spark.EmrSparkSessionExtensions\u0027), (\u0027spark.executor.extraJavaOptions\u0027, \"-verbose:gc -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction\u003d70 -XX:MaxHeapFreeRatio\u003d70 -XX:+CMSClassUnloadingEnabled -XX:OnOutOfMemoryError\u003d\u0027kill -9 %p\u0027\"), (\u0027spark.eventLog.dir\u0027, \u0027hdfs:///var/log/spark/apps\u0027), (\u0027spark.useHiveContext\u0027, \u0027true\u0027), (\u0027spark.sql.warehouse.dir\u0027, \u0027hdfs:///user/spark/warehouse\u0027), (\u0027spark.history.fs.logDirectory\u0027, \u0027hdfs:///var/log/spark/apps\u0027), (\u0027spark.ui.filters\u0027, \u0027org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter\u0027), (\u0027zeppelin.dep.localrepo\u0027, \u0027/usr/lib/zeppelin/local-repo\u0027), (\u0027spark.executor.extraClassPath\u0027, \u0027/usr/lib/hadoop-lzo/lib/*:/usr/lib/hadoop/hadoop-aws.jar:/usr/share/aws/aws-java-sdk/*:/usr/share/aws/emr/emrfs/conf:/usr/share/aws/emr/emrfs/lib/*:/usr/share/aws/emr/emrfs/auxlib/*:/usr/share/aws/emr/goodies/lib/emr-spark-goodies.jar:/usr/share/aws/emr/security/conf:/usr/share/aws/emr/security/lib/*:/usr/share/aws/hmclient/lib/aws-glue-datacatalog-spark-client.jar:/usr/share/java/Hive-JSON-Serde/hive-openx-serde.jar:/usr/share/aws/sagemaker-spark-sdk/lib/sagemaker-spark-sdk.jar:/usr/share/aws/emr/s3select/lib/emr-s3-select-spark-connector.jar:/home/hadoop/extrajars/*\u0027), (\u0027spark.home\u0027, \u0027/usr/lib/spark\u0027), (\u0027spark.hadoop.yarn.timeline-service.enabled\u0027, \u0027false\u0027), (\u0027zeppelin.spark.printREPLOutput\u0027, \u0027true\u0027), (\u0027zeppelin.spark.enableSupportedVersionCheck\u0027, \u0027true\u0027), (\u0027zeppelin.spark.maxResult\u0027, \u00271000\u0027), (\u0027spark.executor.id\u0027, \u0027driver\u0027), (\u0027zeppelin.pyspark.python\u0027, \u0027python3\u0027), (\u0027zeppelin.interpreter.localRepo\u0027, \u0027/usr/lib/zeppelin/local-repo/spark\u0027), (\u0027zeppelin.R.image.width\u0027, \u0027100%\u0027), (\u0027zeppelin.spark.ui.hidden\u0027, \u0027false\u0027), (\u0027spark.executor.memory\u0027, \u002721527M\u0027), (\u0027spark.decommissioning.timeout.threshold\u0027, \u002720\u0027), (\u0027spark.sql.catalogImplementation\u0027, \u0027hive\u0027), (\u0027spark.stage.attempt.ignoreOnDecommissionFetchFailure\u0027, \u0027true\u0027), (\u0027spark.app.name\u0027, \u0027pyspark_demo_app\u0027), (\u0027spark.executor.extraLibraryPath\u0027, \u0027/usr/lib/hadoop/lib/native:/usr/lib/hadoop-lzo/lib/native\u0027), (\u0027spark.jars\u0027, \u0027file:/usr/lib/zeppelin/interpreter/spark/spark-interpreter-0.8.2.jar\u0027), (\u0027zeppelin.spark.sql.interpolation\u0027, \u0027false\u0027), (\u0027spark.hadoop.fs.s3.getObject.initialSocketTimeoutMilliseconds\u0027, \u00272000\u0027), (\u0027spark.hadoop.mapreduce.fileoutputcommitter.algorithm.version.emr_internal_use_only.EmrFileSystem\u0027, \u00272\u0027), (\u0027spark.executor.instances\u0027, \u00273\u0027), (\u0027spark.repl.class.outputDir\u0027, \u0027/tmp/spark2109671996560523300\u0027), (\u0027zeppelin.R.cmd\u0027, \u0027R\u0027), (\u0027zeppelin.spark.importImplicit\u0027, \u0027true\u0027), (\u0027zeppelin.interpreter.output.limit\u0027, \u0027102400\u0027), (\u0027spark.yarn.dist.archives\u0027, \u0027file:/usr/lib/spark/R/lib/sparkr.zip#sparkr\u0027), (\u0027spark.driver.memory\u0027, \u002711171M\u0027), (\u0027spark.executorEnv.PYTHONPATH\u0027, \u0027/usr/lib/spark/python/lib/py4j-src.zip:/usr/lib/spark/python/:\u003cCPS\u003e{{PWD}}/pyspark.zip\u003cCPS\u003e{{PWD}}/py4j-src.zip\u003cCPS\u003e/usr/lib/spark/python/lib/py4j-0.10.7-src.zip:/usr/lib/spark/python/:\u003cCPS\u003e{{PWD}}/pyspark.zip\u003cCPS\u003e{{PWD}}/py4j-0.10.7-src.zip\u0027), (\u0027spark.sql.hive.metastore.sharedPrefixes\u0027, \u0027com.amazonaws.services.dynamodbv2\u0027), (\u0027spark.submit.deployMode\u0027, \u0027client\u0027), (\u0027zeppelin.R.knitr\u0027, \u0027true\u0027), (\u0027spark.driver.port\u0027, \u002736965\u0027), (\u0027spark.sql.parquet.fs.optimized.committer.optimization-enabled\u0027, \u0027true\u0027), (\u0027spark.executor.cores\u0027, \u00278\u0027), (\u0027spark.org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter.param.PROXY_URI_BASES\u0027, \u0027http://ip-172-31-6-28.ec2.internal:20888/proxy/application_1574815336934_0001\u0027), (\u0027zeppelin.spark.useHiveContext\u0027, \u0027true\u0027), (\u0027spark.hadoop.mapreduce.fileoutputcommitter.cleanup-failures.ignored.emr_internal_use_only.EmrFileSystem\u0027, \u0027true\u0027), (\u0027spark.history.ui.port\u0027, \u002718080\u0027), (\u0027spark.shuffle.service.enabled\u0027, \u0027true\u0027), (\u0027spark.driver.host\u0027, \u0027ip-172-31-6-28.ec2.internal\u0027), (\u0027spark.resourceManager.cleanupExpiredHost\u0027, \u0027true\u0027), (\u0027zeppelin.R.render.options\u0027, \"out.format \u003d \u0027html\u0027, comment \u003d NA, echo \u003d FALSE, results \u003d \u0027asis\u0027, message \u003d F, warning \u003d F, fig.retina \u003d 2\"), (\u0027spark.driver.extraJavaOptions\u0027, \u0027 -Dfile.encoding\u003dUTF-8 -Dlog4j.configuration\u003dfile:///etc/zeppelin/conf/log4j.properties -Dzeppelin.log.file\u003d/var/log/zeppelin/zeppelin-interpreter-spark-zeppelin-ip-172-31-6-28.log\u0027), (\u0027spark.files.fetchFailure.unRegisterOutputOnHost\u0027, \u0027true\u0027), (\u0027spark.driver.appUIAddress\u0027, \u0027http://ip-172-31-6-28.ec2.internal:4040\u0027), (\u0027spark.repl.class.uri\u0027, \u0027spark://ip-172-31-6-28.ec2.internal:36965/classes\u0027), (\u0027zeppelin.spark.sql.stacktrace\u0027, \u0027false\u0027), (\u0027spark.ui.proxyBase\u0027, \u0027/proxy/application_1574815336934_0001\u0027), (\u0027spark.master\u0027, \u0027yarn\u0027), (\u0027spark.yarn.historyServer.address\u0027, \u0027ip-172-31-6-28.ec2.internal:18080\u0027), (\u0027spark.org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter.param.PROXY_HOSTS\u0027, \u0027ip-172-31-6-28.ec2.internal\u0027), (\u0027spark.driver.extraClassPath\u0027, \u0027:/usr/lib/zeppelin/interpreter/spark/*:/usr/lib/zeppelin/lib/interpreter/*::/usr/lib/hadoop-lzo/lib/*:/usr/lib/hadoop/hadoop-aws.jar:/usr/share/java/Hive-JSON-Serde/hive-openx-serde.jar:/usr/share/aws/aws-java-sdk/*:/usr/share/aws/emr/emrfs/conf:/usr/share/aws/emr/emrfs/lib/*:/usr/share/aws/emr/emrfs/auxlib/*:/usr/share/aws/hmclient/lib/aws-glue-datacatalog-spark-client.jar:/usr/share/aws/sagemaker-spark-sdk/lib/sagemaker-spark-sdk.jar:/home/hadoop/extrajars/*:/usr/lib/zeppelin/interpreter/spark/spark-interpreter-0.8.2.jar:/etc/hadoop/conf\u0027), (\u0027spark.dynamicAllocation.enabled\u0027, \u0027true\u0027), (\u0027zeppelin.dep.additionalRemoteRepository\u0027, \u0027spark-packages,http://dl.bintray.com/spark-packages/maven,false;\u0027), (\u0027spark.yarn.isPython\u0027, \u0027true\u0027), (\u0027zeppelin.interpreter.max.poolsize\u0027, \u002710\u0027), (\u0027spark.default.parallelism\u0027, \u002748\u0027), (\u0027spark.blacklist.decommissioning.enabled\u0027, \u0027true\u0027)]\n"
           }
         ]
       },
@@ -287,8 +287,8 @@
       "jobName": "paragraph_1574118918384_1385483248",
       "id": "20191118-231518_1016976589",
       "dateCreated": "2019-11-18 23:15:18.385",
-      "dateStarted": "2019-11-25 04:05:15.146",
-      "dateFinished": "2019-11-25 04:05:15.252",
+      "dateStarted": "2019-11-27 01:45:43.575",
+      "dateFinished": "2019-11-27 01:45:43.630",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -296,7 +296,7 @@
       "title": "Save CSV Data File to S3",
       "text": "%sh\n# change me for shell interpreter binding\nZEPPELIN_DEMO_BUCKET\u003d\"gstafford-emr-demo-us-east1\"\n\nDATA_FILE\u003d\"BreadBasket_DMS.csv\"\n\n# copy bakery data to/from s3 bucket\nif [ -f \"$DATA_FILE\" ]; then\n    echo \"$DATA_FILE exist\"\nelse\n    wget -nv https://raw.githubusercontent.com/garystafford/pyspark-setup-demo/master/work/$DATA_FILE -O $DATA_FILE\nfi\n\naws s3 cp $DATA_FILE s3://$ZEPPELIN_DEMO_BUCKET/data/bakery-csv/$DATA_FILE",
       "user": "anonymous",
-      "dateUpdated": "2019-11-25 04:05:15.350",
+      "dateUpdated": "2019-11-27 01:45:43.674",
       "config": {
         "editorSetting": {
           "language": "sh",
@@ -341,7 +341,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "2019-11-25 04:05:15 URL:https://raw.githubusercontent.com/garystafford/pyspark-setup-demo/master/work/BreadBasket_DMS.csv [710518/710518] -\u003e \"BreadBasket_DMS.csv\" [1]\nCompleted 256.0 KiB/693.9 KiB (4.5 MiB/s) with 1 file(s) remaining\rCompleted 512.0 KiB/693.9 KiB (8.6 MiB/s) with 1 file(s) remaining\rCompleted 693.9 KiB/693.9 KiB (5.2 MiB/s) with 1 file(s) remaining\rupload: ./BreadBasket_DMS.csv to s3://gstafford-emr-demo-us-east1/data/bakery-csv/BreadBasket_DMS.csv\n"
+            "data": "2019-11-27 01:45:43 URL:https://raw.githubusercontent.com/garystafford/pyspark-setup-demo/master/work/BreadBasket_DMS.csv [710518/710518] -\u003e \"BreadBasket_DMS.csv\" [1]\nCompleted 256.0 KiB/693.9 KiB (4.0 MiB/s) with 1 file(s) remaining\rCompleted 512.0 KiB/693.9 KiB (7.7 MiB/s) with 1 file(s) remaining\rCompleted 693.9 KiB/693.9 KiB (3.9 MiB/s) with 1 file(s) remaining\rupload: ./BreadBasket_DMS.csv to s3://gstafford-emr-demo-us-east1/data/bakery-csv/BreadBasket_DMS.csv\n"
           }
         ]
       },
@@ -349,16 +349,16 @@
       "jobName": "paragraph_1573058000760_961427148",
       "id": "20191009-042907_1768707497",
       "dateCreated": "2019-11-06 16:33:20.760",
-      "dateStarted": "2019-11-25 04:05:15.399",
-      "dateFinished": "2019-11-25 04:05:16.166",
+      "dateStarted": "2019-11-27 01:45:43.691",
+      "dateFinished": "2019-11-27 01:45:44.442",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Load CSV Data from S3 into DataFrame",
-      "text": "%spark.pyspark\n# change me to same value as shell interpreter binding, for pyspark interpreter binding\nZEPPELIN_DEMO_BUCKET\u003d\"gstafford-emr-demo-us-east1\"\n\nDATA_FILE\u003d\"BreadBasket_DMS.csv\"\n\nbakery_schema \u003d StructType([\n    StructField(\"date\", StringType(), True),\n    StructField(\"time\", StringType(), True),\n    StructField(\"transaction\", IntegerType(), True),\n    StructField(\"item\", StringType(), True)\n])\n\ndf_bakery \u003d spark.read \\\n    .format(\"csv\") \\\n    .option(\"header\", \"true\") \\\n    .load(\"s3://\" + ZEPPELIN_DEMO_BUCKET + \"/data/bakery-csv/\" + DATA_FILE, schema\u003dbakery_schema)\n\nprint(\"DataFrame rows: %d\" % df_bakery.count())\nprint(\"DataFrame schema: %s\" % df_bakery)\ndf_bakery.show(10, False)",
+      "text": "%spark.pyspark\n# change me to same value as shell interpreter binding, for pyspark interpreter binding\nZEPPELIN_DEMO_BUCKET\u003d\"gstafford-emr-demo-us-east1\"\n\nDATA_FILE\u003d\"BreadBasket_DMS.csv\"\n\nbakery_schema \u003d StructType([\n    StructField(\"date\", StringType(), True),\n    StructField(\"time\", StringType(), True),\n    StructField(\"transaction\", IntegerType(), True),\n    StructField(\"item\", StringType(), True)\n])\n\nbakery_df \u003d spark.read \\\n    .format(\"csv\") \\\n    .option(\"header\", \"true\") \\\n    .load(\"s3://\" + ZEPPELIN_DEMO_BUCKET + \"/data/bakery-csv/\" + DATA_FILE, schema\u003dbakery_schema)\n\nprint(\"DataFrame rows: %d\" % bakery_df.count())\nprint(\"DataFrame schema: %s\" % bakery_df)\nbakery_df.show(10, False)",
       "user": "anonymous",
-      "dateUpdated": "2019-11-25 04:05:16.199",
+      "dateUpdated": "2019-11-27 01:45:44.491",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -409,16 +409,16 @@
       "jobName": "paragraph_1573058000760_886915304",
       "id": "20191009-044129_2035687603",
       "dateCreated": "2019-11-06 16:33:20.760",
-      "dateStarted": "2019-11-25 04:05:16.274",
-      "dateFinished": "2019-11-25 04:05:25.167",
+      "dateStarted": "2019-11-27 01:45:44.513",
+      "dateFinished": "2019-11-27 01:45:51.196",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Save Data in Parquet-format to S3",
-      "text": "%spark.pyspark\ndf_bakery.write.parquet(\"s3://\" + ZEPPELIN_DEMO_BUCKET + \"/data/bakery-parquet\", mode\u003d\"overwrite\")",
+      "text": "%spark.pyspark\nbakery_df.write.parquet(\"s3://\" + ZEPPELIN_DEMO_BUCKET + \"/data/bakery-parquet\", mode\u003d\"overwrite\")",
       "user": "anonymous",
-      "dateUpdated": "2019-11-25 04:05:25.181",
+      "dateUpdated": "2019-11-27 01:45:51.217",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -464,16 +464,16 @@
       "jobName": "paragraph_1573058000760_-634386583",
       "id": "20191010-052611_90769380",
       "dateCreated": "2019-11-06 16:33:20.760",
-      "dateStarted": "2019-11-25 04:05:25.275",
-      "dateFinished": "2019-11-25 04:05:27.328",
+      "dateStarted": "2019-11-27 01:45:51.246",
+      "dateFinished": "2019-11-27 01:45:52.955",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Load Parquet-format Data from S3",
-      "text": "%spark.pyspark\ndf_bakery \u003d spark.read.parquet(\"s3://\" + ZEPPELIN_DEMO_BUCKET + \"/data/bakery-parquet\")\n\nprint(\"DataFrame rows: %d\" % df_bakery.count())",
+      "text": "%spark.pyspark\nbakery_df \u003d spark.read.parquet(\"s3://\" + ZEPPELIN_DEMO_BUCKET + \"/data/bakery-parquet\")\n\nprint(\"DataFrame rows: %d\" % bakery_df.count())",
       "user": "anonymous",
-      "dateUpdated": "2019-11-25 04:05:27.381",
+      "dateUpdated": "2019-11-27 01:45:53.043",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -524,16 +524,16 @@
       "jobName": "paragraph_1573519493699_-257068444",
       "id": "20191112-004453_863376777",
       "dateCreated": "2019-11-12 00:44:53.699",
-      "dateStarted": "2019-11-25 04:05:27.421",
-      "dateFinished": "2019-11-25 04:05:29.201",
+      "dateStarted": "2019-11-27 01:45:53.062",
+      "dateFinished": "2019-11-27 01:45:53.820",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Create Temporary View of Data",
-      "text": "%spark.pyspark\ndf_bakery.createOrReplaceTempView(\"bakery\")\n\ndf_bakeryClean \u003d spark.sql(\"SELECT transaction, date, item \" +\n                           \"FROM bakery \" +\n                           \"WHERE item NOT LIKE \u0027NONE\u0027\" +\n                           \"ORDER BY transaction\")\n\nprint(\"DataFrame rows: %d\" % df_bakeryClean.count())\ndf_bakeryClean.show(10, False)",
+      "text": "%spark.pyspark\nbakery_df.createOrReplaceTempView(\"bakery\")\n\nbakery_clean_df \u003d spark.sql(\"SELECT transaction, date, item \" +\n                           \"FROM bakery \" +\n                           \"WHERE item NOT LIKE \u0027NONE\u0027\" +\n                           \"ORDER BY transaction\")\n\nprint(\"DataFrame rows: %d\" % bakery_clean_df.count())\nbakery_clean_df.show(10, False)",
       "user": "anonymous",
-      "dateUpdated": "2019-11-25 04:05:29.231",
+      "dateUpdated": "2019-11-27 01:45:53.862",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -584,16 +584,16 @@
       "jobName": "paragraph_1573058000760_-1417833523",
       "id": "20191009-050109_648011188",
       "dateCreated": "2019-11-06 16:33:20.760",
-      "dateStarted": "2019-11-25 04:05:29.309",
-      "dateFinished": "2019-11-25 04:05:37.672",
+      "dateStarted": "2019-11-27 01:45:53.880",
+      "dateFinished": "2019-11-27 01:45:56.406",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Replace Temporary View with New Query",
-      "text": "%spark.pyspark\ndf_bakeryClean.createOrReplaceTempView(\"bakery\")\n\ndf_bakerySummary \u003d spark.sql(\"SELECT date, count(*) as item_count \" +\n                             \"FROM bakery \" +\n                             \"WHERE date \u003e\u003d \u00272017-01-01\u0027 \" +\n                             \"GROUP BY date \" +\n                             \"ORDER BY date\")\n\nprint(\"DataFrame rows: %d\" % df_bakerySummary.count())\ndf_bakerySummary.show(10, False)",
+      "text": "%spark.pyspark\nbakery_clean_df.createOrReplaceTempView(\"bakery\")\n\nbakery_summary_df \u003d spark.sql(\"SELECT date, count(*) as item_count \" +\n                             \"FROM bakery \" +\n                             \"WHERE date \u003e\u003d \u00272017-01-01\u0027 \" +\n                             \"GROUP BY date \" +\n                             \"ORDER BY date\")\n\nprint(\"DataFrame rows: %d\" % bakery_summary_df.count())\nbakery_summary_df.show(10, False)",
       "user": "anonymous",
-      "dateUpdated": "2019-11-25 04:05:37.733",
+      "dateUpdated": "2019-11-27 01:45:56.482",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -644,8 +644,8 @@
       "jobName": "paragraph_1573058000760_-945322986",
       "id": "20191009-050155_2142326603",
       "dateCreated": "2019-11-06 16:33:20.760",
-      "dateStarted": "2019-11-25 04:05:37.771",
-      "dateFinished": "2019-11-25 04:05:50.910",
+      "dateStarted": "2019-11-27 01:45:56.500",
+      "dateFinished": "2019-11-27 01:46:00.514",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -653,7 +653,7 @@
       "title": "Native Zeppelin Visualization Based on SQL Query",
       "text": "%sql\nSELECT date, count(*) as item_count\nFROM bakery\nWHERE date BETWEEN \u00272017-01-01\u0027 AND \u00272017-03-31\u0027\nGROUP BY date\nORDER BY date",
       "user": "anonymous",
-      "dateUpdated": "2019-11-25 04:12:26.424",
+      "dateUpdated": "2019-11-27 01:46:00.603",
       "config": {
         "editorSetting": {
           "language": "sql",
@@ -756,8 +756,8 @@
       "jobName": "paragraph_1573058000760_1142817223",
       "id": "20191106-005218_589421977",
       "dateCreated": "2019-11-06 16:33:20.760",
-      "dateStarted": "2019-11-25 04:05:51.117",
-      "dateFinished": "2019-11-25 04:05:55.115",
+      "dateStarted": "2019-11-27 01:46:00.624",
+      "dateFinished": "2019-11-27 01:46:01.979",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -765,7 +765,7 @@
       "title": "Native Zeppelin Visualization Based on SQL Query",
       "text": "%sql\nSELECT count(*) as item_count, item\nFROM bakery\nGROUP BY item\nORDER BY item_count\nDESC LIMIT 10",
       "user": "anonymous",
-      "dateUpdated": "2019-11-25 04:05:55.205",
+      "dateUpdated": "2019-11-27 01:46:02.024",
       "config": {
         "editorSetting": {
           "language": "sql",
@@ -9747,16 +9747,16 @@
       "jobName": "paragraph_1573058000760_-1357437731",
       "id": "20191106-042245_200419154",
       "dateCreated": "2019-11-06 16:33:20.760",
-      "dateStarted": "2019-11-25 04:05:55.271",
-      "dateFinished": "2019-11-25 04:05:59.226",
+      "dateStarted": "2019-11-27 01:46:02.061",
+      "dateFinished": "2019-11-27 01:46:03.917",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Write Transformed Data to Parquet Format",
-      "text": "%spark.pyspark\ndf_bakerySummary.write.parquet(\"s3://\" + ZEPPELIN_DEMO_BUCKET + \"/data/bakery-summary-parquet\", mode\u003d\"overwrite\")",
+      "text": "%spark.pyspark\nbakery_summary_df.write.parquet(\"s3://\" + ZEPPELIN_DEMO_BUCKET + \"/data/bakery-summary-parquet\", mode\u003d\"overwrite\")",
       "user": "anonymous",
-      "dateUpdated": "2019-11-25 04:05:59.287",
+      "dateUpdated": "2019-11-27 01:46:03.962",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -9786,9 +9786,25 @@
       "jobName": "paragraph_1573058000761_-1476901850",
       "id": "20191106-151740_1177114488",
       "dateCreated": "2019-11-06 16:33:20.761",
-      "dateStarted": "2019-11-25 04:05:59.317",
-      "dateFinished": "2019-11-25 04:06:08.514",
+      "dateStarted": "2019-11-27 01:46:03.983",
+      "dateFinished": "2019-11-27 01:46:09.778",
       "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark.pyspark\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-11-27 01:46:03.962",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1574819163962_584743281",
+      "id": "20191127-014603_1993247992",
+      "dateCreated": "2019-11-27 01:46:03.962",
+      "status": "READY",
       "progressUpdateIntervalMs": 500
     }
   ],
