@@ -4,7 +4,7 @@
       "title": "Zeppelin Demo Notebook 3",
       "text": "%md\nDemonstrate loading data from S3, using an [AWS Glue Data Catalog](https://aws.amazon.com/glue/features/).\nThe AWS Glue Data Catalog is a persistent metadata store for all data assets, regardless of where they are located.\nUsing the Data Catalog reduces the amount of code we need to write, to read data into a Spark DataFrame or convert to temporary view.",
       "user": "anonymous",
-      "dateUpdated": "2019-11-25 05:08:29.056",
+      "dateUpdated": "2019-11-27 01:48:14.263",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -38,8 +38,8 @@
       "jobName": "paragraph_1573621930599_-673697681",
       "id": "20191106-153644_419077851",
       "dateCreated": "2019-11-13 05:12:10.600",
-      "dateStarted": "2019-11-25 05:08:29.066",
-      "dateFinished": "2019-11-25 05:08:29.070",
+      "dateStarted": "2019-11-27 01:48:14.273",
+      "dateFinished": "2019-11-27 01:48:14.280",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -47,7 +47,7 @@
       "title": "AWS Glue Crawlers",
       "text": "%md\nRun each of the seven AWS Glue Crawlers, one time each before continuing.\n\n```%sh\naws glue start-crawler --name bakery-csv-s3\naws glue start-crawler --name bakery-parquet-s3\naws glue start-crawler --name bakery-summary-parquet-s3\naws glue start-crawler --name ratings-parquet-s3-100k\naws glue start-crawler --name movies-parquet-s3-100k\naws glue start-crawler --name ratings-parquet-s3-27mm\naws glue start-crawler --name movies-parquet-s3-27mm\n```",
       "user": "anonymous",
-      "dateUpdated": "2019-11-25 05:08:29.165",
+      "dateUpdated": "2019-11-27 01:48:14.372",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -84,8 +84,8 @@
       "jobName": "paragraph_1573625588720_284418062",
       "id": "20191113-061308_201880928",
       "dateCreated": "2019-11-13 06:13:08.720",
-      "dateStarted": "2019-11-25 05:08:29.175",
-      "dateFinished": "2019-11-25 05:08:29.181",
+      "dateStarted": "2019-11-27 01:48:14.383",
+      "dateFinished": "2019-11-27 01:48:14.388",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -93,7 +93,7 @@
       "title": "Import Python Packages",
       "text": "%spark.pyspark\nfrom pyspark import SparkFiles\nfrom pyspark.sql import SparkSession\nfrom pyspark.sql.types import StructType, StructField, StringType, IntegerType, DateType",
       "user": "anonymous",
-      "dateUpdated": "2019-11-25 05:08:29.275",
+      "dateUpdated": "2019-11-27 01:48:14.482",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -139,8 +139,8 @@
       "jobName": "paragraph_1573621930600_1184234075",
       "id": "20191009-042517_1466963465",
       "dateCreated": "2019-11-13 05:12:10.600",
-      "dateStarted": "2019-11-25 05:08:29.285",
-      "dateFinished": "2019-11-25 05:08:29.289",
+      "dateStarted": "2019-11-27 01:48:14.493",
+      "dateFinished": "2019-11-27 01:48:14.500",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -148,7 +148,7 @@
       "title": "Create Spark Session",
       "text": "%spark.pyspark\nspark \u003d SparkSession \\\n    .builder \\\n    .appName(\"pyspark_demo_app\") \\\n    .getOrCreate()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-25 05:08:29.384",
+      "dateUpdated": "2019-11-27 01:48:14.592",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -194,8 +194,8 @@
       "jobName": "paragraph_1573621930601_-992987428",
       "id": "20191009-042751_2109019779",
       "dateCreated": "2019-11-13 05:12:10.601",
-      "dateStarted": "2019-11-25 05:08:29.395",
-      "dateFinished": "2019-11-25 05:08:29.401",
+      "dateStarted": "2019-11-27 01:48:14.604",
+      "dateFinished": "2019-11-27 01:48:14.611",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -203,7 +203,7 @@
       "title": "Show AWS Glue Data Catalog Database Tables",
       "text": "%spark.pyspark\nspark.sql(\"show databases\").show(10, False)\nspark.sql(\"use zeppelin_demo\")\nspark.sql(\"show tables in zeppelin_demo\").show(10, False)\n\n# Refresh tables since it might have changed due to experimentation\n# Spark SQL caches Parquet metadata for better performance\nspark.catalog.refreshTable(\"movies_parquet_100k\")\nspark.catalog.refreshTable(\"ratings_parquet_100k\")",
       "user": "anonymous",
-      "dateUpdated": "2019-11-25 05:12:45.082",
+      "dateUpdated": "2019-11-27 01:48:14.704",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -254,16 +254,16 @@
       "jobName": "paragraph_1573621930602_-1857252041",
       "id": "20191009-050109_648011188",
       "dateCreated": "2019-11-13 05:12:10.602",
-      "dateStarted": "2019-11-25 05:08:29.506",
-      "dateFinished": "2019-11-25 05:08:43.264",
+      "dateStarted": "2019-11-27 01:48:14.715",
+      "dateFinished": "2019-11-27 01:48:26.443",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Create Temporary View of Ratings Data and Query",
-      "text": "%spark.pyspark\nratingsDF \u003d spark.sql(\"SELECT movieId, rating, userId, CAST(timestamp as timestamp) as dateTime \" +\n                      \"FROM ratings_parquet_100k \" +\n                      \"ORDER BY movieId, rating, userId\")\n\nprint(\"DataFrame rows: %d\" % ratingsDF.count())\nratingsDF.show(10, False)",
+      "text": "%spark.pyspark\nratings_df \u003d spark.sql(\"SELECT movieId, rating, userId, CAST(timestamp as timestamp) as dateTime \" +\n                      \"FROM ratings_parquet_100k \" +\n                      \"ORDER BY movieId, rating, userId\")\n\nprint(\"DataFrame rows: %d\" % ratings_df.count())\nratings_df.show(10, False)",
       "user": "anonymous",
-      "dateUpdated": "2019-11-25 05:08:43.317",
+      "dateUpdated": "2019-11-27 01:48:26.523",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -314,16 +314,16 @@
       "jobName": "paragraph_1573625323551_-951185720",
       "id": "20191113-060843_1299023600",
       "dateCreated": "2019-11-13 06:08:43.551",
-      "dateStarted": "2019-11-25 05:08:43.333",
-      "dateFinished": "2019-11-25 05:08:50.600",
+      "dateStarted": "2019-11-27 01:48:26.534",
+      "dateFinished": "2019-11-27 01:48:31.684",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Replace Temporary View with New Query",
-      "text": "%spark.pyspark\ntopMoviesDF \u003d spark.sql(\"SELECT m.title, CAST(AVG(r.rating) AS DECIMAL(4,3)) as avg_rating, COUNT(r.rating) as cnt_ratings \" +\n                        \"FROM ratings_parquet_100k r \" +\n                        \"JOIN movies_parquet_100k m ON (r.movieId \u003d m.movieId) \" +\n                        \"GROUP BY m.title \" +\n                        \"ORDER BY avg_rating DESC, cnt_ratings DESC, m.title ASC\")\n                        \ntopMoviesDF \u003d topMoviesDF.filter(topMoviesDF.cnt_ratings \u003e\u003d 25)\n\nprint(\"DataFrame rows: %d\" % moviesDF.count())\nprint(\"Top 10 Movies\")\ntopMoviesDF.show(10, False)\n",
+      "text": "%spark.pyspark\ntop_movies_df \u003d spark.sql(\"SELECT m.title, CAST(AVG(r.rating) AS DECIMAL(4,3)) as avg_rating, COUNT(r.rating) as cnt_ratings \" +\n                          \"FROM ratings_parquet_100k r \" +\n                          \"JOIN movies_parquet_100k m ON (r.movieId \u003d m.movieId) \" +\n                          \"GROUP BY m.title \" +\n                          \"ORDER BY avg_rating DESC, cnt_ratings DESC, m.title ASC\")\n                        \ntop_movies_df \u003d top_movies_df.filter(top_movies_df.cnt_ratings \u003e\u003d 25)\n\nprint(\"DataFrame rows: %d\" % top_movies_df.count())\nprint(\"Top 10 Movies\")\ntop_movies_df.show(10, False)\n",
       "user": "anonymous",
-      "dateUpdated": "2019-11-25 05:08:50.642",
+      "dateUpdated": "2019-11-27 01:48:31.738",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -366,7 +366,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "DataFrame rows: 9742\nTop 10 Movies\n+---------------------------------------------+----------+-----------+\n|title                                        |avg_rating|cnt_ratings|\n+---------------------------------------------+----------+-----------+\n|Shawshank Redemption, The (1994)             |4.429     |317        |\n|Sunset Blvd. (a.k.a. Sunset Boulevard) (1950)|4.333     |27         |\n|Philadelphia Story, The (1940)               |4.310     |29         |\n|Lawrence of Arabia (1962)                    |4.300     |45         |\n|In the Name of the Father (1993)             |4.300     |25         |\n|Hoop Dreams (1994)                           |4.293     |29         |\n|Godfather, The (1972)                        |4.289     |192        |\n|Harold and Maude (1971)                      |4.288     |26         |\n|Logan (2017)                                 |4.280     |25         |\n|Fight Club (1999)                            |4.273     |218        |\n+---------------------------------------------+----------+-----------+\nonly showing top 10 rows\n\n"
+            "data": "DataFrame rows: 1050\nTop 10 Movies\n+---------------------------------------------+----------+-----------+\n|title                                        |avg_rating|cnt_ratings|\n+---------------------------------------------+----------+-----------+\n|Shawshank Redemption, The (1994)             |4.429     |317        |\n|Sunset Blvd. (a.k.a. Sunset Boulevard) (1950)|4.333     |27         |\n|Philadelphia Story, The (1940)               |4.310     |29         |\n|Lawrence of Arabia (1962)                    |4.300     |45         |\n|In the Name of the Father (1993)             |4.300     |25         |\n|Hoop Dreams (1994)                           |4.293     |29         |\n|Godfather, The (1972)                        |4.289     |192        |\n|Harold and Maude (1971)                      |4.288     |26         |\n|Logan (2017)                                 |4.280     |25         |\n|Fight Club (1999)                            |4.273     |218        |\n+---------------------------------------------+----------+-----------+\nonly showing top 10 rows\n\n"
           }
         ]
       },
@@ -374,8 +374,8 @@
       "jobName": "paragraph_1573621930602_-2028436114",
       "id": "20191009-050155_2142326603",
       "dateCreated": "2019-11-13 05:12:10.602",
-      "dateStarted": "2019-11-25 05:08:50.657",
-      "dateFinished": "2019-11-25 05:09:06.968",
+      "dateStarted": "2019-11-27 01:48:31.751",
+      "dateFinished": "2019-11-27 01:48:43.548",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -383,7 +383,7 @@
       "title": "Native Zeppelin Visualization Based on SQL Query",
       "text": "%sql\nWITH tmp_table AS (\n    SELECT m.title, AVG(r.rating) as avg_rating, COUNT(r.rating) as cnt_ratings\n    FROM ratings_parquet_100k r\n    JOIN movies_parquet_100k m ON (r.movieId \u003d m.movieId)\n    GROUP BY m.title)\n    \nSELECT title, CAST(avg_rating AS DECIMAL(38,2)), cnt_ratings\nFROM tmp_table\nWHERE avg_rating \u003e\u003d ${avgRatingMin\u003d4} AND cnt_ratings \u003e\u003d ${RatingsMin\u003d2}\nORDER BY avg_rating ASC, cnt_ratings DESC, title ASC\nLIMIT 25",
       "user": "anonymous",
-      "dateUpdated": "2019-11-25 05:09:07.002",
+      "dateUpdated": "2019-11-27 01:48:43.557",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -3146,15 +3146,15 @@
       "jobName": "paragraph_1573621930602_1385770344",
       "id": "20191106-042245_200419154",
       "dateCreated": "2019-11-13 05:12:10.602",
-      "dateStarted": "2019-11-25 05:09:07.026",
-      "dateFinished": "2019-11-25 05:09:12.735",
+      "dateStarted": "2019-11-27 01:48:43.587",
+      "dateFinished": "2019-11-27 01:48:46.131",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%sh\n",
       "user": "anonymous",
-      "dateUpdated": "2019-11-25 05:09:12.835",
+      "dateUpdated": "2019-11-27 01:48:46.185",
       "config": {
         "editorSetting": {
           "language": "sh",
