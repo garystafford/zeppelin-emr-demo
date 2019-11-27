@@ -4,7 +4,7 @@
       "title": "Zeppelin Demo Notebook 4",
       "text": "%md\nDemonstrate loading, querying, visualizing, and saving the GroupLens MovieLens Latest Datasets from an [Amazon RDS PostgreSQL](https://aws.amazon.com/rds/postgresql/) database.",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 03:02:45.388",
+      "dateUpdated": "2019-11-27 19:09:11.198",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -38,16 +38,16 @@
       "jobName": "paragraph_1573857447055_1018817003",
       "id": "20191106-153644_419077851",
       "dateCreated": "2019-11-15 22:37:27.055",
-      "dateStarted": "2019-11-27 03:02:45.399",
-      "dateFinished": "2019-11-27 03:02:45.405",
+      "dateStarted": "2019-11-27 19:09:11.200",
+      "dateFinished": "2019-11-27 19:09:11.207",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Set all Variable Values",
-      "text": "%python\n# change me\nZEPPELIN_DEMO_BUCKET\u003d\"gstafford-emr-demo-us-east1\"\nRDS_URL\u003d\"zeppelin-demo.c6louiq8ibk3.us-east-1.rds.amazonaws.com\"\nRDS_USER\u003d\"masteruser\"\nRDS_PASSWORD\u003d\"5up3r53cr3tPa55w0rd\"\n\n# don\u0027t change me\nRDS_DRIVER\u003d\"org.postgresql.Driver\"\nRDS_PORT\u003d\"5432\"\nRDS_DATABASE\u003d\"ratings\"\n\nRDS_JDBC\u003d\"jdbc:postgresql://\" + RDS_URL + \":\" + RDS_PORT + \"/\" + RDS_DATABASE\nprint(\"RDS_JDBC:\", RDS_JDBC)\nRDS_CONN_STR \u003d \"host\u003d\" + RDS_URL + \" port\u003d\" + RDS_PORT + \" dbname\u003d\" + RDS_DATABASE + \" user\u003d\" + RDS_USER + \" password\u003d\" + RDS_PASSWORD\nprint(\"RDS_CONN_STR:\", RDS_CONN_STR)",
+      "text": "%spark.pyspark\n# change me\nZEPPELIN_DEMO_BUCKET\u003d\"gstafford-emr-demo-us-east1\"\nRDS_URL\u003d\"zeppelin-demo.c6louiq8ibk3.us-east-1.rds.amazonaws.com\"\nRDS_USER\u003d\"masteruser\"\nRDS_PASSWORD\u003d\"5up3r53cr3tPa55w0rd\"\n\n# don\u0027t change me\nRDS_DRIVER\u003d\"org.postgresql.Driver\"\nRDS_PORT\u003d\"5432\"\nRDS_DATABASE\u003d\"ratings\"\n\nRDS_JDBC\u003d\"jdbc:postgresql://\" + RDS_URL + \":\" + RDS_PORT + \"/\" + RDS_DATABASE\nprint(\"RDS_JDBC:\", RDS_JDBC)\nRDS_CONN_STR \u003d \"host\u003d\" + RDS_URL + \" port\u003d\" + RDS_PORT + \" dbname\u003d\" + RDS_DATABASE + \" user\u003d\" + RDS_USER + \" password\u003d\" + RDS_PASSWORD\nprint(\"RDS_CONN_STR:\", RDS_CONN_STR)",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 03:02:45.499",
+      "dateUpdated": "2019-11-27 19:09:03.406",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -61,7 +61,8 @@
         },
         "editorMode": "ace/mode/python",
         "title": true,
-        "lineNumbers": true
+        "lineNumbers": true,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -80,8 +81,8 @@
       "jobName": "paragraph_1573858334281_-1541930181",
       "id": "20191115-225214_1100995277",
       "dateCreated": "2019-11-15 22:52:14.281",
-      "dateStarted": "2019-11-27 03:02:45.511",
-      "dateFinished": "2019-11-27 03:02:45.518",
+      "dateStarted": "2019-11-27 19:08:30.876",
+      "dateFinished": "2019-11-27 19:08:30.883",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -89,7 +90,7 @@
       "title": "Load MovieLens Data from GroupLens",
       "text": "%sh\n#change me - choices: or ml-latest-small (100k) or ml-latest (27MM)\nDATASET\u003d\"ml-latest-small\"\n\nif [ -d $DATASET ]; then\n    echo \"$DATASET exist\"\nelse \n    wget -nv http://files.grouplens.org/datasets/movielens/$DATASET.zip -O $DATASET.zip \u0026\u0026 unzip $DATASET.zip\nfi\n\n# copy from local file system (/var/lib/zeppelin) to the destination file system (/user/zeppelin)\nhadoop fs -put -f $DATASET/movies.csv $DATASET/ratings.csv .\nhadoop fs -ls -h .",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 03:02:45.611",
+      "dateUpdated": "2019-11-27 19:09:03.421",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -134,7 +135,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "ml-latest-small exist\nFound 3 items\ndrwxr-xr-x   - zeppelin hadoop          0 2019-11-27 01:07 .sparkStaging\n-rw-r--r--   1 zeppelin hadoop    482.8 K 2019-11-27 03:02 movies.csv\n-rw-r--r--   1 zeppelin hadoop      2.4 M 2019-11-27 03:02 ratings.csv\n"
+            "data": "ml-latest-small exist\nFound 3 items\ndrwxr-xr-x   - zeppelin hadoop          0 2019-11-27 18:53 .sparkStaging\n-rw-r--r--   1 zeppelin hadoop    482.8 K 2019-11-27 19:08 movies.csv\n-rw-r--r--   1 zeppelin hadoop      2.4 M 2019-11-27 19:08 ratings.csv\n"
           }
         ]
       },
@@ -142,8 +143,8 @@
       "jobName": "paragraph_1573857447060_-73940823",
       "id": "20191009-042907_1768707497",
       "dateCreated": "2019-11-15 22:37:27.060",
-      "dateStarted": "2019-11-27 03:02:45.622",
-      "dateFinished": "2019-11-27 03:02:49.380",
+      "dateStarted": "2019-11-27 19:08:30.988",
+      "dateFinished": "2019-11-27 19:08:35.168",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -151,7 +152,7 @@
       "title": "Create Spark Session",
       "text": "%spark.pyspark\nfrom pyspark import SparkFiles\nfrom pyspark.sql import SparkSession\nfrom pyspark.sql.types import StructType, StructField, StringType, IntegerType, DateType\n\nspark \u003d SparkSession \\\n    .builder \\\n    .appName(\"pyspark_demo_app\") \\\n    .getOrCreate()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 03:02:49.427",
+      "dateUpdated": "2019-11-27 19:09:03.436",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -197,16 +198,16 @@
       "jobName": "paragraph_1573857447060_1873578708",
       "id": "20191009-042751_2109019779",
       "dateCreated": "2019-11-15 22:37:27.060",
-      "dateStarted": "2019-11-27 03:02:49.441",
-      "dateFinished": "2019-11-27 03:02:49.445",
+      "dateStarted": "2019-11-27 19:08:35.202",
+      "dateFinished": "2019-11-27 19:08:35.208",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Download DDL from S3 and Execute Against RDS",
-      "text": "%python\nimport boto3\nimport psycopg2\nimport csv\n\ns3 \u003d boto3.client(\u0027s3\u0027)\ns3.download_file(ZEPPELIN_DEMO_BUCKET, \"bootstrap/ratings.sql\", \"ratings.sql\")\n\nconn \u003d psycopg2.connect(RDS_CONN_STR)\nconn.autocommit \u003d True\ncursor \u003d conn.cursor()\n\nsql_file \u003d open(\"ratings.sql\", \"r\")\nsql_commands \u003d sql_file.read()\nsql_file.close()\ncommands \u003d sql_commands.split(\";\")\nfor command in commands:\n    print(command)\n    if command.strip() !\u003d \"\":\n        cursor.execute(command)",
+      "text": "%spark.pyspark\nimport boto3\nimport psycopg2\nimport csv\n\ns3 \u003d boto3.client(\u0027s3\u0027)\ns3.download_file(ZEPPELIN_DEMO_BUCKET, \"bootstrap/ratings.sql\", \"ratings.sql\")\n\nconn \u003d psycopg2.connect(RDS_CONN_STR)\nconn.autocommit \u003d True\ncursor \u003d conn.cursor()\n\nsql_file \u003d open(\"ratings.sql\", \"r\")\nsql_commands \u003d sql_file.read()\nsql_file.close()\ncommands \u003d sql_commands.split(\";\")\nfor command in commands:\n    print(command)\n    if command.strip() !\u003d \"\":\n        cursor.execute(command)",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 03:02:49.541",
+      "dateUpdated": "2019-11-27 19:09:03.451",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -220,7 +221,8 @@
         },
         "editorMode": "ace/mode/python",
         "lineNumbers": true,
-        "title": true
+        "title": true,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -239,21 +241,29 @@
       "jobName": "paragraph_1573858621983_-719772124",
       "id": "20191115-225701_570184306",
       "dateCreated": "2019-11-15 22:57:01.983",
-      "dateStarted": "2019-11-27 03:02:49.552",
-      "dateFinished": "2019-11-27 03:02:49.800",
+      "dateStarted": "2019-11-27 19:08:35.314",
+      "dateFinished": "2019-11-27 19:08:35.615",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Import Movies from CSV File to RDS",
-      "text": "%python\n# source: https://www.dataquest.io/blog/loading-data-into-postgres/\n# the slow way since the titles contain commas\nwith open(\"ml-latest-small/movies.csv\", \"r\") as f:\n    reader \u003d csv.reader(f)\n    next(reader)  # Skip the header row.\n    for row in reader:\n        cursor.execute(\n            \"INSERT INTO movies (movieId, title, genres) VALUES (%s, %s, %s)\",\n            row\n        )\n        conn.commit()\n",
+      "text": "%spark.pyspark\n# source: https://www.dataquest.io/blog/loading-data-into-postgres/\n# the slow way since the titles contain commas\nsql_query \u003d \"INSERT INTO movies (movieId, title, genres) VALUES (%s, %s, %s)\"\nwith open(\"ml-latest-small/movies.csv\", \"r\") as f:\n    reader \u003d csv.reader(f)\n    next(reader)  # Skip the header row.\n    for row in reader:\n        cursor.execute(sql_query, row)\n        conn.commit()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 03:02:49.851",
+      "dateUpdated": "2019-11-27 19:09:03.467",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
         "enabled": true,
-        "results": {},
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 93.0,
+              "optionOpen": false
+            }
+          }
+        },
         "editorSetting": {
           "language": "python",
           "editOnDblClick": false,
@@ -262,7 +272,8 @@
         },
         "editorMode": "ace/mode/python",
         "lineNumbers": true,
-        "title": true
+        "title": true,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -281,21 +292,29 @@
       "jobName": "paragraph_1573859119530_1400559415",
       "id": "20191115-230519_1758370056",
       "dateCreated": "2019-11-15 23:05:19.530",
-      "dateStarted": "2019-11-27 03:02:49.863",
-      "dateFinished": "2019-11-27 03:03:03.430",
+      "dateStarted": "2019-11-27 19:08:35.726",
+      "dateFinished": "2019-11-27 19:08:49.137",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Import Ratings from CSV File to RDS",
-      "text": "%python\n# the fast way...\nwith open(\"ml-latest-small/ratings.csv\", \"r\") as f:\n    # Notice that we don\"t need the `csv` module.\n    next(f) # Skip the header row.\n    cursor.copy_from(f, \"ratings\", sep\u003d\",\", columns\u003d(\"userId\", \"movieId\", \"rating\", \"timestamp\"))\n    conn.commit()\n",
+      "text": "%spark.pyspark\n# the fast way...\nwith open(\"ml-latest-small/ratings.csv\", \"r\") as f:\n    # Notice that we don\"t need the `csv` module.\n    next(f) # Skip the header row.\n    cursor.copy_from(f, \"ratings\", sep\u003d\",\", \n        columns\u003d(\"userId\", \"movieId\", \"rating\", \"timestamp\"))\n    conn.commit()\n",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 03:03:03.473",
+      "dateUpdated": "2019-11-27 19:09:03.483",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
         "enabled": true,
-        "results": {},
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 93.0,
+              "optionOpen": false
+            }
+          }
+        },
         "editorSetting": {
           "language": "python",
           "editOnDblClick": false,
@@ -324,8 +343,8 @@
       "jobName": "paragraph_1573859599003_571265236",
       "id": "20191115-231319_636045926",
       "dateCreated": "2019-11-15 23:13:19.003",
-      "dateStarted": "2019-11-27 03:03:03.484",
-      "dateFinished": "2019-11-27 03:03:04.386",
+      "dateStarted": "2019-11-27 19:08:49.251",
+      "dateFinished": "2019-11-27 19:08:50.115",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -333,7 +352,7 @@
       "title": "Load Movies Data from RDS into DataFrame",
       "text": "%spark.pyspark\nRDS_TABLE\u003d\"movies\"\n\nmovies_df \u003d spark.read \\\n    .format(\"jdbc\") \\\n    .option(\"driver\",RDS_DRIVER) \\\n    .option(\"url\", RDS_JDBC) \\\n    .option(\"user\",RDS_USER) \\\n    .option(\"password\", RDS_PASSWORD) \\\n    .option(\"dbtable\", RDS_TABLE) \\\n    .load()\n\nprint(\"DataFrame rows: %d\" % movies_df.count())\nprint(\"DataFrame schema: %s\" % movies_df)\nmovies_df.show(10, False)",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 03:03:04.484",
+      "dateUpdated": "2019-11-27 19:09:03.497",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -384,8 +403,8 @@
       "jobName": "paragraph_1573857447061_-1063899103",
       "id": "20191009-044129_2035687603",
       "dateCreated": "2019-11-15 22:37:27.061",
-      "dateStarted": "2019-11-27 03:03:04.497",
-      "dateFinished": "2019-11-27 03:03:10.131",
+      "dateStarted": "2019-11-27 19:08:50.173",
+      "dateFinished": "2019-11-27 19:08:50.490",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -393,7 +412,7 @@
       "title": "Load Ratings Data from RDS into DataFrame",
       "text": "%spark.pyspark\nRDS_TABLE\u003d\"ratings\"\n\nratings_df \u003d spark.read \\\n    .format(\"jdbc\") \\\n    .option(\"driver\",RDS_DRIVER) \\\n    .option(\"url\", RDS_JDBC) \\\n    .option(\"user\",RDS_USER) \\\n    .option(\"password\", RDS_PASSWORD) \\\n    .option(\"dbtable\", RDS_TABLE) \\\n    .load()\n\nprint(\"DataFrame rows: %d\" % ratings_df.count())\nprint(\"DataFrame schema: %s\" % ratings_df)\nratings_df.show(10, False)",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 03:03:10.200",
+      "dateUpdated": "2019-11-27 19:09:03.511",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -444,8 +463,8 @@
       "jobName": "paragraph_1573857447061_1340957005",
       "id": "20191107-235557_158160591",
       "dateCreated": "2019-11-15 22:37:27.061",
-      "dateStarted": "2019-11-27 03:03:10.213",
-      "dateFinished": "2019-11-27 03:03:10.595",
+      "dateStarted": "2019-11-27 19:08:50.595",
+      "dateFinished": "2019-11-27 19:08:51.068",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -453,7 +472,7 @@
       "title": "Create Temporary View and Query Data using SQL",
       "text": "%spark.pyspark\nratings_df.createOrReplaceTempView(\"ratings\")\nmovies_df.createOrReplaceTempView(\"movies\")\n\ntop_movies_df \u003d spark.sql(\"SELECT m.title, CAST(AVG(r.rating) AS DECIMAL(3,2)) as avg_rating, COUNT(r.rating) as cnt_ratings \" +\n                          \"FROM ratings r \" +\n                          \"JOIN movies m ON (r.movieId \u003d m.movieId) \" +\n                          \"GROUP BY m.title \" +\n                          \"ORDER BY avg_rating DESC, cnt_ratings DESC, m.title ASC\")\n                        \ntop_movies_df \u003d top_movies_df.filter(top_movies_df.cnt_ratings \u003e\u003d 25)\n\nprint(\"DataFrame rows: %d\" % top_movies_df.count())\nprint(\"Top 10 Movies\")\ntop_movies_df.show(10, False)",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 03:03:10.613",
+      "dateUpdated": "2019-11-27 19:09:03.528",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -504,15 +523,15 @@
       "jobName": "paragraph_1573857447063_873096470",
       "id": "20191009-050155_2142326603",
       "dateCreated": "2019-11-15 22:37:27.063",
-      "dateStarted": "2019-11-27 03:03:10.624",
-      "dateFinished": "2019-11-27 03:03:19.609",
+      "dateStarted": "2019-11-27 19:08:51.111",
+      "dateFinished": "2019-11-27 19:09:02.919",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%postgres\nSELECT table_schema, table_catalog, table_name\nFROM information_schema.tables\nWHERE table_schema\u003d\u0027public\u0027\nORDER BY table_schema, table_catalog, table_name;",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 03:03:19.630",
+      "dateUpdated": "2019-11-27 19:09:03.543",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -555,7 +574,8 @@
           "completionSupport": true
         },
         "editorMode": "ace/mode/sql",
-        "lineNumbers": true
+        "lineNumbers": true,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -574,8 +594,8 @@
       "jobName": "paragraph_1574367954183_-409309382",
       "id": "20191121-202554_1031349848",
       "dateCreated": "2019-11-21 20:25:54.183",
-      "dateStarted": "2019-11-27 03:03:19.646",
-      "dateFinished": "2019-11-27 03:03:19.656",
+      "dateStarted": "2019-11-27 19:09:02.967",
+      "dateFinished": "2019-11-27 19:09:02.979",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -583,7 +603,7 @@
       "title": "Query RDS Database using Zeppelin JDBC PostgreSQL Interpreter",
       "text": "%postgres\nWITH tmp_table AS (\n    SELECT m.title, AVG(r.rating) as avg_rating, COUNT(r.rating) as cnt_ratings\n    FROM ratings r\n    JOIN movies m ON (r.movieId \u003d m.movieId)\n    GROUP BY m.title)\n    \nSELECT title, CAST(avg_rating AS DECIMAL(3,2)), cnt_ratings\nFROM tmp_table\nWHERE avg_rating \u003e ${avgRatingMin\u003d4} AND cnt_ratings \u003e\u003d ${RatingsMin\u003d100}\nORDER BY avg_rating ASC, cnt_ratings DESC, title ASC\nLIMIT 25;",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 03:03:19.746",
+      "dateUpdated": "2019-11-27 19:09:03.560",
       "config": {
         "editorSetting": {
           "language": "sql",
@@ -2441,15 +2461,15 @@
       "jobName": "paragraph_1574061250957_532560724",
       "id": "20191118-071410_1331801439",
       "dateCreated": "2019-11-18 07:14:10.957",
-      "dateStarted": "2019-11-27 03:03:19.762",
-      "dateFinished": "2019-11-27 03:03:19.837",
+      "dateStarted": "2019-11-27 19:09:03.086",
+      "dateFinished": "2019-11-27 19:09:03.178",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%postgre\n",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 03:03:19.861",
+      "dateUpdated": "2019-11-27 19:09:03.579",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2461,7 +2481,8 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/sql"
+        "editorMode": "ace/mode/sql",
+        "editorHide": false
       },
       "settings": {
         "params": {},
