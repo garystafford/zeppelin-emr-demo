@@ -4,7 +4,7 @@
       "title": "Zeppelin Demo Notebook 1",
       "text": "%md\nDemonstrate loading, querying, visualizing, and saving a small ~21k row kaggle dataset.\nThe \u0027Transactions from a bakery\u0027 dataset is documented on [kaggle](https://www.kaggle.com/sulmansarwar/transactions-from-a-bakery).",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 01:45:42.156",
+      "dateUpdated": "2019-11-27 02:50:34.470",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -38,8 +38,8 @@
       "jobName": "paragraph_1573058000759_-1487542903",
       "id": "20191106-153644_419077851",
       "dateCreated": "2019-11-06 16:33:20.759",
-      "dateStarted": "2019-11-27 01:45:42.175",
-      "dateFinished": "2019-11-27 01:45:42.180",
+      "dateStarted": "2019-11-27 02:50:34.486",
+      "dateFinished": "2019-11-27 02:50:34.489",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -47,7 +47,7 @@
       "title": "Check Spark Version",
       "text": "%sh\npyspark --version",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 01:45:42.274",
+      "dateUpdated": "2019-11-27 02:50:34.586",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -80,16 +80,16 @@
       "jobName": "paragraph_1574118869129_-2118062120",
       "id": "20191118-231429_912289705",
       "dateCreated": "2019-11-18 23:14:29.129",
-      "dateStarted": "2019-11-27 01:45:42.293",
-      "dateFinished": "2019-11-27 01:45:43.107",
+      "dateStarted": "2019-11-27 02:50:34.602",
+      "dateFinished": "2019-11-27 02:50:35.383",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Check Python Version",
-      "text": "%spark.pyspark\nimport sys\n\n# should be Python 3.x\nprint(sys.version)",
+      "text": "%python\nimport sys\n\n# should be Python 3.x\nprint(sys.version)",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 01:45:43.193",
+      "dateUpdated": "2019-11-27 02:58:00.664",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -123,8 +123,8 @@
       "jobName": "paragraph_1574119072258_-45549021",
       "id": "20191118-231752_1271013072",
       "dateCreated": "2019-11-18 23:17:52.258",
-      "dateStarted": "2019-11-27 01:45:43.218",
-      "dateFinished": "2019-11-27 01:45:43.223",
+      "dateStarted": "2019-11-27 02:58:00.682",
+      "dateFinished": "2019-11-27 02:58:03.392",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -132,7 +132,7 @@
       "title": "Import Python Packages",
       "text": "%spark.pyspark\nfrom pyspark import SparkFiles\nfrom pyspark.sql import SparkSession\nfrom pyspark.sql.types import StructType, StructField, StringType, IntegerType",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 01:45:43.318",
+      "dateUpdated": "2019-11-27 02:59:28.656",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -178,8 +178,8 @@
       "jobName": "paragraph_1573058000760_1826550872",
       "id": "20191009-042517_1466963465",
       "dateCreated": "2019-11-06 16:33:20.760",
-      "dateStarted": "2019-11-27 01:45:43.336",
-      "dateFinished": "2019-11-27 01:45:43.339",
+      "dateStarted": "2019-11-27 02:59:28.673",
+      "dateFinished": "2019-11-27 02:59:28.677",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -187,7 +187,7 @@
       "title": "Create Spark Session",
       "text": "%spark.pyspark\nspark \u003d SparkSession \\\n    .builder \\\n    .appName(\"pyspark_demo_app\") \\\n    .getOrCreate()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 01:45:43.436",
+      "dateUpdated": "2019-11-27 02:59:32.142",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -227,8 +227,8 @@
       "jobName": "paragraph_1573058000760_-178139685",
       "id": "20191009-042751_2109019779",
       "dateCreated": "2019-11-06 16:33:20.760",
-      "dateStarted": "2019-11-27 01:45:43.455",
-      "dateFinished": "2019-11-27 01:45:43.460",
+      "dateStarted": "2019-11-27 02:59:32.159",
+      "dateFinished": "2019-11-27 02:59:32.167",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -236,7 +236,7 @@
       "title": "Displat Spark Context Configuration",
       "text": "%spark.pyspark\nspark.sparkContext.getConf().getAll()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 01:45:43.554",
+      "dateUpdated": "2019-11-27 02:50:35.756",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -287,8 +287,8 @@
       "jobName": "paragraph_1574118918384_1385483248",
       "id": "20191118-231518_1016976589",
       "dateCreated": "2019-11-18 23:15:18.385",
-      "dateStarted": "2019-11-27 01:45:43.575",
-      "dateFinished": "2019-11-27 01:45:43.630",
+      "dateStarted": "2019-11-27 02:50:35.773",
+      "dateFinished": "2019-11-27 02:50:35.828",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -296,7 +296,7 @@
       "title": "Save CSV Data File to S3",
       "text": "%sh\n# change me for shell interpreter binding\nZEPPELIN_DEMO_BUCKET\u003d\"gstafford-emr-demo-us-east1\"\n\nDATA_FILE\u003d\"BreadBasket_DMS.csv\"\n\n# copy bakery data to/from s3 bucket\nif [ -f \"$DATA_FILE\" ]; then\n    echo \"$DATA_FILE exist\"\nelse\n    wget -nv https://raw.githubusercontent.com/garystafford/pyspark-setup-demo/master/work/$DATA_FILE -O $DATA_FILE\nfi\n\naws s3 cp $DATA_FILE s3://$ZEPPELIN_DEMO_BUCKET/data/bakery-csv/$DATA_FILE",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 01:45:43.674",
+      "dateUpdated": "2019-11-27 02:50:35.872",
       "config": {
         "editorSetting": {
           "language": "sh",
@@ -341,7 +341,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "2019-11-27 01:45:43 URL:https://raw.githubusercontent.com/garystafford/pyspark-setup-demo/master/work/BreadBasket_DMS.csv [710518/710518] -\u003e \"BreadBasket_DMS.csv\" [1]\nCompleted 256.0 KiB/693.9 KiB (4.0 MiB/s) with 1 file(s) remaining\rCompleted 512.0 KiB/693.9 KiB (7.7 MiB/s) with 1 file(s) remaining\rCompleted 693.9 KiB/693.9 KiB (3.9 MiB/s) with 1 file(s) remaining\rupload: ./BreadBasket_DMS.csv to s3://gstafford-emr-demo-us-east1/data/bakery-csv/BreadBasket_DMS.csv\n"
+            "data": "BreadBasket_DMS.csv exist\nCompleted 256.0 KiB/693.9 KiB (3.4 MiB/s) with 1 file(s) remaining\rCompleted 512.0 KiB/693.9 KiB (6.5 MiB/s) with 1 file(s) remaining\rCompleted 693.9 KiB/693.9 KiB (4.2 MiB/s) with 1 file(s) remaining\rupload: ./BreadBasket_DMS.csv to s3://gstafford-emr-demo-us-east1/data/bakery-csv/BreadBasket_DMS.csv\n"
           }
         ]
       },
@@ -349,8 +349,8 @@
       "jobName": "paragraph_1573058000760_961427148",
       "id": "20191009-042907_1768707497",
       "dateCreated": "2019-11-06 16:33:20.760",
-      "dateStarted": "2019-11-27 01:45:43.691",
-      "dateFinished": "2019-11-27 01:45:44.442",
+      "dateStarted": "2019-11-27 02:50:35.889",
+      "dateFinished": "2019-11-27 02:50:36.495",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -358,7 +358,7 @@
       "title": "Load CSV Data from S3 into DataFrame",
       "text": "%spark.pyspark\n# change me to same value as shell interpreter binding, for pyspark interpreter binding\nZEPPELIN_DEMO_BUCKET\u003d\"gstafford-emr-demo-us-east1\"\n\nDATA_FILE\u003d\"BreadBasket_DMS.csv\"\n\nbakery_schema \u003d StructType([\n    StructField(\"date\", StringType(), True),\n    StructField(\"time\", StringType(), True),\n    StructField(\"transaction\", IntegerType(), True),\n    StructField(\"item\", StringType(), True)\n])\n\nbakery_df \u003d spark.read \\\n    .format(\"csv\") \\\n    .option(\"header\", \"true\") \\\n    .load(\"s3://\" + ZEPPELIN_DEMO_BUCKET + \"/data/bakery-csv/\" + DATA_FILE, schema\u003dbakery_schema)\n\nprint(\"DataFrame rows: %d\" % bakery_df.count())\nprint(\"DataFrame schema: %s\" % bakery_df)\nbakery_df.show(10, False)",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 01:45:44.491",
+      "dateUpdated": "2019-11-27 02:50:36.589",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -409,8 +409,8 @@
       "jobName": "paragraph_1573058000760_886915304",
       "id": "20191009-044129_2035687603",
       "dateCreated": "2019-11-06 16:33:20.760",
-      "dateStarted": "2019-11-27 01:45:44.513",
-      "dateFinished": "2019-11-27 01:45:51.196",
+      "dateStarted": "2019-11-27 02:50:36.606",
+      "dateFinished": "2019-11-27 02:50:36.991",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -418,7 +418,7 @@
       "title": "Save Data in Parquet-format to S3",
       "text": "%spark.pyspark\nbakery_df.write.parquet(\"s3://\" + ZEPPELIN_DEMO_BUCKET + \"/data/bakery-parquet\", mode\u003d\"overwrite\")",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 01:45:51.217",
+      "dateUpdated": "2019-11-27 02:50:37.005",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -464,8 +464,8 @@
       "jobName": "paragraph_1573058000760_-634386583",
       "id": "20191010-052611_90769380",
       "dateCreated": "2019-11-06 16:33:20.760",
-      "dateStarted": "2019-11-27 01:45:51.246",
-      "dateFinished": "2019-11-27 01:45:52.955",
+      "dateStarted": "2019-11-27 02:50:37.021",
+      "dateFinished": "2019-11-27 02:50:37.890",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -473,7 +473,7 @@
       "title": "Load Parquet-format Data from S3",
       "text": "%spark.pyspark\nbakery_df \u003d spark.read.parquet(\"s3://\" + ZEPPELIN_DEMO_BUCKET + \"/data/bakery-parquet\")\n\nprint(\"DataFrame rows: %d\" % bakery_df.count())",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 01:45:53.043",
+      "dateUpdated": "2019-11-27 02:50:37.921",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -524,8 +524,8 @@
       "jobName": "paragraph_1573519493699_-257068444",
       "id": "20191112-004453_863376777",
       "dateCreated": "2019-11-12 00:44:53.699",
-      "dateStarted": "2019-11-27 01:45:53.062",
-      "dateFinished": "2019-11-27 01:45:53.820",
+      "dateStarted": "2019-11-27 02:50:37.940",
+      "dateFinished": "2019-11-27 02:50:38.447",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -533,7 +533,7 @@
       "title": "Create Temporary View of Data",
       "text": "%spark.pyspark\nbakery_df.createOrReplaceTempView(\"bakery\")\n\nbakery_clean_df \u003d spark.sql(\"SELECT transaction, date, item \" +\n                           \"FROM bakery \" +\n                           \"WHERE item NOT LIKE \u0027NONE\u0027\" +\n                           \"ORDER BY transaction\")\n\nprint(\"DataFrame rows: %d\" % bakery_clean_df.count())\nbakery_clean_df.show(10, False)",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 01:45:53.862",
+      "dateUpdated": "2019-11-27 02:50:38.540",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -584,8 +584,8 @@
       "jobName": "paragraph_1573058000760_-1417833523",
       "id": "20191009-050109_648011188",
       "dateCreated": "2019-11-06 16:33:20.760",
-      "dateStarted": "2019-11-27 01:45:53.880",
-      "dateFinished": "2019-11-27 01:45:56.406",
+      "dateStarted": "2019-11-27 02:50:38.558",
+      "dateFinished": "2019-11-27 02:50:39.751",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -593,7 +593,7 @@
       "title": "Replace Temporary View with New Query",
       "text": "%spark.pyspark\nbakery_clean_df.createOrReplaceTempView(\"bakery\")\n\nbakery_summary_df \u003d spark.sql(\"SELECT date, count(*) as item_count \" +\n                             \"FROM bakery \" +\n                             \"WHERE date \u003e\u003d \u00272017-01-01\u0027 \" +\n                             \"GROUP BY date \" +\n                             \"ORDER BY date\")\n\nprint(\"DataFrame rows: %d\" % bakery_summary_df.count())\nbakery_summary_df.show(10, False)",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 01:45:56.482",
+      "dateUpdated": "2019-11-27 02:50:39.758",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -644,8 +644,8 @@
       "jobName": "paragraph_1573058000760_-945322986",
       "id": "20191009-050155_2142326603",
       "dateCreated": "2019-11-06 16:33:20.760",
-      "dateStarted": "2019-11-27 01:45:56.500",
-      "dateFinished": "2019-11-27 01:46:00.514",
+      "dateStarted": "2019-11-27 02:50:39.787",
+      "dateFinished": "2019-11-27 02:50:42.475",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -653,7 +653,7 @@
       "title": "Native Zeppelin Visualization Based on SQL Query",
       "text": "%sql\nSELECT date, count(*) as item_count\nFROM bakery\nWHERE date BETWEEN \u00272017-01-01\u0027 AND \u00272017-03-31\u0027\nGROUP BY date\nORDER BY date",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 01:46:00.603",
+      "dateUpdated": "2019-11-27 02:50:42.488",
       "config": {
         "editorSetting": {
           "language": "sql",
@@ -756,8 +756,8 @@
       "jobName": "paragraph_1573058000760_1142817223",
       "id": "20191106-005218_589421977",
       "dateCreated": "2019-11-06 16:33:20.760",
-      "dateStarted": "2019-11-27 01:46:00.624",
-      "dateFinished": "2019-11-27 01:46:01.979",
+      "dateStarted": "2019-11-27 02:50:42.510",
+      "dateFinished": "2019-11-27 02:50:43.687",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -765,7 +765,7 @@
       "title": "Native Zeppelin Visualization Based on SQL Query",
       "text": "%sql\nSELECT count(*) as item_count, item\nFROM bakery\nGROUP BY item\nORDER BY item_count\nDESC LIMIT 10",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 01:46:02.024",
+      "dateUpdated": "2019-11-27 02:50:43.710",
       "config": {
         "editorSetting": {
           "language": "sql",
@@ -9747,8 +9747,8 @@
       "jobName": "paragraph_1573058000760_-1357437731",
       "id": "20191106-042245_200419154",
       "dateCreated": "2019-11-06 16:33:20.760",
-      "dateStarted": "2019-11-27 01:46:02.061",
-      "dateFinished": "2019-11-27 01:46:03.917",
+      "dateStarted": "2019-11-27 02:50:43.749",
+      "dateFinished": "2019-11-27 02:50:44.634",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -9756,7 +9756,7 @@
       "title": "Write Transformed Data to Parquet Format",
       "text": "%spark.pyspark\nbakery_summary_df.write.parquet(\"s3://\" + ZEPPELIN_DEMO_BUCKET + \"/data/bakery-summary-parquet\", mode\u003d\"overwrite\")",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 01:46:03.962",
+      "dateUpdated": "2019-11-27 02:50:44.648",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -9786,16 +9786,28 @@
       "jobName": "paragraph_1573058000761_-1476901850",
       "id": "20191106-151740_1177114488",
       "dateCreated": "2019-11-06 16:33:20.761",
-      "dateStarted": "2019-11-27 01:46:03.983",
-      "dateFinished": "2019-11-27 01:46:09.778",
+      "dateStarted": "2019-11-27 02:50:44.707",
+      "dateFinished": "2019-11-27 02:50:48.755",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%spark.pyspark\n",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 01:46:03.962",
-      "config": {},
+      "dateUpdated": "2019-11-27 02:50:48.810",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
       "settings": {
         "params": {},
         "forms": {}
@@ -9804,7 +9816,7 @@
       "jobName": "paragraph_1574819163962_584743281",
       "id": "20191127-014603_1993247992",
       "dateCreated": "2019-11-27 01:46:03.962",
-      "status": "READY",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     }
   ],
@@ -9814,6 +9826,7 @@
   "noteForms": {},
   "angularObjects": {
     "md:shared_process": [],
+    "python:shared_process": [],
     "sh:shared_process": [],
     "spark:shared_process": []
   },
