@@ -4,7 +4,7 @@
       "title": "Zeppelin Demo Notebook 2",
       "text": "%md\nDemonstrate loading, querying, visualizing, and saving the GroupLens MovieLens Latest Datasets.\nThe latest datasets are available to download on [GroupLens](https://grouplens.org/datasets/movielens/).\n\nMovieLens Datasets Specifications:\n- Small: __100,000__ ratings and 3,600 tag applications applied to 9,000 movies by 600 users. Last updated 9/2018.\n- Full: __27,000,000__ ratings and 1,100,000 tag applications applied to 58,000 movies by 280,000 users. Includes tag genome data with 14 million relevance scores across 1,100 tags. Last updated 9/2018.",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 01:08:24.865",
+      "dateUpdated": "2019-11-27 01:39:39.576",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -38,8 +38,8 @@
       "jobName": "paragraph_1573161585787_1398568692",
       "id": "20191106-153644_419077851",
       "dateCreated": "2019-11-07 21:19:45.788",
-      "dateStarted": "2019-11-27 01:08:24.907",
-      "dateFinished": "2019-11-27 01:08:27.353",
+      "dateStarted": "2019-11-27 01:39:39.591",
+      "dateFinished": "2019-11-27 01:39:39.598",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -47,7 +47,7 @@
       "title": "Import Python Packages",
       "text": "%spark.pyspark\nfrom pyspark import SparkFiles\nfrom pyspark.sql import SparkSession\nfrom pyspark.sql.types import StructType, StructField, StringType, IntegerType, DateType",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 01:08:27.407",
+      "dateUpdated": "2019-11-27 01:39:39.690",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -93,8 +93,8 @@
       "jobName": "paragraph_1573161585794_-369410071",
       "id": "20191009-042517_1466963465",
       "dateCreated": "2019-11-07 21:19:45.794",
-      "dateStarted": "2019-11-27 01:08:27.475",
-      "dateFinished": "2019-11-27 01:08:27.508",
+      "dateStarted": "2019-11-27 01:39:39.707",
+      "dateFinished": "2019-11-27 01:39:39.711",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -102,7 +102,7 @@
       "title": "Create Spark Session",
       "text": "%spark.pyspark\nspark \u003d SparkSession \\\n    .builder \\\n    .appName(\"pyspark_demo_app\") \\\n    .getOrCreate()\n\nsqlContext.clearCache()",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 01:08:27.572",
+      "dateUpdated": "2019-11-27 01:39:39.807",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -148,16 +148,16 @@
       "jobName": "paragraph_1573161585794_630658218",
       "id": "20191009-042751_2109019779",
       "dateCreated": "2019-11-07 21:19:45.795",
-      "dateStarted": "2019-11-27 01:08:27.647",
-      "dateFinished": "2019-11-27 01:08:28.543",
+      "dateStarted": "2019-11-27 01:39:39.821",
+      "dateFinished": "2019-11-27 01:39:39.824",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Load MovieLens Data from GroupLens",
-      "text": "%sh\n#change me - choices: or ml-latest-small (100k) or ml-latest (27MM)\nDIR\u003d\"ml-latest\"\n\nif [ -d $DIR ]; then\n    echo \"$DIR exist\"\nelse \n    wget -nv http://files.grouplens.org/datasets/movielens/$DIR.zip -O $DIR.zip \u0026\u0026 unzip $DIR.zip\nfi\n\n# copy from local file system (/var/lib/zeppelin) to the destination file system (/user/zeppelin)\nhadoop fs -put -f $DIR/movies.csv $DIR/ratings.csv .\nhadoop fs -ls -h .",
+      "text": "%sh\n#change me - choices: or ml-latest-small (100k) or ml-latest (27MM)\nDATASET\u003d\"ml-latest-small\"\n\nif [ -d $DATASET ]; then\n    echo \"$DATASET exist\"\nelse \n    wget -nv http://files.grouplens.org/datasets/movielens/$DATASET.zip -O $DATASET.zip \u0026\u0026 unzip $DATASET.zip\nfi\n\n# copy from local file system (/var/lib/zeppelin) to the destination file system (/user/zeppelin)\nhadoop fs -put -f $DATASET/movies.csv $DATASET/ratings.csv .\nhadoop fs -ls -h .",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 01:08:28.635",
+      "dateUpdated": "2019-11-27 01:41:33.646",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -204,7 +204,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "2019-11-27 01:08:34 URL:http://files.grouplens.org/datasets/movielens/ml-latest.zip [277113433/277113433] -\u003e \"ml-latest.zip\" [1]\nArchive:  ml-latest.zip\n   creating: ml-latest/\n  inflating: ml-latest/links.csv     \n  inflating: ml-latest/tags.csv      \n  inflating: ml-latest/genome-tags.csv  \n  inflating: ml-latest/ratings.csv   \n  inflating: ml-latest/README.txt    \n  inflating: ml-latest/genome-scores.csv  \n  inflating: ml-latest/movies.csv    \nFound 3 items\ndrwxr-xr-x   - zeppelin hadoop          0 2019-11-27 01:07 .sparkStaging\n-rw-r--r--   1 zeppelin hadoop      2.7 M 2019-11-27 01:08 movies.csv\n-rw-r--r--   1 zeppelin hadoop    724.0 M 2019-11-27 01:08 ratings.csv\n"
+            "data": "ml-latest exist\nFound 3 items\ndrwxr-xr-x   - zeppelin hadoop          0 2019-11-27 01:07 .sparkStaging\n-rw-r--r--   1 zeppelin hadoop      2.7 M 2019-11-27 01:39 movies.csv\n-rw-r--r--   1 zeppelin hadoop    724.0 M 2019-11-27 01:39 ratings.csv\n"
           }
         ]
       },
@@ -212,16 +212,16 @@
       "jobName": "paragraph_1574358212005_1983965227",
       "id": "20191121-174332_1708209916",
       "dateCreated": "2019-11-21 17:43:32.005",
-      "dateStarted": "2019-11-27 01:08:28.663",
-      "dateFinished": "2019-11-27 01:08:47.983",
+      "dateStarted": "2019-11-27 01:39:39.937",
+      "dateFinished": "2019-11-27 01:39:45.462",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Load Movies CSV Data into DataFrame",
-      "text": "%spark.pyspark\nmoviesDF \u003d spark.read \\\n    .format(\"csv\") \\\n    .option(\"header\", \"true\") \\\n    .option(\"delimiter\", \",\") \\\n    .option(\"inferSchema\", \"true\") \\\n    .load(\"movies.csv\")\n\nprint(\"DataFrame rows: %d\" % moviesDF.count())\nprint(\"DataFrame schema: %s\" % moviesDF)\nmoviesDF.show(10, False)",
+      "text": "%spark.pyspark\nmovies_df \u003d spark.read \\\n    .format(\"csv\") \\\n    .option(\"header\", \"true\") \\\n    .option(\"delimiter\", \",\") \\\n    .option(\"inferSchema\", \"true\") \\\n    .load(\"movies.csv\")\n\nprint(\"DataFrame rows: %d\" % movies_df.count())\nprint(\"DataFrame schema: %s\" % movies_df)\nmovies_df.show(10, False)",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 01:08:48.077",
+      "dateUpdated": "2019-11-27 01:39:45.541",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -239,7 +239,7 @@
           "className": "org.apache.zeppelin.spark.PySparkInterpreter",
           "isDefault": false
         },
-        "colWidth": 12.0,
+        "colWidth": 6.0,
         "editorMode": "ace/mode/python",
         "fontSize": 9.0,
         "editorHide": false,
@@ -248,7 +248,7 @@
           {
             "graph": {
               "mode": "table",
-              "height": 300.0,
+              "height": 324.0,
               "optionOpen": false
             }
           }
@@ -272,16 +272,16 @@
       "jobName": "paragraph_1573170957319_-724857282",
       "id": "20191107-235557_158160591",
       "dateCreated": "2019-11-07 23:55:57.319",
-      "dateStarted": "2019-11-27 01:08:48.107",
-      "dateFinished": "2019-11-27 01:08:54.345",
+      "dateStarted": "2019-11-27 01:39:45.558",
+      "dateFinished": "2019-11-27 01:39:53.191",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Load Ratings CSV Data into DataFrame",
-      "text": "%spark.pyspark\nratingsDF \u003d spark.read \\\n    .format(\"csv\") \\\n    .option(\"header\", \"true\") \\\n    .option(\"delimiter\", \",\") \\\n    .option(\"inferSchema\", \"true\") \\\n    .load(\"ratings.csv\")\n\nprint(\"DataFrame rows: %d\" % ratingsDF.count())\nprint(\"DataFrame schema: %s\" % ratingsDF)\nratingsDF.show(10, False)",
+      "text": "%spark.pyspark\nratings_df \u003d spark.read \\\n    .format(\"csv\") \\\n    .option(\"header\", \"true\") \\\n    .option(\"delimiter\", \",\") \\\n    .option(\"inferSchema\", \"true\") \\\n    .load(\"ratings.csv\")\n\nprint(\"DataFrame rows: %d\" % ratings_df.count())\nprint(\"DataFrame schema: %s\" % ratings_df)\nratings_df.show(10, False)",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 01:08:54.411",
+      "dateUpdated": "2019-11-27 01:39:53.263",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -299,7 +299,7 @@
           "className": "org.apache.zeppelin.spark.PySparkInterpreter",
           "isDefault": false
         },
-        "colWidth": 12.0,
+        "colWidth": 6.0,
         "editorMode": "ace/mode/python",
         "fontSize": 9.0,
         "editorHide": false,
@@ -308,7 +308,7 @@
           {
             "graph": {
               "mode": "table",
-              "height": 355.0,
+              "height": 312.0,
               "optionOpen": false
             }
           }
@@ -332,8 +332,8 @@
       "jobName": "paragraph_1573161585796_1293011902",
       "id": "20191009-044129_2035687603",
       "dateCreated": "2019-11-07 21:19:45.796",
-      "dateStarted": "2019-11-27 01:08:54.436",
-      "dateFinished": "2019-11-27 01:09:08.172",
+      "dateStarted": "2019-11-27 01:39:53.278",
+      "dateFinished": "2019-11-27 01:40:08.223",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -341,7 +341,7 @@
       "title": "Save Data in CSV- and Parquet-formats to S3",
       "text": "%spark.pyspark\n# change me\nZEPPELIN_DEMO_BUCKET\u003dz.input(\"ZEPPELIN_DEMO_BUCKET\",\"gstafford-emr-demo-us-east1\")\nRECORD_SIZE\u003dz.select(\"RECORD_SIZE\", [(\"100k\",\"100k\"), (\"27MM\",\"27MM\")])\nprint(\"ZEPPELIN_DEMO_BUCKET:\", ZEPPELIN_DEMO_BUCKET)\nprint(\"RECORD_SIZE:\", RECORD_SIZE)\n",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 01:09:08.247",
+      "dateUpdated": "2019-11-27 01:41:34.632",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -365,7 +365,7 @@
           "name": "foo",
           "day": "100k",
           "ZEPPELIN_DEMO_BUCKET": "gstafford-emr-demo-us-east1",
-          "RECORD_SIZE": "27MM"
+          "RECORD_SIZE": "100k"
         },
         "forms": {
           "ZEPPELIN_DEMO_BUCKET": {
@@ -399,7 +399,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "ZEPPELIN_DEMO_BUCKET: gstafford-emr-demo-us-east1\nRECORD_SIZE: 27MM\n"
+            "data": "ZEPPELIN_DEMO_BUCKET: gstafford-emr-demo-us-east1\nRECORD_SIZE: 100k\n"
           }
         ]
       },
@@ -407,16 +407,16 @@
       "jobName": "paragraph_1573364755638_1580655931",
       "id": "20191110-054555_1490759128",
       "dateCreated": "2019-11-10 05:45:55.638",
-      "dateStarted": "2019-11-27 01:09:08.279",
-      "dateFinished": "2019-11-27 01:09:08.325",
+      "dateStarted": "2019-11-27 01:41:34.648",
+      "dateFinished": "2019-11-27 01:41:34.676",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Save Data in CSV- and Parquet-formats to S3",
-      "text": "%spark.pyspark\nBUCKET_PATH\u003d\"s3://\" + ZEPPELIN_DEMO_BUCKET + \"/data/\"\nmoviesDF.write.parquet(BUCKET_PATH + \"movies-csv-\" + RECORD_SIZE, mode\u003d\"overwrite\")\nratingsDF.write.parquet(BUCKET_PATH + \"ratings-csv-\" + RECORD_SIZE, mode\u003d\"overwrite\")\n\nmoviesDF.write.parquet(BUCKET_PATH + \"movies-parquet-\" + RECORD_SIZE, mode\u003d\"overwrite\")\nratingsDF.write.parquet(BUCKET_PATH + \"ratings-parquet-\" + RECORD_SIZE, mode\u003d\"overwrite\")",
+      "text": "%spark.pyspark\nBUCKET_PATH\u003d\"s3://\" + ZEPPELIN_DEMO_BUCKET + \"/data/\"\nmovies_df.write.parquet(BUCKET_PATH + \"movies-csv-\" + RECORD_SIZE, mode\u003d\"overwrite\")\nratings_df.write.parquet(BUCKET_PATH + \"ratings-csv-\" + RECORD_SIZE, mode\u003d\"overwrite\")\n\nmovies_df.write.parquet(BUCKET_PATH + \"movies-parquet-\" + RECORD_SIZE, mode\u003d\"overwrite\")\nratings_df.write.parquet(BUCKET_PATH + \"ratings-parquet-\" + RECORD_SIZE, mode\u003d\"overwrite\")",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 01:09:49.483",
+      "dateUpdated": "2019-11-27 01:40:08.405",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -450,21 +450,29 @@
       "jobName": "paragraph_1574357455353_-315744678",
       "id": "20191121-173055_17334635",
       "dateCreated": "2019-11-21 17:30:55.353",
-      "dateStarted": "2019-11-27 01:09:08.415",
-      "dateFinished": "2019-11-27 01:09:27.804",
+      "dateStarted": "2019-11-27 01:40:08.420",
+      "dateFinished": "2019-11-27 01:40:29.244",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Load Parquet-format Movies Data from S3",
-      "text": "%spark.pyspark\nmoviesDF \u003d spark.read.parquet(BUCKET_PATH + \"movies-parquet-\" + RECORD_SIZE)\nprint(\"DataFrame rows: %d\" % moviesDF.count())",
+      "text": "%spark.pyspark\nmovies_df \u003d spark.read.parquet(BUCKET_PATH + \"movies-parquet-\" + RECORD_SIZE)\nprint(\"DataFrame rows: %d\" % movies_df.count())",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 01:09:27.831",
+      "dateUpdated": "2019-11-27 01:40:29.335",
       "config": {
-        "colWidth": 12.0,
+        "colWidth": 6.0,
         "fontSize": 9.0,
         "enabled": true,
-        "results": {},
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 93.0,
+              "optionOpen": false
+            }
+          }
+        },
         "editorSetting": {
           "language": "python",
           "editOnDblClick": false,
@@ -493,21 +501,29 @@
       "jobName": "paragraph_1573528048880_1044998074",
       "id": "20191112-030728_1238589766",
       "dateCreated": "2019-11-12 03:07:28.880",
-      "dateStarted": "2019-11-27 01:09:27.855",
-      "dateFinished": "2019-11-27 01:09:29.023",
+      "dateStarted": "2019-11-27 01:40:29.354",
+      "dateFinished": "2019-11-27 01:40:30.122",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Load Parquet-format Ratings Data from S3",
-      "text": "%spark.pyspark\nratingsDF \u003d spark.read.parquet(BUCKET_PATH + \"ratings-parquet-\" + RECORD_SIZE)\nprint(\"DataFrame rows: %d\" % ratingsDF.count())",
+      "text": "%spark.pyspark\nratings_df \u003d spark.read.parquet(BUCKET_PATH + \"ratings-parquet-\" + RECORD_SIZE)\nprint(\"DataFrame rows: %d\" % ratings_df.count())",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 01:09:29.054",
+      "dateUpdated": "2019-11-27 01:40:30.154",
       "config": {
-        "colWidth": 12.0,
+        "colWidth": 6.0,
         "fontSize": 9.0,
         "enabled": true,
-        "results": {},
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 93.0,
+              "optionOpen": false
+            }
+          }
+        },
         "editorSetting": {
           "language": "python",
           "editOnDblClick": false,
@@ -536,16 +552,16 @@
       "jobName": "paragraph_1573517924706_797063234",
       "id": "20191112-001844_87079831",
       "dateCreated": "2019-11-12 00:18:44.706",
-      "dateStarted": "2019-11-27 01:09:29.097",
-      "dateFinished": "2019-11-27 01:09:30.160",
+      "dateStarted": "2019-11-27 01:40:30.167",
+      "dateFinished": "2019-11-27 01:40:31.333",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Create Temporary View of Movies Data and Query",
-      "text": "%spark.pyspark\n\nmoviesDF.createOrReplaceTempView(\"ratings\")\n\nmoviesDF \u003d spark.sql(\"SELECT movieId, title, genres \" +\n                      \"FROM movies \" +\n                      \"ORDER BY title\")\n\nprint(\"DataFrame rows: %d\" % moviesDF.count())\nmoviesDF.show(10, False)",
+      "text": "%spark.pyspark\nsql_query \u003d \"SELECT movieId, title, genres FROM movies ORDER BY title\"\nmovies_df.createOrReplaceTempView(\"movies\")\nmovies_df \u003d spark.sql(sql_query)\n\nprint(\"DataFrame rows: %d\" % movies_df.count())\nmovies_df.show(10, False)",
       "user": "anonymous",
-      "dateUpdated": "2019-11-27 01:09:30.195",
+      "dateUpdated": "2019-11-27 01:40:31.367",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -584,11 +600,11 @@
         "forms": {}
       },
       "results": {
-        "code": "ERROR",
+        "code": "SUCCESS",
         "msg": [
           {
             "type": "TEXT",
-            "data": "Fail to execute line 5:                       \"ORDER BY title\")\nTraceback (most recent call last):\n  File \"/usr/lib/spark/python/lib/pyspark.zip/pyspark/sql/utils.py\", line 63, in deco\n    return f(*a, **kw)\n  File \"/usr/lib/spark/python/lib/py4j-0.10.7-src.zip/py4j/protocol.py\", line 328, in get_return_value\n    format(target_id, \".\", name), value)\npy4j.protocol.Py4JJavaError: An error occurred while calling o90.sql.\n: org.apache.spark.sql.AnalysisException: Table or view not found: movies; line 1 pos 35\n\tat org.apache.spark.sql.catalyst.analysis.package$AnalysisErrorAt.failAnalysis(package.scala:47)\n\tat org.apache.spark.sql.catalyst.analysis.Analyzer$ResolveRelations$.org$apache$spark$sql$catalyst$analysis$Analyzer$ResolveRelations$$lookupTableFromCatalog(Analyzer.scala:731)\n\tat org.apache.spark.sql.catalyst.analysis.Analyzer$ResolveRelations$.resolveRelation(Analyzer.scala:683)\n\tat org.apache.spark.sql.catalyst.analysis.Analyzer$ResolveRelations$$anonfun$apply$8.applyOrElse(Analyzer.scala:713)\n\tat org.apache.spark.sql.catalyst.analysis.Analyzer$ResolveRelations$$anonfun$apply$8.applyOrElse(Analyzer.scala:706)\n\tat org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper$$anonfun$resolveOperatorsUp$1$$anonfun$apply$1.apply(AnalysisHelper.scala:90)\n\tat org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper$$anonfun$resolveOperatorsUp$1$$anonfun$apply$1.apply(AnalysisHelper.scala:90)\n\tat org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(TreeNode.scala:70)\n\tat org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper$$anonfun$resolveOperatorsUp$1.apply(AnalysisHelper.scala:89)\n\tat org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper$$anonfun$resolveOperatorsUp$1.apply(AnalysisHelper.scala:86)\n\tat org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper$.allowInvokingTransformsInAnalyzer(AnalysisHelper.scala:194)\n\tat org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper$class.resolveOperatorsUp(AnalysisHelper.scala:86)\n\tat org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.resolveOperatorsUp(LogicalPlan.scala:29)\n\tat org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper$$anonfun$resolveOperatorsUp$1$$anonfun$1.apply(AnalysisHelper.scala:87)\n\tat org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper$$anonfun$resolveOperatorsUp$1$$anonfun$1.apply(AnalysisHelper.scala:87)\n\tat org.apache.spark.sql.catalyst.trees.TreeNode$$anonfun$4.apply(TreeNode.scala:329)\n\tat org.apache.spark.sql.catalyst.trees.TreeNode.mapProductIterator(TreeNode.scala:187)\n\tat org.apache.spark.sql.catalyst.trees.TreeNode.mapChildren(TreeNode.scala:327)\n\tat org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper$$anonfun$resolveOperatorsUp$1.apply(AnalysisHelper.scala:87)\n\tat org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper$$anonfun$resolveOperatorsUp$1.apply(AnalysisHelper.scala:86)\n\tat org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper$.allowInvokingTransformsInAnalyzer(AnalysisHelper.scala:194)\n\tat org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper$class.resolveOperatorsUp(AnalysisHelper.scala:86)\n\tat org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.resolveOperatorsUp(LogicalPlan.scala:29)\n\tat org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper$$anonfun$resolveOperatorsUp$1$$anonfun$1.apply(AnalysisHelper.scala:87)\n\tat org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper$$anonfun$resolveOperatorsUp$1$$anonfun$1.apply(AnalysisHelper.scala:87)\n\tat org.apache.spark.sql.catalyst.trees.TreeNode$$anonfun$4.apply(TreeNode.scala:329)\n\tat org.apache.spark.sql.catalyst.trees.TreeNode.mapProductIterator(TreeNode.scala:187)\n\tat org.apache.spark.sql.catalyst.trees.TreeNode.mapChildren(TreeNode.scala:327)\n\tat org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper$$anonfun$resolveOperatorsUp$1.apply(AnalysisHelper.scala:87)\n\tat org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper$$anonfun$resolveOperatorsUp$1.apply(AnalysisHelper.scala:86)\n\tat org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper$.allowInvokingTransformsInAnalyzer(AnalysisHelper.scala:194)\n\tat org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper$class.resolveOperatorsUp(AnalysisHelper.scala:86)\n\tat org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.resolveOperatorsUp(LogicalPlan.scala:29)\n\tat org.apache.spark.sql.catalyst.analysis.Analyzer$ResolveRelations$.apply(Analyzer.scala:706)\n\tat org.apache.spark.sql.catalyst.analysis.Analyzer$ResolveRelations$.apply(Analyzer.scala:652)\n\tat org.apache.spark.sql.catalyst.rules.RuleExecutor$$anonfun$execute$1$$anonfun$apply$1.apply(RuleExecutor.scala:87)\n\tat org.apache.spark.sql.catalyst.rules.RuleExecutor$$anonfun$execute$1$$anonfun$apply$1.apply(RuleExecutor.scala:84)\n\tat scala.collection.LinearSeqOptimized$class.foldLeft(LinearSeqOptimized.scala:124)\n\tat scala.collection.immutable.List.foldLeft(List.scala:84)\n\tat org.apache.spark.sql.catalyst.rules.RuleExecutor$$anonfun$execute$1.apply(RuleExecutor.scala:84)\n\tat org.apache.spark.sql.catalyst.rules.RuleExecutor$$anonfun$execute$1.apply(RuleExecutor.scala:76)\n\tat scala.collection.immutable.List.foreach(List.scala:392)\n\tat org.apache.spark.sql.catalyst.rules.RuleExecutor.execute(RuleExecutor.scala:76)\n\tat org.apache.spark.sql.catalyst.analysis.Analyzer.org$apache$spark$sql$catalyst$analysis$Analyzer$$executeSameContext(Analyzer.scala:127)\n\tat org.apache.spark.sql.catalyst.analysis.Analyzer.execute(Analyzer.scala:121)\n\tat org.apache.spark.sql.catalyst.analysis.Analyzer$$anonfun$executeAndCheck$1.apply(Analyzer.scala:106)\n\tat org.apache.spark.sql.catalyst.analysis.Analyzer$$anonfun$executeAndCheck$1.apply(Analyzer.scala:105)\n\tat org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper$.markInAnalyzer(AnalysisHelper.scala:201)\n\tat org.apache.spark.sql.catalyst.analysis.Analyzer.executeAndCheck(Analyzer.scala:105)\n\tat org.apache.spark.sql.execution.QueryExecution.analyzed$lzycompute(QueryExecution.scala:57)\n\tat org.apache.spark.sql.execution.QueryExecution.analyzed(QueryExecution.scala:55)\n\tat org.apache.spark.sql.execution.QueryExecution.assertAnalyzed(QueryExecution.scala:47)\n\tat org.apache.spark.sql.Dataset$.ofRows(Dataset.scala:78)\n\tat org.apache.spark.sql.SparkSession.sql(SparkSession.scala:643)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)\n\tat py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)\n\tat py4j.Gateway.invoke(Gateway.java:282)\n\tat py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)\n\tat py4j.commands.CallCommand.execute(CallCommand.java:79)\n\tat py4j.GatewayConnection.run(GatewayConnection.java:238)\n\tat java.lang.Thread.run(Thread.java:748)\nCaused by: org.apache.spark.sql.catalyst.analysis.NoSuchTableException: Table or view \u0027movies\u0027 not found in database \u0027default\u0027;\n\tat org.apache.spark.sql.hive.client.HiveClient$$anonfun$getTable$1.apply(HiveClient.scala:81)\n\tat org.apache.spark.sql.hive.client.HiveClient$$anonfun$getTable$1.apply(HiveClient.scala:81)\n\tat scala.Option.getOrElse(Option.scala:121)\n\tat org.apache.spark.sql.hive.client.HiveClient$class.getTable(HiveClient.scala:81)\n\tat org.apache.spark.sql.hive.client.HiveClientImpl.getTable(HiveClientImpl.scala:83)\n\tat org.apache.spark.sql.hive.HiveExternalCatalog.getRawTable(HiveExternalCatalog.scala:118)\n\tat org.apache.spark.sql.hive.HiveExternalCatalog$$anonfun$getTable$1.apply(HiveExternalCatalog.scala:700)\n\tat org.apache.spark.sql.hive.HiveExternalCatalog$$anonfun$getTable$1.apply(HiveExternalCatalog.scala:700)\n\tat org.apache.spark.sql.hive.HiveExternalCatalog.withClient(HiveExternalCatalog.scala:97)\n\tat org.apache.spark.sql.hive.HiveExternalCatalog.getTable(HiveExternalCatalog.scala:699)\n\tat org.apache.spark.sql.catalyst.catalog.ExternalCatalogWithListener.getTable(ExternalCatalogWithListener.scala:138)\n\tat org.apache.spark.sql.catalyst.catalog.SessionCatalog.lookupRelation(SessionCatalog.scala:706)\n\tat org.apache.spark.sql.catalyst.analysis.Analyzer$ResolveRelations$.org$apache$spark$sql$catalyst$analysis$Analyzer$ResolveRelations$$lookupTableFromCatalog(Analyzer.scala:728)\n\t... 63 more\n\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/tmp/zeppelin_pyspark-3253910385112965476.py\", line 375, in \u003cmodule\u003e\n    exec(code, _zcUserQueryNameSpace)\n  File \"\u003cstdin\u003e\", line 5, in \u003cmodule\u003e\n  File \"/usr/lib/spark/python/lib/pyspark.zip/pyspark/sql/session.py\", line 767, in sql\n    return DataFrame(self._jsparkSession.sql(sqlQuery), self._wrapped)\n  File \"/usr/lib/spark/python/lib/py4j-0.10.7-src.zip/py4j/java_gateway.py\", line 1257, in __call__\n    answer, self.gateway_client, self.target_id, self.name)\n  File \"/usr/lib/spark/python/lib/pyspark.zip/pyspark/sql/utils.py\", line 69, in deco\n    raise AnalysisException(s.split(\u0027: \u0027, 1)[1], stackTrace)\npyspark.sql.utils.AnalysisException: \u0027Table or view not found: movies; line 1 pos 35\u0027\n"
+            "data": "DataFrame rows: 58098\n+-------+---------------------------------------------------------------------------------------------------------------------+-----------------------------+\n|movieId|title                                                                                                                |genres                       |\n+-------+---------------------------------------------------------------------------------------------------------------------+-----------------------------+\n|51372  |\"\"\"Great Performances\"\" Cats (1998)\"                                                                                 |Musical                      |\n|7789   |\"11\u002709\"\"01 - September 11 (2002)\"                                                                                    |Drama                        |\n|112809 |\"Diebuster \"\"Top wo Narae 2\"\" (2004)\"                                                                                |Action|Animation|Drama|Sci-Fi|\n|174029 |\"Divers at Work on the Wreck of the \"\"Maine\"\" (1898)\"                                                                |(no genres listed)           |\n|182853 |\"How Viktor \"\"The Garlic\"\" Took Alexey \"\"The Stud\"\" to the Nursing Home (2017)\"                                      |Drama                        |\n|193787 |\"Refutation of All the Judgements, Pro or Con, Thus Far Rendered on the Film \"\"The Society of the Spectacle\"\" (1975)\"|(no genres listed)           |\n|138808 |\"The Death of \"\"Superman Lives\"\": What Happened? (2015)\"                                                             |Documentary                  |\n|136604 |#1 Cheerleader Camp (2010)                                                                                           |Comedy|Drama                 |\n|183901 |#Captured (2017)                                                                                                     |Horror                       |\n|151789 |#Horror (2015)                                                                                                       |Drama|Horror|Mystery|Thriller|\n+-------+---------------------------------------------------------------------------------------------------------------------+-----------------------------+\nonly showing top 10 rows\n\n"
           }
         ]
       },
@@ -596,16 +612,16 @@
       "jobName": "paragraph_1574816584961_1012340781",
       "id": "20191127-010304_1030445114",
       "dateCreated": "2019-11-27 01:03:04.961",
-      "dateStarted": "2019-11-27 01:09:30.216",
-      "dateFinished": "2019-11-27 01:09:33.160",
-      "status": "ERROR",
+      "dateStarted": "2019-11-27 01:40:31.382",
+      "dateFinished": "2019-11-27 01:40:33.669",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Create Temporary View of Ratings Data and Query",
-      "text": "%spark.pyspark\n\nratingsDF.createOrReplaceTempView(\"ratings\")\n\nratingsDF \u003d spark.sql(\"SELECT movieId, rating, userId, CAST(timestamp as timestamp) as dateTime \" +\n                      \"FROM ratings \" +\n                      \"ORDER BY movieId, rating, userId\")\n\nprint(\"DataFrame rows: %d\" % ratingsDF.count())\nratingsDF.show(10, False)",
+      "text": "%spark.pyspark\nsql_query \u003d \"\"\"SELECT movieId, rating, userId, CAST(timestamp as timestamp) as dateTime \n              FROM ratings \n              ORDER BY movieId, rating, userId\"\"\"\n                \nratings_df.createOrReplaceTempView(\"ratings\")\nratings_df \u003d spark.sql(sql_query)\n\nprint(\"DataFrame rows: %d\" % ratings_df.count())\nratings_df.show(10, False)",
       "user": "anonymous",
-      "dateUpdated": "2019-11-25 04:59:41.236",
+      "dateUpdated": "2019-11-27 01:40:33.683",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -642,22 +658,30 @@
       "settings": {
         "params": {},
         "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "DataFrame rows: 27753444\n+-------+------+------+-------------------+\n|movieId|rating|userId|dateTime           |\n+-------+------+------+-------------------+\n|1      |0.5   |339   |2018-07-06 16:42:31|\n|1      |0.5   |1282  |2016-04-17 18:16:50|\n|1      |0.5   |2635  |2006-12-09 20:58:15|\n|1      |0.5   |2765  |2016-03-12 02:05:33|\n|1      |0.5   |5051  |2018-03-09 20:21:53|\n|1      |0.5   |6762  |2015-06-27 04:07:29|\n|1      |0.5   |6898  |2017-11-27 21:59:55|\n|1      |0.5   |7181  |2005-03-12 22:29:09|\n|1      |0.5   |7334  |2006-12-28 16:53:49|\n|1      |0.5   |8216  |2007-02-18 00:34:37|\n+-------+------+------+-------------------+\nonly showing top 10 rows\n\n"
+          }
+        ]
       },
       "apps": [],
       "jobName": "paragraph_1573161585796_891183216",
       "id": "20191009-050109_648011188",
       "dateCreated": "2019-11-07 21:19:45.797",
-      "dateStarted": "2019-11-25 04:59:41.260",
-      "dateFinished": "2019-11-25 04:59:45.428",
+      "dateStarted": "2019-11-27 01:40:33.697",
+      "dateFinished": "2019-11-27 01:40:40.049",
       "status": "FINISHED",
-      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Replace Temporary View with New Query",
-      "text": "%spark.pyspark\nratingsDF.createOrReplaceTempView(\"ratings\")\nmoviesDF.createOrReplaceTempView(\"movies\")\n\ntopMoviesDF \u003d spark.sql(\"SELECT m.title, AVG(r.rating) as avg_rating, COUNT(r.rating) as cnt_ratings \" +\n                        \"FROM ratings r \" +\n                        \"JOIN movies m ON (r.movieId \u003d m.movieId) \" +\n                        \"GROUP BY m.title \" +\n                        \"ORDER BY avg_rating DESC, cnt_ratings DESC, m.title ASC\")\n                        \n# topMoviesDF \u003d topMoviesDF.filter(topMoviesDF.cnt_ratings \u003e\u003d 25)\n\nprint(\"DataFrame rows: %d\" % moviesDF.count())\nprint(\"Top 10 Movies\")\ntopMoviesDF.show(10, False)\n",
+      "text": "%spark.pyspark\nratings_df.createOrReplaceTempView(\"ratings\")\nmovies_df.createOrReplaceTempView(\"movies\")\n\ntop_movies_df \u003d spark.sql(\"SELECT m.title, AVG(r.rating) as avg_rating, COUNT(r.rating) as cnt_ratings \" +\n                        \"FROM ratings r \" +\n                        \"JOIN movies m ON (r.movieId \u003d m.movieId) \" +\n                        \"GROUP BY m.title \" +\n                        \"ORDER BY avg_rating DESC, cnt_ratings DESC, m.title ASC\")\n                        \n# top_movies_df \u003d top_movies_df.filter(top_movies_df.cnt_ratings \u003e\u003d 25)\n\nprint(\"DataFrame rows: %d\" % top_movies_df.count())\nprint(\"Top 10 Movies\")\ntop_movies_df.show(10, False)\n",
       "user": "anonymous",
-      "dateUpdated": "2019-11-25 04:59:45.464",
+      "dateUpdated": "2019-11-27 01:40:40.101",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -695,21 +719,29 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "DataFrame rows: 53817\nTop 10 Movies\n+-------------------------------------------------------+----------+-----------+\n|title                                                  |avg_rating|cnt_ratings|\n+-------------------------------------------------------+----------+-----------+\n|2 (2007)                                               |5.0       |2          |\n|3-D Sex and Zen: Extreme Ecstasy (2011)                |5.0       |2          |\n|A Royal Winter (2017)                                  |5.0       |2          |\n|Awaken (2013)                                          |5.0       |2          |\n|Brad Williams: Daddy Issues (2016)                     |5.0       |2          |\n|Genius on Hold (2013)                                  |5.0       |2          |\n|Hooligan (1998)                                        |5.0       |2          |\n|Love Finds You in Valentine (2016)                     |5.0       |2          |\n|North of the Sun (2012)                                |5.0       |2          |\n|Placebo: Soulmates Never Die: Live in Paris 2003 (2004)|5.0       |2          |\n+-------------------------------------------------------+----------+-----------+\nonly showing top 10 rows\n\n"
+          }
+        ]
+      },
       "apps": [],
       "jobName": "paragraph_1573161585797_-394721398",
       "id": "20191009-050155_2142326603",
       "dateCreated": "2019-11-07 21:19:45.797",
-      "dateStarted": "2019-11-25 04:59:45.524",
-      "dateFinished": "2019-11-25 04:59:56.257",
+      "dateStarted": "2019-11-27 01:40:40.117",
+      "dateFinished": "2019-11-27 01:40:55.653",
       "status": "FINISHED",
-      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Native Zeppelin Visualization Based on SQL Query",
       "text": "%sql\nWITH tmp_table AS (\n    SELECT m.title, AVG(r.rating) as avg_rating, COUNT(r.rating) as cnt_ratings\n    FROM ratings r\n    JOIN movies m ON (r.movieId \u003d m.movieId)\n    GROUP BY m.title)\n    \nSELECT title, CAST(avg_rating AS DECIMAL(38,2)), cnt_ratings\nFROM tmp_table\nWHERE avg_rating \u003e\u003d ${avgRatingMin\u003d4} AND cnt_ratings \u003e\u003d ${RatingsMin\u003d2}\nORDER BY avg_rating ASC, cnt_ratings DESC, title ASC\nLIMIT 25",
       "user": "anonymous",
-      "dateUpdated": "2019-11-25 04:59:56.349",
+      "dateUpdated": "2019-11-27 01:40:55.733",
       "config": {
         "lineNumbers": true,
         "tableHide": false,
@@ -3455,26 +3487,44 @@
           }
         }
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "title\tavg_rating\tcnt_ratings\nSeven Samurai (Shichinin no samurai) (1954)\t4.25\t14578\nSchindler\u0027s List (1993)\t4.26\t71516\nGodfather: Part II, The (1974)\t4.26\t38875\nBlack Mirror\t4.26\t180\nLast Year\u0027s Snow Was Falling (1983)\t4.26\t126\nUsual Suspects, The (1995)\t4.29\t62180\nGodfather, The (1972)\t4.33\t60904\nThe Godfather Trilogy: 1972-1990 (1992)\t4.34\t421\nCosmos\t4.34\t157\nBlack Mirror: White Christmas (2014)\t4.35\t1074\nBand of Brothers (2001)\t4.40\t984\nShawshank Redemption, The (1994)\t4.42\t97999\nPlanet Earth (2006)\t4.46\t1384\nPlanet Earth II (2016)\t4.49\t853\n"
+          },
+          {
+            "type": "TEXT",
+            "data": ""
+          }
+        ]
+      },
       "apps": [],
       "jobName": "paragraph_1573161585798_1054325402",
       "id": "20191106-042245_200419154",
       "dateCreated": "2019-11-07 21:19:45.798",
-      "dateStarted": "2019-11-25 04:59:56.378",
-      "dateFinished": "2019-11-25 05:00:03.502",
+      "dateStarted": "2019-11-27 01:40:55.756",
+      "dateFinished": "2019-11-27 01:41:01.385",
       "status": "FINISHED",
-      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%sql\n",
       "user": "anonymous",
-      "dateUpdated": "2019-11-25 05:00:03.587",
+      "dateUpdated": "2019-11-27 01:41:01.466",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
         "enabled": true,
         "results": {},
-        "editorSetting": {}
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql"
       },
       "settings": {
         "params": {},
