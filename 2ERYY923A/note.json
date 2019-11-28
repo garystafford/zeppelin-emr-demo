@@ -260,7 +260,7 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "title": "Create Temporary View of Ratings Data and Query",
+      "title": "Create DataFrame from Spark SQL Query",
       "text": "%spark.pyspark\nratings_df \u003d spark.sql(\"SELECT movieId, rating, userId, CAST(timestamp as timestamp) as dateTime \" +\n                      \"FROM ratings_parquet_100k \" +\n                      \"ORDER BY movieId, rating, userId\")\n\nprint(\"DataFrame rows: %d\" % ratings_df.count())\nratings_df.show(10, False)",
       "user": "anonymous",
       "dateUpdated": "2019-11-27 01:48:26.523",
@@ -320,7 +320,7 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "title": "Replace Temporary View with New Query",
+      "title": "Create DataFrame from Spark SQL Query",
       "text": "%spark.pyspark\ntop_movies_df \u003d spark.sql(\"SELECT m.title, CAST(AVG(r.rating) AS DECIMAL(4,3)) as avg_rating, COUNT(r.rating) as cnt_ratings \" +\n                          \"FROM ratings_parquet_100k r \" +\n                          \"JOIN movies_parquet_100k m ON (r.movieId \u003d m.movieId) \" +\n                          \"GROUP BY m.title \" +\n                          \"ORDER BY avg_rating DESC, cnt_ratings DESC, m.title ASC\")\n                        \ntop_movies_df \u003d top_movies_df.filter(top_movies_df.cnt_ratings \u003e\u003d 25)\n\nprint(\"DataFrame rows: %d\" % top_movies_df.count())\nprint(\"Top 10 Movies\")\ntop_movies_df.show(10, False)\n",
       "user": "anonymous",
       "dateUpdated": "2019-11-27 01:48:31.738",
