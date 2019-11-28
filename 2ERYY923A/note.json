@@ -45,7 +45,7 @@
     },
     {
       "title": "AWS Glue Crawlers",
-      "text": "%md\nRun each of the seven AWS Glue Crawlers, one time each before continuing.\n\n```%sh\naws glue start-crawler --name bakery-csv-s3\naws glue start-crawler --name bakery-parquet-s3\naws glue start-crawler --name bakery-summary-parquet-s3\naws glue start-crawler --name ratings-parquet-s3-100k\naws glue start-crawler --name movies-parquet-s3-100k\naws glue start-crawler --name ratings-parquet-s3-27mm\naws glue start-crawler --name movies-parquet-s3-27mm\n```",
+      "text": "%md\nRun each of the seven AWS Glue Crawlers, one time each before continuing.\n\n```%sh\naws glue start-crawler --name bakery-transactions-crawler\naws glue start-crawler --name movie-ratings-crawler\n```",
       "user": "anonymous",
       "dateUpdated": "2019-11-27 01:48:14.372",
       "config": {
